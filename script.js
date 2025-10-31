@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // --- KHỞI TẠO CÁC CHỨC NĂNG CHÍNH ---
+  // --- KHỞI TẠO TẤT CẢ CÁC CHỨC NĂNG ---
   initMobileMenu();
   initActiveNavLinks();
   initHomepageSlideshow();
   initMobileDropdown();
+  initGoToTopButton(); // Thêm hàm khởi tạo Go to Top
+  initYearUpdater(); // Thêm hàm khởi tạo cập nhật năm
 });
 
 // --- CHỨC NĂNG 1: XỬ LÝ MENU TRÊN DI ĐỘNG ---
@@ -17,7 +19,6 @@ function initMobileMenu() {
     navLinks.classList.toggle("active");
     menuOverlay.classList.toggle("active");
 
-    // Chặn cuộn trang khi menu mobile đang mở
     if (navLinks.classList.contains("active")) {
       document.body.style.overflow = "hidden";
     } else {
@@ -37,22 +38,18 @@ function initMobileMenu() {
 // --- CHỨC NĂNG 2: LÀM NỔI BẬT LINK MENU CỦA TRANG HIỆN TẠI ---
 function initActiveNavLinks() {
   const currentPath = window.location.pathname;
-  const navLinksList = document.querySelectorAll("#nav-links > li > a"); // Chỉ chọn các link ở cấp 1
+  const navLinksList = document.querySelectorAll("#nav-links > li > a");
 
   navLinksList.forEach((link) => {
     const linkPath = new URL(link.href).pathname;
 
-    // Xử lý trang chủ
     if (currentPath === "/" && linkPath === "/") {
       link.classList.add("active");
-      return; // Dừng lại sau khi tìm thấy
+      return;
     }
 
-    // Xử lý các trang con (ví dụ: /gioi-thieu/, /tin-tuc/)
     if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
       link.classList.add("active");
-
-      // Xử lý làm nổi bật mục cha "Dịch Vụ" khi ở trang dịch vụ con
       const parentDropdown = link.closest(".dropdown");
       if (parentDropdown) {
         parentDropdown.querySelector("a").classList.add("active");
@@ -61,22 +58,24 @@ function initActiveNavLinks() {
   });
 }
 
-// --- CHỨC NĂNG 3: CHẠY SLIDESHOW (CHỈ TRÊN TRANG CHỦ) ---
+// --- CHỨC NĂNG 3: CHẠY SLIDESHOW (ĐÃ SỬA LỖI) ---
 function initHomepageSlideshow() {
-  // Chỉ chạy script này nếu đang ở trang chủ
-  if (window.location.pathname === "/") {
-    let currentSlide = 0;
-    const slides = document.querySelectorAll(".hero .slide");
-    const slideInterval = 5000; // 5 giây
+  const heroSection = document.getElementById("hero");
+  if (!heroSection) return; // Chỉ chạy nếu có phần hero
 
-    if (slides.length > 1) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove("active");
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add("active");
-      }, slideInterval);
-    }
+  const slides = heroSection.querySelectorAll(".slide");
+  if (slides.length <= 1) return; // Không chạy nếu chỉ có 1 slide
+
+  let currentSlide = 0;
+  const slideInterval = 5000; // 5 giây
+
+  function showNextSlide() {
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
   }
+
+  setInterval(showNextSlide, slideInterval);
 }
 
 // --- CHỨC NĂNG 4: XỬ LÝ MENU DROPDOWN TRÊN DI ĐỘNG ---
@@ -86,47 +85,42 @@ function initMobileDropdown() {
 
   if (dropdownToggle && dropdownMenu) {
     dropdownToggle.addEventListener("click", function (e) {
-      // Chỉ hoạt động khi chiều rộng màn hình nhỏ hơn hoặc bằng 768px
       if (window.innerWidth <= 768) {
-        // Ngăn link chuyển trang ngay lập tức để mở menu con
         e.preventDefault();
-        // Thêm/xóa lớp 'show' để hiển thị/ẩn menu con (được định nghĩa trong CSS)
         dropdownMenu.classList.toggle("show");
       }
     });
   }
 }
-//--- năm
-document.addEventListener("DOMContentLoaded", function () {
-  if (document.getElementById("year")) {
-    document.getElementById("year").textContent = new Date().getFullYear();
-  }
-});
-//--- năm xong
-// === GO TO TOP BUTTON SCRIPT ===
-// Lấy nút Go to Top
-const goToTopBtn = document.getElementById("goToTopBtn");
 
-// Khi người dùng cuộn trang, kiểm tra vị trí
-window.onscroll = function () {
-  scrollFunction();
-};
-
-function scrollFunction() {
-  // Nếu cuộn xuống hơn 300px, hiện nút lên
-  if (
-    document.body.scrollTop > 300 ||
-    document.documentElement.scrollTop > 300
-  ) {
-    goToTopBtn.style.display = "block";
-  } else {
-    // Ngược lại, ẩn nút đi
-    goToTopBtn.style.display = "none";
+// --- CHỨC NĂNG 5: CẬP NHẬT NĂM HIỆN TẠI ---
+function initYearUpdater() {
+  const yearSpan = document.getElementById("year");
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
   }
 }
 
-// Khi người dùng nhấp vào nút, cuộn lên đầu trang
-goToTopBtn.onclick = function () {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-};
+// --- CHỨC NĂNG 6: NÚT GO TO TOP (ĐÃ CẢI TIẾN) ---
+function initGoToTopButton() {
+  const goToTopBtn = document.getElementById("goToTopBtn");
+  if (!goToTopBtn) return;
+
+  // Hiện/ẩn nút khi cuộn trang
+  window.addEventListener("scroll", () => {
+    if (
+      document.body.scrollTop > 300 ||
+      document.documentElement.scrollTop > 300
+    ) {
+      goToTopBtn.style.display = "flex";
+    } else {
+      goToTopBtn.style.display = "none";
+    }
+  });
+
+  // Xử lý sự kiện click để cuộn lên đầu
+  goToTopBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
