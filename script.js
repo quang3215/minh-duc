@@ -1,14 +1,29 @@
+/* --- HÀM TỐI ƯU HIỆU SUẤT (THROTTLE) --- */
+// Hàm này giới hạn một hàm khác chỉ được chạy 1 lần mỗi X mili giây
+function throttle(func, limit) {
+  let inThrottle;
+  return function () {
+    const args = arguments;
+    const context = this;
+    if (!inThrottle) {
+      func.apply(context, args);
+      inThrottle = true;
+      setTimeout(() => (inThrottle = false), limit);
+    }
+  };
+}
+
+/* --- TẤT CẢ CÁC HÀM GỐC CỦA BẠN --- */
 document.addEventListener("DOMContentLoaded", () => {
-  // --- KHỞI TẠO TẤT CẢ CÁC CHỨC NĂNG ---
   initMobileMenu();
   initActiveNavLinks();
   initHomepageSlideshow();
   initMobileDropdown();
-  initGoToTopButton(); // Thêm hàm khởi tạo Go to Top
-  initYearUpdater(); // Thêm hàm khởi tạo cập nhật năm
+  initGoToTopButton(); // Hàm này giờ đã được tối ưu
+  initYearUpdater();
 });
 
-// --- CHỨC NĂNG 1: XỬ LÝ MENU TRÊN DI ĐỘNG ---
+// CHỨC NĂNG 1: XỬ LÝ MENU TRÊN DI ĐỘNG
 function initMobileMenu() {
   const menuIcon = document.getElementById("menu-icon");
   const navLinks = document.getElementById("nav-links");
@@ -35,7 +50,7 @@ function initMobileMenu() {
   }
 }
 
-// --- CHỨC NĂNG 2: LÀM NỔI BẬT LINK MENU CỦA TRANG HIỆN TẠI ---
+// CHỨC NĂNG 2: LÀM NỔI BẬT LINK MENU CỦA TRANG HIỆN TẠI
 function initActiveNavLinks() {
   const currentPath = window.location.pathname;
   const navLinksList = document.querySelectorAll("#nav-links > li > a");
@@ -58,16 +73,16 @@ function initActiveNavLinks() {
   });
 }
 
-// --- CHỨC NĂNG 3: CHẠY SLIDESHOW (ĐÃ SỬA LỖI) ---
+// CHỨC NĂNG 3: CHẠY SLIDESHOW
 function initHomepageSlideshow() {
   const heroSection = document.getElementById("hero");
-  if (!heroSection) return; // Chỉ chạy nếu có phần hero
+  if (!heroSection) return;
 
   const slides = heroSection.querySelectorAll(".slide");
-  if (slides.length <= 1) return; // Không chạy nếu chỉ có 1 slide
+  if (slides.length <= 1) return;
 
   let currentSlide = 0;
-  const slideInterval = 5000; // 5 giây
+  const slideInterval = 5000;
 
   function showNextSlide() {
     slides[currentSlide].classList.remove("active");
@@ -78,7 +93,7 @@ function initHomepageSlideshow() {
   setInterval(showNextSlide, slideInterval);
 }
 
-// --- CHỨC NĂNG 4: XỬ LÝ MENU DROPDOWN TRÊN DI ĐỘNG ---
+// CHỨC NĂNG 4: XỬ LÝ MENU DROPDOWN TRÊN DI ĐỘNG
 function initMobileDropdown() {
   const dropdownToggle = document.querySelector(".dropdown > a");
   const dropdownMenu = document.querySelector(".dropdown-menu");
@@ -93,7 +108,7 @@ function initMobileDropdown() {
   }
 }
 
-// --- CHỨC NĂNG 5: CẬP NHẬT NĂM HIỆN TẠI ---
+// CHỨC NĂNG 5: CẬP NHẬT NĂM HIỆN TẠI
 function initYearUpdater() {
   const yearSpan = document.getElementById("year");
   if (yearSpan) {
@@ -101,22 +116,27 @@ function initYearUpdater() {
   }
 }
 
-// --- CHỨC NĂNG 6: NÚT GO TO TOP (ĐÃ CẢI TIẾN) ---
+// --- CHỨC NĂNG 6: NÚT GO TO TOP (ĐÃ ĐƯỢC TỐI ƯU BẰNG THROTTLE) ---
 function initGoToTopButton() {
   const goToTopBtn = document.getElementById("goToTopBtn");
   if (!goToTopBtn) return;
 
-  // Hiện/ẩn nút khi cuộn trang
-  window.addEventListener("scroll", () => {
-    if (
-      document.body.scrollTop > 300 ||
-      document.documentElement.scrollTop > 300
-    ) {
+  // Hàm xử lý logic hiện/ẩn nút
+  function handleScroll() {
+    // Đọc 1 lần duy nhất, gán vào biến
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
+
+    if (scrollTop > 300) {
       goToTopBtn.style.display = "flex";
     } else {
       goToTopBtn.style.display = "none";
     }
-  });
+  }
+
+  // Bọc hàm handleScroll trong hàm throttle
+  // Nó sẽ chỉ chạy 1 lần mỗi 200ms
+  window.addEventListener("scroll", throttle(handleScroll, 200));
 
   // Xử lý sự kiện click để cuộn lên đầu
   goToTopBtn.addEventListener("click", (event) => {
