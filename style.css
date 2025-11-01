@@ -1274,3 +1274,8 @@ a {
 .zalo-float {
   background-color: var(--zalo-color);
 }
+/* Ẩn tất cả các loại thanh điều hướng (breadcrumbs) */
+.breadcrumb,
+.breadcrumbs {
+  display: none !important; /* Dùng !important để đảm bảo nó được ưu tiên */
+}
