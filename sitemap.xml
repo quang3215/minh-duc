@@ -1,97 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <url>
     <loc>https://thumuacapdonggiacao.com/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/gioi-thieu/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/dich-vu/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/bang-gia/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/quy-trinh/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/lien-he/</loc>
-    <lastmod>2025-10-31</lastmod>
-    <changefreq>yearly</changefreq>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-pin-nang-luong-mat-troi/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-inox/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-nhom/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/gia-phe-lieu-hom-nay-bien-dong-ra-sao/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/meo-phan-biet-inox-304-201-430/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/tuong-lai-tai-che-pin-nang-luong-mat-troi/</loc>
-    <lastmod>2025-10-31</lastmod>
+    <lastmod>2025-11-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/huong-dan-thanh-ly-sat-thep-cong-trinh/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/tai-che-nhom-hanh-trinh-tu-vat-lieu-cu/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/sai-lam-khi-ban-phe-lieu-so-luong-lon/</loc>
+    <lastmod>2025-11-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
