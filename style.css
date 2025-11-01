@@ -171,12 +171,12 @@ a {
   transform: scale(1.05);
 }
 
-/* === HERO SLIDESHOW (Trang chủ) === */
+/* === HERO SLIDESHOW (Trang chủ) - ĐÃ SỬA LỖI ZOOM ẢNH === */
 .hero {
   position: relative;
   height: 60vh;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #fff; /* Nền trắng khi ảnh đang tải */
 }
 .slide {
   position: absolute;
@@ -184,15 +184,26 @@ a {
   left: 0;
   width: 100%;
   height: 100%;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
   opacity: 0;
   transition: opacity 1.5s ease-in-out;
+  /* Bỏ hoàn toàn các thuộc tính background-image */
 }
 .slide.active {
   opacity: 1;
 }
+
+/* CSS cho thẻ <picture> và <img> mới */
+.slide picture,
+.slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.slide img {
+  object-fit: contain; /* <-- SỬA LỖI TỪ 'cover' THÀNH 'contain' */
+  object-position: center;
+}
+
 .hero-overlay {
   position: absolute;
   top: 0;
@@ -201,6 +212,7 @@ a {
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
 }
+
 .text-banner {
   background: var(--bg-grey);
   padding: 40px 0;
@@ -226,7 +238,7 @@ a {
 }
 
 .about-grid .about-text h2 {
-  font-size: 1.6rem;
+  font-size: 2.2rem; /* <-- ĐÃ SỬA: Tăng cỡ chữ */
   color: var(--primary-color);
   margin-bottom: 15px;
 }
@@ -1220,4 +1232,45 @@ a {
   .article-page {
     padding: 0;
   }
+}
+/* === NÚT GO TO TOP (STYLE MỚI) === */
+.floating-buttons {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Khoảng cách giữa các nút */
+}
+.floating-buttons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  color: var(--text-light); /* Màu chữ/icon mặc định là trắng */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.floating-buttons a:hover {
+  transform: scale(1.1);
+}
+.floating-buttons a svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor; /* SVG sẽ dùng màu của parent (color: white) */
+}
+
+/* Màu riêng cho từng nút */
+.top-float {
+  background-color: var(--primary-color); /* Màu đỏ của bạn */
+  display: none; /* Ẩn nút mặc định */
+}
+.phone-float {
+  background-color: var(--phone-color);
+}
+.zalo-float {
+  background-color: var(--zalo-color);
 }
