@@ -5,15 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>
-      Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao | Đức Minh
+      Thu Mua Cáp Đồng, Dây Điện Cũ, Cáp Điện Công Trình Giá Cao | Đức Minh
     </title>
     <meta
       name="description"
-      content="Công ty Đức Minh chuyên thu mua cáp đồng, dây điện cũ, motor, tủ điện, và thiết bị điện công nghiệp tồn kho. Báo giá cao, thu mua tận nơi tại TP.HCM và các tỉnh. 📞 Gọi 0936.350.118!"
+      content="Công ty Đức Minh chuyên thu mua cáp đồng, dây điện cũ, cáp điện công trình, cáp 3 pha, cáp nhôm, motor, tủ điện tồn kho. Báo giá cao, thu mua tận nơi. 📞 0936.350.118!"
     />
     <meta
       name="keywords"
-      content="thu mua cáp đồng, thu mua dây điện cũ, thanh lý tủ điện, thu mua motor cũ, thu mua thiết bị điện công nghiệp, phế liệu dây điện, công ty đức minh"
+      content="thu mua cáp đồng, thu mua dây điện cũ, thu mua cáp điện công trình, thanh lý cáp điện, thu mua cáp nhôm, thu mua cáp điện 3 pha cũ, thu mua cáp ngầm cũ, báo giá thu mua cáp điện"
     />
     <link
       rel="canonical"
@@ -30,7 +30,7 @@
     />
     <meta
       property="og:title"
-      content="Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao | Đức Minh"
+      content="Thu Mua Cáp Đồng, Dây Điện Cũ, Cáp Điện Công Trình Giá Cao | Đức Minh"
     />
     <meta
       property="og:description"
@@ -50,7 +50,7 @@
     />
     <meta
       name="twitter:title"
-      content="Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao | Đức Minh"
+      content="Thu Mua Cáp Đồng, Dây Điện Cũ, Cáp Điện Công Trình Giá Cao | Đức Minh"
     />
     <meta
       name="twitter:description"
@@ -62,8 +62,254 @@
     />
     <meta name="theme-color" content="#e90b0b" />
 
-    <link rel="stylesheet" href="/style.css" />
-
+    <style>
+      :root {
+        --primary-color: #e90b0b;
+        --secondary-color: #ff8c00;
+        --phone-color: #d9534f;
+        --zalo-color: #0068ff;
+        --text-dark: #333;
+        --text-light: #fff;
+        --bg-light: #fff;
+        --bg-grey: #f4f4f4;
+        --border-color: #ddd;
+      }
+      *,
+      :after,
+      :before {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        line-height: 1.7;
+        color: var(--text-dark);
+        background-color: var(--bg-light);
+      }
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 0 15px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .top-bar {
+        background: var(--primary-color);
+        color: var(--text-light);
+        padding: 10px 0;
+        font-size: 0.9rem;
+      }
+      .top-bar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .top-bar a {
+        color: var(--text-light);
+      }
+      .navbar {
+        background: var(--bg-light);
+        position: sticky;
+        top: 0;
+        z-index: 1002;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      .navbar .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+      }
+      .navbar .nav-links {
+        list-style: none;
+        display: flex;
+      }
+      .navbar .nav-links li {
+        margin-left: 15px;
+      }
+      .navbar .nav-links a {
+        color: var(--text-dark);
+        font-weight: 700;
+        text-transform: uppercase;
+        padding: 5px 0;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+      .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: initial;
+        font-weight: initial;
+      }
+      .navbar .logo .logo-icon {
+        height: 80px;
+        width: auto;
+      }
+      .navbar .logo .logo-text {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        line-height: 1;
+      }
+      .menu-icon {
+        display: none;
+        cursor: pointer;
+      }
+      .menu-icon div {
+        width: 30px;
+        height: 3px;
+        background-color: var(--text-dark);
+        margin: 6px 0;
+      }
+      .btn {
+        background: var(--secondary-color);
+        color: var(--text-light);
+        padding: 15px 35px;
+        border-radius: 5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+        display: inline-block;
+      }
+      .text-banner {
+        background: var(--bg-grey);
+        padding: 40px 0;
+        text-align: center;
+      }
+      .text-banner h1 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+        color: var(--primary-color);
+      }
+      .text-banner p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #555;
+      }
+      .menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1001;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s ease, visibility 0.3s ease;
+      }
+      .breadcrumb {
+        padding: 20px 0;
+        background-color: var(--bg-grey);
+        font-size: 0.9rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .breadcrumb a {
+        color: var(--primary-color);
+        font-weight: 700;
+      }
+      .breadcrumb span {
+        color: #666;
+      }
+      @media (max-width: 992px) {
+        .navbar .logo .logo-text {
+          font-size: 1.5rem;
+        }
+        .navbar .nav-links li {
+          margin-left: 10px;
+        }
+        .navbar .nav-links a {
+          font-size: 0.75rem;
+        }
+        .text-banner h1 {
+          font-size: 2.2rem;
+        }
+        .text-banner p {
+          font-size: 1rem;
+        }
+      }
+      @media (max-width: 768px) {
+        .section-title {
+          font-size: 2rem;
+        }
+        .top-bar {
+          font-size: 0.8rem;
+        }
+        .top-bar .container {
+          justify-content: center;
+          text-align: center;
+          gap: 5px;
+        }
+        .navbar .logo .logo-icon {
+          height: 65px;
+        }
+        .navbar .logo .logo-text {
+          font-size: 1.3rem;
+        }
+        .menu-icon {
+          display: block;
+          z-index: 1003;
+          transition: all 0.3s ease;
+          position: absolute;
+          top: 25px;
+          right: 15px;
+        }
+        .menu-icon div {
+          transition: all 0.3s ease;
+        }
+        .navbar .nav-links {
+          flex-direction: column;
+          position: fixed;
+          top: 0;
+          right: -280px;
+          width: 280px;
+          height: 100vh;
+          background: var(--bg-light);
+          box-shadow: -4px 0 15px rgba(0, 0, 0, 0.15);
+          z-index: 1002;
+          padding-top: 100px;
+          transition: right 0.35s ease-in-out;
+          display: flex;
+        }
+        .btn {
+          padding: 12px 28px;
+          font-size: 0.9rem;
+        }
+        .text-banner h1 {
+          font-size: 1.8rem;
+          line-height: 1.3;
+        }
+        .text-banner p {
+          font-size: 1rem;
+          margin-bottom: 20px;
+        }
+      }
+      @media (max-width: 480px) {
+        .navbar .logo .logo-text {
+          display: none;
+        }
+        .text-banner h1 {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="/style.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/style.css" /></noscript>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -109,10 +355,18 @@
             },
             {
               "@type": "Question",
-              "name": "Công ty có thu mua số lượng nhỏ lẻ không?",
+              "name": "Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Có. Chúng tôi nhận thu mua mọi số lượng, từ vài kg dây điện thừa của hộ gia đình cho đến hàng tấn vật tư từ các công trình lớn. Đừng ngần ngại liên hệ với chúng tôi để được hỗ trợ."
+                "text": "Có. Đức Minh là đơn vị chuyên thu mua cáp điện số lượng lớn từ các công trình, dự án. Chúng tôi có đủ năng lực tài chính, nhân lực và phương tiện vận chuyển để thu gom nhanh chóng, thanh toán một lần."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quy trình báo giá thu mua cáp điện của công ty như thế nào?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá."
               }
             }
           ]
@@ -334,20 +588,23 @@
             <img
               src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp"
               alt="Thu mua motor điện cũ, máy biến áp hỏng"
+              width="800"
+              height="600"
             />
           </div>
           <div class="about-text">
             <h2>Giải Phóng Vật Tư Tồn Kho, Thu Hồi Vốn Tối Đa</h2>
             <p>
-              Sau mỗi công trình xây dựng, mỗi dự án điện, hoặc khi cần thanh lý
-              nhà xưởng, số lượng dây cáp điện dư thừa, các thiết bị điện cũ,
-              motor hỏng và tủ điện không còn sử dụng chiếm một không gian đáng
-              kể. Việc lưu kho không chỉ tốn diện tích mà còn làm lãng phí nguồn
-              vốn có thể thu hồi.
+              Sau mỗi công trình, dự án điện hoặc khi thanh lý nhà xưởng, số
+              lượng <strong>thu mua dây điện cũ</strong>, cáp điện dư thừa,
+              thiết bị điện hỏng, motor và tủ điện không còn sử dụng chiếm một
+              không gian đáng kể. Việc lưu kho không chỉ tốn diện tích mà còn
+              làm lãng phí nguồn vốn có thể thu hồi.
             </p>
             <p>
-              <b>Đức Minh mang đến giải pháp thu mua trọn gói,</b> giúp các
-              doanh nghiệp, nhà thầu và cá nhân nhanh chóng giải phóng mặt bằng
+              <b>Đức Minh, công ty thu mua dây điện cũ uy tín,</b> mang đến giải
+              pháp thu mua trọn gói. Chúng tôi giúp doanh nghiệp, nhà thầu
+              <strong>thanh lý cáp điện công trình</strong>, giải phóng mặt bằng
               và thu hồi giá trị tối đa từ các loại vật tư điện. Chúng tôi có đủ
               năng lực và kinh nghiệm để phân loại, định giá và thu gom nhanh
               chóng, đảm bảo lợi ích cao nhất cho khách hàng.
@@ -359,42 +616,43 @@
       <section id="why-us" style="background: var(--bg-grey)">
         <div class="container">
           <h2 class="section-title">
-            VÌ SAO CHỌN ĐỨC MINH LÀ ĐỐI TÁC THANH LÝ?
+            VÌ SAO CHỌN ĐỨC MINH LÀ ĐỐI TÁC THANH LÝ CÁP ĐIỆN?
           </h2>
           <div class="features-grid">
             <div class="feature-item">
               <div class="icon">💰</div>
-              <h3>Giá Cao Theo Thị Trường</h3>
+              <h3>Giá Thu Mua Cao</h3>
               <p>
                 Luôn cập nhật <a href="/bang-gia/">giá phế liệu đồng</a> và kim
-                loại quốc tế, chúng tôi cam kết thu mua với mức giá cao, sát với
-                giá trị thực tế của vật tư tại thời điểm giao dịch.
+                loại quốc tế, chúng tôi cam kết thu mua cáp điện giá cao, sát
+                với giá trị thực tế của vật tư.
               </p>
             </div>
             <div class="feature-item">
               <div class="icon">⚖️</div>
               <h3>Phân Loại & Định Giá Rõ Ràng</h3>
               <p>
-                Đội ngũ chuyên gia của chúng tôi sẽ phân loại chính xác từng
-                loại cáp (theo % đồng), từng loại thiết bị để đưa ra mức giá tối
+                Đội ngũ chuyên gia sẽ phân loại chính xác từng loại cáp (theo %
+                đồng), <strong>thu mua cáp nhôm</strong>,
+                <strong>thu mua cáp điện 3 pha cũ</strong> để đưa ra mức giá tối
                 ưu, không mua cào bằng.
               </p>
             </div>
             <div class="feature-item">
               <div class="icon">🚚</div>
-              <h3>Thu Mua Tận Nơi Nhanh Chóng</h3>
+              <h3>Thu Mua Tận Nơi</h3>
               <p>
-                Có xe tải và đội ngũ bốc xếp chuyên nghiệp, sẵn sàng đến tận
-                công trình, nhà xưởng của bạn để thu gom, không ngại số lượng và
-                khoảng cách.
+                Có xe tải và đội ngũ bốc xếp, sẵn sàng
+                <strong>thu mua cáp điện tận nơi</strong> tại công trình, nhà
+                xưởng của bạn, không ngại số lượng và khoảng cách.
               </p>
             </div>
             <div class="feature-item">
               <div class="icon">🛠️</div>
-              <h3>Hỗ Trợ Tháo Dỡ Chuyên Nghiệp</h3>
+              <h3>Hỗ Trợ Tháo Dỡ</h3>
               <p>
-                Với các hệ thống điện phức tạp cần thanh lý, chúng tôi có đội
-                ngũ kỹ thuật hỗ trợ tháo dỡ an toàn, theo đúng
+                Với các hệ thống điện phức tạp, chúng tôi có đội ngũ kỹ thuật hỗ
+                trợ tháo dỡ an toàn, theo đúng
                 <a href="/quy-trinh/">quy trình</a> chuyên nghiệp.
               </p>
             </div>
@@ -407,42 +665,83 @@
           <h2 class="section-title">
             CÁC LOẠI CÁP ĐỒNG & THIẾT BỊ ĐIỆN CHÚNG TÔI THU MUA
           </h2>
-          <div class="service-detail-grid">
-            <div class="service-detail-item">
+          <div class="machines-grid">
+            <div class="machine-item">
               <img
                 src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp"
-                alt="Thu mua đa dạng các loại cáp đồng và dây điện cũ"
+                alt="Thu mua cáp đồng và dây điện cũ các loại"
+                width="800"
+                height="600"
+                loading="lazy"
               />
-              <h3>Cáp Đồng & Dây Điện Cũ</h3>
-              <p>
-                Thu mua tất cả các loại dây cáp điện lõi đồng 1, 2, 3, 4 lõi,
-                cáp trần, cáp bọc, dây điện dân dụng, dây cáp mạng... dù còn mới
-                hay đã qua sử dụng.
-              </p>
+              <div class="caption">
+                <span>Thu Mua Cáp Đồng & Dây Điện Cũ</span>
+              </div>
             </div>
-            <div class="service-detail-item">
+
+            <div class="machine-item">
               <img
                 src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp"
                 alt="Thu mua Motor Điện & Máy Biến Áp cũ hỏng"
+                width="800"
+                height="600"
+                loading="lazy"
               />
-              <h3>Motor Điện & Máy Biến Áp</h3>
-              <p>
-                Thu mua các loại động cơ điện 1 pha, 3 pha cũ hỏng, cháy và các
-                loại máy biến áp, ổn áp... kể cả còn hoạt động hoặc chỉ còn giá
-                trị phế liệu.
-              </p>
+              <div class="caption">
+                <span>Thu Mua Motor Điện & Máy Biến Áp</span>
+              </div>
             </div>
-            <div class="service-detail-item">
+
+            <div class="machine-item">
               <img
                 src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp"
                 alt="Thanh lý Tủ Điện & Thiết Bị Đóng Cắt công nghiệp"
+                width="800"
+                height="600"
+                loading="lazy"
               />
-              <h3>Tủ Điện & Thiết Bị Đóng Cắt</h3>
-              <p>
-                Thanh lý trọn gói tủ điện công nghiệp, tủ phân phối, các thiết
-                bị đóng cắt như aptomat (CB), contactor, rơ le, biến tần... đã
-                qua sử dụng.
-              </p>
+              <div class="caption">
+                <span>Thu Mua Tủ Điện & Thiết Bị Đóng Cắt</span>
+              </div>
+            </div>
+
+            <div class="machine-item">
+              <img
+                src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp"
+                alt="Thu mua cáp nhôm và cáp ngầm cũ"
+                width="800"
+                height="600"
+                loading="lazy"
+              />
+              <div class="caption">
+                <span>Thu Mua Cáp Nhôm & Cáp Ngầm Cũ</span>
+              </div>
+            </div>
+
+            <div class="machine-item">
+              <img
+                src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp"
+                alt="Thu mua cáp điện công nghiệp 3 pha, cáp chống cháy"
+                width="800"
+                height="600"
+                loading="lazy"
+              />
+              <div class="caption">
+                <span>Cáp Điện Công Nghiệp (3 Pha, Chống Cháy)</span>
+              </div>
+            </div>
+
+            <div class="machine-item">
+              <img
+                src="/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp"
+                alt="Thanh Lý Hệ Thống Điện & Phế Liệu Nhà Xưởng"
+                width="800"
+                height="600"
+                loading="lazy"
+              />
+              <div class="caption">
+                <span>Thanh Lý Phế Liệu Dây Điện Nhà Xưởng</span>
+              </div>
             </div>
           </div>
         </div>
@@ -465,16 +764,18 @@
               <div class="step-number">2</div>
               <h3>Nhận Báo Giá Sơ Bộ</h3>
               <p>
-                Dựa trên hình ảnh và thông tin, chúng tôi sẽ phân tích và đưa ra
-                mức giá thu mua sơ bộ nhanh chóng trong vòng 15 phút.
+                Chúng tôi sẽ phân tích và
+                <strong>báo giá thu mua cáp điện</strong> sơ bộ nhanh chóng dựa
+                trên thông tin và hình ảnh bạn cung cấp.
               </p>
             </div>
             <div class="process-item">
               <div class="step-number">3</div>
               <h3>Khảo Sát & Chốt Giá Tận Nơi</h3>
               <p>
-                Với các lô hàng lớn hoặc phức tạp, nhân viên sẽ đến tận nơi thẩm
-                định và chốt giá cuối cùng, ký kết hợp đồng nếu cần.
+                Với lô hàng lớn, <strong>cơ sở thu mua cáp điện cũ</strong> của
+                chúng tôi sẽ cử nhân viên đến tận nơi thẩm định và chốt giá cuối
+                cùng.
               </p>
             </div>
             <div class="process-item">
@@ -512,11 +813,25 @@
             </p>
           </div>
           <div class="faq-item">
-            <h3>Công ty có thu mua số lượng nhỏ lẻ không?</h3>
+            <h3>
+              Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua
+              không?
+            </h3>
             <p>
-              Có. Chúng tôi nhận thu mua mọi số lượng, từ vài kg dây điện thừa
-              của hộ gia đình cho đến hàng tấn vật tư từ các công trình lớn.
-              Đừng ngần ngại liên hệ với chúng tôi để được hỗ trợ.
+              Có. Đức Minh là <strong>công ty thu mua cáp điện</strong> chuyên
+              nghiệp, chuyên xử lý các lô hàng <strong>số lượng lớn</strong> từ
+              các công trình và nhà máy. Chúng tôi có đầy đủ xe cẩu, xe tải và
+              năng lực tài chính để thanh toán một lần ngay tại chỗ.
+            </p>
+          </div>
+          <div class="faq-item">
+            <h3>Quy trình báo giá thu mua cáp điện của công ty như thế nào?</h3>
+            <p>
+              Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh (loại
+              cáp, số lượng) qua Zalo <strong>0936.350.118</strong>, chúng tôi
+              sẽ <strong>báo giá thu mua cáp điện</strong> sơ bộ ngay. Đối với
+              lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và
+              chốt giá cuối cùng, cam kết không ép giá.
             </p>
           </div>
         </div>
@@ -527,11 +842,11 @@
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h4>Công Ty Thu Mua Cáp Đồng Đức Minh</h4>
+            <h4>CÔNG TY THU MUA CÁP ĐỒNG ĐỨC MINH</h4>
             <p>
-              Đơn vị hàng đầu chuyên thu mua vật tư công trình, thiết bị điện và
-              phế liệu dự án giá cao, cam kết mang lại giá trị thu hồi tối đa
-              cho đối tác.
+              Đơn vị hàng đầu chuyên thu mua cáp đồng, vật tư công trình, và phế
+              liệu dự án giá cao, cam kết mang lại giá trị thu hồi tối đa cho
+              đối tác.
             </p>
           </div>
           <div class="footer-col">
@@ -597,6 +912,14 @@
         </p>
       </div>
     </footer>
+    <link
+      rel="stylesheet"
+      href="/style.css"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript><link rel="stylesheet" href="/style.css" /></noscript>
+
     <script src="/script.js" defer></script>
   </body>
 </html>
