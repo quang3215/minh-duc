@@ -929,7 +929,6 @@ a {
   position: relative;
 }
 
-/* Mũi tên chỉ xuống bên cạnh chữ "Dịch Vụ" */
 .nav-links .dropdown > a::after {
   content: " ▼";
   font-size: 0.7em;
@@ -947,8 +946,8 @@ a {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   list-style: none;
   padding: 10px 0;
-  margin-top: 10px; /* Tạo khoảng cách nhỏ với menu cha */
-  min-width: 280px; /* Độ rộng của menu con */
+  margin-top: 10px;
+  min-width: 280px;
   z-index: 1000;
   border-radius: 8px;
   border: 1px solid #f0f0f0;
@@ -958,7 +957,6 @@ a {
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
 }
 
-/* Hiển thị menu con khi di chuột vào mục "Dịch Vụ" trên máy tính */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
