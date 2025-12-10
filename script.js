@@ -1,5 +1,4 @@
 /* --- HÀM TỐI ƯU HIỆU SUẤT (THROTTLE) --- */
-// Hàm này giới hạn một hàm khác chỉ được chạy 1 lần mỗi X mili giây
 function throttle(func, limit) {
   let inThrottle;
   return function () {
@@ -18,8 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
   initActiveNavLinks();
   initHomepageSlideshow();
-  initMobileDropdown();
-  initGoToTopButton(); // Hàm này giờ đã được tối ưu
+  initMobileDropdown(); // Đã sửa hàm này
+  initGoToTopButton();
   initYearUpdater();
 });
 
@@ -50,25 +49,68 @@ function initMobileMenu() {
   }
 }
 
-// CHỨC NĂNG 2: LÀM NỔI BẬT LINK MENU CỦA TRANG HIỆN TẠI
+// CHỨC NĂNG 2: LÀM NỔI BẬT LINK MENU (ĐÃ SỬA LỖI NHẬN NHẦM TRANG CHỦ)
 function initActiveNavLinks() {
-  const currentPath = window.location.pathname;
-  const navLinksList = document.querySelectorAll("#nav-links > li > a");
+  // Lấy đường dẫn hiện tại và xóa dấu / ở cuối nếu có (để so sánh chính xác)
+  let currentPath = window.location.pathname;
+  if (currentPath.length > 1 && currentPath.endsWith("/")) {
+    currentPath = currentPath.slice(0, -1);
+  }
+
+  const navLinksList = document.querySelectorAll(".navbar .nav-links a");
 
   navLinksList.forEach((link) => {
-    const linkPath = new URL(link.href).pathname;
+    // 1. Xóa active cũ
+    link.classList.remove("active");
 
-    if (currentPath === "/" && linkPath === "/") {
-      link.classList.add("active");
+    // 2. Lấy href gốc từ HTML
+    const href = link.getAttribute("href");
+
+    // 3. QUAN TRỌNG: Nếu là javascript:void(0) hoặc # thì BỎ QUA NGAY, không xử lý tiếp
+    if (!href || href.startsWith("javascript") || href === "#") {
       return;
     }
 
-    if (linkPath !== "/" && currentPath.startsWith(linkPath)) {
-      link.classList.add("active");
-      const parentDropdown = link.closest(".dropdown");
-      if (parentDropdown) {
-        parentDropdown.querySelector("a").classList.add("active");
+    // 4. Lấy đường dẫn của link cần so sánh
+    try {
+      const urlObj = new URL(link.href, window.location.origin);
+      let linkPath = urlObj.pathname;
+
+      // Xóa dấu / ở cuối link menu nếu có
+      if (linkPath.length > 1 && linkPath.endsWith("/")) {
+        linkPath = linkPath.slice(0, -1);
       }
+
+      // 5. So sánh chính xác (Dành cho trang chủ hoặc trang con cụ thể)
+      if (currentPath === linkPath) {
+        link.classList.add("active");
+
+        // Bôi đỏ luôn cả menu cha (nếu nằm trong dropdown)
+        const parentDropdown = link.closest(".dropdown");
+        if (parentDropdown) {
+          // Chỉ chọn thẻ a cấp 1 của dropdown đó
+          const parentToggle = parentDropdown.querySelector(":scope > a");
+          if (parentToggle) parentToggle.classList.add("active");
+        }
+      }
+
+      // 6. So sánh tương đối (Dành cho việc đang ở bài viết con của 1 mục)
+      // Ví dụ: Đang ở /dich-vu/thu-mua-dong thì menu /dich-vu/ cũng sáng
+      else if (
+        linkPath !== "" &&
+        linkPath !== "/" &&
+        currentPath.startsWith(linkPath)
+      ) {
+        link.classList.add("active");
+
+        const parentDropdown = link.closest(".dropdown");
+        if (parentDropdown) {
+          const parentToggle = parentDropdown.querySelector(":scope > a");
+          if (parentToggle) parentToggle.classList.add("active");
+        }
+      }
+    } catch (e) {
+      // Nếu lỗi url thì bỏ qua
     }
   });
 }
@@ -93,19 +135,28 @@ function initHomepageSlideshow() {
   setInterval(showNextSlide, slideInterval);
 }
 
-// CHỨC NĂNG 4: XỬ LÝ MENU DROPDOWN TRÊN DI ĐỘNG
+// --- CHỨC NĂNG 4: ĐÃ SỬA LẠI (QUAN TRỌNG) ---
+// Xử lý cho TẤT CẢ các menu dropdown thay vì chỉ cái đầu tiên
 function initMobileDropdown() {
-  const dropdownToggle = document.querySelector(".dropdown > a");
-  const dropdownMenu = document.querySelector(".dropdown-menu");
+  // 1. Chọn TẤT CẢ các thẻ a nằm trong .dropdown (dùng querySelectorAll)
+  const dropdownToggles = document.querySelectorAll(".dropdown > a");
 
-  if (dropdownToggle && dropdownMenu) {
-    dropdownToggle.addEventListener("click", function (e) {
+  // 2. Duyệt qua từng menu tìm thấy
+  dropdownToggles.forEach((toggle) => {
+    toggle.addEventListener("click", function (e) {
+      // Chỉ chạy logic dropdown trên mobile
       if (window.innerWidth <= 768) {
-        e.preventDefault();
-        dropdownMenu.classList.toggle("show");
+        e.preventDefault(); // Chặn chuyển trang
+
+        // Tìm menu con nằm ngay kế bên thẻ a vừa click (thẻ ul.dropdown-menu)
+        const dropdownMenu = this.nextElementSibling;
+
+        if (dropdownMenu && dropdownMenu.classList.contains("dropdown-menu")) {
+          dropdownMenu.classList.toggle("show");
+        }
       }
     });
-  }
+  });
 }
 
 // CHỨC NĂNG 5: CẬP NHẬT NĂM HIỆN TẠI
@@ -116,14 +167,12 @@ function initYearUpdater() {
   }
 }
 
-// --- CHỨC NĂNG 6: NÚT GO TO TOP (ĐÃ ĐƯỢC TỐI ƯU BẰNG THROTTLE) ---
+// CHỨC NĂNG 6: NÚT GO TO TOP
 function initGoToTopButton() {
   const goToTopBtn = document.getElementById("goToTopBtn");
   if (!goToTopBtn) return;
 
-  // Hàm xử lý logic hiện/ẩn nút
   function handleScroll() {
-    // Đọc 1 lần duy nhất, gán vào biến
     const scrollTop =
       document.documentElement.scrollTop || document.body.scrollTop;
 
@@ -134,11 +183,8 @@ function initGoToTopButton() {
     }
   }
 
-  // Bọc hàm handleScroll trong hàm throttle
-  // Nó sẽ chỉ chạy 1 lần mỗi 200ms
   window.addEventListener("scroll", throttle(handleScroll, 200));
 
-  // Xử lý sự kiện click để cuộn lên đầu
   goToTopBtn.addEventListener("click", (event) => {
     event.preventDefault();
     window.scrollTo({ top: 0, behavior: "smooth" });
