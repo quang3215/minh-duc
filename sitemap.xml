@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://thumuacapdonggiacao.com/</loc>
-    <lastmod>2026-04-19</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -45,7 +45,7 @@
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/</loc>
-    <lastmod>2026-04-19</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -95,14 +95,70 @@
 
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/</loc>
-    <lastmod>2026-04-19</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/trang2/</loc>
-    <lastmod>2026-04-19</lastmod>
+    <lastmod>2026-05-09</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/bang-gia-thu-mua-day-cap-dong-phe-lieu-hom-nay/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/phan-loai-day-cap-dien-phe-lieu-ban-gia-cao/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/quy-trinh-thu-mua-cap-dong-cong-trinh/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>
+      https://thumuacapdonggiacao.com/tin-tuc/phan-biet-day-dien-dan-dung-va-cap-cong-nghiep-phe-lieu/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/tai-sao-khong-nen-tu-dot-vo-day-dien-lay-loi-dong/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/thu-mua-day-dien-cu-cap-dong-tan-noi-tphcm/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/kinh-nghiem-thanh-ly-day-cap-dien-phe-lieu-ton-kho/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/thu-mua-cuon-cap-dien-nguyen-rulo-phe-lieu/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://thumuacapdonggiacao.com/tin-tuc/thu-mua-day-cap-dien-3-pha-cu-phe-lieu-dong/</loc>
+    <lastmod>2026-05-09</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
 
@@ -160,7 +216,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-
   <url>
     <loc>https://thumuacapdonggiacao.com/tin-tuc/kinh-nghiem-thanh-ly-phe-lieu-nha-xuong/</loc>
     <lastmod>2026-04-19</lastmod>
