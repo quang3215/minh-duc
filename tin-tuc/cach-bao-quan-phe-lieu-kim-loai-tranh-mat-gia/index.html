@@ -485,5 +485,45 @@
       </div>
     </footer>
     <script src="/script.js" defer></script>
-  </body>
+  <!-- CLICKGUARD TRACKING CODE -->
+<script type="module">
+//<![CDATA[
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyA5wRPP391kOLAosnhc0wWTDn1EgVy03zw",
+    authDomain: "clickfrauddashboard.firebaseapp.com",
+    projectId: "clickfrauddashboard",
+    storageBucket: "clickfrauddashboard.firebasestorage.app",
+    messagingSenderId: "145645586634",
+    appId: "1:145645586634:web:1b1a8aae91a4a06fdbcc33"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function initClickGuard() {
+    try {
+      const ipRes = await fetch('https://ipwho.is/');
+      const ipData = await ipRes.json();
+      const currentDomain = window.location.hostname.replace('www.', '');
+      
+      await addDoc(collection(db, "visits"), {
+        ip: ipData.ip || 'Unknown', 
+        website: currentDomain, 
+        userId: "jwdZQDsEwbcsooqgxGnYy5qj61M2", // Định danh tài khoản khách hàng
+        timestamp: serverTimestamp(),
+        userAgent: navigator.userAgent,
+        isp: ipData.connection?.isp || ipData.connection?.org || 'Unknown',
+        city: ipData.city || 'Unknown',
+        isProxy: ipData.security?.vpn || ipData.security?.proxy || false
+      });
+    } catch (e) {}
+  }
+  initClickGuard();
+//]]>
+</script>
+<!-- KẾT THÚC CLICKGUARD TRACKING CODE -->
+</body>
 </html>
