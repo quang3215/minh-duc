@@ -757,12 +757,10 @@
     </footer>
 
     <script src="/script.js" defer></script>
-  <!-- CLICKGUARD TRACKING CODE -->
-<script type="module">
-//<![CDATA[
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
+  <!-- CLICKGUARD TRACKING CODE - Tương thích 100% -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+<script>
   const firebaseConfig = {
     apiKey: "AIzaSyA5wRPP391kOLAosnhc0wWTDn1EgVy03zw",
     authDomain: "clickfrauddashboard.firebaseapp.com",
@@ -771,31 +769,25 @@
     messagingSenderId: "145645586634",
     appId: "1:145645586634:web:1b1a8aae91a4a06fdbcc33"
   };
-
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-
+  if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
   async function initClickGuard() {
     try {
-      const ipRes = await fetch('https://ipwho.is/');
+      const ipRes = await fetch('https://api.ipify.org?format=json');
       const ipData = await ipRes.json();
-      const currentDomain = window.location.hostname.replace('www.', '');
-      
-      await addDoc(collection(db, "visits"), {
-        ip: ipData.ip || 'Unknown', 
-        website: currentDomain, 
-        userId: "jwdZQDsEwbcsooqgxGnYy5qj61M2", // Định danh tài khoản khách hàng
-        timestamp: serverTimestamp(),
-        userAgent: navigator.userAgent,
-        isp: ipData.connection?.isp || ipData.connection?.org || 'Unknown',
-        city: ipData.city || 'Unknown',
-        isProxy: ipData.security?.vpn || ipData.security?.proxy || false
+      let currentDomain = window.location.hostname.replace('www.', '');
+      if (!currentDomain) currentDomain = 'local-test';
+      await db.collection("visits").add({
+        ip: ipData.ip, website: currentDomain,
+        userId: "jwdZQDsEwbcsooqgxGnYy5qj61M2",
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        userAgent: navigator.userAgent
       });
+      console.log("ClickGuard: OK");
     } catch (e) {}
   }
   initClickGuard();
-//]]>
 </script>
-<!-- KẾT THÚC CLICKGUARD TRACKING CODE -->
+<!-- END CLICKGUARD -->
 </body>
 </html>
