@@ -249,7 +249,7 @@
         city: ipData.city || 'Unknown',
         isProxy: ipData.security?.vpn || ipData.security?.proxy || false
       });
-      console.log("ClickGuard: OK");
+      // tracking initialized
     } catch (e) {}
   }
   initClickGuard();
