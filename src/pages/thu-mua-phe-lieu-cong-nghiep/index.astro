@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = JSON.stringify([{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Thu Mua Phế Liệu Công Nghiệp",
+        "name": "Dịch Vụ Thu Mua Phế Liệu Công Nghiệp Giá Cao (Sắt Thép, Đồng, Nhôm, Inox)",
+        "description": "Dịch vụ thu mua phế liệu công nghiệp giá cao, bao gồm sắt thép, đồng, nhôm, inox, máy móc cũ và Thu mua nhà xưởng trọn gói.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+          "url": "https://thumuacapdonggiacao.com/",
+          "telephone": "+84936350118",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 ấp 2, Đông Thạnh",
+            "addressLocality": "Hóc Môn",
+            "addressRegion": "TP. HCM",
+            "addressCountry": "VN"
+          }
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
+        },
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Công ty có nhận Thu mua toàn bộ nhà xưởng không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Đối với lô hàng lớn, phương thức thanh toán như thế nào?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ theo yêu cầu của doanh nghiệp."
+              }
+            }
+          ]
+        }
+      },{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang Chủ",
+            "item": "https://thumuacapdonggiacao.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dịch Vụ",
+            "item": "https://thumuacapdonggiacao.com/dich-vu/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thu Mua Phế Liệu Công Nghiệp"
+          }
+        ]
+      }]);
+---
+<BaseLayout 
+  title="Thu Mua Phế Liệu Công Nghiệp Giá Cao | Sắt Thép, Đồng, Nhôm, Inox"
+  description="Công ty Đức Minh chuyên thu mua phế liệu công nghiệp số lượng lớn: Sắt thép, đồng, nhôm, inox, máy móc cũ. Đối tác Thu mua nhà xưởng, công trình uy tín. Báo giá cao, thu mua tận nơi toàn quốc."
+  canonical="https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/"
+  schema={schema}
+>
+<main>
+<section class="text-banner" style="
+          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
+          color: white; /* Giữ chữ màu trắng */
+        ">
+<div class="container">
+<h1 style="color: var(--primary-color)">
+            Thu Mua Phế Liệu Công Nghiệp Giá Cao Toàn Quốc
+          </h1>
+<p>
+            Đối tác tin cậy Thu mua nhà xưởng, công trình, nhà máy. Chuyên thu
+            mua sắt thép, đồng, nhôm, inox số lượng lớn.
+          </p>
+<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
+</div>
+</section>
+<div class="breadcrumb">
+<div class="container">
+<a href="/">Trang Chủ</a> » <a href="/dich-vu/">Dịch Vụ</a> »
+          <span>Thu Mua Phế Liệu Công Nghiệp</span>
+</div>
+</div>
+<section id="intro-scrap">
+<div class="container about-grid">
+<div class="about-image">
+<img alt="Thu mua phế liệu máy móc công nghiệp cũ" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"/>
+</div>
+<div class="about-text">
+<h2>Giải Pháp Thu mua Phế Liệu Công Nghiệp Toàn Diện</h2>
+<p>
+              Phế liệu phát sinh từ hoạt động sản xuất, xây dựng hay phá dỡ công
+              trình là nguồn tài nguyên có giá trị nhưng lại chiếm dụng không
+              gian, gây cản trở và tiềm ẩn nguy cơ mất an toàn lao động. Việc xử
+              lý các lô phế liệu số lượng lớn, đa dạng chủng loại đòi hỏi một
+              đối tác có đủ năng lực và sự chuyên nghiệp.
+            </p>
+<p>
+<b>Đức Minh chuyên cung cấp dịch vụ thu mua phế liệu công nghiệp
+                trọn gói,</b>
+              từ khảo sát, định giá, đến bốc xếp và vận chuyển. Chúng tôi giúp
+              doanh nghiệp biến phế liệu thành nguồn tài chính nhanh chóng, giải
+              phóng mặt bằng hiệu quả và đảm bảo quy trình diễn ra an toàn, minh
+              bạch.
+            </p>
+</div>
+</div>
+</section>
+<section id="why-us" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+            NĂNG LỰC XỬ LÝ PHẾ LIỆU CÔNG NGHIỆP CỦA ĐỨC MINH
+          </h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="icon">💰</div>
+<h3>Giá Luôn Tốt Nhất</h3>
+<p>
+                Cam kết <a href="/bang-gia/">giá thu mua phế liệu</a> luôn cao
+                hơn thị trường nhờ vào việc tối ưu hóa quy trình và mạng lưới
+                đối tác tái chế trực tiếp.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">⚖️</div>
+<h3>Cân Đo Minh Bạch</h3>
+<p>
+                Sử dụng hệ thống cân điện tử chính xác, quy trình cân đo được
+                thực hiện công khai dưới sự giám sát của khách hàng.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🚚</div>
+<h3>Vận Chuyển Nhanh Gọn</h3>
+<p>
+                Đội xe tải đa dạng trọng tải cùng đội ngũ nhân công bốc xếp
+                chuyên nghiệp, sẵn sàng thu gom ngay trong ngày.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">💵</div>
+<h3>Thanh Toán 1 Lần</h3>
+<p>
+                Thanh toán dứt điểm 100% giá trị lô hàng bằng tiền mặt hoặc
+                chuyển khoản ngay sau khi quá trình bốc xếp hoàn tất.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-scrap">
+<div class="container">
+<h2 class="section-title">
+            CÁC LOẠI PHẾ LIỆU CÔNG NGHIỆP CHÚNG TÔI THU MUA
+          </h2>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu mua phế liệu sắt thép công trình" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"/>
+<div class="caption">
+<span>Phế Liệu Sắt Thép Công Trình</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu đồng giá cao" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"/>
+<div class="caption">
+<span>Phế Liệu Đồng (Cáp, Đỏ, Vàng)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu nhôm các loại" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp"/>
+<div class="caption">
+<span>Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu inox 304, 201" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp"/>
+<div class="caption">
+<span>Phế Liệu Inox (304, 201, 430)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Hợp Kim, Gang, Thiếc" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp"/>
+<div class="caption"><span>Hợp Kim, Gang, Thiếc</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu máy móc cũ" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"/>
+<div class="caption"><span>Phế Liệu Từ Máy Móc Cũ</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">QUY TRÌNH THU MUA PHẾ LIỆU CÔNG NGHIỆP</h2>
+<div class="process-grid">
+<div class="process-item">
+<div class="step-number">1</div>
+<h3>Khảo Sát Tận Công Trình</h3>
+<p>
+                Ngay khi nhận được <a href="/lien-he/">yêu cầu</a>, nhân viên
+                của chúng tôi sẽ đến tận nơi để khảo sát, phân loại và đánh giá
+                chất lượng phế liệu.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">2</div>
+<h3>Báo Giá &amp; Ký Hợp Đồng</h3>
+<p>
+                Chúng tôi sẽ báo giá chi tiết cho từng loại phế liệu và tiến
+                hành ký kết hợp đồng mua bán để đảm bảo quyền lợi cho cả hai
+                bên.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">3</div>
+<h3>Thi Công Bốc Xếp</h3>
+<p>
+                Đội ngũ nhân công và xe chuyên dụng sẽ được điều động để tiến
+                hành bốc xếp, vận chuyển phế liệu một cách nhanh chóng, an toàn.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">4</div>
+<h3>Nghiệm Thu &amp; Thanh Toán</h3>
+<p>
+                Sau khi toàn bộ phế liệu được đưa lên xe, chúng tôi tiến hành
+                nghiệm thu và thanh toán 100% giá trị hợp đồng ngay lập tức.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="faq-scrap">
+<div class="container">
+<h2 class="section-title">GIẢI ĐÁP VỀ DỊCH VỤ</h2>
+<div class="faq-item">
+<h3>
+              Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của
+              mình?
+            </h3>
+<p>
+              Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để
+              có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim
+              loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn
+              tạp chất như đất, cát, bê tông.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Công ty có nhận Thu mua toàn bộ nhà xưởng không?</h3>
+<p>
+              Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận
+              Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ
+              thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo
+              liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Đối với lô hàng lớn, phương thức thanh toán như thế nào?</h3>
+<p>
+              Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình
+              thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao
+              dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ
+              theo yêu cầu của doanh nghiệp.
+            </p>
+</div>
+</div>
+</section>
+</main>
+</BaseLayout>

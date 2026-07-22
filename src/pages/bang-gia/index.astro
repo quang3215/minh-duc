@@ -1,0 +1,200 @@
+---
+import pricingData from '../../data/pricing.json';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "name": "Bảng Giá Phế Liệu Hôm Nay | Giá Cáp Đồng, Pin Mặt Trời Mới Nhất",
+            "url": "https://thumuacapdonggiacao.com/bang-gia/",
+            "description": "Cập nhật bảng giá thu mua phế liệu mới nhất tại Đức Minh, bao gồm giá đồng, nhôm, sắt, inox, cáp điện và pin mặt trời. Cam kết giá cao nhất thị trường.",
+            "mainEntity": {
+              "@type": "Table",
+              "about": "Bảng giá tham khảo các loại phế liệu và vật tư công nghiệp"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://thumuacapdonggiacao.com/img/logo.svg"
+              }
+            },
+            "subjectOf": {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "Tại sao bảng giá phế liệu lại có khoảng dao động?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Khoảng giá (ví dụ: 45.000 - 65.000 VNĐ) phản ánh sự khác biệt về chất lượng và độ tinh khiết. Ví dụ, nhôm đặc nguyên chất sẽ có giá cao nhất, trong khi nhôm có lẫn tạp chất sẽ có giá thấp hơn. Chúng tôi sẽ thẩm định và báo giá cụ thể khi xem hàng thực tế."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Làm thế nào để tôi bán được phế liệu với giá cao nhất?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Để tối ưu giá bán, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, sạch sẽ, không lẫn tạp chất. Phế liệu càng sạch, giá trị thu mua càng cao."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Bảng giá phế liệu hôm nay thay đổi khi nào?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại trên thị trường quốc tế, vốn biến động hàng ngày. Do đó, bảng giá của chúng tôi cũng được cập nhật thường xuyên. Hãy gọi cho chúng tôi để có giá chốt tại thời điểm bạn muốn bán."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "Công ty có báo giá thu mua cáp điện và báo giá thu mua pin mặt trời cũ không?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Có. Đối với các mặt hàng đặc thù như cáp điện, cáp đồng và pin mặt trời, giá trị phụ thuộc lớn vào thương hiệu, tình trạng và tỷ lệ thu hồi. Vui lòng liên hệ trực tiếp qua Zalo 0936.350.118 để gửi hình ảnh và nhận báo giá chính xác nhất."
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang Chủ",
+                "item": "https://thumuacapdonggiacao.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Bảng Giá Phế Liệu"
+              }
+            ]
+          }
+        ]
+      });
+---
+<BaseLayout 
+  title="Bảng Giá Phế Liệu Hôm Nay | Giá Cáp Đồng, Pin Mặt Trời Mới Nhất"
+  description="Cập nhật bảng giá phế liệu hôm nay mới nhất tại công ty Đức Minh. Cam kết giá thu mua cáp đồng, pin mặt trời, sắt, nhôm, inox luôn cao nhất thị trường. Gọi ngay 0936.350.118 để có báo giá chính xác."
+  canonical="https://thumuacapdonggiacao.com/bang-gia/"
+  schema={schema}
+>
+<main>
+<div class="breadcrumb" style="background-color: var(--bg-grey)">
+<div class="container">
+<a href="/">Trang Chủ</a> »
+          <span>Bảng Giá Phế Liệu</span>
+</div>
+</div>
+<section id="price-list" style="padding-top: 40px; padding-bottom: 0">
+<div class="container">
+<h1 class="section-title">BẢNG GIÁ THU MUA HÔM NAY - MỚI NHẤT</h1>
+<p class="section-subtitle">
+            Luôn cập nhật giá tốt nhất thị trường - Minh bạch &amp; Cạnh tranh
+          </p>
+<p class="price-intro-text">
+            Tại Đức Minh, chúng tôi hiểu rằng sự minh bạch về giá cả là yếu tố
+            then chốt để xây dựng lòng tin. Dưới đây là
+            <strong>bảng giá phế liệu hôm nay</strong>
+            tham khảo cho các vật tư công nghiệp phổ biến, đặc biệt là
+            <a href="/thu-mua-cap-dong-thiet-bi-dien/">giá cáp đồng phế liệu</a>,
+            <a href="/thu-mua-pin-nang-luong-mat-troi/">giá pin mặt trời cũ</a>,
+            <a href="/thu-mua-nhom/">giá nhôm phế liệu</a>, và
+            <a href="/thu-mua-inox/">giá inox phế liệu</a>.
+          </p>
+<div class="price-disclaimer">
+<h4>Lưu ý quan trọng về giá</h4>
+<p>
+              Giá phế liệu thực tế có thể thay đổi phụ thuộc vào các yếu tố như:
+              <strong>thời điểm thu mua, số lượng,
+                <a href="/dich-vu/">chất lượng, chủng loại</a> và khoảng cách
+                địa lý.</strong>
+</p>
+<p>
+              Để nhận được <strong>báo giá thu mua cáp điện</strong> và các loại
+              phế liệu khác <strong>CHÍNH XÁC VÀ TỐT NHẤT</strong>, vui lòng
+              liên hệ trực tiếp qua Hotline/Zalo.
+            </p>
+<strong><a href="tel:0936350118">GỌI NGAY: 0936.350.118</a></strong>
+</div>
+</div>
+</section>
+<section id="price-table-section" style="padding-top: 40px">
+<div class="container">
+<div class="price-table-wrapper">
+<table class="price-table">
+<thead>
+<tr>
+<th>Tên</th>
+<th>Phân Loại</th>
+<th>Đơn Giá (VNĐ/Kg)</th>
+</tr>
+</thead>
+<tbody>
+{pricingData.prices.map((item) => (
+<tr>
+<td>{item.category}</td>
+<td>{item.name}</td>
+<td class="price">{item.price}</td>
+</tr>
+))}
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="faq-price" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">CÂU HỎI THƯỜNG GẶP VỀ GIÁ</h2>
+<div class="faq-item">
+<h3>Tại sao bảng giá phế liệu lại có khoảng dao động?</h3>
+<p>
+              Khoảng giá (ví dụ: 45.000 - 65.000 VNĐ) phản ánh sự khác biệt về
+              chất lượng và độ tinh khiết. Ví dụ, nhôm đặc nguyên chất sẽ có giá
+              cao nhất, trong khi nhôm có lẫn tạp chất sẽ có giá thấp hơn. Chúng
+              tôi sẽ thẩm định và báo giá cụ thể khi xem hàng thực tế.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Làm thế nào để tôi bán được phế liệu với giá cao nhất?</h3>
+<p>
+              Để tối ưu giá bán, bạn nên cố gắng
+              <a href="/tin-tuc/meo-phan-biet-inox-304-201-430/">phân loại riêng từng loại kim loại</a>
+              (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, sạch sẽ, không lẫn
+              các tạp chất. Phế liệu càng sạch, <strong>giá sắt vụn</strong>,
+              đồng, nhôm... thu mua càng cao.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Bảng giá phế liệu hôm nay thay đổi khi nào?</h3>
+<p>
+              Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại
+              trên thị trường quốc tế, vốn biến động hàng ngày. Do đó, bảng giá
+              của chúng tôi cũng được cập nhật thường xuyên. Hãy
+              <a href="/lien-he/">gọi cho chúng tôi</a> để có giá chốt tại thời
+              điểm bạn muốn bán.
+            </p>
+</div>
+<div class="faq-item">
+<h3>
+              Công ty có báo giá thu mua cáp điện và báo giá thu mua pin mặt
+              trời cũ không?
+            </h3>
+<p>
+              Có. Đối với các mặt hàng đặc thù như cáp điện,
+              <strong>giá cáp đồng phế liệu</strong> và
+              <strong>giá pin mặt trời cũ</strong> phụ thuộc lớn vào thương
+              hiệu, tình trạng và tỷ lệ thu hồi. Vui lòng liên hệ trực tiếp qua
+              Zalo 0936.350.118 để gửi hình ảnh và nhận
+              <strong>báo giá thu mua pin mặt trời cũ</strong> chính xác nhất.
+            </p>
+</div>
+</div>
+</section>
+</main>
+</BaseLayout>

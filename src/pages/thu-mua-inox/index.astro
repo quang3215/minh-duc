@@ -1,0 +1,271 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const schema = JSON.stringify([{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Thu Mua Inox Phế Liệu",
+        "name": "Dịch Vụ Thu Mua Inox Phế Liệu Giá Cao các loại 304, 201, 316, 430",
+        "description": "Dịch vụ thu mua phế liệu inox các loại 304, 201, 316, 430, vật tư, thiết bị inox công nghiệp giá cao tại TP.HCM và toàn quốc.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+          "url": "https://thumuacapdonggiacao.com/",
+          "telephone": "+84936350118",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 ấp 2, Đông Thạnh",
+            "addressLocality": "Hóc Môn",
+            "addressRegion": "TP. HCM",
+            "addressCountry": "VN"
+          }
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
+        },
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Làm thế nào để phân biệt nhanh Inox 304 và 201 tại nhà?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Cách đơn giản nhất là dùng nam châm. Inox 304 chuẩn sẽ không bị nam châm hút hoặc chỉ hút rất nhẹ. Trong khi đó, Inox 201 sẽ bị hút mạnh hơn do có nhiều tạp chất sắt. Để chắc chắn nhất, đội ngũ của chúng tôi sẽ dùng thuốc thử chuyên dụng."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Tại sao giá Inox 304 lại cao hơn nhiều so với Inox 201?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Giá trị của inox được quyết định bởi hàm lượng Niken và Crom. Inox 304 có hàm lượng Niken cao (trên 8%) nên có khả năng chống gỉ sét và ăn mòn vượt trội, do đó giá trị tái chế cũng cao hơn hẳn so với Inox 201 (hàm lượng Niken thấp hơn nhiều)."
+              }
+            }
+          ]
+        }
+      },{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang Chủ",
+            "item": "https://thumuacapdonggiacao.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dịch Vụ",
+            "item": "https://thumuacapdonggiacao.com/dich-vu/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thu Mua Inox"
+          }
+        ]
+      }]);
+---
+<BaseLayout 
+  title="Thu Mua Inox Phế Liệu Giá Cao | Inox 304, 201, 316, 430 Tận Nơi"
+  description="Công ty Đức Minh chuyên thu mua phế liệu inox giá cao: Inox 304, 201, 316, 430, ba zớ inox, thiết bị inox công nghiệp. Phân loại chuẩn, báo giá cao, thu mua tận nơi."
+  canonical="https://thumuacapdonggiacao.com/thu-mua-inox/"
+  schema={schema}
+>
+<main>
+<section class="text-banner" style="
+          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
+          color: white; /* Giữ chữ màu trắng */
+        ">
+<div class="container">
+<h1 style="color: var(--primary-color)">
+            Chuyên Thu Mua Phế Liệu Inox Giá Cao
+          </h1>
+<p>
+            Đối tác tin cậy Thu mua inox 304, 201, 316, 430, thiết bị inox công
+            nghiệp, vật tư tồn kho từ nhà xưởng, công trình.
+          </p>
+<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
+</div>
+</section>
+<div class="breadcrumb">
+<div class="container">
+<a href="/">Trang Chủ</a> »
+          <a href="/dich-vu/">Dịch Vụ</a> »
+          <span>Thu Mua Inox</span>
+</div>
+</div>
+<section id="intro-inox">
+<div class="container about-grid">
+<div class="about-image">
+<img alt="Thu mua vật tư inox từ công trình và dự án" loading="lazy" src="/img/thu-mua-inox/thu-mua-vat-tu-inox-cong-trinh.webp"/>
+</div>
+<div class="about-text">
+<h2>Bán Inox Phế Liệu Đúng Giá Trị - Tại Sao Cần Chuyên Gia?</h2>
+<p>
+              Inox (thép không gỉ) là loại phế liệu có giá trị cao, nhưng giá
+              trị đó lại chênh lệch rất lớn giữa các loại khác nhau như Inox
+              304, 201, 430... Nếu không có kinh nghiệm phân loại, bạn rất dễ
+              bán phải mức giá thấp hơn nhiều so với giá trị thực tế.
+            </p>
+<p>
+<b>Đức Minh sở hữu đội ngũ chuyên gia thẩm định giàu kinh
+                nghiệm,</b>
+              có khả năng nhận biết và phân loại chính xác từng loại inox bằng
+              các phương pháp chuyên dụng. Chúng tôi đảm bảo bạn sẽ nhận được
+              mức giá tương xứng nhất cho từng kg phế liệu, từ các vật dụng gia
+              đình cho đến hệ thống thiết bị công nghiệp phức tạp.
+            </p>
+</div>
+</div>
+</section>
+<section id="why-us" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+            LỢI ÍCH KHI Thu mua INOX PHẾ LIỆU CÙNG ĐỨC MINH
+          </h2>
+<div class="features-grid">
+<div class="feature-item">
+<div class="icon">🔬</div>
+<h3>Phân Loại Chuẩn Xác</h3>
+<p>
+                Sử dụng thuốc thử chuyên dụng và máy móc phân tích, chúng tôi
+                xác định chính xác chủng loại inox, đảm bảo bạn không bị thiệt
+                hại về giá cả.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">💰</div>
+<h3>Giá Cao Theo Từng Loại</h3>
+<p>
+                Xây dựng <a href="/bang-gia/">bảng giá inox phế liệu</a> chi
+                tiết cho từng loại (304, 201, 430...), cam kết giá thu mua luôn
+                cao và cập nhật theo biến động của thị trường.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🚚</div>
+<h3>Thu Gom Nhanh Gọn</h3>
+<p>
+                Đội xe và nhân công sẵn sàng có mặt nhanh chóng sau khi thỏa
+                thuận để bốc xếp và vận chuyển, dọn dẹp sạch sẽ mặt bằng cho
+                bạn.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🤝</div>
+<h3>Hợp Tác Dài Lâu</h3>
+<p>
+                Chúng tôi luôn có chính sách hoa hồng hấp dẫn cho người giới
+                thiệu và chiết khấu cao cho các đối tác, khách hàng thân thiết
+                hợp tác lâu dài.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-inox">
+<div class="container">
+<h2 class="section-title">
+            CÁC LOẠI INOX PHẾ LIỆU CHÚNG TÔI THU MUA
+          </h2>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu mua phế liệu Inox 304, 316" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp"/>
+<div class="caption"><span>Inox Loại 1 (304, 316)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu Inox 201" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-2-201.webp"/>
+<div class="caption"><span>Inox Loại 2 (201)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu Inox 430, ba zớ" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-3-430.webp"/>
+<div class="caption"><span>Inox Loại 3 (430, ba zớ)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Thiết Bị &amp; Vật Tư Inox Công Nghiệp Cũ" loading="lazy" src="/img/thu-mua-inox/thu-mua-thiet-bi-vat-tu-inox-cu.webp"/>
+<div class="caption">
+<span>Thiết Bị &amp; Vật Tư Inox Cũ</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Vật Tư Inox Công Trình &amp; Dự Án" loading="lazy" src="/img/thu-mua-inox/thu-mua-vat-tu-inox-cong-trinh.webp"/>
+<div class="caption">
+<span>Vật Tư Inox Công Trình &amp; Dự Án</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Ống, Hộp &amp; Phụ Kiện Inox" loading="lazy" src="/img/thu-mua-inox/thu-mua-ong-hop-phu-kien-inox.webp"/>
+<div class="caption"><span>Ống, Hộp &amp; Phụ Kiện Inox</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">QUY TRÌNH THU MUA INOX MINH BẠCH</h2>
+<div class="process-grid">
+<div class="process-item">
+<div class="step-number">1</div>
+<h3>Liên Hệ &amp; Cung Cấp Thông Tin</h3>
+<p>
+                Quý khách gọi điện qua Hotline/Zalo
+                <strong>0936.350.118</strong>, gửi hình ảnh và số lượng inox phế
+                liệu cần bán.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">2</div>
+<h3>Thẩm Định &amp; Báo Giá Tận Nơi</h3>
+<p>
+                Nhân viên của chúng tôi sẽ đến tận nơi, dùng thiết bị chuyên
+                dụng để phân loại và báo giá chi tiết, chính xác cho từng loại.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">3</div>
+<h3>Cân Đo &amp; Bốc Xếp</h3>
+<p>
+                Sau khi thống nhất giá, chúng tôi tiến hành cân đo công khai tại
+                chỗ và đội ngũ nhân công sẽ bốc xếp hàng lên xe nhanh chóng.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">4</div>
+<h3>Thanh Toán Ngay Lập Tức</h3>
+<p>
+                Thanh toán 100% giá trị lô hàng bằng tiền mặt hoặc chuyển khoản
+                ngay sau khi cân hàng xong, trước khi xe rời khỏi cơ sở của bạn.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="faq-inox">
+<div class="container">
+<h2 class="section-title">GIẢI ĐÁP VỀ DỊCH VỤ THU MUA INOX</h2>
+<div class="faq-item">
+<h3>Làm thế nào để phân biệt nhanh Inox 304 và 201 tại nhà?</h3>
+<p>
+              Cách đơn giản nhất là dùng nam châm. Inox 304 chuẩn sẽ không bị
+              nam châm hút hoặc chỉ hút rất nhẹ. Trong khi đó, Inox 201 sẽ bị
+              hút mạnh hơn do có nhiều tạp chất sắt. Để chắc chắn nhất, đội ngũ
+              của chúng tôi sẽ dùng
+              <a href="/tin-tuc/meo-phan-biet-inox-304-201-430/">thuốc thử chuyên dụng</a>.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Tại sao giá Inox 304 lại cao hơn nhiều so với Inox 201?</h3>
+<p>
+              Giá trị của inox được quyết định bởi hàm lượng Niken và Crom. Inox
+              304 có hàm lượng Niken cao (trên 8%) nên có khả năng chống gỉ sét
+              và ăn mòn vượt trội, do đó giá trị tái chế cũng cao hơn hẳn so với
+              Inox 201 (hàm lượng Niken thấp hơn nhiều).
+            </p>
+</div>
+</div>
+</section>
+</main>
+</BaseLayout>

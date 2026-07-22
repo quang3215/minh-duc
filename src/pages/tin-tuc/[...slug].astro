@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('tin-tuc');
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const canonicalUrl = `https://thumuacapdonggiacao.com/tin-tuc/${post.slug}/`;
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": post.data.title,
+  "description": post.data.description,
+  "image": post.data.image ? [post.data.image] : [],
+  "datePublished": post.data.pubDate.toISOString(),
+  "dateModified": post.data.pubDate.toISOString(),
+  "author": [{
+    "@type": "Organization",
+    "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+    "url": "https://thumuacapdonggiacao.com/"
+  }],
+  "publisher": {
+    "@type": "Organization",
+    "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://thumuacapdonggiacao.com/img/logo.svg"
+    }
+  }
+});
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  canonical={canonicalUrl}
+  ogImage={post.data.image ?? 'https://thumuacapdonggiacao.com/img/thu-mua-cap-dong-duc-minh.webp'}
+  ogType="article"
+  schema={schema}
+>
+  <main>
+    <article style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" style="font-size:0.85rem;color:#888;margin-bottom:20px;">
+        <a href="/" style="color:#888;">Trang Chủ</a>
+        <span style="margin: 0 6px;">›</span>
+        <a href="/tin-tuc/" style="color:#888;">Tin Tức</a>
+        <span style="margin: 0 6px;">›</span>
+        <span style="color:#333;">{post.data.title}</span>
+      </nav>
+
+      {post.data.image && (
+        <img
+          src={post.data.image}
+          alt={post.data.imageAlt || post.data.title}
+          style="width:100%;border-radius:8px;margin-bottom:24px;max-height:450px;object-fit:cover;"
+          loading="eager"
+          width="900"
+          height="450"
+        />
+      )}
+
+      <h1 style="font-size:1.8rem;color:#222;margin-bottom:12px;line-height:1.4;">
+        {post.data.title}
+      </h1>
+
+      <div style="font-size:0.85rem;color:#888;margin-bottom:28px;padding-bottom:16px;border-bottom:1px solid #eee;">
+        <time datetime={post.data.pubDate.toISOString()}>
+          📅 {post.data.pubDate.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+        </time>
+      </div>
+
+      <div class="article-content" style="line-height:1.8;color:#333;font-size:1rem;">
+        <Content />
+      </div>
+
+      <!-- E-E-A-T Author Box -->
+      <div style="margin-top:40px;padding:24px;background:#f9f9f9;border-radius:12px;display:flex;align-items:center;gap:20px;border: 1px solid #eaeaea;flex-wrap:wrap;">
+        <img src="/img/logo.svg" alt="Công Ty Đức Minh" style="width:80px;height:80px;border-radius:50%;object-fit:contain;background:#fff;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);flex-shrink:0;" />
+        <div style="flex:1;min-width:250px;">
+          <h4 style="margin:0 0 8px;font-size:1.1rem;color:#c90000;">Chuyên gia Thu Mua Phế Liệu Đức Minh</h4>
+          <p style="margin:0;font-size:0.95rem;color:#555;line-height:1.5;">Bài viết được biên soạn và kiểm duyệt bởi các chuyên gia với hơn 10 năm kinh nghiệm thực chiến trong lĩnh vực thu mua phế liệu công nghiệp, thanh lý cáp đồng và vật tư dự án. Chúng tôi cam kết mang lại mức giá thu mua cao nhất thị trường.</p>
+        </div>
+      </div>
+
+      <div style="margin-top:48px;padding:24px;background:linear-gradient(135deg,#fff5f5,#fff8f0);border-left:4px solid #c90000;border-radius:8px;text-align:center;">
+        <h3 style="margin:0 0 8px;color:#c90000;">Cần Báo Giá Thu Mua?</h3>
+        <p style="margin:0 0 16px;color:#555;">Gọi ngay để được khảo sát và báo giá miễn phí tận nơi!</p>
+        <a href="tel:0936350118" class="btn" style="display:inline-block;margin-right:12px;">
+          📞 Gọi 0936.350.118
+        </a>
+        <a href="https://zalo.me/0936350118" class="btn" target="_blank" rel="noopener noreferrer"
+          style="display:inline-block;background:#0068ff;">
+          Zalo Ngay
+        </a>
+      </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <a href="/tin-tuc/" style="color:#888;font-size:0.9rem;">← Xem tất cả tin tức</a>
+      </div>
+    </article>
+  </main>
+</BaseLayout>

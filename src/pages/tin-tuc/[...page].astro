@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths({ paginate }) {
+  const posts = await getCollection('tin-tuc');
+  // Sort posts by date descending
+  const sortedPosts = posts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  
+  // Return paginated pages with 12 items per page
+  return paginate(sortedPosts, { pageSize: 12 });
+}
+
+const { page } = Astro.props;
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": `Tin Tức Phế Liệu | Đức Minh - Trang ${page.currentPage}`,
+  "description": "Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam.",
+  "url": `https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+    "url": "https://thumuacapdonggiacao.com/"
+  }
+});
+---
+<BaseLayout
+  title={`Tin Tức Phế Liệu | Trang ${page.currentPage} | Đức Minh`}
+  description="Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam."
+  canonical={`https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`}
+  schema={schema}
+>
+
+  <main>
+    <section class="tin-tuc-page">
+      <div class="container">
+        <h1 class="section-title">Tin Tức &amp; Kiến Thức Phế Liệu</h1>
+        
+        <div class="news-grid">
+          {page.data.map((post) => (
+            <article class="news-item">
+              <a href={`/tin-tuc/${post.slug}/`} class="news-image" aria-label={`Xem chi tiết: ${post.data.title}`}>
+                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />}
+              </a>
+              <div class="news-content">
+                <h2><a href={`/tin-tuc/${post.slug}/`}>{post.data.title}</a></h2>
+                <p>{post.data.description}</p>
+                <a href={`/tin-tuc/${post.slug}/`} class="btn">Xem Chi Tiết</a>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Pagination UI */}
+        <nav class="pagination" aria-label="Pagination">
+          {page.url.prev ? (
+            <a href={page.url.prev} class="page-link prev-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Trang trước
+            </a>
+          ) : (
+            <span class="page-link disabled prev-link">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+              Trang trước
+            </span>
+          )}
+
+          <div class="page-numbers">
+            Trang <span class="current">{page.currentPage}</span> / {page.lastPage}
+          </div>
+
+          {page.url.next ? (
+            <a href={page.url.next} class="page-link next-link">
+              Trang sau
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </a>
+          ) : (
+            <span class="page-link disabled next-link">
+              Trang sau
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            </span>
+          )}
+        </nav>
+
+      </div>
+    </section>
+  </main>
+</BaseLayout>

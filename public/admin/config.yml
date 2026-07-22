@@ -1,0 +1,85 @@
+backend:
+  name: github
+  repo: quang3215/minh-duc   # Thay bằng tên repo GitHub của bạn
+  branch: main
+  auth_type: pkce
+  app_id: GITHUB_OAUTH_APP_CLIENT_ID  # Thay bằng Client ID từ bước hướng dẫn
+
+# Thư mục lưu ảnh khi upload từ CMS
+media_folder: public/img/tin-tuc
+public_folder: /img/tin-tuc
+
+# Ngôn ngữ giao diện
+locale: vi
+
+collections:
+
+  # ─── CẤU HÌNH WEBSITE ───────────────────────────
+  - name: "settings"
+    label: "⚙️ Cấu Hình Website"
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: "general"
+        label: "Thông tin liên hệ & Cơ bản"
+        file: "src/data/settings.json"
+        description: "Chỉnh sửa số điện thoại, email, địa chỉ..."
+        fields:
+          - {label: "Tên Công Ty", name: "siteName", widget: "string"}
+          - {label: "Hotline (để gọi, VD: 0936350118)", name: "hotline", widget: "string"}
+          - {label: "Hotline (hiển thị, VD: 0936.350.118)", name: "hotlineDisplay", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Địa chỉ", name: "address", widget: "string"}
+          - {label: "Giờ làm việc", name: "workingHours", widget: "string"}
+          - {label: "Zalo Link (VD: https://zalo.me/0936350118)", name: "zaloLink", widget: "string"}
+          - {label: "Mã theo dõi (Google Analytics, Facebook Pixel...)", name: "headScripts", widget: "text", required: false, hint: "Dán các thẻ <script> hoặc <meta> vào đây. Sẽ chèn vào thẻ <head> của web."}
+  # ─── TIN TỨC ────────────────────────────────────
+  - name: tin-tuc
+    label: 📰 Tin Tức
+    label_singular: Bài viết
+    folder: src/content/tin-tuc
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    preview_path: /tin-tuc/{{slug}}/
+    summary: "{{title}} — {{pubDate}}"
+    fields:
+      - label: Tiêu đề bài viết
+        name: title
+        widget: string
+        hint: "VD: Bảng Giá Thu Mua Cáp Đồng Hôm Nay 2025"
+
+      - label: Mô tả (meta description)
+        name: description
+        widget: text
+        hint: "Tóm tắt ngắn 150–160 ký tự cho Google"
+
+      - label: Ngày đăng
+        name: pubDate
+        widget: datetime
+        date_format: YYYY-MM-DD
+        time_format: false
+        default: ""
+
+      - label: Ảnh đại diện
+        name: image
+        widget: image
+        required: false
+        hint: "Ảnh hiển thị đầu bài và khi chia sẻ mạng xã hội"
+
+      - label: Mô tả ảnh (alt text)
+        name: imageAlt
+        widget: string
+        required: false
+
+      - label: Tags (từ khóa phân loại)
+        name: tags
+        widget: list
+        required: false
+        hint: "VD: cáp đồng, phế liệu, bảng giá"
+
+      - label: Nội dung bài viết
+        name: body
+        widget: markdown
+        hint: "Soạn thảo nội dung bài viết"

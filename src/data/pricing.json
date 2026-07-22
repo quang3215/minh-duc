@@ -1,0 +1,84 @@
+{
+  "prices": [
+    {
+      "category": "Vật Tư Năng Lượng Mặt Trời",
+      "name": "Tấm Pin Năng Lượng Mặt Trời",
+      "price": "Liên Hệ"
+    },
+    {
+      "category": "Vật Tư Năng Lượng Mặt Trời",
+      "name": "Dây cáp điện DC Solar",
+      "price": "105.000 - 255.000"
+    },
+    {
+      "category": "Vật Tư Năng Lượng Mặt Trời",
+      "name": "Khung giàn, kẹp pin (Nhôm, Sắt)",
+      "price": "25.000 - 65.000"
+    },
+    {
+      "category": "Phế Liệu Đồng",
+      "name": "Đồng cáp",
+      "price": "225.000 - 255.000"
+    },
+    {
+      "category": "Phế Liệu Đồng",
+      "name": "Đồng đỏ",
+      "price": "215.000 - 235.000"
+    },
+    {
+      "category": "Phế Liệu Đồng",
+      "name": "Đồng vàng",
+      "price": "115.000 - 155.000"
+    },
+    {
+      "category": "Phế Liệu Đồng",
+      "name": "Đồng cháy",
+      "price": "190.000 - 205.000"
+    },
+    {
+      "category": "Phế Liệu Sắt Thép",
+      "name": "Sắt đặc",
+      "price": "10.500 - 13.500"
+    },
+    {
+      "category": "Phế Liệu Sắt Thép",
+      "name": "Sắt vụn, sắt công trình",
+      "price": "9.000 - 11.500"
+    },
+    {
+      "category": "Phế Liệu Sắt Thép",
+      "name": "Sắt gỉ sét, bazo sắt",
+      "price": "7.000 - 9.500"
+    },
+    {
+      "category": "Phế Liệu Nhôm",
+      "name": "Nhôm loại 1 (nhôm đặc, nguyên chất)",
+      "price": "45.000 - 65.000"
+    },
+    {
+      "category": "Phế Liệu Nhôm",
+      "name": "Nhôm loại 2 (hợp kim nhôm)",
+      "price": "40.000 - 55.000"
+    },
+    {
+      "category": "Phế Liệu Nhôm",
+      "name": "Nhôm loại 3 (vụn nhôm, mạt nhôm)",
+      "price": "22.000 - 45.000"
+    },
+    {
+      "category": "Phế Liệu Inox",
+      "name": "Inox 304, 316",
+      "price": "22.000 - 55.000"
+    },
+    {
+      "category": "Phế Liệu Inox",
+      "name": "Inox 201, 430",
+      "price": "10.000 - 22.000"
+    },
+    {
+      "category": "Các loại khác",
+      "name": "Hợp kim, gang, thiếc, kẽm...",
+      "price": "Liên Hệ Hotline"
+    }
+  ]
+}
