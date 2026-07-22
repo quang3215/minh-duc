@@ -3,7 +3,7 @@ backend:
   repo: quang3215/minh-duc   # Thay bằng tên repo GitHub của bạn
   branch: main
   auth_type: pkce
-  app_id: GITHUB_OAUTH_APP_CLIENT_ID  # Thay bằng Client ID từ bước hướng dẫn
+  app_id: Ov23lieKXdYjmMrWaw3X  # Thay bằng Client ID từ bước hướng dẫn
 
 # Thư mục lưu ảnh khi upload từ CMS
 media_folder: public/img/tin-tuc
