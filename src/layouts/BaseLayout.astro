@@ -249,40 +249,7 @@ const resolvedOgDesc = ogDescription ?? description;
     <!-- Main JS -->
     <script src="/script.js?v=2" defer></script>
 
-    <!-- ClickGuard Tracking -->
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-    <script is:inline>
-      const firebaseConfig = {
-        apiKey: "AIzaSyA5wRPP391kOLAosnhc0wWTDn1EgVy03zw",
-        authDomain: "clickfrauddashboard.firebaseapp.com",
-        projectId: "clickfrauddashboard",
-        storageBucket: "clickfrauddashboard.firebasestorage.app",
-        messagingSenderId: "145645586634",
-        appId: "1:145645586634:web:1b1a8aae91a4a06fdbcc33"
-      };
-      if (!firebase.apps.length) firebase.initializeApp(firebaseConfig);
-      const db = firebase.firestore();
-      async function initClickGuard() {
-        try {
-          const ipRes = await fetch('https://ipwho.is/');
-          const ipData = await ipRes.json();
-          let currentDomain = window.location.hostname.replace('www.', '');
-          if (!currentDomain) currentDomain = 'local-test';
-          await db.collection("visits").add({
-            ip: ipData.ip || 'Unknown',
-            website: currentDomain,
-            userId: "jwdZQDsEwbcsooqgxGnYy5qj61M2",
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            userAgent: navigator.userAgent,
-            isp: ipData.connection?.isp || ipData.connection?.org || 'Unknown',
-            city: ipData.city || 'Unknown',
-            isProxy: ipData.security?.vpn || ipData.security?.proxy || false
-          });
-          // tracking initialized
-        } catch (e) {}
-      }
-      initClickGuard();
-    </script>
+    <!-- Custom Body Scripts từ CMS -->
+    {settings.bodyScripts && <Fragment set:html={settings.bodyScripts} />}
   </body>
 </html>

@@ -32,6 +32,7 @@ collections:
           - {label: "Giờ làm việc", name: "workingHours", widget: "string"}
           - {label: "Zalo Link (VD: https://zalo.me/0936350118)", name: "zaloLink", widget: "string"}
           - {label: "Mã theo dõi (Google Analytics, Facebook Pixel...)", name: "headScripts", widget: "text", required: false, hint: "Dán các thẻ <script> hoặc <meta> vào đây. Sẽ chèn vào thẻ <head> của web."}
+          - {label: "Mã chân trang (Body Scripts - Dành cho Chat Zalo, GTM noscript...)", name: "bodyScripts", widget: "text", required: false, hint: "Dán các thẻ <script> hoặc <noscript> cần đặt ở cuối thẻ <body>."}
   # ─── TIN TỨC ────────────────────────────────────
   - name: tin-tuc
     label: 📰 Tin Tức
