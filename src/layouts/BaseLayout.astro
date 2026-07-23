@@ -39,7 +39,12 @@ const resolvedOgDesc = ogDescription ?? description;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>{title}</title>
-    <link rel="preload" as="image" href="/img/home-hero.webp" />
+    {Astro.url.pathname === '/' && (
+      <>
+        <link rel="preload" as="image" href="/img/banner/banner-thu-mua-cap-dong-duc-minh-1_mobile.webp" media="(max-width: 768px)" />
+        <link rel="preload" as="image" href="/img/banner/banner-thu-mua-cap-dong-duc-minh-1.webp" media="(min-width: 769px)" />
+      </>
+    )}
     <meta name="description" content={description} />
     <meta name="author" content="Công Ty Đức Minh" />
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
