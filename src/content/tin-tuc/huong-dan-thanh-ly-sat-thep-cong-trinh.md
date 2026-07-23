@@ -1,7 +1,6 @@
 ---
 title: "Hướng Dẫn Thu mua Sắt Thép Công Trình: 5 Lưu Ý Để Được Giá Cao Nhất"
-keywords: "hướng dẫn thu mua sắt thép công trình: 5 lưu ý để được giá cao nhất, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "5 lưu ý quan trọng khi Thu mua sắt thép phế liệu công trình. Hướng dẫn cách phân loại, liên hệ đối tác uy tín để nhận được báo giá thu mua cao nhất."
+keywords: "hướng dẫn thu mua sắt thép công trình: 5 lưu ý để được giá cao nhất, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "5 lưu ý quan trọng khi Thu mua sắt thép phế liệu công trình. Hướng dẫn cách phân loại, liên hệ đối tác uy tín để nhận được báo giá thu mua cao nhất."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-05.webp"
 ---

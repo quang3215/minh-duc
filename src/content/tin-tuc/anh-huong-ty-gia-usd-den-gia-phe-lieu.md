@@ -1,7 +1,6 @@
 ---
 title: "Tỷ Giá USD Ảnh Hưởng Thế Nào Đến Giá Phế Liệu Hôm Nay?"
-keywords: "tỷ giá usd ảnh hưởng thế nào đến giá phế liệu hôm nay?, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "Phân tích tác động của tỷ giá USD và chỉ số LME thế giới đến bảng giá thu mua phế liệu đồng, nhôm, sắt tại Việt Nam."
+keywords: "tỷ giá usd ảnh hưởng thế nào đến giá phế liệu hôm nay?, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Phân tích tác động của tỷ giá USD và chỉ số LME thế giới đến bảng giá thu mua phế liệu đồng, nhôm, sắt tại Việt Nam."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"
 ---

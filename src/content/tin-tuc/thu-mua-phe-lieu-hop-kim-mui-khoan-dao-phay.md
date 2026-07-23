@@ -1,7 +1,6 @@
 ---
 title: "Thu Mua Phế Liệu Hợp Kim: Mũi Khoan, Dao Phay, Niken Giá Cao"
-keywords: "thu mua phế liệu hợp kim: mũi khoan, dao phay, niken giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "Đức Minh chuyên thu mua phế liệu hợp kim giá cao: mũi khoan cũ, dao phay CNC, hợp kim niken, cobalt. Báo giá nhanh, thu gom tận nơi các xưởng cơ khí."
+keywords: "thu mua phế liệu hợp kim: mũi khoan, dao phay, niken giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Đức Minh chuyên thu mua phế liệu hợp kim giá cao: mũi khoan cũ, dao phay CNC, hợp kim niken, cobalt. Báo giá nhanh, thu gom tận nơi các xưởng cơ khí."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---

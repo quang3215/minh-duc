@@ -1,7 +1,6 @@
 ---
 title: "Thu Mua Bình Ắc Quy Cũ, Phế Liệu Chì Giá Cao Tận Nơi | Đức Minh"
-keywords: "thu mua bình ắc quy cũ, phế liệu chì giá cao tận nơi  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "Đức Minh thu mua bình ắc quy cũ, ắc quy viễn thông, xe nâng hỏng. Thu mua phế liệu chì giá cao, thu gom tận nơi đúng quy định môi trường."
+keywords: "thu mua bình ắc quy cũ, phế liệu chì giá cao tận nơi  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Đức Minh thu mua bình ắc quy cũ, ắc quy viễn thông, xe nâng hỏng. Thu mua phế liệu chì giá cao, thu gom tận nơi đúng quy định môi trường."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"
 ---

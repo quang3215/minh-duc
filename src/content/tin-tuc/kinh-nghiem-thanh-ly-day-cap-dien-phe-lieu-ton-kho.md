@@ -1,7 +1,6 @@
 ---
 title: "Kinh Nghiệm Thanh Lý Dây Cáp Điện Phế Liệu Tồn Kho Công Trình Giá Cao"
-keywords: "kinh nghiệm thanh lý dây cáp điện phế liệu tồn kho công trình giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "Hướng dẫn các nhà thầu xây dựng cách thanh lý dây cáp điện phế liệu, cáp đồng tồn kho, cáp vụn công trình được giá cao nhất, tránh thất thoát tài sản."
+keywords: "kinh nghiệm thanh lý dây cáp điện phế liệu tồn kho công trình giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Hướng dẫn các nhà thầu xây dựng cách thanh lý dây cáp điện phế liệu, cáp đồng tồn kho, cáp vụn công trình được giá cao nhất, tránh thất thoát tài sản."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"
 ---

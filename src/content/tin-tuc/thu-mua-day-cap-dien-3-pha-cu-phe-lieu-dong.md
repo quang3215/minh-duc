@@ -1,7 +1,6 @@
 ---
 title: "Thu Mua Dây Cáp Điện 3 Pha Cũ, Phế Liệu Lõi Đồng To Giá Cao | Đức Minh"
-keywords: "thu mua dây cáp điện 3 pha cũ, phế liệu lõi đồng to giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: "Đức Minh chuyên thu mua dây cáp điện 3 pha cũ, cáp điện lực lõi đồng to phế liệu. Báo giá cao nhất thị trường, thu gom tận nơi các xưởng cơ khí, nhà máy."
+keywords: "thu mua dây cáp điện 3 pha cũ, phế liệu lõi đồng to giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Đức Minh chuyên thu mua dây cáp điện 3 pha cũ, cáp điện lực lõi đồng to phế liệu. Báo giá cao nhất thị trường, thu gom tận nơi các xưởng cơ khí, nhà máy."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---
