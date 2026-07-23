@@ -1,6 +1,7 @@
 ---
 title: "So Sánh Giá Thu Mua Dây Cáp Đồng Và Cáp Nhôm Phế Liệu | Đức Minh"
-keywords: "so sánh giá thu mua dây cáp đồng và cáp nhôm phế liệu  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Tìm hiểu sự khác biệt giữa dây cáp điện lõi đồng và lõi nhôm. Bảng giá thu mua dây cáp đồng và cáp nhôm phế liệu mới nhất hiện nay."
+keywords: "so sánh giá thu mua dây cáp đồng và cáp nhôm phế liệu  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
+description: ""
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---

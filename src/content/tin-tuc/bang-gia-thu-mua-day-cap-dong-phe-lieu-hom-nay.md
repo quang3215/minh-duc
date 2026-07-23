@@ -1,6 +1,7 @@
 ---
 title: "Bảng Giá Thu Mua Dây Cáp Đồng Phế Liệu Hôm Nay | Đức Minh"
-keywords: "bảng giá thu mua dây cáp đồng phế liệu hôm nay  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Cập nhật bảng giá thu mua dây cáp đồng phế liệu loại 1, loại 2, loại 3 mới nhất hôm nay. Đức Minh thu mua cáp đồng công trình, dự án giá cao toàn quốc."
+keywords: "bảng giá thu mua dây cáp đồng phế liệu hôm nay  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
+description: ""
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---

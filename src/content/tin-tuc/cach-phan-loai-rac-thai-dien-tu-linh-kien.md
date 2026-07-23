@@ -1,6 +1,7 @@
 ---
 title: "Cách Phân Loại Rác Thải Điện Tử & Linh Kiện Máy Móc Bán Giá Cao | Đức Minh"
-keywords: "cách phân loại rác thải điện tử & linh kiện máy móc bán giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Hướng dẫn chi tiết cách phân loại rác thải điện tử, bo mạch, linh kiện máy móc cũ hỏng để thanh lý phế liệu được giá cao nhất, tránh bị ép giá."
+keywords: "cách phân loại rác thải điện tử & linh kiện máy móc bán giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
+description: ""
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"
 ---

@@ -1,6 +1,7 @@
 ---
 title: "Cách Phân Loại Dây Cáp Điện Phế Liệu Để Bán Được Giá Cao | Đức Minh"
-keywords: "cách phân loại dây cáp điện phế liệu để bán được giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Hướng dẫn cách nhận biết và phân loại dây cáp điện phế liệu lõi đồng loại 1, loại 2, loại 3. Bí quyết giúp nhà thầu không bị ép giá khi thanh lý cáp đồng."
+keywords: "cách phân loại dây cáp điện phế liệu để bán được giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
+description: ""
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---

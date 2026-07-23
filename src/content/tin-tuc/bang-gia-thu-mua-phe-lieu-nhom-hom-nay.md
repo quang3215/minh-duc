@@ -1,6 +1,7 @@
 ---
 title: "Bảng Giá Thu Mua Phế Liệu Nhôm Hôm Nay Mới Nhất | Đức Minh"
-keywords: "bảng giá thu mua phế liệu nhôm hôm nay mới nhất  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh" "Cập nhật bảng giá thu mua phế liệu nhôm đà, nhôm dẻo, nhôm máy, mạt nhôm mới nhất hôm nay. Công ty Đức Minh thu mua nhôm giá cao tận nơi toàn quốc."
+keywords: "bảng giá thu mua phế liệu nhôm hôm nay mới nhất  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
+description: ""
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-01.webp"
 ---
