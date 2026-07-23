@@ -10,6 +10,7 @@ const tinTuc = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     tags: z.array(z.string()).optional(),
+    keywords: z.string().optional(),
     canonical: z.string().optional(),
   }),
 });

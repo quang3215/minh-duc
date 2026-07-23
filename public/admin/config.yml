@@ -78,6 +78,12 @@ collections:
         required: false
         hint: "VD: cáp đồng, phế liệu, bảng giá"
 
+      - label: Từ khóa SEO (Meta Keywords)
+        name: keywords
+        widget: string
+        required: false
+        hint: "Các từ khóa cách nhau bằng dấu phẩy, VD: thu mua cáp đồng, phế liệu đồng"
+
       - label: Nội dung bài viết
         name: body
         widget: markdown

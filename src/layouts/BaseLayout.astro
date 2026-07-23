@@ -13,6 +13,7 @@ export interface Props {
   ogType?: 'website' | 'article';
   schema?: string; // JSON-LD string tuỳ chỉnh cho từng trang
   noindex?: boolean;
+  keywords?: string;
 }
 
 const {
@@ -25,6 +26,7 @@ const {
   ogType = 'website',
   schema,
   noindex = false,
+  keywords,
 } = Astro.props;
 
 const canonicalURL = canonical ?? new URL(Astro.url.pathname, Astro.site).href;
@@ -47,6 +49,7 @@ const resolvedOgDesc = ogDescription ?? description;
     )}
     <meta name="description" content={description} />
     <meta name="author" content="Công Ty Đức Minh" />
+    {keywords && <meta name="keywords" content={keywords} />}
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
     <link rel="canonical" href={canonicalURL} />
     <link rel="icon" href="/img/logo.svg" type="image/svg+xml" />
