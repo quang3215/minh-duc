@@ -1,5 +1,6 @@
 ---
 title: "Thu Mua Dây Cáp Ngầm Phế Liệu: Cách Thẩm Định Lõi Đồng Giá Cao"
+keywords: "thu mua dây cáp ngầm phế liệu: cách thẩm định lõi đồng giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Hướng dẫn cách bóc tách và định giá phế liệu dây cáp ngầm, cáp điện lực bọc thép. Đức Minh thu mua dây cáp điện phế liệu giá cao toàn quốc."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-02.webp"

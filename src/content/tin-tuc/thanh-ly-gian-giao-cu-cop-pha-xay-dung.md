@@ -1,5 +1,6 @@
 ---
 title: "Thanh Lý Giàn Giáo Cũ, Cốp Pha Xây Dựng Số Lượng Lớn | Đức Minh"
+keywords: "thanh lý giàn giáo cũ, cốp pha xây dựng số lượng lớn  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Chuyên thu mua thanh lý giàn giáo cũ, cốp pha tôn, ống tuýp sắt, giàn giáo ringlock số lượng lớn tại công trình. Thanh toán nhanh gọn, giá cao nhất thị trường."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"

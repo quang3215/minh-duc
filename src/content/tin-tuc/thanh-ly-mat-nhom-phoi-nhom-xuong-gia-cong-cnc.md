@@ -1,5 +1,6 @@
 ---
 title: "Thanh Lý Mạt Nhôm, Phoi Nhôm Phế Liệu Xưởng Gia Công CNC Giá Cao"
+keywords: "thanh lý mạt nhôm, phoi nhôm phế liệu xưởng gia công cnc giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Đức Minh cung cấp dịch vụ thu gom định kỳ mạt nhôm, phoi nhôm vụn từ các xưởng gia công cơ khí CNC, nhà máy khuôn mẫu với mức giá thu mua cao nhất thị trường."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"

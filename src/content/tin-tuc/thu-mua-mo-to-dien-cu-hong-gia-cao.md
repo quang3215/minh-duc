@@ -1,5 +1,6 @@
 ---
 title: "Thu Mua Mô Tơ Điện Cũ, Máy Bơm Nước Phế Liệu: Bí Quyết Định Giá | Đức Minh"
+keywords: "thu mua mô tơ điện cũ, máy bơm nước phế liệu: bí quyết định giá  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Mô tơ điện cũ, máy bơm nước cháy hỏng chứa hàm lượng đồng nguyên chất rất cao. Xem ngay cách định giá và bảng giá thu mua mô tơ phế liệu hôm nay."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"

@@ -1,5 +1,6 @@
 ---
 title: "Bảng Giá Thu Mua Tấm Pin Năng Lượng Mặt Trời Cũ Hỏng Hôm Nay | Đức Minh"
+keywords: "bảng giá thu mua tấm pin năng lượng mặt trời cũ hỏng hôm nay  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Cập nhật bảng giá thu mua tấm pin năng lượng mặt trời cũ, vỡ kính, hỏng cell, rớt hiệu suất. Thu mua phế liệu pin mặt trời tận nơi, giá cao toàn quốc."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"

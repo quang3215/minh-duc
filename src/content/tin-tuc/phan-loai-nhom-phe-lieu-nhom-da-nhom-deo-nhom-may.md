@@ -1,5 +1,6 @@
 ---
 title: "Cách Phân Loại Nhôm Phế Liệu: Nhôm Đà, Nhôm Dẻo, Nhôm Máy | Đức Minh"
+keywords: "cách phân loại nhôm phế liệu: nhôm đà, nhôm dẻo, nhôm máy  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Hướng dẫn chi tiết cách nhận biết và phân loại phế liệu nhôm đà, nhôm dẻo, nhôm máy để không bị ép giá khi thanh lý. Bán nhôm phế liệu giá cao."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"

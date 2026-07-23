@@ -1,5 +1,6 @@
 ---
 title: "Phân Biệt Dây Điện Dân Dụng Và Cáp Điện Công Nghiệp Khi Bán Phế Liệu"
+keywords: "phân biệt dây điện dân dụng và cáp điện công nghiệp khi bán phế liệu, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Hướng dẫn cách phân biệt dây điện dân dụng và cáp điện công nghiệp cũ. Tìm hiểu sự khác nhau về giá thu mua phế liệu của 2 loại cáp đồng này để không bị ép giá."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"

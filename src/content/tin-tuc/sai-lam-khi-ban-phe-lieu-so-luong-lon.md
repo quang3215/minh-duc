@@ -1,5 +1,6 @@
 ---
 title: "5 Sai Lầm Thường Gặp Khi Bán Phế Liệu Số Lượng Lớn Và Cách Tránh"
+keywords: "5 sai lầm thường gặp khi bán phế liệu số lượng lớn và cách tránh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
 description: "Tránh ngay 5 sai lầm phổ biến khi bán phế liệu số lượng lớn: không phân loại, không tham khảo giá, chọn sai đối tác... để không bị mất tiền oan và bán được giá cao nhất."
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-01.webp"
