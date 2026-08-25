@@ -1,0 +1,102 @@
+---
+export interface Props {
+  variant?: 'primary' | 'secondary' | 'gold' | 'phone' | 'zalo' | 'outline' | 'ghost' | 'white';
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  type?: 'button' | 'submit' | 'reset';
+  fullWidth?: boolean;
+  pulse?: boolean;
+  class?: string;
+  target?: string;
+  rel?: string;
+  ariaLabel?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = 'primary',
+  size = 'md',
+  href,
+  type = 'button',
+  fullWidth = false,
+  pulse = false,
+  class: className = '',
+  target,
+  rel,
+  ariaLabel,
+  ...rest
+} = Astro.props;
+
+const variantClasses: Record<string, string> = {
+  primary:
+    'bg-brand-red hover:bg-brand-red-dark text-white font-semibold shadow-soft-sm shadow-brand-red/25 hover:shadow-glow-red focus-visible:ring-brand-red/50',
+  secondary:
+    'bg-slate-900 hover:bg-slate-800 text-white font-semibold shadow-soft-sm focus-visible:ring-slate-900/50',
+  gold:
+    'bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-bold shadow-soft-sm hover:shadow-glow-gold focus-visible:ring-amber-500/50',
+  phone:
+    'bg-brand-phone hover:bg-red-700 text-white font-bold shadow-soft-sm hover:shadow-glow-red focus-visible:ring-brand-phone/50',
+  zalo:
+    'bg-brand-zalo hover:bg-blue-700 text-white font-bold shadow-soft-sm hover:shadow-blue-500/30 focus-visible:ring-brand-zalo/50',
+  outline:
+    'border-2 border-brand-red text-brand-red bg-white hover:bg-brand-red hover:text-white font-semibold focus-visible:ring-brand-red/50',
+  ghost:
+    'text-slate-700 hover:text-brand-red hover:bg-red-50/80 font-medium focus-visible:ring-slate-400/50',
+  white:
+    'bg-white hover:bg-slate-50 text-slate-900 font-semibold shadow-soft-sm border border-slate-200 hover:border-slate-300 focus-visible:ring-slate-300/50',
+};
+
+const sizeClasses: Record<string, string> = {
+  sm: 'text-xs px-3 py-1.5 rounded-lg gap-1.5',
+  md: 'text-sm px-4 py-2.5 rounded-xl gap-2',
+  lg: 'text-base px-6 py-3.5 rounded-xl gap-2.5',
+  xl: 'text-lg px-8 py-4 rounded-2xl gap-3 font-bold',
+};
+
+const baseClasses =
+  'inline-flex items-center justify-center transition-all duration-200 active:scale-[0.98] select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2';
+
+const selectedVariant = variantClasses[variant] || variantClasses.primary;
+const selectedSize = sizeClasses[size] || sizeClasses.md;
+const widthClass = fullWidth ? 'w-full' : '';
+const pulseClass = pulse ? 'animate-pulse' : '';
+
+const finalClasses = [
+  baseClasses,
+  selectedVariant,
+  selectedSize,
+  widthClass,
+  pulseClass,
+  className,
+].filter(Boolean).join(' ');
+
+const computedRel = rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined);
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      class={finalClasses}
+      target={target}
+      rel={computedRel}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      <slot name="icon-left" />
+      <slot />
+      <slot name="icon-right" />
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={finalClasses}
+      aria-label={ariaLabel}
+      {...rest}
+    >
+      <slot name="icon-left" />
+      <slot />
+      <slot name="icon-right" />
+    </button>
+  )
+}

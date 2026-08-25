@@ -1,0 +1,290 @@
+---
+import settings from '../../data/settings.json';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+const pathname = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Trang Chủ', href: '/' },
+  { label: 'Giới Thiệu', href: '/gioi-thieu/' },
+  {
+    label: 'Dịch Vụ',
+    href: '/dich-vu/',
+    children: [
+      {
+        title: 'Thu Mua Cáp Đồng & Thiết Bị Điện',
+        desc: 'Cáp điện 3 pha, cáp ngầm, đồng đỏ, đồng thau',
+        href: '/thu-mua-cap-dong-thiet-bi-dien/',
+        badge: 'Chủ lực',
+      },
+      {
+        title: 'Thu Mua Pin Năng Lượng Mặt Trời',
+        desc: 'Tấm pin hư hỏng, hết date, linh kiện solar',
+        href: '/thu-mua-pin-nang-luong-mat-troi/',
+        badge: 'Giá cao',
+      },
+      {
+        title: 'Thu Mua Phế Liệu Công Nghiệp',
+        desc: 'Nhà xưởng, máy móc cũ, sắt thép công trình',
+        href: '/thu-mua-phe-lieu-cong-nghiep/',
+      },
+      {
+        title: 'Thu Mua Nhôm Phế Liệu',
+        desc: 'Nhôm đà, nhôm định hình, nhôm Xingfa, mạt nhôm',
+        href: '/thu-mua-nhom/',
+      },
+      {
+        title: 'Thu Mua Inox Phế Liệu',
+        desc: 'Inox 304, 201, 316, 430 giá cao tận nơi',
+        href: '/thu-mua-inox/',
+      },
+      {
+        title: 'Xem Tất Cả Dịch Vụ →',
+        desc: 'Bảng tổng hợp hơn 15 danh mục thu mua',
+        href: '/dich-vu/',
+      },
+    ],
+  },
+  {
+    label: 'Khu Vực',
+    href: '#',
+    children: [
+      {
+        title: 'TP. Hồ Chí Minh',
+        desc: 'Có mặt sau 15-30 phút tại tất cả các quận huyện',
+        href: '/thu-mua-cap-dong-tphcm/',
+        badge: 'Trọng điểm',
+      },
+      {
+        title: 'Khu Vực Miền Nam',
+        desc: 'Bình Dương, Đồng Nai, Long An, BR-VT, Tây Ninh',
+        href: '/khu-vuc-thu-mua/khu-vuc-mien-nam/',
+      },
+      {
+        title: 'Khu Vực Toàn Quốc',
+        desc: 'Thu gom dự án lớn không giới hạn số lượng',
+        href: '/khu-vuc-thu-mua/khu-vuc-toan-quoc/',
+      },
+      {
+        title: 'Khu Vực Miền Trung',
+        desc: 'Đà Nẵng, Quảng Nam, Quảng Ngãi, Khánh Hòa',
+        href: '/khu-vuc-thu-mua/khu-vuc-mien-trung/',
+      },
+      {
+        title: 'Khu Vực Miền Bắc',
+        desc: 'Hà Nội, Hải Phòng, Bắc Ninh, Hưng Yên',
+        href: '/khu-vuc-thu-mua/khu-vuc-mien-bac/',
+      },
+    ],
+  },
+  { label: 'Bảng Giá', href: '/bang-gia/', isHot: true },
+  { label: 'Quy Trình', href: '/quy-trinh/' },
+  { label: 'Tin Tức', href: '/tin-tuc/' },
+  { label: 'Liên Hệ', href: '/lien-he/' },
+];
+
+const isActive = (itemHref: string) => {
+  if (itemHref === '/') return pathname === '/';
+  return pathname.startsWith(itemHref);
+};
+---
+
+<!-- Top Announcement Micro Bar -->
+<div class="bg-slate-900 text-slate-300 text-xs py-1.5 px-4 border-b border-slate-800">
+  <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+    <div class="flex items-center gap-4 flex-wrap justify-center sm:justify-start">
+      <span class="inline-flex items-center gap-1.5 text-amber-400 font-medium">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+        <span class="w-2 h-2 rounded-full bg-emerald-400 -ml-3.5"></span>
+        Thu mua tận nơi 24/7 • TP.HCM - Bình Dương - Đồng Nai - Toàn Quốc
+      </span>
+      <span class="hidden md:inline text-slate-600">|</span>
+      <span class="hidden md:inline text-slate-400">
+        Giờ làm việc: <strong class="text-white font-medium">{settings.workingHours}</strong>
+      </span>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <a
+        href={`tel:${settings.hotline}`}
+        class="inline-flex items-center gap-1 text-slate-200 hover:text-white transition-colors"
+      >
+        <svg class="w-3.5 h-3.5 text-brand-red" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+        </svg>
+        Hotline: <strong class="text-white font-bold">{settings.hotlineDisplay}</strong>
+      </a>
+      <span class="text-slate-700">|</span>
+      <a
+        href={settings.zaloLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 text-slate-200 hover:text-blue-400 transition-colors"
+      >
+        <span class="w-3.5 h-3.5 rounded-full bg-brand-zalo flex items-center justify-center text-[9px] text-white font-black">Z</span>
+        Zalo Báo Giá
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Sticky Header -->
+<header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-soft-sm transition-all">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      
+      <!-- Brand Logo -->
+      <a href="/" class="flex items-center gap-3 group">
+        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-brand-red to-brand-red-dark flex items-center justify-center p-1.5 shadow-soft-sm group-hover:scale-105 transition-transform">
+          <img
+            src="/img/logo.svg"
+            alt="Logo Cáp Đồng Đức Minh"
+            width="40"
+            height="40"
+            class="w-full h-full object-contain filter drop-shadow"
+          />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-extrabold text-lg sm:text-xl text-slate-900 tracking-tight leading-tight group-hover:text-brand-red transition-colors">
+            CÁP ĐỒNG <span class="text-brand-red">ĐỨC MINH</span>
+          </span>
+          <span class="text-[11px] text-slate-500 font-medium tracking-wide flex items-center gap-1">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block"></span>
+            Giá Cao Tận Nơi • Hoa Hồng Cao
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        {
+          navItems.map((item) => {
+            const active = isActive(item.href);
+            const hasChildren = item.children && item.children.length > 0;
+
+            if (hasChildren) {
+              return (
+                <div class="relative group">
+                  <button
+                    type="button"
+                    class:list={[
+                      'inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors',
+                      active
+                        ? 'text-brand-red bg-red-50/80'
+                        : 'text-slate-700 hover:text-brand-red hover:bg-slate-50',
+                    ]}
+                  >
+                    {item.label}
+                    <svg
+                      class="w-4 h-4 text-slate-400 group-hover:text-brand-red group-hover:rotate-180 transition-transform duration-200"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clip-rule="evenodd"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Mega / Dropdown menu */}
+                  <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 w-80 xl:w-96 pointer-events-none group-hover:pointer-events-auto">
+                    <div class="bg-white rounded-2xl p-3 shadow-soft-lg border border-slate-200/90 ring-1 ring-black/5 grid gap-1.5">
+                      {item.children?.map((sub) => (
+                        <a
+                          href={sub.href}
+                          class="p-2.5 rounded-xl hover:bg-slate-50 transition-colors flex items-start gap-3 group/sub"
+                        >
+                          <div class="w-2 h-2 rounded-full bg-brand-red/60 mt-1.5 group-hover/sub:bg-brand-red group-hover/sub:scale-125 transition-all"></div>
+                          <div class="flex-1">
+                            <div class="flex items-center justify-between">
+                              <span class="text-sm font-bold text-slate-800 group-hover/sub:text-brand-red transition-colors">
+                                {sub.title}
+                              </span>
+                              {sub.badge && (
+                                <Badge variant="primary" size="sm">
+                                  {sub.badge}
+                                </Badge>
+                              )}
+                            </div>
+                            <p class="text-xs text-slate-500 mt-0.5 line-clamp-1">
+                              {sub.desc}
+                            </p>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <a
+                href={item.href}
+                class:list={[
+                  'inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors relative',
+                  active
+                    ? 'text-brand-red bg-red-50/80'
+                    : 'text-slate-700 hover:text-brand-red hover:bg-slate-50',
+                ]}
+              >
+                {item.label}
+                {item.isHot && (
+                  <Badge variant="danger" size="sm" dot class="ml-1 animate-bounce">
+                    HOT
+                  </Badge>
+                )}
+              </a>
+            );
+          })
+        }
+      </nav>
+
+      <!-- Right Action CTA -->
+      <div class="hidden sm:flex items-center gap-3">
+        <Button
+          href={`tel:${settings.hotline}`}
+          variant="outline"
+          size="sm"
+          class="hidden xl:inline-flex border-red-300 text-brand-red hover:bg-brand-red hover:text-white"
+        >
+          <svg slot="icon-left" class="w-4 h-4 text-brand-red" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>{settings.hotlineDisplay}</span>
+        </Button>
+
+        <Button
+          href={settings.zaloLink}
+          target="_blank"
+          variant="primary"
+          size="sm"
+          class="shadow-glow-red hover:scale-105"
+        >
+          <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          <span>Báo Giá Nhanh</span>
+        </Button>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        type="button"
+        id="mobile-menu-trigger"
+        class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:text-brand-red hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-brand-red"
+        aria-label="Mở danh mục điều hướng"
+        aria-expanded="false"
+        aria-controls="mobile-drawer"
+      >
+        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+    </div>
+  </div>
+</header>

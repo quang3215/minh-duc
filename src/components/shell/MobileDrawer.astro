@@ -1,0 +1,290 @@
+---
+import settings from '../../data/settings.json';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+const pathname = Astro.url.pathname;
+
+const services = [
+  { label: 'Cáp Đồng & Thiết Bị Điện', href: '/thu-mua-cap-dong-thiet-bi-dien/', badge: 'Chủ lực' },
+  { label: 'Pin Năng Lượng Mặt Trời', href: '/thu-mua-pin-nang-luong-mat-troi/', badge: 'Giá cao' },
+  { label: 'Phế Liệu Công Nghiệp', href: '/thu-mua-phe-lieu-cong-nghiep/' },
+  { label: 'Thu Mua Nhôm Phế Liệu', href: '/thu-mua-nhom/' },
+  { label: 'Thu Mua Inox Phế Liệu', href: '/thu-mua-inox/' },
+  { label: 'Xem Tất Cả Dịch Vụ', href: '/dich-vu/' },
+];
+
+const areas = [
+  { label: 'TP. Hồ Chí Minh', href: '/thu-mua-cap-dong-tphcm/', badge: '15-30p' },
+  { label: 'Khu Vực Miền Nam', href: '/khu-vuc-thu-mua/khu-vuc-mien-nam/' },
+  { label: 'Khu Vực Toàn Quốc', href: '/khu-vuc-thu-mua/khu-vuc-toan-quoc/' },
+  { label: 'Khu Vực Miền Trung', href: '/khu-vuc-thu-mua/khu-vuc-mien-trung/' },
+  { label: 'Khu Vực Miền Bắc', href: '/khu-vuc-thu-mua/khu-vuc-mien-bac/' },
+];
+---
+
+<!-- Mobile Drawer Overlay & Panel -->
+<div
+  id="mobile-drawer"
+  class="fixed inset-0 z-50 pointer-events-none transition-all duration-300 lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu điều hướng di động"
+>
+  <!-- Backdrop -->
+  <div
+    id="mobile-drawer-backdrop"
+    class="absolute inset-0 bg-slate-950/60 opacity-0 transition-opacity duration-300 backdrop-blur-sm"
+  ></div>
+
+  <!-- Sliding Drawer Content -->
+  <div
+    id="mobile-drawer-panel"
+    class="absolute inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out flex flex-col pointer-events-auto"
+  >
+    <!-- Drawer Header -->
+    <div class="p-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/80">
+      <a href="/" class="flex items-center gap-2.5">
+        <div class="w-10 h-10 rounded-xl bg-brand-red flex items-center justify-center p-1 shadow-sm">
+          <img
+            src="/img/logo.svg"
+            alt="Logo Đức Minh"
+            width="32"
+            height="32"
+            class="w-full h-full object-contain"
+          />
+        </div>
+        <div>
+          <span class="font-extrabold text-base text-slate-900 leading-tight block">
+            CÁP ĐỒNG <span class="text-brand-red">ĐỨC MINH</span>
+          </span>
+          <span class="text-[10px] text-slate-500 font-medium">Báo giá nhanh 5 phút</span>
+        </div>
+      </a>
+
+      <button
+        type="button"
+        id="mobile-drawer-close"
+        class="p-2 rounded-lg text-slate-500 hover:text-slate-800 hover:bg-slate-200/60 transition-colors focus:outline-none focus:ring-2 focus:ring-brand-red"
+        aria-label="Đóng menu"
+      >
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Quick Call Badge -->
+    <div class="px-4 py-2.5 bg-red-50/70 border-b border-red-100 flex items-center justify-between">
+      <span class="text-xs text-brand-red font-semibold flex items-center gap-1.5">
+        <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+        Hotline 24/7:
+      </span>
+      <a href={`tel:${settings.hotline}`} class="text-xs font-bold text-brand-red hover:underline">
+        {settings.hotlineDisplay}
+      </a>
+    </div>
+
+    <!-- Scrollable Navigation Links -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-1 text-sm">
+      <a
+        href="/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname === '/' ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Trang Chủ</span>
+      </a>
+
+      <a
+        href="/gioi-thieu/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname.startsWith('/gioi-thieu') ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Giới Thiệu</span>
+      </a>
+
+      <!-- Services Accordion -->
+      <details class="group/serv rounded-xl">
+        <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer select-none list-none">
+          <span>Dịch Vụ Thu Mua</span>
+          <svg class="w-4 h-4 text-slate-400 group-open/serv:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="pl-4 pr-1 py-1 space-y-1 border-l-2 border-slate-100 ml-3 mt-1">
+          {
+            services.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-medium transition-colors',
+                  pathname.startsWith(item.href) ? 'text-brand-red font-bold bg-red-50/50' : 'text-slate-600 hover:text-brand-red hover:bg-slate-50',
+                ]}
+              >
+                <span>{item.label}</span>
+                {item.badge && <Badge variant="primary" size="sm">{item.badge}</Badge>}
+              </a>
+            ))
+          }
+        </div>
+      </details>
+
+      <!-- Area Accordion -->
+      <details class="group/area rounded-xl">
+        <summary class="flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold text-slate-700 hover:bg-slate-50 cursor-pointer select-none list-none">
+          <span>Khu Vực Thu Mua</span>
+          <svg class="w-4 h-4 text-slate-400 group-open/area:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="pl-4 pr-1 py-1 space-y-1 border-l-2 border-slate-100 ml-3 mt-1">
+          {
+            areas.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'flex items-center justify-between px-2.5 py-2 rounded-lg text-xs font-medium transition-colors',
+                  pathname.startsWith(item.href) ? 'text-brand-red font-bold bg-red-50/50' : 'text-slate-600 hover:text-brand-red hover:bg-slate-50',
+                ]}
+              >
+                <span>{item.label}</span>
+                {item.badge && <Badge variant="gold" size="sm">{item.badge}</Badge>}
+              </a>
+            ))
+          }
+        </div>
+      </details>
+
+      <a
+        href="/bang-gia/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname.startsWith('/bang-gia') ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Bảng Giá Phế Liệu</span>
+        <Badge variant="danger" size="sm" dot>MỚI</Badge>
+      </a>
+
+      <a
+        href="/quy-trinh/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname.startsWith('/quy-trinh') ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Quy Trình Thu Mua</span>
+      </a>
+
+      <a
+        href="/tin-tuc/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname.startsWith('/tin-tuc') ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Tin Tức & Kinh Nghiệm</span>
+      </a>
+
+      <a
+        href="/lien-he/"
+        class:list={[
+          'flex items-center justify-between px-3 py-2.5 rounded-xl font-semibold transition-colors',
+          pathname.startsWith('/lien-he') ? 'bg-red-50 text-brand-red' : 'text-slate-700 hover:bg-slate-50',
+        ]}
+      >
+        <span>Liên Hệ Trực Tiếp</span>
+      </a>
+    </div>
+
+    <!-- Drawer Footer Actions -->
+    <div class="p-4 border-t border-slate-100 bg-slate-50/90 space-y-2.5">
+      <Button
+        href={`tel:${settings.hotline}`}
+        variant="phone"
+        fullWidth
+        size="md"
+      >
+        <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+        </svg>
+        <span>Gọi: {settings.hotlineDisplay}</span>
+      </Button>
+
+      <Button
+        href={settings.zaloLink}
+        target="_blank"
+        variant="zalo"
+        fullWidth
+        size="md"
+      >
+        <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span>Gửi Ảnh Cáp Báo Giá Zalo</span>
+      </Button>
+
+      <div class="text-[11px] text-slate-500 text-center pt-1 leading-tight">
+        📍 {settings.address}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function setupDrawer() {
+    const trigger = document.getElementById('mobile-menu-trigger');
+    const drawer = document.getElementById('mobile-drawer');
+    const backdrop = document.getElementById('mobile-drawer-backdrop');
+    const panel = document.getElementById('mobile-drawer-panel');
+    const closeBtn = document.getElementById('mobile-drawer-close');
+
+    if (!drawer || !backdrop || !panel) return;
+
+    function openDrawer() {
+      drawer.classList.remove('pointer-events-none');
+      backdrop.classList.remove('opacity-0');
+      backdrop.classList.add('opacity-100');
+      panel.classList.remove('translate-x-full');
+      panel.classList.add('translate-x-0');
+      document.body.style.overflow = 'hidden';
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeDrawer() {
+      backdrop.classList.remove('opacity-100');
+      backdrop.classList.add('opacity-0');
+      panel.classList.remove('translate-x-0');
+      panel.classList.add('translate-x-full');
+      drawer.classList.add('pointer-events-none');
+      document.body.style.overflow = '';
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    }
+
+    trigger?.addEventListener('click', openDrawer);
+    closeBtn?.addEventListener('click', closeDrawer);
+    backdrop?.addEventListener('click', closeDrawer);
+
+    // Close on link click inside drawer
+    drawer.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    // Close on ESC key
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !drawer.classList.contains('pointer-events-none')) {
+        closeDrawer();
+      }
+    });
+  }
+
+  // Setup on initial load & Astro page swap
+  setupDrawer();
+  document.addEventListener('astro:page-load', setupDrawer);
+</script>

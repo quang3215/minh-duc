@@ -1,0 +1,63 @@
+---
+export interface Props {
+  as?: string;
+  variant?: 'default' | 'elevated' | 'bordered' | 'glass' | 'interactive' | 'gradient';
+  padding?: 'none' | 'sm' | 'md' | 'lg' | 'xl';
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  as = 'div',
+  variant = 'default',
+  padding = 'md',
+  href,
+  target,
+  rel,
+  class: className = '',
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : as;
+
+const variantClasses: Record<string, string> = {
+  default: 'bg-white rounded-2xl border border-slate-200/80 shadow-soft-sm',
+  elevated: 'bg-white rounded-2xl border border-slate-100 shadow-soft-md hover:shadow-soft-lg transition-all duration-300',
+  bordered: 'bg-white rounded-2xl border-2 border-slate-200',
+  glass: 'bg-white/80 backdrop-blur-md rounded-2xl border border-white/60 shadow-soft-md',
+  interactive:
+    'bg-white rounded-2xl border border-slate-200/80 shadow-soft-sm hover:shadow-soft-lg hover:-translate-y-1 hover:border-brand-red/30 transition-all duration-300 group block',
+  gradient:
+    'bg-gradient-to-br from-white via-slate-50 to-red-50/20 rounded-2xl border border-slate-200/80 shadow-soft-sm',
+};
+
+const paddingClasses: Record<string, string> = {
+  none: '',
+  sm: 'p-3 sm:p-4',
+  md: 'p-5 sm:p-6',
+  lg: 'p-6 sm:p-8',
+  xl: 'p-8 sm:p-10',
+};
+
+const selectedVariant = variantClasses[variant] || variantClasses.default;
+const selectedPadding = paddingClasses[padding] || paddingClasses.md;
+const computedRel = rel ?? (target === '_blank' ? 'noopener noreferrer' : undefined);
+---
+
+<Tag
+  href={href}
+  target={target}
+  rel={computedRel}
+  class:list={[
+    'overflow-hidden',
+    selectedVariant,
+    selectedPadding,
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</Tag>
