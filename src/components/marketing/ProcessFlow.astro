@@ -1,0 +1,159 @@
+---
+import settings from '../../data/settings.json';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+export interface Props {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  badge = 'QUY TRÌNH TINH GỌN',
+  title = 'Quy Trình Thu Mua Cáp Đồng & Phế Liệu 4 Bước',
+  subtitle = 'Đơn giản, chuyên nghiệp và minh bạch tuyệt đối. Giúp bạn giải phóng kho bãi và thu hồi vốn chỉ trong 30 phút.',
+  class: className = '',
+} = Astro.props;
+
+const steps = [
+  {
+    step: '01',
+    time: '5 Phút',
+    title: 'Tiếp Nhận & Báo Giá Sơ Bộ',
+    desc: 'Quý khách gọi Hotline 0936.350.118 hoặc gửi hình ảnh, số lượng cáp qua Zalo. Nhân viên tư vấn ước tính giá sơ bộ ngay lập tức.',
+    icon: '📱',
+    badgeVariant: 'primary' as const,
+  },
+  {
+    step: '02',
+    time: '15 – 30 Phút',
+    title: 'Khảo Sát & Chốt Giá Tận Nơi',
+    desc: 'Chuyên viên thẩm định đến trực tiếp công trình/nhà xưởng để kiểm tra chất lượng đồng, đo đạc khối lượng và chốt giá cao nhất.',
+    icon: '🔍',
+    badgeVariant: 'gold' as const,
+  },
+  {
+    step: '03',
+    time: 'Trong Ngày',
+    title: 'Xe Cẩu Bốc Xếp & Vận Chuyển',
+    desc: 'Đội xe tải và nhân công tiến hành thu gom, bốc xếp nhanh gọn, an toàn. Quét dọn, vệ sinh trả lại mặt bằng thông thoáng.',
+    icon: '🚛',
+    badgeVariant: 'info' as const,
+  },
+  {
+    step: '04',
+    time: 'Tức Thì',
+    title: 'Cân Đo & Thanh Toán 100%',
+    desc: 'Cân điện tử chuẩn xác có tem kiểm định. Thanh toán 100% bằng tiền mặt hoặc chuyển khoản ngân hàng ngay tại chỗ.',
+    icon: '💵',
+    badgeVariant: 'success' as const,
+  },
+];
+---
+
+<section class:list={['py-16 lg:py-24 bg-slate-900 text-white relative overflow-hidden', className]}>
+  <!-- Background Glow & Pattern -->
+  <div class="absolute -top-24 right-1/3 w-96 h-96 bg-brand-red/15 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute -bottom-24 left-1/3 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(#ffffff0a_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-14 lg:mb-20">
+      <Badge variant="gold" size="md" pulsingDot class="mb-3 bg-amber-400/10 text-amber-300 border-amber-400/30">
+        {badge}
+      </Badge>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+        {title}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- 4-Step Process Grid with Connecting Line -->
+    <div class="relative">
+      
+      <!-- Desktop Connecting Line (Behind Cards) -->
+      <div class="hidden lg:block absolute top-1/2 left-12 right-12 h-0.5 bg-gradient-to-r from-brand-red via-amber-500 to-emerald-500 -translate-y-12 z-0 opacity-40"></div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6 relative z-10">
+        {steps.map((item, idx) => (
+          <div class="bg-slate-800/80 hover:bg-slate-800 transition-all duration-300 border border-slate-700/80 hover:border-brand-red/50 rounded-2xl p-6 flex flex-col justify-between group shadow-soft-md hover:shadow-soft-lg hover:-translate-y-1">
+            <div>
+              <!-- Top Step & Time Badge Row -->
+              <div class="flex items-center justify-between mb-5">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-red to-brand-red-dark text-white font-black text-xl flex items-center justify-center shadow-glow-red group-hover:scale-110 transition-transform">
+                  {item.step}
+                </div>
+                <Badge variant={item.badgeVariant} size="sm">
+                  {item.time}
+                </Badge>
+              </div>
+
+              <!-- Step Icon & Title -->
+              <div class="text-2xl mb-3">{item.icon}</div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-400 transition-colors leading-snug">
+                {item.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="mt-2.5 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+
+            <!-- Step Sequence Indicator -->
+            <div class="mt-6 pt-4 border-t border-slate-700/60 flex items-center justify-between text-xs text-slate-400 font-medium">
+              <span>Bước {idx + 1} / 4</span>
+              <span class="text-amber-400 font-bold group-hover:translate-x-1 transition-transform">
+                Tiếp tục →
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Bottom Action CTA Banner -->
+    <div class="mt-14 bg-gradient-to-r from-brand-red/90 via-red-900 to-slate-900 rounded-2xl p-6 sm:p-8 border border-red-500/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-glow-red">
+      <div class="text-center sm:text-left">
+        <h4 class="text-lg sm:text-xl font-extrabold text-white">
+          Sẵn Sàng Bán Cáp Đồng & Giải Phóng Kho Bãi?
+        </h4>
+        <p class="mt-1 text-xs sm:text-sm text-slate-200">
+          Gọi ngay Hotline hoặc gửi ảnh qua Zalo để nhân viên có mặt khảo sát trong 15 phút!
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3 shrink-0 w-full sm:w-auto">
+        <Button
+          href={`tel:${settings.hotline}`}
+          variant="gold"
+          size="md"
+          class="w-full sm:w-auto font-black shadow-glow-gold"
+        >
+          <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>GỌI {settings.hotlineDisplay}</span>
+        </Button>
+
+        <Button
+          href={settings.zaloLink}
+          target="_blank"
+          variant="white"
+          size="md"
+          class="w-full sm:w-auto font-bold"
+        >
+          <span>Chat Zalo Báo Giá</span>
+        </Button>
+      </div>
+    </div>
+
+  </div>
+</section>

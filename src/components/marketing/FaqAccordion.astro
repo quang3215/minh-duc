@@ -1,0 +1,160 @@
+---
+import settings from '../../data/settings.json';
+import Badge from '../ui/Badge.astro';
+import Button from '../ui/Button.astro';
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+  items?: FaqItem[];
+  id?: string;
+  class?: string;
+}
+
+const defaultFaqs: FaqItem[] = [
+  {
+    question: 'Công ty Đức Minh thu mua cáp đồng và phế liệu ở những khu vực nào?',
+    answer:
+      'Đức Minh thu mua tận nơi 24/7 tại toàn bộ các quận huyện thuộc TP. Hồ Chí Minh và các tỉnh thành lân cận như Bình Dương, Đồng Nai, Long An, Bà Rịa – Vũng Tàu, Tây Ninh. Đối với các dự án lớn, nhà máy, công trình điện mặt trời hoặc kho xưởng giải thể, chúng tôi điều động đội xe cẩu đến thu mua trên TOÀN QUỐC không giới hạn số lượng.',
+  },
+  {
+    question: 'Giá thu mua cáp đồng hôm nay là bao nhiêu 1kg?',
+    answer:
+      'Giá thu mua cáp đồng phế liệu dao động từ 225.000 – 350.000 đ/kg tùy thuộc vào chủng loại (đồng cáp loại 1 Cadivi/trung thế, đồng đỏ nguyên chất loại 2, đồng vàng/thau loại 3 hay đồng cháy). Để nhận báo giá chính xác nhất theo từng lô hàng, quý khách hãy gọi ngay Hotline 0936.350.118 hoặc gửi ảnh qua Zalo để được định giá trong 5 phút.',
+  },
+  {
+    question: 'Đức Minh có thu mua số lượng ít từ cá nhân hay chỉ nhận dự án lớn?',
+    answer:
+      'Chúng tôi phục vụ tất cả khách hàng, thu mua mọi khối lượng từ vài chục kilogam của hộ gia đình, thợ điện cho đến hàng chục tấn từ các công trình xây dựng, nhà máy sản xuất. Lô hàng càng lớn thì đơn giá càng ưu đãi và mức chiết khấu càng cao.',
+  },
+  {
+    question: 'Chi phí bốc xếp, tháo dỡ và xe cẩu vận chuyển được tính như thế nào?',
+    answer:
+      'Chi phí tháo dỡ, bốc xếp và xe cẩu vận chuyển tại Đức Minh hoàn toàn MIỄN PHÍ 100%. Khách hàng không phải bỏ ra bất kỳ chi phí phát sinh nào. Sau khi bốc hàng xong, đội ngũ nhân công sẽ quét dọn vệ sinh trả lại mặt bằng sạch sẽ, thông thoáng cho quý khách.',
+  },
+  {
+    question: 'Hình thức và thời gian thanh toán sau khi cân hàng ra sao?',
+    answer:
+      'Đức Minh cam kết thanh toán 100% tiền hàng một lần duy nhất ngay tại chỗ sau khi hoàn tất cân đo. Quý khách có thể lựa chọn nhận tiền mặt trực tiếp hoặc chuyển khoản ngân hàng qua Internet Banking theo yêu cầu.',
+  },
+  {
+    question: 'Chính sách chiết khấu hoa hồng cho người giới thiệu nguồn hàng thế nào?',
+    answer:
+      'Chúng tôi luôn trích mức hoa hồng cao nhất thị trường cho anh em kỹ sư, ban quản lý dự án, thủ kho, tài xế hoặc bất kỳ ai giới thiệu nguồn phế liệu cáp đồng, nhà xưởng thanh lý. Hoa hồng được chi trả liền tay ngay sau khi giao dịch thành công và cam kết BẢO MẬT TUYỆT ĐỐI thông tin người giới thiệu.',
+  },
+  {
+    question: 'Đức Minh có thu mua pin năng lượng mặt trời và thiết bị điện cũ hỏng không?',
+    answer:
+      'Có. Đức Minh là một trong những đơn vị tiên phong thu mua trọn gói vật tư điện mặt trời (tấm pin solar mono/poly cũ hỏng, tồn kho, vỡ kính), biến tần (inverter), dây cáp DC solar, khung giàn nhôm, tủ điện công nghiệp, động cơ motor 3 pha và máy biến áp thanh lý với giá cao nhất thị trường.',
+  },
+  {
+    question: 'Quy trình thu mua tận nơi diễn ra trong bao lâu?',
+    answer:
+      'Rất nhanh chóng! Sau khi tiếp nhận thông tin qua Hotline/Zalo, nhân viên khảo sát sẽ có mặt tại địa điểm sau 15 – 30 phút (khu vực TP.HCM, Bình Dương, Đồng Nai). Toàn bộ quá trình định giá, ký hợp đồng, bốc xếp và thanh toán có thể hoàn tất ngay trong ngày.',
+  },
+];
+
+const {
+  badge = 'GIẢI ĐÁP THẮC MẮC',
+  title = 'Câu Hỏi Thường Gặp Khi Bán Cáp Đồng & Phế Liệu',
+  subtitle = 'Tổng hợp những câu hỏi khách hàng thường quan tâm nhất khi liên hệ thanh lý cáp đồng, pin solar và thiết bị điện tại Đức Minh.',
+  items = defaultFaqs,
+  id = 'faq',
+  class: className = '',
+} = Astro.props;
+---
+
+<section id={id} class:list={['py-16 lg:py-24 bg-white relative', className]}>
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+      <Badge variant="primary" size="md" dot class="mb-3">
+        {badge}
+      </Badge>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        {title}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        {subtitle}
+      </p>
+    </div>
+
+    <!-- Zero-JS Semantic Details & Summary Accordion List -->
+    <div class="space-y-4">
+      {items.map((item, index) => (
+        <details
+          class="group rounded-2xl border border-slate-200/90 bg-slate-50/50 hover:bg-slate-50 transition-colors shadow-soft-sm overflow-hidden"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between gap-4 p-5 sm:p-6 cursor-pointer font-bold text-slate-900 text-base sm:text-lg select-none list-none group-open:text-brand-red transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-red rounded-2xl">
+            <span class="flex items-center gap-3">
+              <span class="flex items-center justify-center w-7 h-7 rounded-xl bg-red-100/80 text-brand-red text-xs font-black shrink-0">
+                Q{index + 1}
+              </span>
+              <span>{item.question}</span>
+            </span>
+
+            <!-- Pure CSS Rotating Chevron Icon -->
+            <span class="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-500 group-open:rotate-180 group-open:bg-brand-red group-open:text-white group-open:border-brand-red transition-all duration-200 shrink-0">
+              <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </span>
+          </summary>
+
+          <!-- Accordion Content Body -->
+          <div class="px-5 pb-6 pt-1 sm:px-6 sm:pb-6 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-200/50 mt-1">
+            <p>{item.answer}</p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Bottom Help CTA Card -->
+    <div class="mt-12 bg-gradient-to-br from-slate-900 to-slate-950 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6 shadow-soft-lg">
+      <div class="text-center md:text-left">
+        <h3 class="text-lg sm:text-xl font-bold text-white">
+          Bạn Vẫn Còn Câu Hỏi Cần Giải Đáp?
+        </h3>
+        <p class="mt-1 text-xs sm:text-sm text-slate-300">
+          Đừng ngần ngại, liên hệ trực tiếp chuyên viên tư vấn 24/7 để được giải đáp và hỗ trợ báo giá miễn phí!
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 shrink-0 w-full md:w-auto">
+        <Button
+          href={`tel:${settings.hotline}`}
+          variant="phone"
+          size="md"
+          class="flex-1 md:flex-initial font-bold"
+        >
+          <svg slot="icon-left" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>Hotline: {settings.hotlineDisplay}</span>
+        </Button>
+
+        <Button
+          href={settings.zaloLink}
+          target="_blank"
+          variant="zalo"
+          size="md"
+          class="flex-1 md:flex-initial font-bold"
+        >
+          <span slot="icon-left" class="w-4 h-4 rounded-full bg-white text-brand-zalo flex items-center justify-center text-[10px] font-black">
+            Z
+          </span>
+          <span>Hỏi Qua Zalo</span>
+        </Button>
+      </div>
+    </div>
+
+  </div>
+</section>

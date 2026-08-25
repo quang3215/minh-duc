@@ -1,0 +1,226 @@
+---
+import Badge from '../ui/Badge.astro';
+import Card from '../ui/Card.astro';
+
+export interface Props {
+  badge?: string;
+  title?: string;
+  subtitle?: string;
+  class?: string;
+}
+
+const {
+  badge = 'UY TÍN ĐÃ ĐƯỢC KHẲNG ĐỊNH',
+  title = 'Đánh Giá Của Đối Tác & Hình Ảnh Thực Tế',
+  subtitle = 'Hơn 1.250+ kỹ sư cơ điện, nhà thầu xây dựng và ban quản trị nhà xưởng trên khắp cả nước đã tin tưởng lựa chọn Đức Minh.',
+  class: className = '',
+} = Astro.props;
+
+const testimonials = [
+  {
+    author: 'Anh Nguyễn Văn Hùng',
+    role: 'Giám Đốc Kỹ Thuật • Công Ty Cơ Điện MEP',
+    location: 'Quận 9, TP. Hồ Chí Minh',
+    rating: 5,
+    avatar: 'H',
+    avatarBg: 'bg-red-500',
+    title: 'Thanh lý 8 tấn cáp điện 3 pha công trình cực kỳ nhanh gọn',
+    content:
+      'Dự án hoàn thiện cần giải phóng nhanh kho bãi. Đức Minh điều xe cẩu đến trong buổi sáng, cân điện tử kiểm định rất rõ ràng và chuyển khoản thanh toán 100% ngay tại chỗ. Rất chuyên nghiệp và sòng phẳng.',
+    date: '2 tuần trước',
+  },
+  {
+    author: 'Anh Trần Đình Nam',
+    role: 'Nhà Thầu Thi Công Điện Năng Lượng Mặt Trời',
+    location: 'TP. Thủ Dầu Một, Bình Dương',
+    rating: 5,
+    avatar: 'N',
+    avatarBg: 'bg-amber-500',
+    title: 'Giá thu mua pin solar và dây DC solar cao hơn hẳn nơi khác',
+    content:
+      'Tôi thường xuyên có các lô pin mặt trời lỗi/thay mới và dây cáp DC solar thanh lý. Đức Minh định giá theo công suất và độ tinh khiết rất sát giá, không ép giá như các cơ sở nhỏ lẻ.',
+    date: '1 tháng trước',
+  },
+  {
+    author: 'Chị Lê Thị Mai',
+    role: 'Quản Lý Kho Xưởng • KCN Biên Hòa 2',
+    location: 'Biên Hòa, Đồng Nai',
+    rating: 5,
+    avatar: 'M',
+    avatarBg: 'bg-blue-500',
+    title: 'Bốc xếp sạch sẽ, hoa hồng giới thiệu thanh toán tức thì',
+    content:
+      'Điều tôi hài lòng nhất là đội ngũ nhân công bốc dọn rất an toàn, quét dọn mặt bằng sạch bóng trước khi bàn giao. Chính sách hoa hồng người giới thiệu cực kỳ uy tín và bảo mật thông tin.',
+    date: '3 tuần trước',
+  },
+  {
+    author: 'Bác Hoàng Minh Tuấn',
+    role: 'Đội Trưởng Tháo Dỡ Nhà Xưởng & Kết Cấu Thép',
+    location: 'Bến Lức, Long An',
+    rating: 5,
+    avatar: 'T',
+    avatarBg: 'bg-emerald-500',
+    title: 'Đo lường chuẩn xác, định giá ruột đồng Cadivi rất chuẩn',
+    content:
+      'Tôi làm nghề tháo dỡ hơn 15 năm nay, cáp đồng Cadivi cũ ở đây được tính đúng tỷ lệ ruột đồng nguyên chất. Đội xe tải lớn vào tận xưởng bốc hàng không ngại đường xa.',
+    date: '1 tháng trước',
+  },
+];
+
+const galleryImages = [
+  {
+    src: '/img/hinh-anh-thuc-te/anh-01.webp',
+    alt: 'Thu gom cáp đồng tại công trình xây dựng thực tế - Đức Minh',
+    tag: 'Thu Gom Công Trình',
+  },
+  {
+    src: '/img/hinh-anh-thuc-te/anh-02.webp',
+    alt: 'Đội xe cẩu vận chuyển phế liệu cáp đồng nhanh gọn - Đức Minh',
+    tag: 'Vận Chuyển Xe Cẩu',
+  },
+  {
+    src: '/img/hinh-anh-thuc-te/anh-03.webp',
+    alt: 'Bốc xếp và cân điện tử cáp đồng tận nơi - Đức Minh',
+    tag: 'Bốc Xếp Cáp Đồng',
+  },
+  {
+    src: '/img/hinh-anh-thuc-te/anh-04.webp',
+    alt: 'Thu mua thanh lý phế liệu hệ thống điện nhà xưởng - Đức Minh',
+    tag: 'Thu Mua Nhà Xưởng',
+  },
+  {
+    src: '/img/hinh-anh-thuc-te/anh-05.webp',
+    alt: 'Phân loại và thẩm định phế liệu kim loại màu - Đức Minh',
+    tag: 'Phân Loại Kim Loại',
+  },
+  {
+    src: '/img/hinh-anh-thuc-te/anh-06.webp',
+    alt: 'Thu gom vật tư và tấm pin năng lượng mặt trời cũ - Đức Minh',
+    tag: 'Thu Gom Pin Solar',
+  },
+];
+---
+
+<section class:list={['py-16 lg:py-24 bg-slate-50 relative', className]}>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12 lg:mb-16">
+      <Badge variant="gold" size="md" dot class="mb-3">
+        {badge}
+      </Badge>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight">
+        {title}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
+        {subtitle}
+      </p>
+
+      <!-- Overall Trust Summary Bar -->
+      <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-4 bg-white border border-slate-200/90 rounded-2xl px-6 py-3 shadow-soft-sm">
+        <div class="flex items-center gap-1.5">
+          <div class="flex text-amber-400 text-base">
+            <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+          </div>
+          <span class="text-sm font-extrabold text-slate-900">4.9 / 5.0</span>
+        </div>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs sm:text-sm font-semibold text-slate-700">
+          <strong class="text-brand-red font-bold">1.250+</strong> Giao Dịch Thành Công
+        </span>
+        <span class="text-slate-300">|</span>
+        <span class="text-xs sm:text-sm font-semibold text-emerald-700 flex items-center gap-1">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          99.8% Hài Lòng
+        </span>
+      </div>
+    </div>
+
+    <!-- Testimonial Cards Grid (2 cols) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-16">
+      {testimonials.map((review) => (
+        <Card
+          variant="elevated"
+          padding="lg"
+          class="h-full flex flex-col justify-between border border-slate-200/80 hover:border-brand-red/30 transition-all duration-300 group"
+        >
+          <div>
+            <!-- Stars & Verified Badge -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <div class="flex text-amber-400 text-sm tracking-tight" aria-label={`Đánh giá ${review.rating} sao`}>
+                {Array.from({ length: review.rating }).map(() => (
+                  <span>★</span>
+                ))}
+              </div>
+              <span class="text-[11px] text-slate-400 font-medium">
+                {review.date}
+              </span>
+            </div>
+
+            <!-- Review Title -->
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors leading-snug">
+              "{review.title}"
+            </h3>
+
+            <!-- Review Content -->
+            <p class="mt-3 text-xs sm:text-sm text-slate-600 leading-relaxed italic">
+              "{review.content}"
+            </p>
+          </div>
+
+          <!-- Author Info Footer -->
+          <div class="mt-6 pt-4 border-t border-slate-100 flex items-center gap-3">
+            <div class:list={['w-10 h-10 rounded-full text-white font-bold flex items-center justify-center text-sm shadow-soft-sm', review.avatarBg]}>
+              {review.avatar}
+            </div>
+            <div>
+              <p class="text-sm font-bold text-slate-900 leading-tight">
+                {review.author}
+              </p>
+              <p class="text-xs text-slate-500 font-medium mt-0.5">
+                {review.role} • <span class="text-slate-600 font-semibold">{review.location}</span>
+              </p>
+            </div>
+          </div>
+        </Card>
+      ))}
+    </div>
+
+    <!-- Part B: Real Project Photo Showcase (6-grid) -->
+    <div class="mt-16 pt-12 border-t border-slate-200">
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <h3 class="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight">
+          Hình Ảnh Hoạt Động Thu Mua & Bốc Xếp Thực Tế
+        </h3>
+        <p class="mt-2 text-xs sm:text-sm text-slate-600">
+          Minh chứng sống động cho năng lực phương tiện và uy tín phục vụ của Đức Minh tại các dự án.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+        {galleryImages.map((img) => (
+          <div class="group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-200/90 shadow-soft-sm hover:shadow-soft-lg transition-all duration-300 aspect-[4/3]">
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="800"
+              height="600"
+              loading="lazy"
+              class="w-full h-full object-cover transform group-hover:scale-108 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+              <span class="text-xs font-bold text-white drop-shadow-sm line-clamp-1">
+                {img.tag}
+              </span>
+              <span class="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm text-white flex items-center justify-center text-xs group-hover:bg-brand-red transition-colors">
+                🔍
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
