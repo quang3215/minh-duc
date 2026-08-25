@@ -1,293 +1,317 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const schema = JSON.stringify([{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Thu Mua Phế Liệu Công Nghiệp",
-        "name": "Dịch Vụ Thu Mua Phế Liệu Công Nghiệp Giá Cao (Sắt Thép, Đồng, Nhôm, Inox)",
-        "description": "Dịch vụ thu mua phế liệu công nghiệp giá cao, bao gồm sắt thép, đồng, nhôm, inox, máy móc cũ và Thu mua nhà xưởng trọn gói.",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-          "url": "https://thumuacapdonggiacao.com/",
-          "telephone": "+84936350118",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "14 ấp 2, Đông Thạnh",
-            "addressLocality": "Hóc Môn",
-            "addressRegion": "TP. HCM",
-            "addressCountry": "VN"
-          }
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Vietnam"
-        },
-        "mainEntity": {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Công ty có nhận Thu mua toàn bộ nhà xưởng không?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Đối với lô hàng lớn, phương thức thanh toán như thế nào?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ theo yêu cầu của doanh nghiệp."
-              }
-            }
-          ]
-        }
-      },{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Trang Chủ",
-            "item": "https://thumuacapdonggiacao.com/"
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import FaqAccordion from '../../components/marketing/FaqAccordion.astro';
+import settings from '../../data/settings.json';
+
+const schema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Thu Mua Phế Liệu Công Nghiệp',
+    name: 'Dịch Vụ Thu Mua Phế Liệu Công Nghiệp Giá Cao (Sắt Thép, Đồng, Nhôm, Inox)',
+    description:
+      'Dịch vụ thu mua phế liệu công nghiệp giá cao, bao gồm sắt thép, đồng, nhôm, inox, máy móc cũ và thanh lý nhà xưởng trọn gói.',
+    provider: {
+      '@type': 'LocalBusiness',
+      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
+      url: 'https://thumuacapdonggiacao.com/',
+      telephone: '+84936350118',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '14 ấp 2, Đông Thạnh',
+        addressLocality: 'Hóc Môn',
+        addressRegion: 'TP. HCM',
+        addressCountry: 'VN',
+      },
+    },
+    areaServed: {
+      '@type': 'Country',
+      name: 'Vietnam',
+    },
+    mainEntity: {
+      '@type': 'FAQPage',
+      mainEntity: [
+        {
+          '@type': 'Question',
+          name: 'Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông.',
           },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Dịch Vụ",
-            "item": "https://thumuacapdonggiacao.com/dich-vu/"
+        },
+        {
+          '@type': 'Question',
+          name: 'Công ty có nhận thu mua toàn bộ nhà xưởng không?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng.',
           },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Thu Mua Phế Liệu Công Nghiệp"
-          }
-        ]
-      }]);
+        },
+        {
+          '@type': 'Question',
+          name: 'Đối với lô hàng lớn, phương thức thanh toán như thế nào?',
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: 'Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ theo yêu cầu của doanh nghiệp.',
+          },
+        },
+      ],
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Trang Chủ',
+        item: 'https://thumuacapdonggiacao.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Dịch Vụ',
+        item: 'https://thumuacapdonggiacao.com/dich-vu/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Thu Mua Phế Liệu Công Nghiệp',
+      },
+    ],
+  },
+]);
+
+const industrialTypes = [
+  {
+    title: 'Phế Liệu Sắt Thép Công Trình',
+    desc: 'Sắt cây xây dựng, thép tấm, xà gồ, dầm thép I, H, U, V, sắt vụn xưởng cơ khí.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp',
+  },
+  {
+    title: 'Phế Liệu Đồng (Cáp, Đỏ, Vàng)',
+    desc: 'Cáp điện lực 3 pha, đồng đỏ mô tơ, đồng vàng ống xả, mạt đồng tiện phay.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp',
+  },
+  {
+    title: 'Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)',
+    desc: 'Nhôm thanh đà, cửa nhôm kính thanh lý, mạt nhôm máy phay CNC, nhôm khối.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp',
+  },
+  {
+    title: 'Phế Liệu Inox (304, 201, 430)',
+    desc: 'Bồn bể công nghiệp, thiết bị bếp, ống hộp inox, ba zớ phế phẩm xí nghiệp.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp',
+  },
+  {
+    title: 'Hợp Kim, Gang, Thiếc, Kẽm',
+    desc: 'Mũi khoan carbic, dao tiện hợp kim, chì bình ắc quy, gang xám công nghiệp.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp',
+  },
+  {
+    title: 'Phế Liệu Từ Máy Móc & Nhà Xưởng',
+    desc: 'Thanh lý trọn gói xác nhà xưởng, máy phát điện cũ, máy dập cơ khí, băng chuyền.',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp',
+  },
+];
+
+const faqs = [
+  {
+    question: 'Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?',
+    answer:
+      'Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông.',
+  },
+  {
+    question: 'Công ty có nhận thu mua toàn bộ nhà xưởng không?',
+    answer:
+      'Có. Đây là một trong những thế mạnh hàng đầu của Đức Minh. Chúng tôi nhận thanh lý trọn gói xác nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi lo trọn gói từ tháo dỡ đến dọn dẹp mặt bằng.',
+  },
+  {
+    question: 'Đối với lô hàng lớn, phương thức thanh toán như thế nào?',
+    answer:
+      'Với các lô hàng giá trị lớn, chúng tôi thanh toán linh hoạt bằng chuyển khoản ngân hàng hoặc tiền mặt 100% ngay tại chỗ. Mọi giao dịch đều minh bạch, có đầy đủ hợp đồng và hóa đơn VAT theo yêu cầu của doanh nghiệp.',
+  },
+];
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="thu mua phế liệu công nghiệp, thanh lý nhà xưởng, thu mua sắt thép công trình, thu mua máy móc cũ"
   title="Thu Mua Phế Liệu Công Nghiệp Giá Cao | Sắt Thép, Đồng, Nhôm, Inox"
-  description="Công ty Đức Minh chuyên thu mua phế liệu công nghiệp số lượng lớn: Sắt thép, đồng, nhôm, inox, máy móc cũ. Đối tác Thu mua nhà xưởng, công trình uy tín. Báo giá cao, thu mua tận nơi toàn quốc."
+  description="Công ty Đức Minh chuyên thu mua phế liệu công nghiệp số lượng lớn: Sắt thép, đồng, nhôm, inox, máy móc cũ. Đối tác thu mua nhà xưởng, công trình uy tín. Báo giá cao, thu mua tận nơi toàn quốc."
   canonical="https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/"
   schema={schema}
 >
-<main>
-<section class="text-banner" style="
-          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
-          color: white; /* Giữ chữ màu trắng */
-        ">
-<div class="container">
-<h1 style="color: var(--primary-color)">
-            Thu Mua Phế Liệu Công Nghiệp Giá Cao Toàn Quốc
-          </h1>
-<p>
-            Đối tác tin cậy Thu mua nhà xưởng, công trình, nhà máy. Chuyên thu
-            mua sắt thép, đồng, nhôm, inox số lượng lớn.
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <a href="/dich-vu/" class="hover:text-brand-red transition-colors">Dịch Vụ</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Thu Mua Phế Liệu Công Nghiệp</span>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <Badge variant="gold" size="md" pulsingDot class="mb-4">NĂNG LỰC XỬ LÝ 500+ TẤN/THÁNG • TOÀN QUỐC</Badge>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+        Thu Mua Phế Liệu Công Nghiệp Giá Cao Toàn Quốc
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        Đối tác tin cậy thu mua thanh lý nhà xưởng, công trình, nhà máy sản xuất. Chuyên thu mua sắt thép, đồng, nhôm, inox, máy móc cũ số lượng lớn với giá cao nhất!
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
+          <span>GỌI BÁO GIÁ: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+          <span>Báo Giá Nhanh Qua Zalo</span>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Intro Section -->
+  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl overflow-hidden shadow-soft-lg border border-slate-200">
+            <img
+              src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"
+              alt="Thu mua phế liệu máy móc công nghiệp cũ"
+              width="600"
+              height="450"
+              loading="lazy"
+              class="w-full h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        <div class="lg:col-span-7">
+          <Badge variant="danger" size="md" class="mb-3">GIẢI PHÁP TOÀN DIỆN</Badge>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+            Giải Pháp Thanh Lý Phế Liệu Công Nghiệp Chuyên Nghiệp
+          </h2>
+          <p class="mt-4 text-slate-600 text-base leading-relaxed font-normal">
+            Phế liệu phát sinh từ hoạt động sản xuất, xây dựng hay phá dỡ công trình là nguồn tài nguyên có giá trị cao nhưng lại chiếm dụng diện tích kho bãi và tiềm ẩn nguy cơ mất an toàn. Việc xử lý các lô phế liệu số lượng lớn đòi hỏi một đối tác có đủ năng lực tài chính, phương tiện và sự chuyên nghiệp.
           </p>
-<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
-</div>
-</section>
-<div class="breadcrumb">
-<div class="container">
-<a href="/">Trang Chủ</a> » <a href="/dich-vu/">Dịch Vụ</a> »
-          <span>Thu Mua Phế Liệu Công Nghiệp</span>
-</div>
-</div>
-<section id="intro-scrap">
-<div class="container about-grid">
-<div class="about-image">
-<img alt="Thu mua phế liệu máy móc công nghiệp cũ" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"/>
-</div>
-<div class="about-text">
-<h2>Giải Pháp Thu mua Phế Liệu Công Nghiệp Toàn Diện</h2>
-<p>
-              Phế liệu phát sinh từ hoạt động sản xuất, xây dựng hay phá dỡ công
-              trình là nguồn tài nguyên có giá trị nhưng lại chiếm dụng không
-              gian, gây cản trở và tiềm ẩn nguy cơ mất an toàn lao động. Việc xử
-              lý các lô phế liệu số lượng lớn, đa dạng chủng loại đòi hỏi một
-              đối tác có đủ năng lực và sự chuyên nghiệp.
-            </p>
-<p>
-<b>Đức Minh chuyên cung cấp dịch vụ thu mua phế liệu công nghiệp
-                trọn gói,</b>
-              từ khảo sát, định giá, đến bốc xếp và vận chuyển. Chúng tôi giúp
-              doanh nghiệp biến phế liệu thành nguồn tài chính nhanh chóng, giải
-              phóng mặt bằng hiệu quả và đảm bảo quy trình diễn ra an toàn, minh
-              bạch.
-            </p>
-</div>
-</div>
-</section>
-<section id="why-us" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">
-            NĂNG LỰC XỬ LÝ PHẾ LIỆU CÔNG NGHIỆP CỦA ĐỨC MINH
-          </h2>
-<div class="features-grid">
-<div class="feature-item">
-<div class="icon">💰</div>
-<h3>Giá Luôn Tốt Nhất</h3>
-<p>
-                Cam kết <a href="/bang-gia/">giá thu mua phế liệu</a> luôn cao
-                hơn thị trường nhờ vào việc tối ưu hóa quy trình và mạng lưới
-                đối tác tái chế trực tiếp.
+          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
+            <strong class="text-slate-900">Đức Minh</strong> cung cấp dịch vụ thu mua phế liệu công nghiệp trọn gói từ khảo sát, phân loại, định giá đến bốc xếp và vận chuyển bằng xe cẩu chuyên dụng. Chúng tôi giúp doanh nghiệp giải phóng mặt bằng sạch sẽ và thu hồi dòng tiền mặt nhanh nhất.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Us Grid -->
+  <section class="py-16 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <Badge variant="primary" size="md" class="mb-3">NĂNG LỰC CỦA ĐỨC MINH</Badge>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Năng Lực Xử Lý Phế Liệu Công Nghiệp Hàng Đầu
+        </h2>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card variant="default" class="p-6">
+          <div class="text-3xl mb-2">💰</div>
+          <h3 class="font-bold text-slate-900 text-lg">Giá Luôn Tốt Nhất</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
+            Cam kết giá thu mua luôn cao hơn thị trường nhờ tối ưu quy trình và tái chế trực tiếp.
+          </p>
+        </Card>
+
+        <Card variant="default" class="p-6">
+          <div class="text-3xl mb-2">⚖️</div>
+          <h3 class="font-bold text-slate-900 text-lg">Cân Đo Minh Bạch</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
+            Sử dụng cân điện tử chính xác có kiểm định, quy trình cân đo công khai dưới sự giám sát.
+          </p>
+        </Card>
+
+        <Card variant="default" class="p-6">
+          <div class="text-3xl mb-2">🚚</div>
+          <h3 class="font-bold text-slate-900 text-lg">Vận Chuyển Nhanh</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
+            Đội xe tải đa dạng trọng tải và xe cẩu chuyên dụng sẵn sàng thu gom ngay trong ngày.
+          </p>
+        </Card>
+
+        <Card variant="default" class="p-6">
+          <div class="text-3xl mb-2">💵</div>
+          <h3 class="font-bold text-slate-900 text-lg">Thanh Toán 1 Lần</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
+            Thanh toán dứt điểm 100% bằng tiền mặt hoặc chuyển khoản ngay sau khi bốc xếp xong.
+          </p>
+        </Card>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Industrial Items Grid -->
+  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <Badge variant="gold" size="md" class="mb-3">DANH MỤC THU MUA</Badge>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
+          Các Loại Phế Liệu Công Nghiệp Đức Minh Thu Mua
+        </h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {industrialTypes.map((item) => (
+          <Card hover variant="default" class="p-0 overflow-hidden flex flex-col">
+            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
+              <img
+                src={item.image}
+                alt={item.title}
+                width="600"
+                height="375"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+            <div class="p-5 flex-1 flex flex-col">
+              <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-red transition-colors">
+                {item.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal flex-1">
+                {item.desc}
               </p>
-</div>
-<div class="feature-item">
-<div class="icon">⚖️</div>
-<h3>Cân Đo Minh Bạch</h3>
-<p>
-                Sử dụng hệ thống cân điện tử chính xác, quy trình cân đo được
-                thực hiện công khai dưới sự giám sát của khách hàng.
-              </p>
-</div>
-<div class="feature-item">
-<div class="icon">🚚</div>
-<h3>Vận Chuyển Nhanh Gọn</h3>
-<p>
-                Đội xe tải đa dạng trọng tải cùng đội ngũ nhân công bốc xếp
-                chuyên nghiệp, sẵn sàng thu gom ngay trong ngày.
-              </p>
-</div>
-<div class="feature-item">
-<div class="icon">💵</div>
-<h3>Thanh Toán 1 Lần</h3>
-<p>
-                Thanh toán dứt điểm 100% giá trị lô hàng bằng tiền mặt hoặc
-                chuyển khoản ngay sau khi quá trình bốc xếp hoàn tất.
-              </p>
-</div>
-</div>
-</div>
-</section>
-<section id="types-scrap">
-<div class="container">
-<h2 class="section-title">
-            CÁC LOẠI PHẾ LIỆU CÔNG NGHIỆP CHÚNG TÔI THU MUA
-          </h2>
-<div class="machines-grid">
-<div class="machine-item">
-<img alt="Thu mua phế liệu sắt thép công trình" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"/>
-<div class="caption">
-<span>Phế Liệu Sắt Thép Công Trình</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua phế liệu đồng giá cao" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"/>
-<div class="caption">
-<span>Phế Liệu Đồng (Cáp, Đỏ, Vàng)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua phế liệu nhôm các loại" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp"/>
-<div class="caption">
-<span>Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua phế liệu inox 304, 201" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp"/>
-<div class="caption">
-<span>Phế Liệu Inox (304, 201, 430)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Hợp Kim, Gang, Thiếc" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp"/>
-<div class="caption"><span>Hợp Kim, Gang, Thiếc</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua phế liệu máy móc cũ" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"/>
-<div class="caption"><span>Phế Liệu Từ Máy Móc Cũ</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="process" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">QUY TRÌNH THU MUA PHẾ LIỆU CÔNG NGHIỆP</h2>
-<div class="process-grid">
-<div class="process-item">
-<div class="step-number">1</div>
-<h3>Khảo Sát Tận Công Trình</h3>
-<p>
-                Ngay khi nhận được <a href="/lien-he/">yêu cầu</a>, nhân viên
-                của chúng tôi sẽ đến tận nơi để khảo sát, phân loại và đánh giá
-                chất lượng phế liệu.
-              </p>
-</div>
-<div class="process-item">
-<div class="step-number">2</div>
-<h3>Báo Giá &amp; Ký Hợp Đồng</h3>
-<p>
-                Chúng tôi sẽ báo giá chi tiết cho từng loại phế liệu và tiến
-                hành ký kết hợp đồng mua bán để đảm bảo quyền lợi cho cả hai
-                bên.
-              </p>
-</div>
-<div class="process-item">
-<div class="step-number">3</div>
-<h3>Thi Công Bốc Xếp</h3>
-<p>
-                Đội ngũ nhân công và xe chuyên dụng sẽ được điều động để tiến
-                hành bốc xếp, vận chuyển phế liệu một cách nhanh chóng, an toàn.
-              </p>
-</div>
-<div class="process-item">
-<div class="step-number">4</div>
-<h3>Nghiệm Thu &amp; Thanh Toán</h3>
-<p>
-                Sau khi toàn bộ phế liệu được đưa lên xe, chúng tôi tiến hành
-                nghiệm thu và thanh toán 100% giá trị hợp đồng ngay lập tức.
-              </p>
-</div>
-</div>
-</div>
-</section>
-<section id="faq-scrap">
-<div class="container">
-<h2 class="section-title">GIẢI ĐÁP VỀ DỊCH VỤ</h2>
-<div class="faq-item">
-<h3>
-              Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của
-              mình?
-            </h3>
-<p>
-              Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để
-              có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim
-              loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn
-              tạp chất như đất, cát, bê tông.
-            </p>
-</div>
-<div class="faq-item">
-<h3>Công ty có nhận Thu mua toàn bộ nhà xưởng không?</h3>
-<p>
-              Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận
-              Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ
-              thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo
-              liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng.
-            </p>
-</div>
-<div class="faq-item">
-<h3>Đối với lô hàng lớn, phương thức thanh toán như thế nào?</h3>
-<p>
-              Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình
-              thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao
-              dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ
-              theo yêu cầu của doanh nghiệp.
-            </p>
-</div>
-</div>
-</section>
-</main>
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <a href={settings.zaloLink} target="_blank" class="text-xs font-bold text-brand-zalo hover:underline">
+                  Báo giá Zalo →
+                </a>
+                <a href={`tel:${settings.hotline}`} class="text-xs font-bold text-brand-phone hover:underline">
+                  Gọi Hotline →
+                </a>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FAQs Accordion -->
+  <FaqAccordion
+    badge="HỎI ĐÁP PHẾ LIỆU CÔNG NGHIỆP"
+    title="Giải Đáp Về Dịch Vụ Thu Mua Phế Liệu Công Nghiệp"
+    subtitle="Những thắc mắc phổ biến của doanh nghiệp và ban quản lý công trình khi thanh lý phế liệu."
+    items={faqs}
+  />
 </BaseLayout>

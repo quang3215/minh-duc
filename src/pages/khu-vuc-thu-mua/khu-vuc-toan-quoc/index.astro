@@ -1,70 +1,126 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Badge from '../../../components/ui/Badge.astro';
+import Button from '../../../components/ui/Button.astro';
+import Card from '../../../components/ui/Card.astro';
+import settings from '../../../data/settings.json';
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Thu Mua Phế Liệu Giá Cao Toàn Quốc | Công Ty Đức Minh',
+  description: 'Công ty Đức Minh thu mua phế liệu giá cao toàn quốc: TP.HCM, Hà Nội, Đà Nẵng, Bình Dương, Đồng Nai và toàn bộ 63 tỉnh thành. Liên hệ 0936.350.118.',
+  url: 'https://thumuacapdonggiacao.com/khu-vuc-thu-mua/khu-vuc-toan-quoc/',
+});
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="thu mua cáp đồng toàn quốc, thu mua phế liệu toàn quốc, thanh lý nhà máy 63 tỉnh thành"
   title="Thu Mua Phế Liệu Giá Cao Toàn Quốc | Công Ty Đức Minh"
   description="Công ty Đức Minh thu mua phế liệu giá cao toàn quốc: TP.HCM, Hà Nội, Đà Nẵng, Bình Dương, Đồng Nai và toàn bộ 63 tỉnh thành. Liên hệ 0936.350.118."
   canonical="https://thumuacapdonggiacao.com/khu-vuc-thu-mua/khu-vuc-toan-quoc/"
+  schema={schema}
 >
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <span>Khu Vực Thu Mua</span>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Toàn Quốc</span>
+    </div>
+  </nav>
 
-<main class="article-page">
-<div class="container">
-<div class="breadcrumbs">
-<a href="/">Trang chủ</a> / <a href="#">Khu vực thu mua</a> /
-          <span>Toàn Quốc</span>
-</div>
-<article class="article-body">
-<div class="article-header">
-<h1>Công Ty Thu Mua Phế Liệu Giá Cao Toàn Quốc - Đức Minh</h1>
-<div class="article-meta">Đăng bởi: Admin | Cập nhật: Hôm nay</div>
-</div>
-<p>
-<strong>Công Ty Đức Minh</strong> tự hào là đơn vị thu mua phế liệu
-            quy mô lớn, hoạt động trên phạm vi <strong>TOÀN QUỐC</strong>. Với
-            hơn 10 năm kinh nghiệm, chúng tôi là đối tác tin cậy của hàng nghìn
-            doanh nghiệp, nhà xưởng từ Bắc vào Nam.
-          </p>
-<img alt="Thu mua phế liệu toàn quốc" class="article-main-image" loading="lazy" src="/img/hinh-anh-thuc-te/anh-01.webp"/>
-<h2>Tại Sao Chọn Đức Minh Là Đối Tác Toàn Quốc?</h2>
-<ul>
-<li>
-<strong>Mạng lưới rộng khắp:</strong> Có chi nhánh và đối tác thu
-              gom tại 63 tỉnh thành.
-            </li>
-<li>
-<strong>Hồ sơ năng lực mạnh:</strong> Đủ khả năng đấu thầu các dự
-              án thanh lý lớn, khu công nghiệp, nhà máy thủy điện, nhiệt điện.
-            </li>
-<li>
-<strong>Quy trình chuẩn hóa:</strong> Khảo sát -&gt; Báo giá -&gt; Hợp
-              đồng -&gt; Thu gom -&gt; Thanh toán -&gt; Hóa đơn chứng từ đầy đủ.
-            </li>
-<li>
-<strong>Giá cả thống nhất:</strong> Cam kết mức giá thu mua cao
-              nhất tại thời điểm giao dịch, không ép giá vùng miền.
-            </li>
-</ul>
-<h2>Các Loại Phế Liệu Thu Mua Số Lượng Lớn</h2>
-<p>
-            Chúng tôi nhận bao tiêu toàn bộ phế liệu đầu ra cho các doanh nghiệp
-            sản xuất:
-          </p>
-<ul>
-<li>Thu mua Đồng, Nhôm, Inox, Sắt Thép.</li>
-<li>Thu mua dây cáp điện, cáp viễn thông, cáp ngầm.</li>
-<li>Thu mua tấm pin năng lượng mặt trời cũ, hư hỏng.</li>
-<li>Thu mua máy móc, dây chuyền sản xuất cũ.</li>
-</ul>
-<div class="price-disclaimer">
-<h4>GỌI LÀ CÓ - THU MUA TẬN NƠI</h4>
-<p>
-              Dù bạn ở đâu, chỉ cần có nguồn hàng, Đức Minh sẽ có mặt để phục
-              vụ.
-            </p>
-<a class="btn" href="tel:0936350118">HOTLINE: 0936.350.118</a>
-</div>
-</article>
-</div>
-</main>
+  <!-- Hero Header -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <Badge variant="gold" size="md" pulsingDot class="mb-4">MẠNG LƯỚI THU MUA PHỦ SÓNG 63 TỈNH THÀNH</Badge>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+        Công Ty Thu Mua Phế Liệu Giá Cao Toàn Quốc
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        Đối tác tin cậy hàng đầu của hàng nghìn doanh nghiệp, nhà máy, công trình dự án năng lượng và cơ sở sản xuất từ Bắc vào Nam.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
+          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+          <span>Báo Giá Nhanh Zalo</span>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Article Body -->
+  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
+        
+        <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+          <strong class="text-slate-900">Công Ty Đức Minh</strong> tự hào là đơn vị thu mua phế liệu quy mô lớn, hoạt động trên phạm vi <strong>TOÀN QUỐC</strong>. Với hơn 10 năm kinh nghiệm trong ngành kim loại màu, chúng tôi là đối tác chiến lược của nhiều tập đoàn xây dựng, ban quản lý dự án năng lượng mặt trời và nhà máy cơ khí lớn.
+        </p>
+
+        <div class="not-prose my-8 rounded-2xl overflow-hidden shadow-soft-md border border-slate-200">
+          <img
+            src="/img/hinh-anh-thuc-te/anh-01.webp"
+            alt="Thu mua phế liệu toàn quốc"
+            width="800"
+            height="450"
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Tại Sao Chọn Đức Minh Là Đối Tác Toàn Quốc?</h2>
+        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Mạng lưới rộng khắp:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Chi nhánh, kho bãi và đội xe cẩu vận chuyển liên tỉnh sẵn sàng đến bất kỳ công trình nào.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Hồ sơ năng lực mạnh:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Đủ năng lực đấu thầu các dự án thanh lý lớn, nhà máy nhiệt điện, thủy điện, farm solar.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Quy trình chuẩn hóa:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Khảo sát → Báo giá → Ký hợp đồng → Xe cẩu bốc xếp → Cân đo điện tử → Thanh toán 100%.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Định giá thống nhất:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Cam kết mức giá cao nhất theo sàn kim loại thế giới, không ép giá vùng miền.</span>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Các Loại Phế Liệu Thu Mua Số Lượng Lớn</h2>
+        <p>Chúng tôi nhận bao tiêu toàn bộ phế liệu đầu ra cho các doanh nghiệp sản xuất:</p>
+        <ul class="space-y-2 text-slate-700">
+          <li>Thu mua Đồng cáp, Đồng đỏ, Đồng vàng, Nhôm, Inox 304/201, Sắt Thép.</li>
+          <li>Thu mua dây cáp điện 3 pha, cáp viễn thông, cáp ngầm trung thế.</li>
+          <li>Thu mua tấm pin năng lượng mặt trời cũ, biến tần inverter solar.</li>
+          <li>Thu mua máy móc, động cơ mô tơ, máy biến áp và dây chuyền sản xuất cũ.</li>
+        </ul>
+
+      </div>
+
+      <!-- Bottom High-Conversion CTA Card -->
+      <div class="mt-12 bg-gradient-to-r from-brand-red to-brand-red-dark text-white rounded-3xl p-6 sm:p-8 text-center shadow-glow-red">
+        <h3 class="text-2xl font-black text-white">GỌI LÀ CÓ - THU MUA TẬN NƠI TOÀN QUỐC</h3>
+        <p class="mt-2 text-red-100 text-sm max-w-xl mx-auto font-normal">
+          Dù công trình của bạn ở đâu trên lãnh thổ Việt Nam, chỉ cần liên hệ, Đức Minh sẽ cử chuyên viên đến thẩm định và thu mua ngay!
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
+            <span>☎ HOTLINE: {settings.hotlineDisplay}</span>
+          </Button>
+          <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+            <span>💬 Chat Zalo Đức Minh</span>
+          </Button>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </BaseLayout>

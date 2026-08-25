@@ -1,54 +1,104 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Badge from '../../../components/ui/Badge.astro';
+import Button from '../../../components/ui/Button.astro';
+import Card from '../../../components/ui/Card.astro';
+import settings from '../../../data/settings.json';
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Thu Mua Phế Liệu Miền Trung Giá Cao Tận Nơi | Công Ty Đức Minh',
+  description: 'Công ty Đức Minh chuyên thu mua phế liệu tại Miền Trung (Đà Nẵng, Huế, Khánh Hòa, Quảng Nam...). Thu mua đồng, nhôm, sắt, inox giá cao, thanh toán nhanh.',
+  url: 'https://thumuacapdonggiacao.com/khu-vuc-thu-mua/khu-vuc-mien-trung/',
+});
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="thu mua cáp đồng miền trung, phế liệu đà nẵng, phế liệu khánh hòa nha trang, phế liệu solar ninh thuận"
   title="Thu Mua Phế Liệu Miền Trung Giá Cao Tận Nơi | Công Ty Đức Minh"
   description="Công ty Đức Minh chuyên thu mua phế liệu tại Miền Trung (Đà Nẵng, Huế, Khánh Hòa, Quảng Nam...). Thu mua đồng, nhôm, sắt, inox giá cao, thanh toán nhanh."
   canonical="https://thumuacapdonggiacao.com/khu-vuc-thu-mua/khu-vuc-mien-trung/"
+  schema={schema}
 >
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <span>Khu Vực Thu Mua</span>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Miền Trung</span>
+    </div>
+  </nav>
 
-<main class="article-page">
-<div class="container">
-<div class="breadcrumbs">
-<a href="/">Trang chủ</a> / <a href="#">Khu vực thu mua</a> /
-          <span>Miền Trung</span>
-</div>
-<article class="article-body">
-<div class="article-header">
-<h1>Thu Mua Phế Liệu Miền Trung - Đà Nẵng, Khánh Hòa Giá Tốt</h1>
-<div class="article-meta">Đăng bởi: Admin | Cập nhật: Hôm nay</div>
-</div>
-<p>
-            Đức Minh cung cấp dịch vụ
-            <strong>thu mua phế liệu Miền Trung</strong> nhanh chóng và chuyên
-            nghiệp. Chúng tôi có mặt tại các tỉnh trọng điểm như Đà Nẵng, Quảng
-            Nam, Quảng Ngãi, Bình Định, Khánh Hòa (Nha Trang), Thanh Hóa, Nghệ
-            An.
-          </p>
-<img alt="Thu mua phế liệu Miền Trung" class="article-main-image" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp"/>
-<h2>Dịch Vụ Thu Mua Tại Miền Trung</h2>
-<p>
-            Do đặc thù địa lý trải dài, Đức Minh đã bố trí các đại lý thu gom
-            tại các khu vực trọng điểm để đảm bảo thời gian thu mua nhanh nhất:
-          </p>
-<ul>
-<li>
-              Thu mua phế liệu công trình dự án điện gió, điện mặt trời tại Ninh
-              Thuận, Bình Thuận.
-            </li>
-<li>Thu mua phế liệu sắt thép xây dựng tại Đà Nẵng, Nha Trang.</li>
-<li>Thu mua máy móc thiết bị cũ, hư hỏng, thanh lý kho xưởng.</li>
-</ul>
-<div class="price-disclaimer">
-<h4>HỢP TÁC ĐẠI LÝ MIỀN TRUNG</h4>
-<p>
-              Chúng tôi cần tìm đối tác, đại lý thu gom phế liệu tại các tỉnh
-              Miền Trung với chính sách hỗ trợ vốn và xe vận chuyển.
-            </p>
-<a class="btn" href="tel:0936350118">LIÊN HỆ: 0936.350.118</a>
-</div>
-</article>
-</div>
-</main>
+  <!-- Hero Header -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <Badge variant="gold" size="md" class="mb-4">KHU VỰC MIỀN TRUNG & DUYÊN HẢI</Badge>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+        Thu Mua Phế Liệu Miền Trung - Đà Nẵng, Khánh Hòa Giá Tốt
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        Thu mua phế liệu dự án điện gió, solar, nhà máy, công trình tại Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Khánh Hòa, Ninh Thuận...
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
+          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+          <span>Báo Giá Nhanh Zalo</span>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Article Body -->
+  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
+        
+        <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+          Đức Minh cung cấp dịch vụ <strong>thu mua phế liệu Miền Trung</strong> nhanh chóng và chuyên nghiệp. Chúng tôi có mặt tại các tỉnh thành trọng điểm như Đà Nẵng, Quảng Nam, Quảng Ngãi, Bình Định, Khánh Hòa (Nha Trang), Ninh Thuận, Bình Thuận, Nghệ An, Thanh Hóa.
+        </p>
+
+        <div class="not-prose my-8 rounded-2xl overflow-hidden shadow-soft-md border border-slate-200">
+          <img
+            src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp"
+            alt="Thu mua phế liệu Miền Trung"
+            width="800"
+            height="450"
+            loading="lazy"
+            class="w-full h-auto object-cover"
+          />
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Dịch Vụ Thu Mua Trọng Điểm Tại Miền Trung</h2>
+        <ul class="space-y-2 text-slate-700">
+          <li>Thu mua phế liệu công trình dự án điện gió, điện mặt trời tại Ninh Thuận, Bình Thuận, Đắk Lắk.</li>
+          <li>Thu mua phế liệu sắt thép xây dựng, kết cấu tại Đà Nẵng, Nha Trang, Quảng Nam.</li>
+          <li>Thu mua máy móc thiết bị cũ, hư hỏng, thanh lý kho xưởng KCN Chu Lai, KCN Hòa Khánh...</li>
+        </ul>
+
+      </div>
+
+      <!-- Bottom High-Conversion CTA Card -->
+      <div class="mt-12 bg-gradient-to-r from-brand-red to-brand-red-dark text-white rounded-3xl p-6 sm:p-8 text-center shadow-glow-red">
+        <h3 class="text-2xl font-black text-white">Hợp Tác Thu Mua Phế Liệu Miền Trung</h3>
+        <p class="mt-2 text-red-100 text-sm max-w-xl mx-auto font-normal">
+          Chúng tôi hỗ trợ vốn, xe vận chuyển và hoa hồng cao cho đối tác, đại lý thu gom phế liệu tại các tỉnh Miền Trung.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
+            <span>☎ LIÊN HỆ: {settings.hotlineDisplay}</span>
+          </Button>
+          <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+            <span>💬 Chat Zalo Đức Minh</span>
+          </Button>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </BaseLayout>

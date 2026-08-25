@@ -1,124 +1,194 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import settings from '../../data/settings.json';
+
 const schema = JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "LocalBusiness",
-            "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-            "image": "https://thumuacapdonggiacao.com/img/logo.svg",
-            "url": "https://thumuacapdonggiacao.com/",
-            "telephone": "+84936350118",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "14 ấp 2, Đông Thạnh",
-              "addressLocality": "Bình Dương",
-              "addressRegion": "TP. HCM",
-              "addressCountry": "VN"
-            }
-          },
-          {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Trang Chủ",
-                "item": "https://thumuacapdonggiacao.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Thu Mua Phế Liệu Bình Dương",
-                "item": "https://thumuacapdonggiacao.com/thu-mua-phe-lieu-binh-duong/"
-              }
-            ]
-          }
-        ]
-      });
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'LocalBusiness',
+      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
+      image: 'https://thumuacapdonggiacao.com/img/logo.svg',
+      url: 'https://thumuacapdonggiacao.com/',
+      telephone: '+84936350118',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: '14 ấp 2, Đông Thạnh',
+        addressLocality: 'Bình Dương',
+        addressRegion: 'TP. HCM',
+        addressCountry: 'VN',
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Trang Chủ',
+          item: 'https://thumuacapdonggiacao.com/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Thu Mua Phế Liệu Bình Dương',
+          item: 'https://thumuacapdonggiacao.com/thu-mua-phe-lieu-binh-duong/',
+        },
+      ],
+    },
+  ],
+});
+
+const priceList = [
+  { type: 'Cáp đồng, đồng đỏ, dây cáp điện 3 pha công trình', price: '280.000 – 410.000 đ/kg' },
+  { type: 'Phế liệu nhôm (Nhôm đặc, nhôm đà, nhôm định hình)', price: '45.000 – 85.000 đ/kg' },
+  { type: 'Phế liệu Inox (Inox 304, Inox 201 bồn bể)', price: '25.000 – 75.000 đ/kg' },
+  { type: 'Sắt phế liệu (Sắt đặc, sắt vụn, kết cấu nhà xưởng)', price: '10.000 – 25.000 đ/kg' },
+  { type: 'Thiết bị, máy móc dây chuyền nhà xưởng', price: 'Báo giá sau khảo sát' },
+];
+
+const areas = [
+  { title: 'Thành Phố & Thị Xã', list: 'TP. Thủ Dầu Một, TP. Dĩ An, TP. Thuận An, TP. Tân Uyên, TP. Bến Cát, Huyện Bàu Bàng, Bắc Tân Uyên, Dầu Tiếng, Phú Giáo.' },
+  { title: 'Các KCN Trọng Điểm', list: 'KCN VSIP 1, VSIP 2, VSIP 3; KCN Sóng Thần 1, 2, 3; KCN Mỹ Phước 1, 2, 3; KCN Nam Tân Uyên; KCN Đồng An; KCN Việt Hương; KCN Bàu Bàng...' },
+];
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="thu mua phế liệu bình dương, thu mua cáp đồng bình dương, phế liệu kcn vsip, thanh lý nhà xưởng bình dương"
   title="Thu Mua Phế Liệu Bình Dương Giá Cao Tận Nơi | Đức Minh"
   description="Đức Minh chuyên thu mua phế liệu Bình Dương giá cao, tận nơi. Thu mua cáp đồng, nhôm, inox, sắt thép tại KCN VSIP, Sóng Thần, Mỹ Phước, Thủ Dầu Một, Dĩ An. Gọi 0936.350.118."
   canonical="https://thumuacapdonggiacao.com/thu-mua-phe-lieu-binh-duong/"
   schema={schema}
 >
-<main class="geo-content container">
-<h1 class="section-title">Thu Mua Phế Liệu Bình Dương – Cáp Đồng, Nhôm, Inox Giá Cao</h1>
-<p>Bình Dương được mệnh danh là "thủ phủ công nghiệp" của phía Nam, với hàng loạt khu công nghiệp, nhà máy sản xuất quy mô lớn. Chính sự phát triển mạnh mẽ này đã thúc đẩy ngành công nghiệp tái chế và thu mua phế liệu tại Bình Dương trở nên cực kỳ sôi động. Tuy nhiên, để tìm được một đơn vị thu mua trực tiếp, không ép giá và có khả năng thu dọn nhanh chóng tại KCN không phải là điều dễ dàng.</p>
-<p>Công Ty Đức Minh tự hào là một trong những doanh nghiệp đi đầu trong lĩnh vực <strong>thu mua phế liệu Bình Dương</strong>. Chúng tôi chuyên thu mua phế liệu công nghiệp, cáp đồng phế liệu, máy móc nhà xưởng với giá cao nhất thị trường, cam kết mang đến giải pháp thanh lý tối ưu cho các doanh nghiệp, nhà máy tại Bình Dương.</p>
-<h2>Các Loại Phế Liệu Chúng Tôi Thu Mua Tại Bình Dương</h2>
-<p>Nhằm đáp ứng đa dạng nhu cầu thanh lý từ các nhà xưởng sản xuất, Đức Minh nhận thu mua tất cả các loại phế liệu với số lượng từ nhỏ đến cực lớn:</p>
-<ul>
-<li><strong>Thu mua cáp đồng phế liệu:</strong> Dây cáp điện lực lớn, cáp đồng nguyên chất (loại 1), dây điện lõi nhỏ bọc nhựa, đồng motor, đồng thau, ba dớ đồng từ các máy phay tiện.</li>
-<li><strong>Thu mua phế liệu sắt thép:</strong> Sắt đặc, sắt vụn, sắt công trình xây dựng, thép hộp, xà gồ, hàng rào sắt, sắt phế thải từ các xưởng cơ khí.</li>
-<li><strong>Thu mua phế liệu nhôm:</strong> Nhôm đà, nhôm cửa, nhôm tản nhiệt, mạt nhôm, nhôm máy móc, các chi tiết nhôm hư hỏng.</li>
-<li><strong>Thu mua phế liệu Inox:</strong> Inox 304, 201, 430, các thiết bị bếp công nghiệp, ống inox, bồn chứa inox thanh lý.</li>
-<li><strong>Thu mua phế liệu nhà xưởng:</strong> Khung nhà xưởng cũ, máy móc công nghiệp hỏng, dây chuyền sản xuất lỗi thời, thiết bị điện công nghiệp, tủ điện...</li>
-</ul>
-<h2>Bảng Giá Thu Mua Phế Liệu Bình Dương Hôm Nay</h2>
-<p>Bảng giá thu mua phế liệu dưới đây được cập nhật liên tục để đảm bảo quyền lợi tối đa cho khách hàng. Xin lưu ý giá có thể thay đổi tùy theo tình hình thị trường và chất lượng phế liệu. Liên hệ <strong>Hotline: 0936.350.118</strong> để được báo giá chính xác cho lô hàng của bạn.</p>
-<table class="geo-table">
-<thead>
-<tr>
-<th>Loại Phế Liệu</th>
-<th>Mức Giá Tham Khảo (VNĐ/kg)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Cáp đồng, đồng đỏ, dây cáp điện</td>
-<td>280.000 - 410.000</td>
-</tr>
-<tr>
-<td>Phế liệu nhôm (Nhôm đặc, nhôm đà)</td>
-<td>45.000 - 85.000</td>
-</tr>
-<tr>
-<td>Phế liệu Inox (Inox 304, 201)</td>
-<td>25.000 - 75.000</td>
-</tr>
-<tr>
-<td>Sắt phế liệu (Sắt đặc, sắt vụn)</td>
-<td>10.000 - 25.000</td>
-</tr>
-<tr>
-<td>Thiết bị, máy móc nhà xưởng</td>
-<td>Báo giá sau khi khảo sát thực tế</td>
-</tr>
-</tbody>
-</table>
-<p><em>Chúng tôi cam kết chi trả mức chiết khấu cực kỳ hấp dẫn cho bộ phận mua sắm, quản lý kho hoặc cá nhân giới thiệu nguồn phế liệu.</em></p>
-<h2>Các Khu Vực Thu Mua Tận Nơi Tại Tỉnh Bình Dương</h2>
-<p>Với lợi thế có bãi tập kết lớn và đội xe chuyên dụng hoạt động khắp miền Nam, Đức Minh đáp ứng nhu cầu thu mua phế liệu tận nơi tại mọi nẻo đường Bình Dương:</p>
-<ul>
-<li><strong>Thành phố và Thị xã:</strong> TP. Thủ Dầu Một, TP. Dĩ An, TP. Thuận An, TX. Bến Cát, TX. Tân Uyên, Huyện Bàu Bàng, Bắc Tân Uyên, Dầu Tiếng, Phú Giáo.</li>
-<li><strong>Các Khu Công Nghiệp (KCN) trọng điểm:</strong> KCN VSIP 1, VSIP 2, VSIP 3; KCN Sóng Thần 1, 2, 3; KCN Mỹ Phước 1, 2, 3; KCN Nam Tân Uyên; KCN Đồng An; KCN Việt Hương; KCN Bàu Bàng...</li>
-</ul>
-<h2>Lý Do Chọn Đức Minh Làm Đối Tác Thu Mua Phế Liệu</h2>
-<p>Để trở thành đơn vị thu mua phế liệu Bình Dương được hàng trăm doanh nghiệp tin tưởng, Đức Minh luôn tuân thủ các nguyên tắc hoạt động khắt khe:</p>
-<ul>
-<li><strong>Không ép giá:</strong> Đội ngũ thẩm định chuyên nghiệp, định giá chính xác dựa trên chất lượng phế liệu thực tế. Mức giá thu mua luôn nằm trong top cao nhất thị trường do chúng tôi tái chế trực tiếp.</li>
-<li><strong>Thu gom siêu tốc:</strong> Sở hữu đội xe tải, xe cẩu đa dạng, chúng tôi có thể xử lý các lô hàng hàng chục tấn trong ngày, giải phóng mặt bằng nhanh chóng cho nhà máy.</li>
-<li><strong>Quy trình chuẩn mực:</strong> Mọi giao dịch đều có hợp đồng mua bán rõ ràng, cung cấp đầy đủ hóa đơn, chứng từ kế toán hợp lệ cho doanh nghiệp.</li>
-<li><strong>Thanh toán 100% trước khi rời đi:</strong> Hình thức thanh toán linh hoạt qua chuyển khoản hoặc tiền mặt ngay khi hoàn tất bốc xếp.</li>
-<li><strong>Dọn dẹp miễn phí:</strong> Đội ngũ công nhân sẽ dọn dẹp vệ sinh kho bãi sạch sẽ trả lại mặt bằng hoàn thiện cho đối tác.</li>
-</ul>
-<h2>Quy Trình Thu Mua Chuyên Nghiệp</h2>
-<ol>
-<li><strong>Tiếp nhận yêu cầu:</strong> Quý khách gọi đến số 0936.350.118, cung cấp thông tin sơ bộ về lô hàng cần bán.</li>
-<li><strong>Khảo sát thực tế:</strong> Nhân viên Đức Minh sẽ có mặt tại nhà máy/công trình ở Bình Dương để kiểm tra chất lượng và đưa ra báo giá chi tiết.</li>
-<li><strong>Ký hợp đồng:</strong> Thống nhất giá cả và thời gian thu gom, ký kết hợp đồng mua bán (nếu doanh nghiệp yêu cầu).</li>
-<li><strong>Thu gom, bốc xếp:</strong> Xe cẩu và công nhân tiến hành bốc xếp phế liệu, cân đo minh bạch ngay tại chỗ.</li>
-<li><strong>Thanh toán và dọn dẹp:</strong> Chuyển khoản thanh toán 100% giá trị lô hàng và tiến hành vệ sinh mặt bằng.</li>
-</ol>
-<div class="cta-box">
-<h3>Liên Hệ Thanh Lý Phế Liệu Bình Dương</h3>
-<p>Quý công ty, xí nghiệp tại Bình Dương đang có nhu cầu dọn kho, thanh lý phế liệu công nghiệp, dây cáp điện, máy móc cũ? Hãy để Đức Minh giúp bạn biến những thứ không còn giá trị sử dụng thành nguồn tiền mặt khổng lồ.</p>
-<p><strong>Cam kết mức giá cạnh tranh số 1 - Hoa hồng hấp dẫn cho người giới thiệu.</strong></p>
-<a class="cta-btn" href="tel:0936350118">☎ Gọi Ngay: 0936.350.118</a>
-<a class="cta-btn" href="https://zalo.me/0936350118" style="background:#0068ff; margin-left: 10px;">💬 Chat Zalo</a>
-</div>
-</main>
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Thu Mua Phế Liệu Bình Dương</span>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <Badge variant="gold" size="md" pulsingDot class="mb-4">KHẢO SÁT 15 PHÚT TẠI CÁC KCN BÌNH DƯƠNG</Badge>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+        Thu Mua Phế Liệu Bình Dương – Cáp Đồng, Nhôm, Inox Giá Cao
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        Chuyên thu mua cáp đồng công trình, thanh lý xác nhà xưởng, máy móc cũ, pin năng lượng mặt trời tại các KCN VSIP, Sóng Thần, Mỹ Phước, Tân Uyên, Bến Cát... Xe cẩu bốc xếp miễn phí, thanh toán 100%!
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
+          <span>HOTLINE BÌNH DƯƠNG: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+          <span>Báo Giá Zalo (5 Phút)</span>
+        </Button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
+        
+        <p class="text-base sm:text-lg leading-relaxed text-slate-700">
+          Bình Dương được mệnh danh là "thủ phủ công nghiệp" của phía Nam, với hàng loạt khu công nghiệp, nhà máy sản xuất quy mô lớn. Chính sự phát triển mạnh mẽ này đã thúc đẩy nhu cầu xử lý và thanh lý phế liệu công nghiệp trở nên cực kỳ sôi động.
+        </p>
+        <p class="text-base sm:text-lg leading-relaxed text-slate-700">
+          <strong class="text-slate-900">Công Ty Đức Minh</strong> tự hào là một trong những doanh nghiệp đi đầu trong lĩnh vực <strong>thu mua phế liệu Bình Dương</strong>. Chúng tôi chuyên thu mua phế liệu công nghiệp, cáp đồng phế liệu, máy móc nhà xưởng với giá cao nhất thị trường, cam kết mang đến giải pháp thanh lý tối ưu cho các doanh nghiệp, nhà máy tại Bình Dương.
+        </p>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Các Loại Phế Liệu Chúng Tôi Thu Mua Tại Bình Dương</h2>
+        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Cáp đồng & Dây điện 3 pha:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Dây cáp điện lực lớn, cáp đồng nguyên chất (loại 1), dây điện bọc nhựa, đồng motor, mạt đồng.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Phế liệu sắt thép công trình:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Sắt đặc, sắt vụn xưởng cơ khí, thép hình I, H, U, V, xà gồ, hàng rào sắt dỡ bỏ nhà máy.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Phế liệu Nhôm & Inox:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Nhôm đà, nhôm Xingfa, mạt nhôm CNC. Inox 304, Inox 201 bồn chứa, ống công nghiệp xí nghiệp.</span>
+          </div>
+          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+            <strong class="text-brand-red text-sm block">Thanh lý nhà xưởng trọn gói:</strong>
+            <span class="text-xs text-slate-600 mt-1 block">Khung kèo thép nhà xưởng cũ, máy móc lỗi thời, dây chuyền sản xuất, tủ điện công nghiệp.</span>
+          </div>
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Bảng Giá Thu Mua Phế Liệu Bình Dương Hôm Nay</h2>
+        <p>Bảng giá tham khảo tại các KCN Bình Dương:</p>
+
+        <!-- Table -->
+        <div class="not-prose my-6 overflow-x-auto rounded-2xl border border-slate-200 shadow-soft-sm">
+          <table class="w-full text-left border-collapse bg-white text-xs sm:text-sm">
+            <thead>
+              <tr class="bg-slate-900 text-white font-bold">
+                <th class="py-3.5 px-4 sm:px-6">Chủng Loại Phế Liệu</th>
+                <th class="py-3.5 px-4 sm:px-6 text-right text-amber-400">Mức Giá Tham Khảo (VNĐ/kg)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">
+              {priceList.map((item, idx) => (
+                <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
+                  <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">{item.type}</td>
+                  <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">{item.price}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Các Khu Vực Thu Mua Tận Nơi Tại Tỉnh Bình Dương</h2>
+        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
+          {areas.map((a) => (
+            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
+              <h3 class="font-bold text-slate-900 text-base mb-1">{a.title}</h3>
+              <p class="text-xs text-slate-600 leading-relaxed font-normal">{a.list}</p>
+            </div>
+          ))}
+        </div>
+
+        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Lý Do Chọn Đức Minh Tại Bình Dương</h2>
+        <ul class="space-y-2 text-slate-700">
+          <li><strong>Không ép giá:</strong> Định giá chính xác dựa trên hàm lượng kim loại thực tế, giá mua luôn cao hơn 20-30%.</li>
+          <li><strong>Thu gom siêu tốc trong ngày:</strong> Xử lý các lô hàng hàng chục tấn trong ngày, giải phóng mặt bằng nhà máy.</li>
+          <li><strong>Hồ sơ pháp lý minh bạch:</strong> Có hợp đồng mua bán kinh tế, xuất hóa đơn VAT đầy đủ theo yêu cầu kế toán.</li>
+          <li><strong>Thanh toán 100% tại chỗ:</strong> Chuyển khoản hoặc tiền mặt ngay khi hoàn tất cân đo bốc dỡ.</li>
+          <li><strong>Dọn dẹp mặt bằng miễn phí:</strong> Đội ngũ công nhân quét dọn sạch sẽ kho bãi sau bốc hàng.</li>
+        </ul>
+
+      </div>
+
+      <!-- Bottom High-Conversion CTA Card -->
+      <div class="mt-12 bg-gradient-to-r from-brand-red to-brand-red-dark text-white rounded-3xl p-6 sm:p-8 text-center shadow-glow-red">
+        <h3 class="text-2xl font-black text-white">Liên Hệ Thanh Lý Phế Liệu Bình Dương</h3>
+        <p class="mt-2 text-red-100 text-sm max-w-xl mx-auto font-normal">
+          Quý công ty, xí nghiệp tại Bình Dương cần dọn kho, thanh lý phế liệu công nghiệp, dây cáp điện, máy móc cũ? Hãy liên hệ ngay với Đức Minh!
+        </p>
+        <p class="mt-2 text-amber-300 text-xs font-bold">
+          ⭐ Hoa hồng cực cao và hấp dẫn cho bộ phận mua sắm, quản lý kho hoặc cá nhân giới thiệu nguồn hàng.
+        </p>
+        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
+            <span>☎ Gọi Ngay: {settings.hotlineDisplay}</span>
+          </Button>
+          <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+            <span>💬 Chat Zalo Đức Minh</span>
+          </Button>
+        </div>
+      </div>
+
+    </div>
+  </section>
 </BaseLayout>

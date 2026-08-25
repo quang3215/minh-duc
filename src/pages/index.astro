@@ -1,799 +1,605 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-const schema = JSON.stringify([{
-        "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-        "image": "https://thumuacapdonggiacao.com/img/logo.svg",
-        "url": "https://thumuacapdonggiacao.com/",
-        "telephone": "0936350118",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "14 ấp 2, Đông Thạnh",
-          "addressLocality": "Hóc Môn",
-          "addressRegion": "TP. HCM",
-          "addressCountry": "VN"
+import HeroHighConversion from '../components/marketing/HeroHighConversion.astro';
+import PricingTable from '../components/marketing/PricingTable.astro';
+import FeaturesGrid from '../components/marketing/FeaturesGrid.astro';
+import ProcessFlow from '../components/marketing/ProcessFlow.astro';
+import SocialProofTestimonials from '../components/marketing/SocialProofTestimonials.astro';
+import FaqAccordion from '../components/marketing/FaqAccordion.astro';
+import Badge from '../components/ui/Badge.astro';
+import Button from '../components/ui/Button.astro';
+import Card from '../components/ui/Card.astro';
+import settings from '../data/settings.json';
+
+// Fetch latest news articles dynamically
+const allPosts = await getCollection('tin-tuc');
+const latestPosts = allPosts
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime())
+  .slice(0, 3);
+
+const schema = JSON.stringify([
+  {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
+    image: 'https://thumuacapdonggiacao.com/img/logo.svg',
+    url: 'https://thumuacapdonggiacao.com/',
+    telephone: '0936350118',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '14 ấp 2, Đông Thạnh',
+      addressLocality: 'Hóc Môn',
+      addressRegion: 'TP. HCM',
+      addressCountry: 'VN',
+    },
+    openingHoursSpecification: {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: [
+        'Monday',
+        'Tuesday',
+        'Wednesday',
+        'Thursday',
+        'Friday',
+        'Saturday',
+        'Sunday',
+      ],
+      opens: '06:00',
+      closes: '22:00',
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: '10.910308',
+      longitude: '106.636344',
+    },
+    areaServed: [
+      { '@type': 'City', 'name': 'Hồ Chí Minh' },
+      { '@type': 'City', 'name': 'Bình Dương' },
+      { '@type': 'City', 'name': 'Đồng Nai' },
+      { '@type': 'City', 'name': 'Long An' },
+      { '@type': 'AdministrativeArea', 'name': 'Miền Nam Việt Nam' },
+    ],
+    priceRange: '$$',
+    currenciesAccepted: 'VND',
+    paymentAccepted: 'Cash, Bank Transfer',
+    description:
+      'Đức Minh là đơn vị chuyên thu mua vật tư dự án năng lượng mặt trời (tấm pin, inverter), cáp đồng cũ, và dây điện phế liệu giá cao tại TP.HCM.',
+    makesOffer: [
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Thu Mua Pin Năng Lượng Mặt Trời',
+          description:
+            'Chuyên thu mua các loại tấm pin năng lượng mặt trời đã qua sử dụng, tồn kho từ các dự án với giá cao.',
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": [
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday",
-            "Sunday"
-          ],
-          "opens": "06:00",
-          "closes": "22:00"
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Thu Mua Cáp Đồng Phế Liệu',
+          description:
+            'Thu mua cáp đồng, dây điện cũ, vật tư điện công nghiệp tồn kho từ công trình, nhà xưởng giá cạnh tranh.',
         },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": "10.910308",
-          "longitude": "106.636344"
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Thu Mua Phế Liệu Inox',
+          description:
+            'Thu mua phế liệu inox các loại (304, 201, 430), vật tư inox công nghiệp cũ giá tốt.',
         },
-        "areaServed": [
-          { "@type": "City", "name": "Hồ Chí Minh" },
-          { "@type": "City", "name": "Bình Dương" },
-          { "@type": "City", "name": "Đồng Nai" },
-          { "@type": "City", "name": "Long An" },
-          { "@type": "AdministrativeArea", "name": "Miền Nam Việt Nam" }
-        ],
-        "priceRange": "$$",
-        "currenciesAccepted": "VND",
-        "paymentAccepted": "Cash, Bank Transfer",
-        "description": "Đức Minh là đơn vị chuyên thu mua vật tư dự án năng lượng mặt trời (tấm pin, inverter), cáp đồng cũ, và dây điện phế liệu giá cao tại TP.HCM.",
-        "makesOffer": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thu Mua Pin Năng Lượng Mặt Trời",
-              "description": "Chuyên thu mua, Thu mua các loại tấm pin năng lượng mặt trời đã qua sử dụng, tồn kho từ các dự án với giá cao."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thu Mua Cáp Đồng Phế Liệu",
-              "description": "Thu mua cáp đồng, dây điện cũ, vật tư điện công nghiệp tồn kho từ công trình, nhà xưởng giá cạnh tranh."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thu Mua Phế Liệu Inox",
-              "description": "Thu mua phế liệu inox các loại (304, 201, 430), vật tư inox công nghiệp cũ giá tốt."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thu Mua Phế Liệu Nhôm",
-              "description": "Thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn nhôm, cửa nhôm cũ."
-            }
-          }
-        ]
-      },{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Công ty Đức Minh thu mua cáp đồng ở đâu?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Công ty Đức Minh thu mua cáp đồng tận nơi tại TP.HCM và các tỉnh lân cận như Bình Dương, Đồng Nai, Long An. Đội xe chuyên dụng sẵn sàng đến tận công trình, nhà xưởng, khu công nghiệp để thu gom và vận chuyển."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Giá thu mua cáp đồng hiện tại là bao nhiêu?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Giá thu mua cáp đồng phế liệu dao động từ 250.000 – 350.000 VNĐ/kg tùy loại (đồng cáp, đồng đỏ, đồng vàng, đồng cháy). Để nhận báo giá chính xác nhất, vui lòng gọi Hotline 0936.350.118 để được khảo sát tận nơi miễn phí."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Đức Minh có thu mua pin năng lượng mặt trời không?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Có. Đức Minh chuyên thu mua trọn gói vật tư từ các dự án điện mặt trời bao gồm: tấm pin solar (mono, poly), biến tần (inverter), cáp DC solar, khung giàn nhôm/sắt, tủ điện và phụ kiện. Giá liên hệ theo từng lô hàng cụ thể."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Thời gian thanh toán sau khi thu mua là bao lâu?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Đức Minh cam kết thanh toán 100% ngay tại chỗ sau khi hoàn tất cân đo và kiểm định hàng hóa. Khách hàng có thể nhận tiền mặt trực tiếp hoặc chuyển khoản ngay lập tức."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Quy trình thu mua phế liệu của Đức Minh như thế nào?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Quy trình gồm 4 bước: (1) Liên hệ qua Hotline/Zalo 0936.350.118 mô tả loại và khối lượng hàng. (2) Nhân viên đến tận nơi khảo sát và báo giá miễn phí. (3) Đội xe bốc xếp, vận chuyển chuyên nghiệp. (4) Cân đo và thanh toán ngay tại chỗ."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Đức Minh có thu mua khối lượng nhỏ không?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Đức Minh thu mua mọi khối lượng, từ vài kg đến hàng chục tấn. Với lô hàng nhỏ, khách hàng có thể mang đến hoặc gửi ảnh/video qua Zalo 0936.350.118 để được báo giá trước khi đến."
-            }
-          }
-        ]
-      }]);
+      },
+      {
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Thu Mua Phế Liệu Nhôm',
+          description:
+            'Thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn nhôm, cửa nhôm cũ.',
+        },
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'Công ty Đức Minh thu mua cáp đồng ở đâu?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Công ty Đức Minh thu mua cáp đồng tận nơi tại TP.HCM và các tỉnh lân cận như Bình Dương, Đồng Nai, Long An. Đội xe chuyên dụng sẵn sàng đến tận công trình, nhà xưởng, khu công nghiệp để thu gom và vận chuyển.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Giá thu mua cáp đồng hiện tại là bao nhiêu?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Giá thu mua cáp đồng phế liệu dao động từ 250.000 – 350.000 VNĐ/kg tùy loại (đồng cáp, đồng đỏ, đồng vàng, đồng cháy). Để nhận báo giá chính xác nhất, vui lòng gọi Hotline 0936.350.118 để được khảo sát tận nơi miễn phí.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Đức Minh có thu mua pin năng lượng mặt trời không?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Có. Đức Minh chuyên thu mua trọn gói vật tư từ các dự án điện mặt trời bao gồm: tấm pin solar (mono, poly), biến tần (inverter), cáp DC solar, khung giàn nhôm/sắt, tủ điện và phụ kiện. Giá liên hệ theo từng lô hàng cụ thể.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Thời gian thanh toán sau khi thu mua là bao lâu?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Đức Minh cam kết thanh toán 100% ngay tại chỗ sau khi hoàn tất cân đo và kiểm định hàng hóa. Khách hàng có thể nhận tiền mặt trực tiếp hoặc chuyển khoản ngay lập tức.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Quy trình thu mua phế liệu của Đức Minh như thế nào?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Quy trình gồm 4 bước: (1) Liên hệ qua Hotline/Zalo 0936.350.118 mô tả loại và khối lượng hàng. (2) Nhân viên đến tận nơi khảo sát và báo giá miễn phí. (3) Đội xe bốc xếp, vận chuyển chuyên nghiệp. (4) Cân đo và thanh toán ngay tại chỗ.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Đức Minh có thu mua khối lượng nhỏ không?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Đức Minh thu mua mọi khối lượng, từ vài kg đến hàng chục tấn. Với lô hàng nhỏ, khách hàng có thể mang đến hoặc gửi ảnh/video qua Zalo 0936.350.118 để được báo giá trước khi đến.',
+        },
+      },
+    ],
+  },
+]);
+
+const services = [
+  {
+    title: 'Thu Mua Cáp Đồng & Dây Điện',
+    subtitle: 'Đồng cáp loại 1, đồng đỏ, đồng vàng, cáp 3 pha công trình',
+    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp',
+    href: '/thu-mua-cap-dong-thiet-bi-dien/',
+    badge: 'Mặt Hàng Chủ Lực',
+    badgeVariant: 'danger' as const,
+    highlights: ['Cadivi, LS-VINA, Daphaco', 'Cáp trung thế, hạ thế, cáp ngầm', 'Dây điện vụn công trình'],
+  },
+  {
+    title: 'Pin Năng Lượng Mặt Trời & Solar',
+    subtitle: 'Tấm pin Mono, Poly cũ, hỏng, inverter và dây DC solar tồn kho',
+    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp',
+    href: '/thu-mua-pin-nang-luong-mat-troi/',
+    badge: 'Giá Cao Nhất',
+    badgeVariant: 'gold' as const,
+    highlights: ['Tấm pin 350W – 600W+', 'Inverter Sungrow, SMA, Huawei', 'Dây cáp DC solar 4.0 - 6.0mm'],
+  },
+  {
+    title: 'Thiết Bị Điện & Tủ Điện Công Nghiệp',
+    subtitle: 'Mô tơ điện cũ, máy biến áp, aptomat, CB đóng cắt các loại',
+    image: '/img/tu-dien/thu-mua-tu-dien-cong-nghiep-cu.webp',
+    href: '/thu-mua-cap-dong-thiet-bi-dien/',
+    badge: 'Trọn Gói',
+    badgeVariant: 'info' as const,
+    highlights: ['Motor 1 pha, 3 pha công suất lớn', 'Máy biến áp dầu, khô, ổn áp', 'Tủ điện điều khiển phân phối'],
+  },
+  {
+    title: 'Thu Mua Phế Liệu Nhôm Các Loại',
+    subtitle: 'Nhôm đặc, nhôm đà, khung nhôm Xingfa, mạt nhôm máy CNC',
+    image: '/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp',
+    href: '/thu-mua-nhom/',
+    badge: '45.000 – 65.000 đ/kg',
+    badgeVariant: 'success' as const,
+    highlights: ['Nhôm thanh định hình, đà nhôm', 'Cửa nhôm kính cũ thanh lý', 'Vụn nhôm, phôi nhôm xưởng'],
+  },
+  {
+    title: 'Thu Mua Phế Liệu Inox 304, 201, 316',
+    subtitle: 'Inox loại 1 tấm, ống hộp, bồn bể, thiết bị inox công nghiệp cũ',
+    image: '/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp',
+    href: '/thu-mua-inox/',
+    badge: 'Phân Loại Chuẩn',
+    badgeVariant: 'primary' as const,
+    highlights: ['Inox 304, 316 giá cao nhất', 'Inox 201, 430 và bazo inox', 'Bồn chứa, đường ống công nghiệp'],
+  },
+  {
+    title: 'Thu Mua Phế Liệu Nhà Xưởng & Sắt Thép',
+    subtitle: 'Thanh lý trọn gói xác nhà xưởng, khung kèo thép, máy móc cũ',
+    image: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp',
+    href: '/thu-mua-phe-lieu-cong-nghiep/',
+    badge: 'Tháo Dỡ Miễn Phí',
+    badgeVariant: 'danger' as const,
+    highlights: ['Khung dầm thép I, H, U, V', 'Máy móc dây chuyền sản xuất cũ', 'Dọn dẹp mặt bằng sạch sẽ 100%'],
+  },
+];
+
+const galleryImages = [
+  { src: '/img/hinh-anh-thuc-te/anh-01.webp', alt: 'Thu gom cáp đồng tại công trình', title: 'Thu Gom Công Trình' },
+  { src: '/img/hinh-anh-thuc-te/anh-02.webp', alt: 'Xe cẩu vận chuyển phế liệu nhanh gọn', title: 'Xe Cẩu Vận Chuyển' },
+  { src: '/img/hinh-anh-thuc-te/anh-03.webp', alt: 'Đội ngũ bốc xếp cáp đồng chuyên nghiệp', title: 'Bốc Xếp Cáp Đồng' },
+  { src: '/img/hinh-anh-thuc-te/anh-04.webp', alt: 'Thu mua thanh lý thiết bị nhà xưởng', title: 'Thanh Lý Nhà Xưởng' },
+  { src: '/img/hinh-anh-thuc-te/anh-05.webp', alt: 'Phân loại phế liệu inox tại kho', title: 'Phân Loại Inox 304' },
+  { src: '/img/hinh-anh-thuc-te/anh-06.webp', alt: 'Thu gom pin mặt trời cũ dự án solar', title: 'Thu Gom Pin Solar' },
+  { src: '/img/hinh-anh-thuc-te/anh-07.webp', alt: 'Thẩm định máy móc công nghiệp cũ', title: 'Thẩm Định Máy Móc' },
+  { src: '/img/hinh-anh-thuc-te/anh-08.webp', alt: 'Phá dỡ kết cấu thép nhà máy', title: 'Phá Dỡ Kết Cấu Thép' },
+  { src: '/img/hinh-anh-thuc-te/anh-09.webp', alt: 'Quét dọn vệ sinh mặt bằng sạch sẽ', title: 'Dọn Dẹp Mặt Bằng' },
+];
+
+const homeFaqs = [
+  {
+    question: 'Công ty Đức Minh thu mua cáp đồng ở những khu vực nào?',
+    answer:
+      'Đức Minh thu mua tận nơi 24/7 tại toàn bộ các quận huyện thuộc TP. Hồ Chí Minh và các tỉnh thành lân cận như Bình Dương, Đồng Nai, Long An, Bà Rịa – Vũng Tàu, Tây Ninh. Đối với các dự án lớn, nhà máy, công trình điện mặt trời hoặc kho xưởng giải thể, chúng tôi điều động đội xe cẩu đến thu mua trên TOÀN QUỐC không giới hạn số lượng.',
+  },
+  {
+    question: 'Giá thu mua cáp đồng hôm nay là bao nhiêu 1kg?',
+    answer:
+      'Giá thu mua cáp đồng phế liệu dao động từ 250.000 – 350.000 đ/kg tùy thuộc vào chủng loại (đồng cáp loại 1 Cadivi/trung thế, đồng đỏ nguyên chất loại 2, đồng vàng/thau loại 3 hay đồng cháy). Để nhận báo giá chính xác nhất theo từng lô hàng, quý khách hãy gọi ngay Hotline 0936.350.118 hoặc gửi ảnh qua Zalo để được định giá trong 5 phút.',
+  },
+  {
+    question: 'Đức Minh có thu mua pin năng lượng mặt trời không?',
+    answer:
+      'Có. Đức Minh chuyên thu mua trọn gói vật tư từ các dự án điện mặt trời bao gồm: tấm pin solar (mono, poly), biến tần (inverter), cáp DC solar, khung giàn nhôm/sắt, tủ điện và phụ kiện. Báo giá nhanh theo công suất Wp hoặc từng lô hàng cụ thể.',
+  },
+  {
+    question: 'Thời gian thanh toán sau khi thu mua là bao lâu?',
+    answer:
+      'Đức Minh cam kết thanh toán 100% ngay tại chỗ sau khi hoàn tất cân đo và kiểm định hàng hóa. Khách hàng có thể nhận tiền mặt trực tiếp hoặc chuyển khoản ngay lập tức trước khi xe rời bãi.',
+  },
+  {
+    question: 'Quy trình thu mua phế liệu của Đức Minh như thế nào?',
+    answer:
+      'Quy trình gồm 4 bước tinh gọn: (1) Quý khách gọi Hotline/Zalo gửi hình ảnh số lượng. (2) Nhân viên đến tận nơi khảo sát và báo giá cao nhất. (3) Đội xe cẩu tháo dỡ, bốc xếp miễn phí. (4) Cân điện tử chuẩn xác và thanh toán 100% ngay tại chỗ.',
+  },
+  {
+    question: 'Đức Minh có thu mua khối lượng nhỏ từ hộ gia đình hay chỉ nhận công trình lớn?',
+    answer:
+      'Chúng tôi phục vụ tất cả khách hàng, thu mua mọi khối lượng từ vài chục kilogam của hộ gia đình, thợ điện cho đến hàng chục tấn từ các công trình xây dựng, nhà máy sản xuất. Lô hàng càng lớn thì đơn giá càng ưu đãi và mức hoa hồng càng cao.',
+  },
+];
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng, pin mặt trời cũ"
   title="Thu Mua Cáp Đồng Giá Cao Tận Nơi | Công Ty Đức Minh"
   description="Đức Minh thu mua cáp đồng, pin năng lượng mặt trời, phế liệu điện giá cao tận nơi TP.HCM. Thanh toán ngay, uy tín 10+ năm!"
   canonical="https://thumuacapdonggiacao.com/"
   schema={schema}
 >
-<main>
-<section class="hero" id="hero">
-<div class="slide active">
-<picture>
-<source media="(max-width: 768px)" srcset="
-                /img/banner/banner-thu-mua-cap-dong-duc-minh-1_mobile.webp
-              "/>
-<img alt="Thu mua cáp đồng phế liệu các loại giá cao - Công ty Đức Minh" fetchpriority="high" height="1080" src="/img/banner/banner-thu-mua-cap-dong-duc-minh-1.webp" width="1920"/>
-</picture>
-</div>
-<div class="slide">
-<picture>
-<source media="(max-width: 768px)" srcset="
-                /img/banner/banner-thu-mua-cap-dong-duc-minh-2_mobile.webp
-              "/>
-<img alt="Dịch vụ thu mua dây điện cũ và cáp đồng tận nơi chuyên nghiệp" height="1080" loading="lazy" src="/img/banner/banner-thu-mua-cap-dong-duc-minh-2.webp" width="1920"/>
-</picture>
-</div>
-<div class="slide">
-<picture>
-<source media="(max-width: 768px)" srcset="
-                /img/banner/banner-thu-mua-cap-dong-duc-minh-3_mobile.webp
-              "/>
-<img alt="Thu mua cáp đồng và vật tư điện công nghiệp tồn kho giá tốt" height="1080" loading="lazy" src="/img/banner/banner-thu-mua-cap-dong-duc-minh-3.webp" width="1920"/>
-</picture>
-</div>
-<div class="hero-overlay"></div>
-</section>
-<section class="text-banner">
-<div class="container">
-<h1>Thu Mua Cáp Đồng, Pin Năng Lượng Mặt Trời Giá Cao - Đức Minh</h1>
-<p>
-            Chuyên Thu Mua Cáp Đồng, Vật Tư Năng Lượng Mặt Trời &amp; Phế Liệu Giá
-            Cao
-          </p>
-<a class="btn" href="tel:0936350118">Gọi ngay 0936.350.118</a>
-</div>
-</section>
-<section id="about">
-<div class="container about-grid reveal">
-<div class="about-image">
-<img alt="Giới thiệu Công Ty Thu Mua Cáp Đồng Đức Minh" height="500" loading="lazy" src="/img/gioi-thieu-cong-ty-thu-mua-cap-dong-duc-minh.webp" width="500"/>
-</div>
-<div class="about-text">
-<h2>Về Công Ty Thu Mua Cáp Đồng Đức Minh</h2>
-<p>
-<b>ĐỨC MINH</b> là đơn vị uy tín hàng đầu trong lĩnh vực thu mua
-              cáp đồng, dây điện cũ và các loại vật tư, thiết bị điện công
-              nghiệp, phế liệu tồn kho từ các công trình, dự án, nhà xưởng và
-              khu công nghiệp.
-            </p>
-<p>
-              Với hơn 10 năm kinh nghiệm, chúng tôi mang đến dịch vụ thu mua tận
-              nơi, chuyên nghiệp, giúp quý khách hàng giải phóng mặt bằng và thu
-              hồi vốn nhanh chóng với mức giá cạnh tranh nhất thị trường.
-            </p>
-<ul>
-<li>Thu mua tận nơi nhanh chóng, không ngại xa.</li>
-<li>Đội ngũ bốc xếp, vận chuyển chuyên nghiệp.</li>
-<li>Cân đo chính xác, minh bạch.</li>
-<li>Thanh toán một lần ngay tại chỗ.</li>
-<li>Hoa hồng cao cho người giới thiệu.</li>
-</ul>
-</div>
-</div>
-</section>
-<section id="why-us" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">VÌ SAO CHỌN CHÚNG TÔI?</h2>
-<p class="section-subtitle">
-            Chúng tôi tập trung vào việc cung cấp một dịch vụ toàn diện, từ việc
-            báo giá cao và cạnh tranh, đến đội ngũ bốc xếp, vận chuyển tận nơi
-            chuyên nghiệp, giúp bạn giải phóng mặt bằng và thu hồi vốn một cách
-            dễ dàng.
-          </p>
-<div class="features-grid reveal reveal-delay-1">
-<div class="feature-item">
-<div class="icon">💰</div>
-<h3>Giá Thu Mua Cao</h3>
-<p>
-                Luôn đưa ra mức giá cao hơn 30% so với thị trường, đảm bảo lợi
-                ích cho bạn.
-              </p>
-</div>
-<div class="feature-item">
-<div class="icon">⚖️</div>
-<h3>Không Ép Giá</h3>
-<p>
-                Quy trình thẩm định giá rõ ràng, minh bạch, tuyệt đối không có
-                tình trạng ép giá.
-              </p>
-</div>
-<div class="feature-item">
-<div class="icon">🚚</div>
-<h3>Vận Chuyển Nhanh</h3>
-<p>
-                Có xe tải riêng, đội ngũ bốc xếp sẵn sàng đến tận nơi ngay sau
-                khi thỏa thuận.
-              </p>
-</div>
-<div class="feature-item">
-<div class="icon">💵</div>
-<h3>Thanh Toán Liền Tay</h3>
-<p>
-                Thanh toán 100% bằng tiền mặt hoặc chuyển khoản ngay sau khi cân
-                hàng kết thúc.
-              </p>
-</div>
-</div>
-</div>
-</section>
-<section id="categories">
-<div class="container">
-<h2 class="section-title">THU MUA VẬT TƯ NĂNG LƯỢNG MẶT TRỜI</h2>
-<p class="section-subtitle">
-            Nhận Thu mua trọn gói các vật tư, thiết bị tồn kho từ các dự án
-            điện mặt trời với giá cao nhất thị trường.
-          </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Thu mua pin năng lượng mặt trời" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp" width="800"/>
-<div class="caption">
-<span>Pin Năng Lượng Mặt Trời</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Phế Liệu Công Trình NLMT" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Công Trình NLMT</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua dây điện DC Solar" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-day-dien-dc-solar.webp" width="800"/>
-<div class="caption">
-<span>Dây Điện DC Solar</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua tủ điện, phụ kiện solar" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-tu-dien-phu-kien-solar.webp" width="800"/>
-<div class="caption">
-<span>Tủ Điện &amp; Phụ Kiện</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua Thanh Ray, Khung Giàn, Kẹp Pin" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-khung-gian-kep-pin-solar.webp" width="800"/>
-<div class="caption">
-<span>Thanh Ray, Khung Giàn, Kẹp Pin</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua vật tư điện mặt trời khác" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-cap-dien-ton-kho.webp" width="800"/>
-<div class="caption">
-<span>Các Vật Tư Tồn Kho Khác</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="other-scrap" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">THU MUA CÁP ĐỒNG &amp; THIẾT Bị ĐIỆN</h2>
-<p class="section-subtitle">
-            Đức Minh là đơn vị chuyên thu mua các loại thiết bị điện công
-            nghiệp, vật tư tồn kho từ dự án với giá cạnh tranh.
-          </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Thu Mua Cáp Điện &amp; Dây Dẫn Các Loại" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Cáp Điện &amp; Dây Dẫn Các Loại</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Tủ Điện &amp; Thiết Bị Đóng Cắt" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Tủ Điện &amp; Thiết Bị Đóng Cắt</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Động Cơ Điện (Mô Tơ) &amp; Máy Biến Áp" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Động Cơ Điện (Mô Tơ) &amp; Máy Biến Áp</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Vật Tư &amp; Linh Kiện Điện Công Nghiệp" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Vật Tư &amp; Linh Kiện Điện Công Nghiệp</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Máy Móc, Dây Chuyền Công Nghiệp Cũ" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Máy Móc, Dây Chuyền Công Nghiệp Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua Hệ Thống Điện &amp; Phế Liệu Nhà Xưởng" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp" width="800"/>
-<div class="caption">
-<span>Thu mua Hệ Thống Điện &amp; Phế Liệu Nhà Xưởng</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="thu-mua-thiet-bi-dien">
-<div class="container">
-<h2 class="section-title">
-            THU MUA THIẾT BỊ ĐIỆN (INVERTER, TỦ ĐIỆN)
+  <!-- Hero Section -->
+  <HeroHighConversion />
+
+  <!-- About Snapshot Section -->
+  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        
+        <!-- Left Image with Overlays -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-soft-lg border border-slate-200 group">
+            <img
+              src="/img/gioi-thieu-cong-ty-thu-mua-cap-dong-duc-minh.webp"
+              alt="Giới thiệu Công Ty Thu Mua Cáp Đồng Đức Minh"
+              width="600"
+              height="500"
+              loading="lazy"
+              class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-soft-md border border-slate-100">
+              <div class="flex items-center justify-between">
+                <div>
+                  <p class="text-xs font-bold text-slate-500 uppercase tracking-wider">Kinh nghiệm thực tế</p>
+                  <p class="text-lg font-black text-brand-red">Hơn 10 Năm Phục Vụ</p>
+                </div>
+                <Badge variant="gold" size="md">Đối Tác Hàng Đầu</Badge>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Content -->
+        <div class="lg:col-span-7 flex flex-col items-start">
+          <Badge variant="danger" size="md" class="mb-3">VỀ ĐỨC MINH</Badge>
+          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Đơn Vị Thu Mua Cáp Đồng & Vật Tư Điện Uy Tín Hàng Đầu
           </h2>
-<p class="section-subtitle">
-            Chúng tôi còn chuyên thu mua các loại biến tần (inverter) và tủ điện
-            công nghiệp, thiết bị đóng cắt đã qua sử dụng.
+          <p class="mt-4 text-base text-slate-600 leading-relaxed font-normal">
+            <strong class="text-slate-900">ĐỨC MINH</strong> là đơn vị tiên phong và uy tín hàng đầu trong lĩnh vực thu mua cáp đồng, dây điện cũ, pin năng lượng mặt trời và các loại vật tư, thiết bị điện công nghiệp, phế liệu tồn kho từ các công trình, dự án, nhà xưởng và khu công nghiệp tại TP.HCM, Bình Dương, Đồng Nai và toàn quốc.
           </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Thu mua inverter (biến tần) cũ hỏng" height="600" loading="lazy" src="/img/tu-dien/thu-mua-bo-ngat-dien-cb-cu.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Inverter (Biến tần) Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Tủ Điện Công Nghiệp Cũ" height="600" loading="lazy" src="/img/tu-dien/thu-mua-day-chuyen-dien-cu.webp" width="800"/>
-<div class="caption">
-<span>Tủ Điện Công Nghiệp Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Thiết Bị Đóng Cắt (CB, Aptomat)" height="600" loading="lazy" src="/img/tu-dien/thu-mua-inverter-bien-tan-cu.webp" width="800"/>
-<div class="caption">
-<span>Thiết Bị Đóng Cắt (CB, Aptomat)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Motor Điện Cũ (1 pha, 3 pha)" height="600" loading="lazy" src="/img/tu-dien/thu-mua-may-phat-dien-cu.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Motor Điện Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Máy Biến Áp Cũ (Ổn Áp)" height="600" loading="lazy" src="/img/tu-dien/thu-mua-thiet-bi-dong-cat-cu.webp" width="800"/>
-<div class="caption">
-<span>Thu Mua Máy Biến Áp Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Linh Kiện Điện Tử, Bo Mạch" height="600" loading="lazy" src="/img/tu-dien/thu-mua-tu-dien-cong-nghiep-cu.webp" width="800"/>
-<div class="caption">
-<span>Linh Kiện Điện Tử, Bo Mạch</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="metal-scrap" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">THU MUA PHẾ LIỆU CÔNG NGHIỆP KHÁC</h2>
-<p class="section-subtitle">
-            Ngoài cáp đồng và vật tư solar, chúng tôi còn thu mua các loại phế
-            liệu công nghiệp khác với số lượng lớn, giá cao.
+          <p class="mt-3 text-base text-slate-600 leading-relaxed font-normal">
+            Với năng lực tài chính vững mạnh và đội xe cẩu chuyên dụng, chúng tôi cam kết thu mua trực tiếp không qua trung gian, định giá cao hơn 20-30% thị trường, hỗ trợ bốc xếp miễn phí và thanh toán 100% liền tay.
           </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Phế Liệu Đồng (Cáp, Đỏ, Vàng)" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Đồng (Cáp, Đỏ, Vàng)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Phế Liệu Sắt Thép Công Trình" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Sắt Thép Công Trình</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Phế Liệu Inox" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Inox (304, 201, 430)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Hợp Kim, Gang, Thiếc" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp" width="800"/>
-<div class="caption">
-<span>Hợp Kim, Gang, Thiếc</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu mua phế liệu máy móc" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp" width="800"/>
-<div class="caption">
-<span>Phế Liệu Từ Máy Móc Cũ</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="inox-scrap">
-<div class="container">
-<h2 class="section-title">THU MUA INOX</h2>
-<p class="section-subtitle">
-            Chúng tôi thu mua mọi loại inox phế liệu, từ Inox 304, 316 đến 201,
-            430 và các loại vật tư, thiết bị inox công nghiệp cũ.
-          </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Thu Mua Inox 304, 316" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp" width="800"/>
-<div class="caption"><span>Inox Loại 1 (304, 316)</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Inox 201" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-2-201.webp" width="800"/>
-<div class="caption"><span>Inox Loại 2 (201)</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Inox 430 và ba zớ" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-3-430.webp" width="800"/>
-<div class="caption"><span>Inox Loại 3 (430, ba zớ)</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Thiết Bị &amp; Vật Tư Inox Công Nghiệp Cũ" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-thiet-bi-vat-tu-inox-cu.webp" width="800"/>
-<div class="caption">
-<span>Thiết Bị &amp; Vật Tư Inox Công Nghiệp Cũ</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Vật Tư Inox Công Trình &amp; Dự Án" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-vat-tu-inox-cong-trinh.webp" width="800"/>
-<div class="caption">
-<span>Vật Tư Inox Công Trình &amp; Dự Án</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Ống, Hộp &amp; Phụ Kiện Inox" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-ong-hop-phu-kien-inox.webp" width="800"/>
-<div class="caption"><span>Ống, Hộp &amp; Phụ Kiện Inox</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="aluminum-scrap" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">THU MUA NHÔM PHẾ LIỆU</h2>
-<p class="section-subtitle">
-            Chuyên thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn
-            nhôm, cửa nhôm cũ và các vật dụng bằng nhôm khác với giá tốt nhất.
-          </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Thu Mua Nhôm Đặc, Nhôm Tấm" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp" width="800"/>
-<div class="caption">
-<span>Nhôm Đặc, Nhôm Tấm (Loại 1)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Nhôm Hợp Kim, Nhôm Định Hình" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-hop-kim-dinh-hinh.webp" width="800"/>
-<div class="caption">
-<span>Nhôm Hợp Kim, Nhôm Định Hình</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Vụn Nhôm, Mạt Nhôm" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp" width="800"/>
-<div class="caption">
-<span>Vụn Nhôm, Mạt Nhôm (Loại 3)</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Nhôm Cửa, Khung Nhôm" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp" width="800"/>
-<div class="caption"><span>Cửa Nhôm, Khung Nhôm Cũ</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua La phông, Tản Nhiệt Nhôm" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-la-phong-tan-nhiet-nhom.webp" width="800"/>
-<div class="caption"><span>La phông, Tản Nhiệt Nhôm</span></div>
-</div>
-<div class="machine-item">
-<img alt="Thu Mua Thang Nhôm, Đồ Dùng Nhôm" height="600" loading="lazy" src="/img/thu-mua-nhom/thu-mua-thang-nhom-do-dung-nhom.webp" width="800"/>
-<div class="caption"><span>Thang Nhôm, Đồ Dùng Nhôm</span></div>
-</div>
-</div>
-</div>
-</section>
-<section id="price-list">
-<div class="container">
-<h2 class="section-title">BẢNG GIÁ THU MUA HÔM NAY</h2>
-<p class="section-subtitle">
-            Để nhận được báo giá chính xác và tốt nhất, quý khách vui lòng liên
-            hệ trực tiếp qua Hotline
-            <strong>0936.350.118</strong> để được hỗ trợ.
-          </p>
-<div class="price-table-wrapper reveal reveal-delay-1">
-<table class="price-table">
-<thead>
-<tr>
-<th>Tên Phế Liệu</th>
-<th>Phân Loại</th>
-<th>Đơn Giá (VNĐ/Kg)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Vật Tư Năng Lượng Mặt Trời</td>
-<td>Tấm Pin Năng Lượng Mặt Trời</td>
-<td class="price">Liên Hệ</td>
-</tr>
-<tr>
-<td>Vật Tư Năng Lượng Mặt Trời</td>
-<td>Dây cáp điện DC Solar</td>
-<td class="price">105.000 - 255.000</td>
-</tr>
-<tr>
-<td>Vật Tư Năng Lượng Mặt Trời</td>
-<td>Khung giàn, kẹp pin (Nhôm, Sắt)</td>
-<td class="price">25.000 - 65.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Đồng</td>
-<td>Đồng cáp</td>
-<td class="price">250.000 - 350.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Đồng</td>
-<td>Đồng đỏ</td>
-<td class="price">250.000 - 350.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Đồng</td>
-<td>Đồng vàng</td>
-<td class="price">250.000 - 350.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Đồng</td>
-<td>Đồng cháy</td>
-<td class="price">250.000 - 350.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Sắt Thép</td>
-<td>Sắt đặc</td>
-<td class="price">10.500 - 13.500</td>
-</tr>
-<tr>
-<td>Phế Liệu Sắt Thép</td>
-<td>Sắt vụn, sắt công trình</td>
-<td class="price">9.000 - 11.500</td>
-</tr>
-<tr>
-<td>Phế Liệu Sắt Thép</td>
-<td>Sắt gỉ sét, bazo sắt</td>
-<td class="price">7.000 - 9.500</td>
-</tr>
-<tr>
-<td>Phế Liệu Nhôm</td>
-<td>Nhôm loại 1 (nhôm đặc, nguyên chất)</td>
-<td class="price">45.000 - 65.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Nhôm</td>
-<td>Nhôm loại 2 (hợp kim nhôm)</td>
-<td class="price">40.000 - 55.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Nhôm</td>
-<td>Nhôm loại 3 (vụn nhôm, mạt nhôm)</td>
-<td class="price">22.000 - 45.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Inox</td>
-<td>Inox 304, 316</td>
-<td class="price">22.000 - 55.000</td>
-</tr>
-<tr>
-<td>Phế Liệu Inox</td>
-<td>Inox 201, 430</td>
-<td class="price">10.000 - 22.000</td>
-</tr>
-<tr>
-<td>Các loại khác</td>
-<td>Hợp kim, gang, thiếc, kẽm...</td>
-<td class="price">Liên Hệ Hotline</td>
-</tr>
-</tbody>
-</table>
-<div style="text-align: center; margin-top: 30px">
-<a class="btn" href="/bang-gia/">Xem Bảng Giá Đầy Đủ</a>
-</div>
-</div>
-</div>
-</section>
-<section id="hinh-anh-thuc-te" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">HÌNH ẢNH THU MUA THỰC TẾ</h2>
-<p class="section-subtitle">
-            Minh chứng cho năng lực, uy tín và sự chuyên nghiệp của Đức Minh qua
-            các dự án và lô hàng đã thực hiện.
-          </p>
-<div class="machines-grid reveal reveal-delay-1">
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 1" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-01.webp" width="800"/>
-<div class="caption">
-<span>Thu Gom Công Trình</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 2" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-02.webp" width="800"/>
-<div class="caption">
-<span>Vận Chuyển Nhanh Gọn</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 3" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-03.webp" width="800"/>
-<div class="caption">
-<span>Bốc Xếp Cáp Đồng</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 4" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-04.webp" width="800"/>
-<div class="caption">
-<span>Thu mua Nhà Xưởng</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 5" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-05.webp" width="800"/>
-<div class="caption">
-<span>Phân Loại Inox</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 6" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-06.webp" width="800"/>
-<div class="caption">
-<span>Thu Gom Pin Solar</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 7" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-07.webp" width="800"/>
-<div class="caption">
-<span>Thẩm Định Máy Móc</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 8" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-08.webp" width="800"/>
-<div class="caption">
-<span>Phá Dỡ Kết Cấu Thép</span>
-</div>
-</div>
-<div class="machine-item">
-<img alt="Hình ảnh thu mua thực tế 9" height="600" loading="lazy" src="/img/hinh-anh-thuc-te/anh-09.webp" width="800"/>
-<div class="caption">
-<span>Dọn Dẹp Mặt Bằng</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="news-home">
-<div class="container">
-<h2 class="section-title">BÀI VIẾT MỚI NHẤT</h2>
-<div class="article-grid-container reveal reveal-delay-1">
-<div class="article-card">
-<a href="/tin-tuc/gia-phe-lieu-hom-nay-bien-dong-ra-sao/">
-<img alt="Biến động giá phế liệu đồng" height="600" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp" width="800"/>
-</a>
-<div class="article-content">
-<span class="article-category">Thị Trường</span>
-<h3>
-<a href="/tin-tuc/gia-phe-lieu-hom-nay-bien-dong-ra-sao/">Giá phế liệu hôm nay biến động ra sao? Phân tích thị trường
-                    cuối năm.</a>
-</h3>
-<p class="article-excerpt">
-                  Cùng Đức Minh phân tích những yếu tố ảnh hưởng đến giá phế
-                  liệu đồng, sắt, nhôm trong những tháng cuối năm và dự báo xu
-                  hướng...
-                </p>
-<a class="read-more-btn" href="/tin-tuc/gia-phe-lieu-hom-nay-bien-dong-ra-sao/">Đọc tiếp →</a>
-</div>
-</div>
-<div class="article-card">
-<a href="/tin-tuc/meo-phan-biet-inox-304-201-430/">
-<img alt="Cách phân biệt các loại inox" height="600" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp" width="800"/>
-</a>
-<div class="article-content">
-<span class="article-category">Kinh Nghiệm</span>
-<h3>
-<a href="/tin-tuc/meo-phan-biet-inox-304-201-430/">Mẹo phân biệt Inox 304, 201 và 430 bằng nam châm và thuốc
-                    thử</a>
-</h3>
-<p class="article-excerpt">
-                  Bạn có biết giá trị của Inox 304 cao hơn nhiều so với Inox
-                  201? Bài viết này sẽ hướng dẫn bạn cách phân biệt các loại
-                  inox phổ biến...
-                </p>
-<a class="read-more-btn" href="/tin-tuc/meo-phan-biet-inox-304-201-430/">Đọc tiếp →</a>
-</div>
-</div>
-<div class="article-card">
-<a href="/tin-tuc/tuong-lai-tai-che-pin-nang-luong-mat-troi/">
-<img alt="Xu hướng tái chế pin năng lượng mặt trời" height="600" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp" width="800"/>
-</a>
-<div class="article-content">
-<span class="article-category">Tin Ngành</span>
-<h3>
-<a href="/tin-tuc/tuong-lai-tai-che-pin-nang-luong-mat-troi/">Tương lai của việc tái chế pin năng lượng mặt trời tại Việt
-                    Nam</a>
-</h3>
-<p class="article-excerpt">
-                  Khi các hệ thống điện mặt trời đời đầu hết hạn, việc xử lý và
-                  tái chế pin đang trở thành một vấn đề lớn. Đâu là cơ hội và
-                  thách thức...
-                </p>
-<a class="read-more-btn" href="/tin-tuc/tuong-lai-tai-che-pin-nang-luong-mat-troi/">Đọc tiếp →</a>
-</div>
-</div>
-</div>
-<div style="text-align: center; margin-top: 40px">
-<a class="btn" href="/tin-tuc/">Xem Tất Cả Bài Viết</a>
-</div>
-</div>
-</section>
-<section id="process" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">QUY TRÌNH THU MUA CHUYÊN NGHIỆP</h2>
-<div class="process-grid reveal reveal-delay-1">
-<div class="process-item">
-<div class="step-number">1</div>
-<h3>Tiếp Nhận Thông Tin</h3>
-<p>
-                Khách hàng liên hệ qua Hotline/Zalo, chúng tôi sẽ tư vấn và hẹn
-                lịch khảo sát.
+
+          <!-- Highlights Grid -->
+          <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-3.5 w-full">
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">✓</span>
+              <span class="text-sm font-semibold text-slate-800">Thu mua tận nơi 24/7, không ngại xa</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">✓</span>
+              <span class="text-sm font-semibold text-slate-800">Đội xe cẩu & bốc xếp miễn phí 100%</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">✓</span>
+              <span class="text-sm font-semibold text-slate-800">Cân đo điện tử chuẩn xác, minh bạch</span>
+            </div>
+            <div class="flex items-center gap-3 bg-slate-50 border border-slate-200 rounded-xl p-3">
+              <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-sm">✓</span>
+              <span class="text-sm font-semibold text-slate-800">Hoa hồng hấp dẫn cho người giới thiệu</span>
+            </div>
+          </div>
+
+          <!-- Dual Buttons -->
+          <div class="mt-8 flex flex-wrap items-center gap-4">
+            <Button href="/gioi-thieu/" variant="primary" size="md">
+              <span>Tìm Hiểu Về Chúng Tôi</span>
+              <svg slot="icon-right" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </Button>
+            <Button href={`tel:${settings.hotline}`} variant="phone" size="md">
+              <span>Hotline: {settings.hotlineDisplay}</span>
+            </Button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Grid Section -->
+  <section class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <Badge variant="danger" size="md" class="mb-3">DANH MỤC THU MUA</Badge>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Dịch Vụ Thu Mua Chuyên Nghiệp Giá Cao
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-slate-600 font-normal">
+          Đức Minh thu mua toàn diện các loại kim loại màu, cáp đồng, pin solar và phế liệu công nghiệp với mức giá cao nhất thị trường.
+        </p>
+      </div>
+
+      <!-- 6 Service Cards Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {services.map((srv) => (
+          <Card hover variant="default" class="flex flex-col h-full overflow-hidden p-0">
+            <!-- Thumbnail Image -->
+            <div class="relative aspect-[16/10] overflow-hidden bg-slate-100">
+              <img
+                src={srv.image}
+                alt={srv.title}
+                width="600"
+                height="375"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 right-3">
+                <Badge variant={srv.badgeVariant} size="sm">
+                  {srv.badge}
+                </Badge>
+              </div>
+            </div>
+
+            <!-- Content Area -->
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <h3 class="text-lg sm:text-xl font-bold text-slate-900 group-hover:text-brand-red transition-colors">
+                <a href={srv.href}>{srv.title}</a>
+              </h3>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed font-normal">
+                {srv.subtitle}
               </p>
-</div>
-<div class="process-item">
-<div class="step-number">2</div>
-<h3>Khảo Sát &amp; Báo Giá</h3>
-<p>
-                Nhân viên đến tận nơi để thẩm định, phân loại và báo giá chi
-                tiết, cụ thể.
+
+              <!-- Highlights -->
+              <ul class="mt-4 space-y-1.5 border-t border-slate-100 pt-3 flex-1">
+                {srv.highlights.map((h) => (
+                  <li class="flex items-center gap-2 text-xs sm:text-sm text-slate-700">
+                    <span class="text-emerald-600 font-bold">✓</span>
+                    <span>{h}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <!-- Bottom CTA -->
+              <div class="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between">
+                <a
+                  href={srv.href}
+                  class="text-xs sm:text-sm font-bold text-brand-red hover:text-brand-red-dark flex items-center gap-1 group/link"
+                >
+                  <span>Xem Chi Tiết</span>
+                  <span class="transform group-hover/link:translate-x-1 transition-transform">→</span>
+                </a>
+                <a
+                  href={`tel:${settings.hotline}`}
+                  class="text-xs font-bold text-slate-600 hover:text-brand-phone flex items-center gap-1"
+                >
+                  <span>Báo giá: {settings.hotlineDisplay}</span>
+                </a>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+      <!-- View All Services CTA -->
+      <div class="mt-12 text-center">
+        <Button href="/dich-vu/" variant="secondary" size="lg">
+          <span>Xem Tất Cả Dịch Vụ Thu Mua</span>
+          <svg slot="icon-right" class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </Button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6 Golden Commitments / Features Grid -->
+  <FeaturesGrid />
+
+  <!-- Live Pricing Table Section -->
+  <PricingTable />
+
+  <!-- Real Project Photos Gallery -->
+  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <Badge variant="gold" size="md" class="mb-3">MINH CHỨNG NĂNG LỰC</Badge>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Hình Ảnh Thu Mua & Bốc Xếp Thực Tế
+        </h2>
+        <p class="mt-3 text-base sm:text-lg text-slate-600 font-normal">
+          Minh chứng cho năng lực, phương tiện xe cẩu hiện đại và sự chuyên nghiệp của Đức Minh qua các công trình, dự án lớn đã thực hiện.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+        {galleryImages.map((img) => (
+          <div class="group relative rounded-2xl overflow-hidden shadow-soft-sm bg-slate-100 aspect-[4/3] border border-slate-200">
+            <img
+              src={img.src}
+              alt={img.alt}
+              width="600"
+              height="450"
+              loading="lazy"
+              class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
+            <div class="absolute bottom-3 left-3 right-3 text-white">
+              <span class="text-xs sm:text-sm font-bold block leading-tight">{img.title}</span>
+              <span class="text-[11px] text-amber-300 font-medium hidden sm:inline-block">Đức Minh 24/7</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 4-Step Process Flow -->
+  <ProcessFlow />
+
+  <!-- Social Proof & Customer Reviews -->
+  <SocialProofTestimonials />
+
+  <!-- Latest News / Articles Preview Section -->
+  <section class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div>
+          <Badge variant="primary" size="md" class="mb-3">TIN TỨC & KINH NGHIỆM</Badge>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+            Bài Viết Mới Nhất & Cập Nhật Thị Trường
+          </h2>
+          <p class="mt-2 text-base text-slate-600 font-normal max-w-2xl">
+            Cập nhật biến động giá kim loại, hướng dẫn phân loại cáp đồng và mẹo tối ưu hóa giá trị thanh lý phế liệu.
+          </p>
+        </div>
+        <Button href="/tin-tuc/" variant="secondary" size="md" class="self-start sm:self-auto shrink-0">
+          <span>Xem Tất Cả Bài Viết</span>
+          <span slot="icon-right">→</span>
+        </Button>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {latestPosts.map((post) => (
+          <Card hover variant="default" class="flex flex-col h-full overflow-hidden p-0">
+            <a href={`/tin-tuc/${post.slug}/`} class="relative aspect-[16/10] overflow-hidden bg-slate-100 block group/img">
+              <img
+                src={post.data.image || '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp'}
+                alt={post.data.imageAlt || post.data.title}
+                width="600"
+                height="375"
+                loading="lazy"
+                class="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-500"
+              />
+              <div class="absolute top-3 left-3">
+                <Badge variant="gold" size="sm">
+                  {post.data.tags?.[0] || 'Kinh Nghiệm'}
+                </Badge>
+              </div>
+            </a>
+            
+            <div class="p-5 sm:p-6 flex flex-col flex-1">
+              <div class="text-xs text-slate-500 mb-2 font-medium">
+                {new Date(post.data.pubDate).toLocaleDateString('vi-VN', {
+                  day: '2-digit',
+                  month: '2-digit',
+                  year: 'numeric',
+                })}
+              </div>
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-2">
+                <a href={`/tin-tuc/${post.slug}/`}>{post.data.title}</a>
+              </h3>
+              <p class="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed flex-1 font-normal">
+                {post.data.description}
               </p>
-</div>
-<div class="process-item">
-<div class="step-number">3</div>
-<h3>Thu Gom &amp; Vận Chuyển</h3>
-<p>
-                Sau khi thống nhất, đội xe và nhân viên sẽ tiến hành bốc xếp,
-                dọn dẹp sạch sẽ.
-              </p>
-</div>
-<div class="process-item">
-<div class="step-number">4</div>
-<h3>Thanh Toán Nhanh Gọn</h3>
-<p>
-                Cân đo và thanh toán 100% ngay tại chỗ cho khách hàng bằng hình
-                thức yêu cầu.
-              </p>
-</div>
-</div>
-</div>
-</section>
-</main>
+              <div class="mt-4 pt-3 border-t border-slate-100">
+                <a
+                  href={`/tin-tuc/${post.slug}/`}
+                  class="text-xs sm:text-sm font-bold text-brand-red hover:text-brand-red-dark flex items-center gap-1"
+                >
+                  <span>Đọc tiếp</span>
+                  <span>→</span>
+                </a>
+              </div>
+            </div>
+          </Card>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Interactive FAQ Accordion -->
+  <FaqAccordion
+    badge="HỎI ĐÁP PHỔ BIẾN"
+    title="Giải Đáp Thắc Mắc Về Dịch Vụ Thu Mua"
+    subtitle="Những câu hỏi thường gặp nhất của quý khách hàng và nhà thầu khi thanh lý cáp đồng, pin solar và phế liệu."
+    items={homeFaqs}
+  />
+
+  <!-- Final High-Conversion Urgency CTA Banner -->
+  <section class="py-14 bg-gradient-to-r from-brand-red via-red-700 to-brand-red-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white">
+        Bạn Cần Thanh Lý Cáp Đồng & Phế Liệu Hôm Nay?
+      </h2>
+      <p class="mt-3 text-base sm:text-lg text-red-100 max-w-2xl mx-auto font-normal">
+        Liên hệ ngay Hotline hoặc gửi ảnh qua Zalo để nhận báo giá cao nhất trong 5 phút. Xe cẩu và nhân viên có mặt sau 15-30 phút!
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button
+          href={`tel:${settings.hotline}`}
+          variant="gold"
+          size="lg"
+          pulse
+          class="font-black text-base shadow-glow-gold"
+        >
+          <svg slot="icon-left" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button
+          href={settings.zaloLink}
+          target="_blank"
+          variant="zalo"
+          size="lg"
+          class="font-bold text-base"
+        >
+          <span>Báo Giá Nhanh Zalo (5 Phút)</span>
+        </Button>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

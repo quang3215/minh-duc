@@ -1,112 +1,100 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Card from '../../components/ui/Card.astro';
+import settings from '../../data/settings.json';
+
+const schema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'Chính Sách Bảo Mật | Công Ty Thu Mua Cáp Đồng Đức Minh',
+  description:
+    'Chính sách bảo mật của Công ty Đức Minh. Chúng tôi cam kết bảo vệ thông tin cá nhân của khách hàng khi sử dụng dịch vụ thu mua phế liệu tại TP.HCM.',
+  url: 'https://thumuacapdonggiacao.com/chinh-sach-bao-mat/',
+});
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="chính sách bảo mật đức minh, bảo mật thông tin khách hàng"
   title="Chính Sách Bảo Mật | Công Ty Thu Mua Cáp Đồng Đức Minh"
   description="Chính sách bảo mật của Công ty Đức Minh. Chúng tôi cam kết bảo vệ thông tin cá nhân của khách hàng khi sử dụng dịch vụ thu mua phế liệu tại TP.HCM."
   canonical="https://thumuacapdonggiacao.com/chinh-sach-bao-mat/"
+  schema={schema}
 >
-<main>
-<!-- Hero trang -->
-<div class="policy-hero">
-<div class="container">
-<nav aria-label="Breadcrumb" class="breadcrumb">
-<a href="/">Trang Chủ</a> › Chính Sách Bảo Mật
-          </nav>
-<h1>Chính Sách Bảo Mật</h1>
-<p class="meta">Cập nhật lần cuối: Tháng 7 năm 2026  |  Công Ty Thu Mua Cáp Đồng Đức Minh</p>
-</div>
-</div>
-<!-- Nội dung chính + Sidebar mục lục -->
-<section>
-<div class="container">
-<div class="policy-wrap">
-<!-- Sidebar mục lục -->
-<aside class="policy-toc">
-<h3>Mục Lục</h3>
-<ol>
-<li><a href="#thong-tin-thu-thap">Thông tin thu thập</a></li>
-<li><a href="#muc-dich">Mục đích sử dụng</a></li>
-<li><a href="#cookies">Cookies &amp; theo dõi</a></li>
-<li><a href="#chia-se">Chia sẻ bên thứ ba</a></li>
-<li><a href="#bao-mat">Bảo mật thông tin</a></li>
-<li><a href="#quyen-cua-ban">Quyền của bạn</a></li>
-<li><a href="#lien-ket">Liên kết bên thứ ba</a></li>
-<li><a href="#thay-doi">Thay đổi chính sách</a></li>
-<li><a href="#lien-he">Liên hệ về bảo mật</a></li>
-</ol>
-</aside>
-<!-- Body nội dung -->
-<div class="policy-body">
-<div class="policy-info-box">
-<p>Chúng tôi tôn trọng quyền riêng tư của bạn. Chính sách này giải thích cách <strong>Công Ty Thu Mua Cáp Đồng Đức Minh</strong> thu thập, sử dụng và bảo vệ thông tin của bạn khi truy cập website <strong>thumuacapdonggiacao.com</strong>.</p>
-</div>
-<h2 id="thong-tin-thu-thap">1. Thông Tin Chúng Tôi Thu Thập</h2>
-<p>Chúng tôi có thể thu thập các loại thông tin sau:</p>
-<ul>
-<li><strong>Thông tin bạn cung cấp chủ động:</strong> Họ tên, số điện thoại, email, địa chỉ khi bạn liên hệ qua form hoặc Zalo/điện thoại.</li>
-<li><strong>Thông tin kỹ thuật tự động:</strong> Địa chỉ IP, loại trình duyệt, thiết bị, trang đã xem, thời gian truy cập (thông qua Google Analytics và Google Tag Manager).</li>
-<li><strong>Cookie và dữ liệu theo dõi:</strong> Cookies từ Google Analytics (GA4), Google Ads Remarketing và Firebase để phân tích hành vi truy cập.</li>
-</ul>
-<h2 id="muc-dich">2. Mục Đích Sử Dụng Thông Tin</h2>
-<p>Chúng tôi sử dụng thông tin thu thập được để:</p>
-<ul>
-<li>Liên hệ lại với bạn để báo giá thu mua phế liệu, cáp đồng, pin năng lượng mặt trời.</li>
-<li>Cải thiện nội dung và trải nghiệm website.</li>
-<li>Đo lường hiệu quả quảng cáo Google Ads và tối ưu chiến dịch marketing.</li>
-<li>Hiển thị quảng cáo tái tiếp thị (remarketing) phù hợp với sở thích của bạn.</li>
-<li>Phát hiện và ngăn chặn các hành vi gian lận click (click fraud) thông qua hệ thống ClickGuard.</li>
-</ul>
-<h2 id="cookies">3. Cookies và Công Nghệ Theo Dõi</h2>
-<p>Website chúng tôi sử dụng các công nghệ sau:</p>
-<ul>
-<li><strong>Google Analytics 4 (GA4):</strong> Phân tích lưu lượng truy cập và hành vi người dùng. Xem <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Chính sách bảo mật của Google</a>.</li>
-<li><strong>Google Tag Manager (GTM):</strong> Quản lý các thẻ tracking trên website.</li>
-<li><strong>Google Ads Remarketing:</strong> Chúng tôi có thể sử dụng Google Ads để hiển thị quảng cáo cho người đã truy cập website. Bạn có thể từ chối tại <a href="https://adssettings.google.com/" rel="noopener noreferrer" target="_blank">Cài đặt quảng cáo Google</a>.</li>
-<li><strong>Firebase / ClickGuard:</strong> Hệ thống ghi nhận địa chỉ IP và thông tin truy cập để phát hiện click gian lận, bảo vệ ngân sách quảng cáo.</li>
-</ul>
-<p>Bạn có thể kiểm soát cookies thông qua cài đặt trình duyệt. Lưu ý rằng tắt cookie có thể ảnh hưởng đến trải nghiệm sử dụng website.</p>
-<h2 id="chia-se">4. Chia Sẻ Thông Tin Với Bên Thứ Ba</h2>
-<p>Chúng tôi <strong>không bán</strong> thông tin cá nhân của bạn cho bên thứ ba. Thông tin chỉ được chia sẻ với:</p>
-<ul>
-<li><strong>Google LLC:</strong> Thông qua Google Analytics và Google Ads để đo lường và quảng cáo.</li>
-<li><strong>Firebase (Google):</strong> Lưu trữ dữ liệu phát hiện click gian lận.</li>
-<li>Cơ quan nhà nước khi có yêu cầu hợp pháp theo quy định của pháp luật Việt Nam.</li>
-</ul>
-<h2 id="bao-mat">5. Bảo Mật Thông Tin</h2>
-<p>Chúng tôi áp dụng các biện pháp kỹ thuật và tổ chức để bảo vệ thông tin của bạn, bao gồm:</p>
-<ul>
-<li>Kết nối bảo mật HTTPS (SSL/TLS) cho toàn bộ website.</li>
-<li>Giới hạn quyền truy cập vào dữ liệu khách hàng chỉ cho nhân sự được ủy quyền.</li>
-<li>Không lưu trữ thông tin thanh toán hay tài khoản ngân hàng của khách hàng.</li>
-</ul>
-<h2 id="quyen-cua-ban">6. Quyền Của Bạn</h2>
-<p>Bạn có các quyền sau đối với thông tin cá nhân của mình:</p>
-<ul>
-<li><strong>Quyền truy cập:</strong> Yêu cầu chúng tôi cung cấp thông tin chúng tôi đang lưu trữ về bạn.</li>
-<li><strong>Quyền chỉnh sửa:</strong> Yêu cầu chúng tôi cập nhật thông tin không chính xác.</li>
-<li><strong>Quyền xóa:</strong> Yêu cầu xóa thông tin cá nhân của bạn khỏi hệ thống của chúng tôi.</li>
-<li><strong>Quyền từ chối remarketing:</strong> Từ chối nhận quảng cáo tại <a href="https://adssettings.google.com/" rel="noopener noreferrer" target="_blank">adssettings.google.com</a>.</li>
-<li><strong>Từ chối Google Analytics:</strong> Cài đặt <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</li>
-</ul>
-<h2 id="lien-ket">7. Liên Kết Đến Bên Thứ Ba</h2>
-<p>Website có thể chứa liên kết đến các trang web bên ngoài. Chúng tôi không chịu trách nhiệm về chính sách bảo mật của các trang đó. Chúng tôi khuyến khích bạn đọc chính sách bảo mật của từng trang bạn truy cập.</p>
-<h2 id="thay-doi">8. Thay Đổi Chính Sách</h2>
-<p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Mọi thay đổi sẽ được đăng trên trang này kèm ngày cập nhật mới nhất. Chúng tôi khuyến nghị bạn kiểm tra trang này định kỳ.</p>
-<h2 id="lien-he">9. Liên Hệ Về Quyền Riêng Tư</h2>
-<p>Nếu bạn có bất kỳ câu hỏi nào về Chính sách Bảo mật này, vui lòng liên hệ chúng tôi:</p>
-<div class="policy-contact-card">
-<ul>
-<li><strong>Công ty:</strong> Công Ty Thu Mua Cáp Đồng Đức Minh</li>
-<li><strong>Địa chỉ:</strong> 14 ấp 2, Đông Thạnh, Hóc Môn, TP. HCM</li>
-<li><strong>Hotline / Zalo:</strong> <a href="tel:0936350118">0936.350.118</a></li>
-<li><strong>Email:</strong> <a href="mailto:quibinh0118@gmail.com">quibinh0118@gmail.com</a></li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</section>
-</main>
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Chính Sách Bảo Mật</span>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="py-12 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+      <Badge variant="primary" size="md" class="mb-4">QUYỀN RIÊNG TƯ & BẢO MẬT</Badge>
+      <h1 class="text-3xl sm:text-4xl font-black tracking-tight text-white">
+        Chính Sách Bảo Mật Thông Tin
+      </h1>
+      <p class="mt-3 text-sm sm:text-base text-slate-400 font-normal">
+        Cập nhật lần cuối: Tháng 8 năm 2026 • Công Ty Thu Mua Cáp Đồng Đức Minh
+      </p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 mb-8 text-sm text-slate-800 leading-relaxed">
+        Chúng tôi tôn trọng quyền riêng tư của bạn. Chính sách này giải thích cách <strong>Công Ty Thu Mua Cáp Đồng Đức Minh</strong> thu thập, sử dụng và bảo vệ thông tin của bạn khi truy cập website <strong>thumuacapdonggiacao.com</strong>.
+      </div>
+
+      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
+        
+        <h2 id="thong-tin-thu-thap" class="text-xl font-bold text-slate-900 mt-8 mb-3">1. Thông Tin Chúng Tôi Thu Thập</h2>
+        <ul>
+          <li><strong>Thông tin bạn cung cấp chủ động:</strong> Họ tên, số điện thoại, email, địa chỉ khi bạn liên hệ qua form báo giá, gọi Hotline hoặc nhắn Zalo.</li>
+          <li><strong>Thông tin kỹ thuật tự động:</strong> Địa chỉ IP, loại trình duyệt, thiết bị, các trang đã xem, thời gian truy cập (thông qua Google Analytics và Google Tag Manager).</li>
+          <li><strong>Cookie và dữ liệu theo dõi:</strong> Cookies từ Google Analytics (GA4) và Google Ads để phân tích và nâng cao trải nghiệm website.</li>
+        </ul>
+
+        <h2 id="muc-dich" class="text-xl font-bold text-slate-900 mt-8 mb-3">2. Mục Đích Sử Dụng Thông Tin</h2>
+        <ul>
+          <li>Liên hệ lại để tư vấn và báo giá thu mua phế liệu, cáp đồng, pin mặt trời theo yêu cầu của bạn.</li>
+          <li>Cải thiện chất lượng nội dung và trải nghiệm người dùng trên website.</li>
+          <li>Đo lường hiệu quả quảng cáo và tối ưu hóa dịch vụ khách hàng.</li>
+          <li>Ngăn chặn các hành vi gian lận và đảm bảo an ninh hệ thống.</li>
+        </ul>
+
+        <h2 id="cookies" class="text-xl font-bold text-slate-900 mt-8 mb-3">3. Cookies và Công Nghệ Theo Dõi</h2>
+        <p>
+          Website chúng tôi sử dụng Google Analytics 4 (GA4) để phân tích lưu lượng truy cập. Bạn có thể kiểm soát hoặc tắt cookie trong cài đặt trình duyệt bất cứ lúc nào.
+        </p>
+
+        <h2 id="chia-se" class="text-xl font-bold text-slate-900 mt-8 mb-3">4. Chia Sẻ Thông Tin Với Bên Thứ Ba</h2>
+        <p>
+          Chúng tôi <strong>tuyệt đối không bán hay trao đổi</strong> thông tin cá nhân của bạn cho bất kỳ bên thứ ba nào vì mục đích thương mại. Thông tin chỉ được cung cấp khi có yêu cầu hợp pháp từ cơ quan pháp luật có thẩm quyền.
+        </p>
+
+        <h2 id="bao-mat" class="text-xl font-bold text-slate-900 mt-8 mb-3">5. Bảo Mật Thông Tin Khách Hàng</h2>
+        <ul>
+          <li>Toàn bộ website hoạt động trên giao thức mã hóa an toàn HTTPS (SSL/TLS 256-bit).</li>
+          <li>Dữ liệu liên hệ được bảo vệ nghiêm ngặt, chỉ nhân sự có thẩm quyền mới được tiếp cận để tư vấn báo giá.</li>
+          <li>Không lưu trữ bất kỳ thông tin thẻ ngân hàng hoặc thông tin thanh toán nhạy cảm nào trên website.</li>
+        </ul>
+
+        <h2 id="lien-he" class="text-xl font-bold text-slate-900 mt-8 mb-3">6. Liên Hệ Về Quyền Riêng Tư</h2>
+        <div class="not-prose bg-slate-50 border border-slate-200 rounded-2xl p-5 mt-4 text-sm text-slate-800 space-y-1">
+          <p><strong>Công Ty:</strong> Thu Mua Cáp Đồng Đức Minh</p>
+          <p><strong>Địa chỉ:</strong> 14 ấp 2, Đông Thạnh, Hóc Môn, TP. HCM</p>
+          <p><strong>Hotline / Zalo:</strong> <a href={`tel:${settings.hotline}`} class="text-brand-red font-bold">{settings.hotlineDisplay}</a></p>
+          <p><strong>Email:</strong> <a href={`mailto:${settings.email}`} class="text-brand-red font-bold">{settings.email}</a></p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
 </BaseLayout>

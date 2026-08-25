@@ -1,201 +1,406 @@
 ---
-import pricingData from '../../data/pricing.json';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
+import FaqAccordion from '../../components/marketing/FaqAccordion.astro';
+import pricingData from '../../data/pricing.json';
+import settings from '../../data/settings.json';
+
 const schema = JSON.stringify({
-        "@context": "https://schema.org",
-        "@graph": [
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      name: 'Bảng Giá Phế Liệu Hôm Nay | Giá Cáp Đồng, Pin Mặt Trời Mới Nhất',
+      url: 'https://thumuacapdonggiacao.com/bang-gia/',
+      description:
+        'Cập nhật bảng giá thu mua phế liệu mới nhất tại Đức Minh, bao gồm giá đồng, nhôm, sắt, inox, cáp điện và pin mặt trời. Cam kết giá cao nhất thị trường.',
+      mainEntity: {
+        '@type': 'Table',
+        about: 'Bảng giá tham khảo các loại phế liệu và vật tư công nghiệp',
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://thumuacapdonggiacao.com/img/logo.svg',
+        },
+      },
+      subjectOf: {
+        '@type': 'FAQPage',
+        mainEntity: [
           {
-            "@type": "WebPage",
-            "name": "Bảng Giá Phế Liệu Hôm Nay | Giá Cáp Đồng, Pin Mặt Trời Mới Nhất",
-            "url": "https://thumuacapdonggiacao.com/bang-gia/",
-            "description": "Cập nhật bảng giá thu mua phế liệu mới nhất tại Đức Minh, bao gồm giá đồng, nhôm, sắt, inox, cáp điện và pin mặt trời. Cam kết giá cao nhất thị trường.",
-            "mainEntity": {
-              "@type": "Table",
-              "about": "Bảng giá tham khảo các loại phế liệu và vật tư công nghiệp"
+            '@type': 'Question',
+            name: 'Tại sao bảng giá phế liệu lại có khoảng dao động?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Khoảng giá (ví dụ: 45.000 - 65.000 VNĐ) phản ánh sự khác biệt về chất lượng và độ tinh khiết. Ví dụ, nhôm đặc nguyên chất sẽ có giá cao nhất, trong khi nhôm có lẫn tạp chất sẽ có giá thấp hơn. Chúng tôi sẽ thẩm định và báo giá cụ thể khi xem hàng thực tế.',
             },
-            "publisher": {
-              "@type": "Organization",
-              "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-              "logo": {
-                "@type": "ImageObject",
-                "url": "https://thumuacapdonggiacao.com/img/logo.svg"
-              }
-            },
-            "subjectOf": {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "Tại sao bảng giá phế liệu lại có khoảng dao động?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Khoảng giá (ví dụ: 45.000 - 65.000 VNĐ) phản ánh sự khác biệt về chất lượng và độ tinh khiết. Ví dụ, nhôm đặc nguyên chất sẽ có giá cao nhất, trong khi nhôm có lẫn tạp chất sẽ có giá thấp hơn. Chúng tôi sẽ thẩm định và báo giá cụ thể khi xem hàng thực tế."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Làm thế nào để tôi bán được phế liệu với giá cao nhất?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Để tối ưu giá bán, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, sạch sẽ, không lẫn tạp chất. Phế liệu càng sạch, giá trị thu mua càng cao."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Bảng giá phế liệu hôm nay thay đổi khi nào?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại trên thị trường quốc tế, vốn biến động hàng ngày. Do đó, bảng giá của chúng tôi cũng được cập nhật thường xuyên. Hãy gọi cho chúng tôi để có giá chốt tại thời điểm bạn muốn bán."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "Công ty có báo giá thu mua cáp điện và báo giá thu mua pin mặt trời cũ không?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Có. Đối với các mặt hàng đặc thù như cáp điện, cáp đồng và pin mặt trời, giá trị phụ thuộc lớn vào thương hiệu, tình trạng và tỷ lệ thu hồi. Vui lòng liên hệ trực tiếp qua Zalo 0936.350.118 để gửi hình ảnh và nhận báo giá chính xác nhất."
-                  }
-                }
-              ]
-            }
           },
           {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Trang Chủ",
-                "item": "https://thumuacapdonggiacao.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Bảng Giá Phế Liệu"
-              }
-            ]
-          }
-        ]
-      });
+            '@type': 'Question',
+            name: 'Làm thế nào để tôi bán được phế liệu với giá cao nhất?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Để tối ưu giá bán, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, sạch sẽ, không lẫn tạp chất. Phế liệu càng sạch, giá trị thu mua càng cao.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Bảng giá phế liệu hôm nay thay đổi khi nào?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại trên thị trường quốc tế, vốn biến động hàng ngày. Do đó, bảng giá của chúng tôi cũng được cập nhật thường xuyên. Hãy gọi cho chúng tôi để có giá chốt tại thời điểm bạn muốn bán.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Công ty có báo giá thu mua cáp điện và báo giá thu mua pin mặt trời cũ không?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Có. Đối với các mặt hàng đặc thù như cáp điện, cáp đồng và pin mặt trời, giá trị phụ thuộc lớn vào thương hiệu, tình trạng và tỷ lệ thu hồi. Vui lòng liên hệ trực tiếp qua Zalo 0936.350.118 để gửi hình ảnh và nhận báo giá chính xác nhất.',
+            },
+          },
+        ],
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Trang Chủ',
+          item: 'https://thumuacapdonggiacao.com/',
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Bảng Giá Phế Liệu',
+        },
+      ],
+    },
+  ],
+});
+
+const pricingCategories = [
+  {
+    category: 'Phế Liệu Đồng & Cáp Điện',
+    badge: 'Mặt Hàng Hot',
+    badgeVariant: 'danger' as const,
+    description: 'Chuyên thu mua cáp điện 3 pha Cadivi, cáp công trình, đồng đỏ, đồng vàng giá cao nhất',
+    items: [
+      { name: 'Đồng cáp loại 1 (Cadivi, trung thế, cáp đặc ruột đỏ)', price: '250.000 – 350.000 đ/kg', unit: 'đ/kg', tag: 'Giá Cao Nhất' },
+      { name: 'Đồng đỏ loại 2 (dây trần, ruột mô tơ, máy biến áp)', price: '225.000 – 280.000 đ/kg', unit: 'đ/kg', tag: 'Phổ Biến' },
+      { name: 'Đồng vàng / Đồng thau (ống đồng, van nước, đồ gia dụng)', price: '130.000 – 180.000 đ/kg', unit: 'đ/kg', tag: '' },
+      { name: 'Đồng cháy, dây điện vụn, mạt đồng tiện phay', price: '100.000 – 160.000 đ/kg', unit: 'đ/kg', tag: '' },
+    ],
+  },
+  {
+    category: 'Vật Tư Năng Lượng Mặt Trời (Solar)',
+    badge: 'Chuyên Sâu',
+    badgeVariant: 'gold' as const,
+    description: 'Thu mua trọn gói tấm pin solar cũ, hỏng, inverter biến tần và cáp DC tồn kho',
+    items: [
+      { name: 'Tấm Pin Năng Lượng Mặt Trời (Mono, Poly cũ hỏng, tồn kho)', price: 'Báo Giá Theo Wp / Tấm', unit: '', tag: 'Mua Số Lượng Lớn' },
+      { name: 'Dây cáp điện DC Solar 4.0mm – 6.0mm chuyên dụng', price: '105.000 – 255.000 đ/kg', unit: 'đ/kg', tag: 'Hot' },
+      { name: 'Inverter (Biến tần) hòa lưới cũ Sungrow, Huawei, SMA...', price: 'Báo Giá Theo Công Suất', unit: '', tag: '' },
+      { name: 'Khung giàn, thanh ray nhôm, kẹp pin solar', price: '25.000 – 65.000 đ/kg', unit: 'đ/kg', tag: '' },
+    ],
+  },
+  {
+    category: 'Phế Liệu Nhôm Các Loại',
+    badge: 'Thu Gom Tận Nơi',
+    badgeVariant: 'info' as const,
+    description: 'Nhôm đặc thanh đà, cửa nhôm Xingfa cũ, nhôm dẻo, mạt nhôm máy CNC',
+    items: [
+      { name: 'Nhôm loại 1 (nhôm đặc, nhôm đà, nhôm khối nguyên chất)', price: '45.000 – 65.000 đ/kg', unit: 'đ/kg', tag: 'Loại 1' },
+      { name: 'Nhôm loại 2 (hợp kim nhôm, khung cửa Xingfa, nhôm định hình)', price: '40.000 – 55.000 đ/kg', unit: 'đ/kg', tag: 'Loại 2' },
+      { name: 'Nhôm loại 3 (vụn nhôm, mạt nhôm máy tiện phay)', price: '22.000 – 45.000 đ/kg', unit: 'đ/kg', tag: 'Loại 3' },
+    ],
+  },
+  {
+    category: 'Phế Liệu Inox (Thép Không Gỉ)',
+    badge: 'Phân Loại Chuẩn',
+    badgeVariant: 'success' as const,
+    description: 'Inox 304, 316, 201, 430, bồn bể xí nghiệp và thiết bị bếp công nghiệp thanh lý',
+    items: [
+      { name: 'Inox loại 1 (Inox 304, Inox 316 tấm, ống, bồn bể)', price: '25.000 – 55.000 đ/kg', unit: 'đ/kg', tag: 'Inox 304' },
+      { name: 'Inox loại 2 (Inox 201, Inox 430 và ba zớ phế phẩm)', price: '12.000 – 25.000 đ/kg', unit: 'đ/kg', tag: 'Inox 201' },
+    ],
+  },
+  {
+    category: 'Phế Liệu Sắt Thép Công Trình & Nhà Xưởng',
+    badge: 'Xe Cẩu Miễn Phí',
+    badgeVariant: 'neutral' as const,
+    description: 'Sắt đặc, sắt cây xây dựng, sắt vụn xưởng cơ khí, xà gồ, kết cấu thép',
+    items: [
+      { name: 'Sắt đặc (sắt cây, thép chữ I, H, U, V dày)', price: '10.500 – 13.500 đ/kg', unit: 'đ/kg', tag: '' },
+      { name: 'Sắt vụn, sắt công trình xây dựng, tôn cũ', price: '9.000 – 11.500 đ/kg', unit: 'đ/kg', tag: '' },
+      { name: 'Sắt gỉ sét, bazo sắt máy cơ khí', price: '7.000 – 9.500 đ/kg', unit: 'đ/kg', tag: '' },
+    ],
+  },
+  {
+    category: 'Kim Loại Khác & Thiết Bị Máy Móc',
+    badge: 'Khảo Sát 30 Phút',
+    badgeVariant: 'primary' as const,
+    description: 'Chì, thiếc, kẽm, hợp kim, máy móc cũ, motor hỏng, bình ắc quy viễn thông',
+    items: [
+      { name: 'Hợp kim mũi khoan, dao phay hợp kim, carbic', price: '300.000 – 650.000 đ/kg', unit: 'đ/kg', tag: 'Giá Cao' },
+      { name: 'Thiếc, chì bình ắc quy, kẽm phế liệu', price: 'Báo Giá Theo Hàm Lượng', unit: '', tag: '' },
+      { name: 'Motor điện cũ, máy phát điện, biến áp thanh lý', price: 'Định Giá Sau Khảo Sát', unit: '', tag: '' },
+    ],
+  },
+];
+
+const priceFaqs = [
+  {
+    question: 'Tại sao bảng giá phế liệu lại có khoảng dao động?',
+    answer:
+      'Khoảng giá (ví dụ: 250.000 - 350.000 VNĐ) phản ánh sự khác biệt về chất lượng, tỷ lệ ruột đồng thực tế, độ tinh khiết và số lượng lô hàng. Ví dụ, đồng cáp đặc loại 1 Cadivi sẽ có giá cao nhất, trong khi dây điện vụn nhiều lớp vỏ bọc sẽ có giá thấp hơn. Chúng tôi sẽ thẩm định và chốt giá cao nhất khi xem mẫu thực tế.',
+  },
+  {
+    question: 'Làm thế nào để tôi bán được phế liệu với giá cao nhất?',
+    answer:
+      'Để tối ưu giá bán: (1) Phân loại riêng từng nhóm kim loại (đồng riêng, nhôm riêng, inox riêng). (2) Giữ phế liệu khô ráo, sạch sẽ không lẫn tạp chất đất cát. (3) Gom số lượng càng lớn thì đơn giá càng ưu đãi và mức chiết khấu hoa hồng càng cao.',
+  },
+  {
+    question: 'Bảng giá phế liệu hôm nay thay đổi khi nào?',
+    answer:
+      'Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại trên sàn quốc tế (London Metal Exchange - LME) và tỷ giá USD, vốn biến động hàng ngày. Đức Minh luôn cập nhật bảng giá sát với thị trường thế giới để đảm bảo quyền lợi cao nhất cho khách hàng.',
+  },
+  {
+    question: 'Công ty có báo giá thu mua cáp điện và pin mặt trời cũ tận nơi không?',
+    answer:
+      'Có. Đối với các mặt hàng đặc thù như cáp điện, pin solar, máy móc cũ, quý khách chỉ cần chụp ảnh và gửi qua Zalo 0936.350.118, chuyên viên Đức Minh sẽ báo giá nhanh trong 5 phút hoặc đến tận nơi khảo sát miễn phí sau 15-30 phút.',
+  },
+];
 ---
-<BaseLayout 
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
+
+<BaseLayout
+  keywords="bảng giá phế liệu hôm nay, giá cáp đồng hôm nay, giá đồng phế liệu, giá pin mặt trời cũ, giá nhôm phế liệu, giá inox 304"
   title="Bảng Giá Phế Liệu Hôm Nay | Giá Cáp Đồng, Pin Mặt Trời Mới Nhất"
   description="Cập nhật bảng giá phế liệu hôm nay mới nhất tại công ty Đức Minh. Cam kết giá thu mua cáp đồng, pin mặt trời, sắt, nhôm, inox luôn cao nhất thị trường. Gọi ngay 0936.350.118 để có báo giá chính xác."
   canonical="https://thumuacapdonggiacao.com/bang-gia/"
   schema={schema}
 >
-<main>
-<div class="breadcrumb" style="background-color: var(--bg-grey)">
-<div class="container">
-<a href="/">Trang Chủ</a> »
-          <span>Bảng Giá Phế Liệu</span>
-</div>
-</div>
-<section id="price-list" style="padding-top: 40px; padding-bottom: 0">
-<div class="container">
-<h1 class="section-title">BẢNG GIÁ THU MUA HÔM NAY - MỚI NHẤT</h1>
-<p class="section-subtitle">
-            Luôn cập nhật giá tốt nhất thị trường - Minh bạch &amp; Cạnh tranh
+  <!-- Breadcrumb -->
+  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
+      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
+      <span>/</span>
+      <span class="text-slate-900 font-semibold">Bảng Giá Phế Liệu</span>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white border-b border-slate-800 relative overflow-hidden">
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-red/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-4xl">
+      <Badge variant="gold" size="md" pulsingDot class="mb-4">
+        CẬP NHẬT MỚI NHẤT HÔM NAY • THÁNG {new Date().getMonth() + 1}/{new Date().getFullYear()}
+      </Badge>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+        Bảng Giá Thu Mua Cáp Đồng & Phế Liệu <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-red-400">Giá Cao Hơn 30%</span>
+      </h1>
+      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
+        Đức Minh cam kết thu mua trực tiếp không qua trung gian. Bảng giá cập nhật theo biến động sàn kim loại quốc tế (LME) và thị trường trong nước. Khảo sát 15 phút, xe cẩu bốc xếp miễn phí, thanh toán 100% tại chỗ!
+      </p>
+
+      <!-- Quick Action Pill Buttons -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
+          <svg slot="icon-left" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.24 1.02l-2.21 2.2z"/>
+          </svg>
+          <span>GỌI BÁO GIÁ: {settings.hotlineDisplay}</span>
+        </Button>
+        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
+          <span>Gửi Ảnh Báo Giá Zalo (5 Phút)</span>
+        </Button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Important Notice Alert Card -->
+  <section class="py-6 bg-amber-500/10 border-b border-amber-500/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <span class="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-700 flex items-center justify-center font-bold text-lg shrink-0">
+            ⚠️
+          </span>
+          <p class="text-sm text-slate-800 leading-snug">
+            <strong>Lưu ý quan trọng:</strong> Bảng giá dưới đây mang tính tham khảo. Giá thực tế phụ thuộc vào <em>khối lượng, độ tinh khiết kim loại, tỷ lệ bóc tách vỏ cáp</em>. Đơn hàng từ 500kg trở lên luôn có giá ưu đãi cao hơn.
           </p>
-<p class="price-intro-text">
-            Tại Đức Minh, chúng tôi hiểu rằng sự minh bạch về giá cả là yếu tố
-            then chốt để xây dựng lòng tin. Dưới đây là
-            <strong>bảng giá phế liệu hôm nay</strong>
-            tham khảo cho các vật tư công nghiệp phổ biến, đặc biệt là
-            <a href="/thu-mua-cap-dong-thiet-bi-dien/">giá cáp đồng phế liệu</a>,
-            <a href="/thu-mua-pin-nang-luong-mat-troi/">giá pin mặt trời cũ</a>,
-            <a href="/thu-mua-nhom/">giá nhôm phế liệu</a>, và
-            <a href="/thu-mua-inox/">giá inox phế liệu</a>.
+        </div>
+        <a href={`tel:${settings.hotline}`} class="shrink-0 text-xs sm:text-sm font-extrabold text-brand-red hover:underline">
+          Khảo sát thực tế miễn phí →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comprehensive Categorized Pricing Section -->
+  <section class="py-16 lg:py-24 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <Badge variant="danger" size="md" class="mb-3">CHI TIẾT DANH MỤC</Badge>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Bảng Giá Chi Tiết Từng Loại Phế Liệu Hôm Nay
+        </h2>
+        <p class="mt-3 text-base text-slate-600 font-normal">
+          Tra cứu nhanh đơn giá thu mua các chủng loại kim loại, cáp đồng, pin solar và vật tư công nghiệp.
+        </p>
+      </div>
+
+      <!-- Categories Grid -->
+      <div class="space-y-8">
+        {pricingCategories.map((cat) => (
+          <div class="bg-white rounded-2xl border border-slate-200 shadow-soft-sm overflow-hidden">
+            <!-- Category Header -->
+            <div class="bg-slate-900 text-white p-4 sm:p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+              <div>
+                <div class="flex items-center gap-2.5">
+                  <h3 class="text-lg sm:text-xl font-black text-white">{cat.category}</h3>
+                  <Badge variant={cat.badgeVariant} size="sm">{cat.badge}</Badge>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-300 mt-1 font-normal">{cat.description}</p>
+              </div>
+              <Button href={settings.zaloLink} target="_blank" variant="zalo" size="sm" class="shrink-0 self-start sm:self-auto">
+                <span>Báo Giá Zalo</span>
+              </Button>
+            </div>
+
+            <!-- Table of Items -->
+            <div class="overflow-x-auto">
+              <table class="w-full text-left border-collapse">
+                <thead>
+                  <tr class="bg-slate-100 text-slate-700 text-xs sm:text-sm font-bold border-b border-slate-200 uppercase tracking-wider">
+                    <th class="py-3 px-4 sm:px-6">Chủng Loại / Tên Phế Liệu</th>
+                    <th class="py-3 px-4 sm:px-6">Đặc Điểm Phân Loại</th>
+                    <th class="py-3 px-4 sm:px-6 text-right font-black text-brand-red">Đơn Giá Hôm Nay</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 text-xs sm:text-sm">
+                  {cat.items.map((item, idx) => (
+                    <tr class={idx % 2 === 0 ? 'bg-white hover:bg-slate-50' : 'bg-slate-50/50 hover:bg-slate-50'}>
+                      <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">
+                        <div class="flex items-center gap-2">
+                          <span>{item.name}</span>
+                          {item.tag && (
+                            <span class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-extrabold bg-red-100 text-brand-red">
+                              {item.tag}
+                            </span>
+                          )}
+                        </div>
+                      </td>
+                      <td class="py-3.5 px-4 sm:px-6 text-slate-500 font-normal">
+                        {cat.category}
+                      </td>
+                      <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red text-sm sm:text-base whitespace-nowrap">
+                        {item.price}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Valuation & Formula Calculation Guide Card -->
+  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        
+        <div class="lg:col-span-6">
+          <Badge variant="gold" size="md" class="mb-3">CẨM NANG ĐỊNH GIÁ</Badge>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight leading-tight">
+            Cách Tính Giá Bán Cáp Đồng & Phế Liệu Chuẩn Xác
+          </h2>
+          <p class="mt-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+            Để giúp khách hàng và nhà thầu chủ động ước tính giá trị lô hàng cáp đồng thanh lý, Đức Minh áp dụng công thức định giá minh bạch dựa trên tỷ lệ ruột đồng thực tế:
           </p>
-<div class="price-disclaimer">
-<h4>Lưu ý quan trọng về giá</h4>
-<p>
-              Giá phế liệu thực tế có thể thay đổi phụ thuộc vào các yếu tố như:
-              <strong>thời điểm thu mua, số lượng,
-                <a href="/dich-vu/">chất lượng, chủng loại</a> và khoảng cách
-                địa lý.</strong>
-</p>
-<p>
-              Để nhận được <strong>báo giá thu mua cáp điện</strong> và các loại
-              phế liệu khác <strong>CHÍNH XÁC VÀ TỐT NHẤT</strong>, vui lòng
-              liên hệ trực tiếp qua Hotline/Zalo.
+
+          <!-- Formula Box -->
+          <div class="mt-6 bg-slate-900 text-white rounded-2xl p-5 sm:p-6 border border-slate-800 shadow-soft-md">
+            <p class="text-xs font-bold text-amber-400 uppercase tracking-widest mb-1">Công thức tham khảo</p>
+            <p class="text-base sm:text-lg font-black text-white leading-snug">
+              Giá Trị Lô Cáp = [Tổng Khối Lượng × Tỷ Lệ % Đồng Thu Hồi] × Đơn Giá Đồng Đỏ Hôm Nay
             </p>
-<strong><a href="tel:0936350118">GỌI NGAY: 0936.350.118</a></strong>
-</div>
-</div>
-</section>
-<section id="price-table-section" style="padding-top: 40px">
-<div class="container">
-<div class="price-table-wrapper">
-<table class="price-table">
-<thead>
-<tr>
-<th>Tên</th>
-<th>Phân Loại</th>
-<th>Đơn Giá (VNĐ/Kg)</th>
-</tr>
-</thead>
-<tbody>
-{pricingData.prices.map((item) => (
-<tr>
-<td>{item.category}</td>
-<td>{item.name}</td>
-<td class="price">{item.price}</td>
-</tr>
-))}
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="faq-price" style="background: var(--bg-grey)">
-<div class="container">
-<h2 class="section-title">CÂU HỎI THƯỜNG GẶP VỀ GIÁ</h2>
-<div class="faq-item">
-<h3>Tại sao bảng giá phế liệu lại có khoảng dao động?</h3>
-<p>
-              Khoảng giá (ví dụ: 45.000 - 65.000 VNĐ) phản ánh sự khác biệt về
-              chất lượng và độ tinh khiết. Ví dụ, nhôm đặc nguyên chất sẽ có giá
-              cao nhất, trong khi nhôm có lẫn tạp chất sẽ có giá thấp hơn. Chúng
-              tôi sẽ thẩm định và báo giá cụ thể khi xem hàng thực tế.
+            <p class="mt-3 text-xs text-slate-300 font-normal">
+              * Ví dụ: 100kg cáp đồng Cadivi có tỷ lệ đồng 65% → Khối lượng đồng nguyên chất là 65kg.
             </p>
-</div>
-<div class="faq-item">
-<h3>Làm thế nào để tôi bán được phế liệu với giá cao nhất?</h3>
-<p>
-              Để tối ưu giá bán, bạn nên cố gắng
-              <a href="/tin-tuc/meo-phan-biet-inox-304-201-430/">phân loại riêng từng loại kim loại</a>
-              (đồng, nhôm, sắt...) và giữ phế liệu khô ráo, sạch sẽ, không lẫn
-              các tạp chất. Phế liệu càng sạch, <strong>giá sắt vụn</strong>,
-              đồng, nhôm... thu mua càng cao.
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">1</span>
+              <p class="text-xs sm:text-sm text-slate-700"><strong>Tỷ lệ % Ruột Đồng:</strong> Dây cáp điện lực lớn, cáp trung thế ruột đặc có tỷ lệ đồng từ 65% - 85%.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">2</span>
+              <p class="text-xs sm:text-sm text-slate-700"><strong>Khối lượng thu gom:</strong> Số lượng từ vài tấn trở lên được chiết khấu thêm 5.000 – 10.000 đ/kg.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0 mt-0.5">3</span>
+              <p class="text-xs sm:text-sm text-slate-700"><strong>Địa điểm và chi phí tháo dỡ:</strong> Đức Minh hỗ trợ xe cẩu và công nhân bốc xếp MIỄN PHÍ 100%.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Quick Quote Card -->
+        <div class="lg:col-span-6">
+          <div class="bg-gradient-to-tr from-slate-900 to-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-soft-lg border border-slate-700 relative">
+            <h3 class="text-xl sm:text-2xl font-black text-white">Bạn Cần Thẩm Định Giá Nhanh?</h3>
+            <p class="mt-2 text-xs sm:text-sm text-slate-300 font-normal">
+              Chỉ cần chụp 2-3 tấm ảnh lô cáp đồng, pin solar hoặc phế liệu và gửi qua Zalo, kỹ sư thẩm định của chúng tôi sẽ tính toán và gửi báo giá chốt trong 5 phút!
             </p>
-</div>
-<div class="faq-item">
-<h3>Bảng giá phế liệu hôm nay thay đổi khi nào?</h3>
-<p>
-              Giá phế liệu trong nước chịu ảnh hưởng trực tiếp từ giá kim loại
-              trên thị trường quốc tế, vốn biến động hàng ngày. Do đó, bảng giá
-              của chúng tôi cũng được cập nhật thường xuyên. Hãy
-              <a href="/lien-he/">gọi cho chúng tôi</a> để có giá chốt tại thời
-              điểm bạn muốn bán.
-            </p>
-</div>
-<div class="faq-item">
-<h3>
-              Công ty có báo giá thu mua cáp điện và báo giá thu mua pin mặt
-              trời cũ không?
-            </h3>
-<p>
-              Có. Đối với các mặt hàng đặc thù như cáp điện,
-              <strong>giá cáp đồng phế liệu</strong> và
-              <strong>giá pin mặt trời cũ</strong> phụ thuộc lớn vào thương
-              hiệu, tình trạng và tỷ lệ thu hồi. Vui lòng liên hệ trực tiếp qua
-              Zalo 0936.350.118 để gửi hình ảnh và nhận
-              <strong>báo giá thu mua pin mặt trời cũ</strong> chính xác nhất.
-            </p>
-</div>
-</div>
-</section>
-</main>
+
+            <div class="mt-6 space-y-3.5">
+              <div class="bg-white/10 rounded-xl p-3 flex items-center gap-3">
+                <span class="text-xl">📸</span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">1. Chụp ảnh rõ nhãn mác, ruột cáp</span>
+              </div>
+              <div class="bg-white/10 rounded-xl p-3 flex items-center gap-3">
+                <span class="text-xl">📲</span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">2. Gửi qua Zalo: 0936.350.118 (Mr. Đức)</span>
+              </div>
+              <div class="bg-white/10 rounded-xl p-3 flex items-center gap-3">
+                <span class="text-xl">⚡</span>
+                <span class="text-xs sm:text-sm font-semibold text-slate-200">3. Nhận bảng báo giá chốt cao nhất</span>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="w-full justify-center font-bold">
+                <span>Gửi Ảnh Qua Zalo Ngay</span>
+              </Button>
+              <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" class="w-full justify-center font-bold">
+                <span>Gọi Hotline</span>
+              </Button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing FAQs Section -->
+  <FaqAccordion
+    badge="HỎI ĐÁP BẢNG GIÁ"
+    title="Câu Hỏi Thường Gặp Về Giá Thu Mua Phế Liệu"
+    subtitle="Những thắc mắc phổ biến của khách hàng về cách định giá, phân loại và phương thức thanh toán."
+    items={priceFaqs}
+  />
 </BaseLayout>
