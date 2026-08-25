@@ -159,6 +159,13 @@ const resolvedOgDesc = ogDescription ?? description;
         </a>
         <nav>
           <ul class="nav-links" id="nav-links">
+            <li class="mobile-drawer-header">
+              <div class="drawer-brand">
+                <img src="/img/logo.svg" alt="Đức Minh" width="36" height="36" />
+                <span>CÁP ĐỒNG ĐỨC MINH</span>
+              </div>
+              <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Đóng menu">✕</button>
+            </li>
             <li><a href="/">Trang Chủ</a></li>
             <li><a href="/gioi-thieu/">Giới Thiệu</a></li>
             <li class="dropdown">
@@ -185,6 +192,15 @@ const resolvedOgDesc = ogDescription ?? description;
             <li><a href="/quy-trinh/">Quy Trình</a></li>
             <li><a href="/lien-he/">Liên Hệ</a></li>
             <li><a href="/tin-tuc/">Tin Tức</a></li>
+            <li class="mobile-drawer-footer">
+              <a href={`tel:${settings.hotline}`} class="drawer-call-btn">
+                📞 Hotline: {settings.hotlineDisplay}
+              </a>
+              <a href={settings.zaloLink} target="_blank" rel="noopener noreferrer" class="drawer-zalo-btn">
+                💬 Chat Zalo Báo Giá 5 Phút
+              </a>
+              <div class="drawer-hours">🕒 {settings.workingHours}</div>
+            </li>
           </ul>
         </nav>
         <button class="menu-icon" id="menu-icon"

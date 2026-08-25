@@ -34,6 +34,7 @@ function initMobileMenu() {
   const menuIcon = document.getElementById("menu-icon");
   const navLinks = document.getElementById("nav-links");
   const menuOverlay = document.getElementById("menu-overlay");
+  const drawerCloseBtn = document.getElementById("drawer-close-btn");
 
   function toggleMenu() {
     menuIcon.classList.toggle("active");
@@ -46,11 +47,32 @@ function initMobileMenu() {
     menuIcon.setAttribute("aria-label", isOpen ? "Đóng menu" : "Mở menu điều hướng");
   }
 
-  if (menuIcon) {
-    menuIcon.addEventListener("click", toggleMenu);
+  function closeMenu() {
+    if (navLinks.classList.contains("active")) {
+      menuIcon.classList.remove("active");
+      navLinks.classList.remove("active");
+      menuOverlay.classList.remove("active");
+      document.body.style.overflow = "auto";
+      menuIcon.setAttribute("aria-expanded", "false");
+      menuIcon.setAttribute("aria-label", "Mở menu điều hướng");
+    }
   }
-  if (menuOverlay) {
-    menuOverlay.addEventListener("click", toggleMenu);
+
+  if (menuIcon) menuIcon.addEventListener("click", toggleMenu);
+  if (menuOverlay) menuOverlay.addEventListener("click", closeMenu);
+  if (drawerCloseBtn) drawerCloseBtn.addEventListener("click", closeMenu);
+
+  // Đóng drawer khi click vào các link thông thường (không phải toggle dropdown)
+  if (navLinks) {
+    navLinks.querySelectorAll("a").forEach((link) => {
+      if (!link.closest(".dropdown") || link.closest(".dropdown-menu")) {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 768) {
+            closeMenu();
+          }
+        });
+      }
+    });
   }
 }
 
@@ -123,7 +145,9 @@ function initMobileDropdown() {
     toggle.addEventListener("click", function (e) {
       if (window.innerWidth <= 768) {
         e.preventDefault();
+        const parentLi = this.closest(".dropdown");
         const dropdownMenu = this.nextElementSibling;
+        if (parentLi) parentLi.classList.toggle("open");
         if (dropdownMenu && dropdownMenu.classList.contains("dropdown-menu")) {
           dropdownMenu.classList.toggle("show");
         }
