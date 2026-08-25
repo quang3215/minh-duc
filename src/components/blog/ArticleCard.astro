@@ -1,0 +1,228 @@
+---
+import Badge from '../ui/Badge.astro';
+import Card from '../ui/Card.astro';
+
+export interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      description: string;
+      pubDate: Date | string;
+      image?: string;
+      imageAlt?: string;
+      tags?: string[];
+      keywords?: string;
+    };
+    body?: string;
+  };
+  featured?: boolean;
+  class?: string;
+}
+
+const { post, featured = false, class: className = '' } = Astro.props;
+
+const fallbackImage = '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp';
+const imageUrl = post.data.image || fallbackImage;
+const imageAlt = post.data.imageAlt || post.data.title;
+const category = post.data.tags?.[0] || 'Kiến Thức';
+
+const pubDateObj = new Date(post.data.pubDate);
+const formattedDate = !isNaN(pubDateObj.getTime())
+  ? pubDateObj.toLocaleDateString('vi-VN', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    })
+  : '01/06/2025';
+const isoDate = !isNaN(pubDateObj.getTime()) ? pubDateObj.toISOString() : '2025-06-01';
+
+// Calculate estimated read time and clean excerpt
+const rawBody = post.body || post.data.description || '';
+const bodyWithoutHeaders = rawBody
+  .replace(/<header[\s\S]*?<\/header>/gi, '')
+  .replace(/<div class="table-of-contents"[\s\S]*?<\/div>/gi, '')
+  .replace(/<nav[\s\S]*?<\/nav>/gi, '');
+const cleanText = bodyWithoutHeaders.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+const wordCount = cleanText.split(' ').filter(Boolean).length;
+const readTimeMinutes = Math.max(2, Math.ceil((wordCount || 400) / 200));
+
+const excerpt = post.data.description && post.data.description.trim().length > 0
+  ? post.data.description.trim()
+  : (cleanText.slice(0, 160) + (cleanText.length > 160 ? '...' : ''));
+
+const articleUrl = `/tin-tuc/${post.slug}/`;
+---
+
+{
+  featured ? (
+    <div
+      class:list={[
+        'group bg-white rounded-3xl border border-slate-200/80 shadow-soft-md hover:shadow-soft-lg transition-all duration-300 overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0',
+        className,
+      ]}
+    >
+      <!-- Featured Image Area -->
+      <a
+        href={articleUrl}
+        class="relative block lg:col-span-7 aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto overflow-hidden bg-slate-100"
+        aria-label={`Xem bài viết nổi bật: ${post.data.title}`}
+      >
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          width="800"
+          height="500"
+          loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent lg:hidden" />
+        
+        <div class="absolute top-4 left-4 z-10">
+          <Badge variant="gold" size="md" dot>
+            {category}
+          </Badge>
+        </div>
+      </a>
+
+      <!-- Featured Content Area -->
+      <div class="p-6 sm:p-8 lg:p-10 lg:col-span-5 flex flex-col justify-between flex-1">
+        <div>
+          <!-- Meta Row -->
+          <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-slate-500 font-medium mb-3">
+            <span class="flex items-center gap-1.5 text-slate-700 font-semibold">
+              <span class="w-5 h-5 rounded-full bg-red-100 text-brand-red flex items-center justify-center text-xs font-bold">ĐM</span>
+              Công Ty Đức Minh
+            </span>
+            <span>•</span>
+            <time datetime={isoDate} class="flex items-center gap-1">
+              <svg class="w-4 h-4 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+              </svg>
+              {formattedDate}
+            </time>
+            <span>•</span>
+            <span class="flex items-center gap-1 text-slate-500">
+              <svg class="w-4 h-4 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+              </svg>
+              {readTimeMinutes} phút đọc
+            </span>
+          </div>
+
+          <!-- Title -->
+          <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 group-hover:text-brand-red transition-colors leading-tight tracking-tight">
+            <a href={articleUrl}>{post.data.title}</a>
+          </h2>
+
+          <!-- Excerpt -->
+          <p class="mt-3 sm:mt-4 text-slate-600 text-sm sm:text-base leading-relaxed line-clamp-3 lg:line-clamp-4 font-normal">
+            {excerpt}
+          </p>
+        </div>
+
+        <!-- Call to Action Link -->
+        <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+          <a
+            href={articleUrl}
+            class="inline-flex items-center gap-2 text-sm sm:text-base font-bold text-brand-red group-hover:text-brand-red-dark transition-colors"
+          >
+            <span>Đọc bài viết</span>
+            <svg
+              class="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-200"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <span class="text-xs text-slate-400 font-medium">Báo giá thị trường</span>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <Card
+      variant="default"
+      class:list={[
+        'group flex flex-col h-full overflow-hidden p-0 hover:shadow-soft-lg hover:-translate-y-1 transition-all duration-300',
+        className,
+      ]}
+    >
+      <!-- Standard Card Thumbnail -->
+      <a
+        href={articleUrl}
+        class="relative block aspect-[16/10] overflow-hidden bg-slate-100"
+        aria-label={`Xem chi tiết: ${post.data.title}`}
+      >
+        <img
+          src={imageUrl}
+          alt={imageAlt}
+          width="600"
+          height="375"
+          loading="lazy"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ease-out"
+        />
+        <div class="absolute top-3 left-3 z-10">
+          <Badge variant="gold" size="sm">
+            {category}
+          </Badge>
+        </div>
+      </a>
+
+      <!-- Standard Card Content Area -->
+      <div class="p-5 sm:p-6 flex flex-col flex-1">
+        <!-- Meta Info -->
+        <div class="flex items-center justify-between text-xs text-slate-500 font-medium mb-2.5">
+          <time datetime={isoDate} class="flex items-center gap-1">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+            </svg>
+            {formattedDate}
+          </time>
+          <span class="flex items-center gap-1 text-slate-400">
+            <svg class="w-3.5 h-3.5 text-slate-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+            </svg>
+            {readTimeMinutes} phút
+          </span>
+        </div>
+
+        <!-- Title -->
+        <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-brand-red transition-colors line-clamp-2 leading-snug">
+          <a href={articleUrl}>{post.data.title}</a>
+        </h3>
+
+        <!-- Excerpt -->
+        <p class="mt-2 text-xs sm:text-sm text-slate-600 line-clamp-3 leading-relaxed flex-1 font-normal">
+          {excerpt}
+        </p>
+
+        <!-- Bottom Action -->
+        <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between">
+          <a
+            href={articleUrl}
+            class="text-xs sm:text-sm font-bold text-brand-red group-hover:text-brand-red-dark flex items-center gap-1 transition-colors"
+          >
+            <span>Đọc bài viết</span>
+            <svg
+              class="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform duration-200"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </a>
+          <span class="text-[11px] text-slate-400 font-medium">Đức Minh</span>
+        </div>
+      </div>
+    </Card>
+  )
+}

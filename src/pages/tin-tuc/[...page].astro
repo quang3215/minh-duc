@@ -1,93 +1,271 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/blog/ArticleCard.astro';
+import Breadcrumb from '../../components/blog/Breadcrumb.astro';
+import ArticleCtaBox from '../../components/blog/ArticleCtaBox.astro';
+import Badge from '../../components/ui/Badge.astro';
+import Button from '../../components/ui/Button.astro';
 import { getCollection } from 'astro:content';
 
-export async function getStaticPaths({ paginate }) {
+export async function getStaticPaths({ paginate }: { paginate: any }) {
   const posts = await getCollection('tin-tuc');
-  // Sort posts by date descending
+  // Sort posts by publication date descending
   const sortedPosts = posts.sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+    (a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf()
   );
-  
+
   // Return paginated pages with 12 items per page
   return paginate(sortedPosts, { pageSize: 12 });
 }
 
 const { page } = Astro.props;
 
-const schema = JSON.stringify({
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": `Tin Tức Phế Liệu | Đức Minh - Trang ${page.currentPage}`,
-  "description": "Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam.",
-  "url": `https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`,
-  "publisher": {
-    "@type": "Organization",
-    "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-    "url": "https://thumuacapdonggiacao.com/"
-  }
-});
+const isFirstPage = page.currentPage === 1;
+const canonicalUrl = `https://thumuacapdonggiacao.com/tin-tuc/${isFirstPage ? '' : `${page.currentPage}/`}`;
+
+const breadcrumbItems = [
+  { label: 'Trang Chủ', href: '/' },
+  { label: 'Tin Tức', href: isFirstPage ? undefined : '/tin-tuc/' },
+  ...(!isFirstPage ? [{ label: `Trang ${page.currentPage}` }] : []),
+];
+
+const featuredPost = isFirstPage && page.data.length > 0 ? page.data[0] : null;
+const gridPosts = isFirstPage ? page.data.slice(1) : page.data;
+
+const totalPages = page.lastPage;
+const pageNumbers = Array.from({ length: totalPages }, (_, i) => i + 1);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  'name': `Tin Tức & Kiến Thức Thu Mua Phế Liệu | Đức Minh ${!isFirstPage ? `- Trang ${page.currentPage}` : ''}`,
+  'description': 'Cập nhật thông tin thị trường, bảng giá thu mua dây cáp đồng hôm nay, hướng dẫn phân loại phế liệu nhôm, inox, pin mặt trời từ chuyên gia Đức Minh.',
+  'url': canonicalUrl,
+  'publisher': {
+    '@type': 'Organization',
+    'name': 'Công Ty Thu Mua Cáp Đồng Đức Minh',
+    'url': 'https://thumuacapdonggiacao.com/',
+    'logo': 'https://thumuacapdonggiacao.com/img/logo.svg',
+  },
+  'mainEntity': {
+    '@type': 'ItemList',
+    'itemListElement': page.data.map((post: any, index: number) => ({
+      '@type': 'ListItem',
+      'position': (page.currentPage - 1) * page.size + index + 1,
+      'url': `https://thumuacapdonggiacao.com/tin-tuc/${post.slug}/`,
+      'name': post.data.title,
+    })),
+  },
+};
 ---
+
 <BaseLayout
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
-  title={`Tin Tức Phế Liệu | Trang ${page.currentPage} | Đức Minh`}
-  description="Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam."
-  canonical={`https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`}
+  title={`Tin Tức & Kiến Thức Phế Liệu${!isFirstPage ? ` - Trang ${page.currentPage}` : ''} | Đức Minh`}
+  description="Cập nhật thông tin thị trường, bảng giá thu mua dây cáp đồng hôm nay, hướng dẫn phân loại phế liệu nhôm, inox, pin mặt trời từ chuyên gia Đức Minh."
+  keywords="tin tức phế liệu, bảng giá cáp đồng hôm nay, thu mua cáp đồng giá cao, phân loại cáp điện, kinh nghiệm thanh lý phế liệu, công ty đức minh"
+  canonical={canonicalUrl}
   schema={schema}
 >
+  <div class="bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <Breadcrumb items={breadcrumbItems} />
+    </div>
+  </div>
 
-  <main>
-    <section class="tin-tuc-page">
-      <div class="container">
-        <h1 class="section-title">Tin Tức &amp; Kiến Thức Phế Liệu</h1>
-        
-        <div class="news-grid">
-          {page.data.map((post) => (
-            <article class="news-item">
-              <a href={`/tin-tuc/${post.slug}/`} class="news-image" aria-label={`Xem chi tiết: ${post.data.title}`}>
-                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />}
-              </a>
-              <div class="news-content">
-                <h2><a href={`/tin-tuc/${post.slug}/`}>{post.data.title}</a></h2>
-                <p>{post.data.description}</p>
-                <a href={`/tin-tuc/${post.slug}/`} class="btn">Xem Chi Tiết</a>
-              </div>
-            </article>
-          ))}
+  <!-- Hero Header Section -->
+  <section class="relative py-12 lg:py-16 bg-white border-b border-slate-200 overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-red-50 blur-3xl pointer-events-none" />
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-amber-50 blur-3xl pointer-events-none" />
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <Badge variant="primary" size="md" class="mb-4" pulsingDot>
+          BẢNG GIÁ & KIẾN THỨC CHUYÊN SÂU
+        </Badge>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight">
+          Tin Tức &amp; Thị Trường Phế Liệu
+          {page.currentPage > 1 && <span class="text-brand-red text-2xl sm:text-3xl block mt-1">(Trang {page.currentPage})</span>}
+        </h1>
+
+        <p class="mt-4 text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+          Tổng hợp thông tin cập nhật giá đồng, nhôm, inox, pin mặt trời hàng ngày và kinh nghiệm phân loại, định giá cáp điện công trình từ đội ngũ chuyên gia Đức Minh.
+        </p>
+
+        <!-- Category Shortcut Pills -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+          <span class="text-xs font-bold text-slate-400 uppercase tracking-wider mr-1">Chủ đề:</span>
+          <a
+            href="/tin-tuc/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-brand-red text-white shadow-soft-sm"
+          >
+            Tất Cả Bài Viết
+          </a>
+          <a
+            href="/bang-gia/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            Bảng Giá Hôm Nay
+          </a>
+          <a
+            href="/thu-mua-cap-dong-thiet-bi-dien/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            Dây Cáp Đồng &amp; Điện Lực
+          </a>
+          <a
+            href="/thu-mua-pin-nang-luong-mat-troi/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            Pin Năng Lượng Mặt Trời
+          </a>
+          <a
+            href="/thu-mua-nhom/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            Phế Liệu Nhôm
+          </a>
+          <a
+            href="/thu-mua-inox/"
+            class="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
+          >
+            Phế Liệu Inox
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="py-12 lg:py-16 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Featured Article (Page 1 only) -->
+      {featuredPost && (
+        <div class="mb-12 sm:mb-16">
+          <div class="flex items-center gap-2 mb-6">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
+            <h2 class="text-sm sm:text-base font-bold text-slate-900 uppercase tracking-wider">
+              Bài Viết Nổi Bật Mới Nhất
+            </h2>
+          </div>
+          <ArticleCard post={featuredPost} featured={true} />
+        </div>
+      )}
+
+      <!-- Grid Header -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-200">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+            {isFirstPage ? 'Danh Sách Bài Viết Mới Nhất' : `Tất Cả Bài Viết (Trang ${page.currentPage}/${totalPages})`}
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-500 mt-1 font-normal">
+            Hiển thị {(page.currentPage - 1) * page.size + 1} – {Math.min(page.currentPage * page.size, page.total)} trong tổng số {page.total} bài viết
+          </p>
         </div>
 
-        {/* Pagination UI */}
-        <nav class="pagination" aria-label="Pagination">
-          {page.url.prev ? (
-            <a href={page.url.prev} class="page-link prev-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              Trang trước
-            </a>
-          ) : (
-            <span class="page-link disabled prev-link">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-              Trang trước
-            </span>
-          )}
+        <div class="flex items-center gap-3">
+          <a
+            href="/bang-gia/"
+            class="text-xs sm:text-sm font-bold text-brand-red hover:text-brand-red-dark flex items-center gap-1.5 transition-colors"
+          >
+            <span>Tra cứu bảng giá nhanh</span>
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </a>
+        </div>
+      </div>
 
-          <div class="page-numbers">
-            Trang <span class="current">{page.currentPage}</span> / {page.lastPage}
+      <!-- Articles Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {gridPosts.map((post: any) => (
+          <ArticleCard post={post} />
+        ))}
+      </div>
+
+      <!-- Pagination Navigation -->
+      {totalPages > 1 && (
+        <nav aria-label="Phân trang bài viết" class="mt-14 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <!-- Prev Button -->
+          <div>
+            {page.url.prev ? (
+              <a
+                href={page.url.prev}
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm shadow-soft-sm transition-all active:scale-95"
+              >
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Trang trước</span>
+              </a>
+            ) : (
+              <span class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-100 text-slate-400 font-medium text-sm cursor-not-allowed select-none">
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>Trang trước</span>
+              </span>
+            )}
           </div>
 
-          {page.url.next ? (
-            <a href={page.url.next} class="page-link next-link">
-              Trang sau
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </a>
-          ) : (
-            <span class="page-link disabled next-link">
-              Trang sau
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-            </span>
-          )}
-        </nav>
+          <!-- Page Numbers -->
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            {pageNumbers.map((num) => {
+              const isCurrent = num === page.currentPage;
+              const pageHref = num === 1 ? '/tin-tuc/' : `/tin-tuc/${num}/`;
 
+              return isCurrent ? (
+                <span
+                  class="w-10 h-10 rounded-xl bg-brand-red text-white font-bold text-sm flex items-center justify-center shadow-soft-sm select-none"
+                  aria-current="page"
+                >
+                  {num}
+                </span>
+              ) : (
+                <a
+                  href={pageHref}
+                  class="w-10 h-10 rounded-xl bg-white border border-slate-200 hover:border-brand-red hover:text-brand-red text-slate-700 font-semibold text-sm flex items-center justify-center transition-colors shadow-soft-sm"
+                  aria-label={`Đi tới trang ${num}`}
+                >
+                  {num}
+                </a>
+              );
+            })}
+          </div>
+
+          <!-- Next Button -->
+          <div>
+            {page.url.next ? (
+              <a
+                href={page.url.next}
+                class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-300 bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm shadow-soft-sm transition-all active:scale-95"
+              >
+                <span>Trang sau</span>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </a>
+            ) : (
+              <span class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-slate-200 bg-slate-100 text-slate-400 font-medium text-sm cursor-not-allowed select-none">
+                <span>Trang sau</span>
+                <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            )}
+          </div>
+        </nav>
+      )}
+
+      <!-- Bottom High Conversion Callout -->
+      <div class="mt-16">
+        <ArticleCtaBox
+          title="Bạn Cần Báo Giá Nhanh Cho Lô Phế Liệu Cáp Đồng Hoặc Pin Solar?"
+          subtitle="Đừng để phế liệu tồn kho mất giá! Liên hệ ngay với Công Ty Đức Minh để được khảo sát tận nơi miễn phí, cân đo điện tử minh bạch và thanh toán trọn gói 100% trong ngày."
+        />
       </div>
-    </section>
-  </main>
+
+    </div>
+  </section>
 </BaseLayout>
