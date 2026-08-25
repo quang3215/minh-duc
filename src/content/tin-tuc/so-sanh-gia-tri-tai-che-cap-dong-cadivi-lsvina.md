@@ -131,7 +131,7 @@ tags: ["Thương Hiệu Cáp Điện", "Tái Chế Cáp Đồng", "Định Giá 
 <ul>
   <li>Bên ngoài nhìn như đồng đỏ thật, nhưng lõi bên trong thực chất là nhôm hoặc sắt giá trị thấp.</li>
   <li>Nếu bán nhầm loại này theo giá đồng, các đơn vị thu mua thiếu kinh nghiệm sẽ chịu lỗ nặng, hoặc khách hàng sẽ bị trả về toàn bộ lô hàng khi kiểm tra quang phổ tại lò đúc.</li>
-  <li><strong>Cách thử đơn giản:</strong> Dùng lưỡi dao cạo mạnh dọc thân sợi đồng. Nếu cạo ra thấy màu trắng bạc của nhôm thì đó là dây CCA (chỉ thu mua theo giá <a href="/thu-mua-phe-lieu-nhom/">phế liệu nhôm</a>). Nếu cạo sâu vẫn giữ nguyên ánh đỏ đồng thì đó là đồng chuẩn 100%.</li>
+  <li><strong>Cách thử đơn giản:</strong> Dùng lưỡi dao cạo mạnh dọc thân sợi đồng. Nếu cạo ra thấy màu trắng bạc của nhôm thì đó là dây CCA (chỉ thu mua theo giá <a href="/thu-mua-nhom/">phế liệu nhôm</a>). Nếu cạo sâu vẫn giữ nguyên ánh đỏ đồng thì đó là đồng chuẩn 100%.</li>
 </ul>
 
 <p>
