@@ -1,13 +1,13 @@
 /* ============================================================
-   ĐỨC MINH — PREMIUM REDESIGN v2.0
-   Font: Outfit (headings) + Inter (body) via Google Fonts
+   ĐỨC MINH — PREMIUM MODERN REDESIGN
+   Font: Outfit (headings, buttons, navbar) + Inter (body)
    ============================================================ */
 
 /* === CASCADE LAYERS === */
 @layer reset, base, theme, components, utilities;
 
 /* === GOOGLE FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
 /* === DESIGN TOKENS === */
 @layer theme {
@@ -15,12 +15,12 @@
     /* Brand Colors */
     --primary:         #c90000;
     --primary-dark:    #8b0000;
-    --primary-light:   #ff4444;
-    --primary-glow:    rgba(201,0,0,0.18);
+    --primary-light:   #ef4444;
+    --primary-glow:    rgba(201,0,0,0.22);
     --gold:            #f59e0b;
     --gold-dark:       #d97706;
     --zalo:            #0068ff;
-    --phone:           #d9534f;
+    --phone:           #dc2626;
 
     /* Surfaces */
     --surface-1:       #ffffff;
@@ -32,8 +32,8 @@
 
     /* Text */
     --text-1:          #0f172a;
-    --text-2:          #475569;
-    --text-3:          #94a3b8;
+    --text-2:          #334155;
+    --text-3:          #64748b;
     --text-light:      #ffffff;
 
     /* Borders */
@@ -45,7 +45,7 @@
     --warning-border:  #ffe58f;
     --warning-text:    #d46b08;
 
-    /* Legacy aliases (giữ cho HTML cũ không bị vỡ) */
+    /* Legacy aliases */
     --primary-color:   var(--primary);
     --secondary-color: var(--gold);
     --text-dark:       var(--text-1);
@@ -55,11 +55,11 @@
 
     /* Shadows */
     --shadow-sm:   0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md:   0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
-    --shadow-lg:   0 12px 40px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-md:   0 4px 20px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+    --shadow-lg:   0 12px 36px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06);
     --shadow-xl:   0 24px 64px rgba(0,0,0,0.14), 0 8px 24px rgba(0,0,0,0.08);
-    --shadow-red:  0 8px 24px rgba(201,0,0,0.30);
-    --shadow-gold: 0 8px 24px rgba(245,158,11,0.35);
+    --shadow-red:  0 8px 25px rgba(201,0,0,0.32);
+    --shadow-gold: 0 8px 25px rgba(245,158,11,0.35);
 
     /* Transitions */
     --ease:      cubic-bezier(0.4, 0, 0.2, 1);
@@ -82,16 +82,17 @@
 /* === BASE === */
 @layer base {
   html, body {
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
-  line-height: 1.7;
-  color: var(--text-1);
-  background: var(--surface-1);
-  font-size: 1rem;
-  -webkit-font-smoothing: antialiased;
-}
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    color: var(--text-1);
+    background: var(--surface-1);
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     line-height: 1.7;
     color: var(--text-1);
     background: var(--surface-1);
@@ -100,14 +101,19 @@ body {
   }
 
   h1, h2, h3, h4, h5, h6 {
-  line-height: 1.25;
-  margin-bottom: 16px;
-  font-weight: 700;
-  color: var(--text-1);
-  font-family: 'Roboto', sans-serif;
-}
+    line-height: 1.25;
+    margin-bottom: 16px;
+    font-weight: 800;
+    color: var(--text-1);
+    font-family: 'Outfit', -apple-system, sans-serif;
+    letter-spacing: -0.02em;
+  }
 
   section { padding: 72px 0; }
+
+  @media (max-width: 768px) {
+    section { padding: 48px 0; }
+  }
 
   .container {
     max-width: 1240px;
@@ -378,15 +384,16 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-  color: var(--text-1);
-  padding: 14px 32px;
-  border-radius: 10px;
-  font-weight: 700;
+  background: linear-gradient(135deg, #c90000 0%, #a80000 100%);
+  color: #ffffff !important;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-family: 'Outfit', -apple-system, sans-serif;
+  font-weight: 800;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  box-shadow: var(--shadow-gold);
+  box-shadow: 0 6px 22px rgba(201, 0, 0, 0.32);
   transition: transform var(--duration) var(--ease),
               box-shadow var(--duration) var(--ease),
               filter var(--duration) var(--ease);
@@ -394,25 +401,38 @@ body {
   border: none;
   position: relative;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .btn::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(135deg, rgba(255,255,255,0.25), transparent);
   opacity: 0;
   transition: opacity var(--duration);
 }
 
 .btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 12px 32px rgba(245,158,11,0.45);
-  filter: brightness(1.05);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 28px rgba(201, 0, 0, 0.48);
+  filter: brightness(1.08);
+  color: #ffffff !important;
 }
 
 .btn:hover::before { opacity: 1; }
 .btn:active { transform: translateY(0) scale(0.99); }
+
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  box-shadow: var(--shadow-gold);
+  color: #0f172a !important;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 12px 32px rgba(245,158,11,0.45);
+  color: #0f172a !important;
+}
 
 /* ─── HERO SLIDESHOW ─────────────────────────────── */
 .hero {
@@ -1461,23 +1481,121 @@ body {
 /* === PREMIUM UI OVERRIDES === */
 
 /* Typography Overrides */
-.logo-text, .section-title, .nav-links a {
-  font-family: 'Roboto', sans-serif !important;
+.logo-text, .section-title, .nav-links a, h1, h2, h3, h4, h5, h6, .btn {
+  font-family: 'Outfit', -apple-system, sans-serif !important;
 }
 
-/* Button Upgrades */
-.btn {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(201, 0, 0, 0.2);
-  border-radius: 8px; /* Slightly rounded */
+.logo-text {
+  font-weight: 900 !important;
+  letter-spacing: -0.02em;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(201, 0, 0, 0.3);
-  filter: brightness(1.1);
+.section-title {
+  letter-spacing: -0.02em;
+}
+
+/* ─── MOBILE BOTTOM BAR ──────────────────────────── */
+.mobile-bottom-bar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-bottom-bar {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(226, 232, 240, 0.9);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .mobile-bottom-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    height: 100%;
+    color: var(--text-2);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-decoration: none;
+    gap: 3px;
+    position: relative;
+    transition: color 0.2s;
+  }
+
+  .mobile-bottom-item svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+  }
+
+  .mobile-bottom-item.active,
+  .mobile-bottom-item:hover {
+    color: var(--primary);
+  }
+
+  .mobile-bottom-item.call-action {
+    color: #ffffff !important;
+    background: linear-gradient(135deg, #c90000 0%, #8b0000 100%);
+    border-radius: 12px;
+    height: 48px;
+    margin: 0 6px;
+    box-shadow: 0 4px 14px rgba(201, 0, 0, 0.35);
+  }
+
+  .mobile-bottom-item.call-action svg {
+    fill: #ffffff !important;
+  }
+
+  .mobile-bottom-item.zalo-action {
+    color: #0068ff;
+  }
+
+  .mobile-bottom-item.zalo-action svg {
+    fill: #0068ff;
+  }
+
+  .mobile-bottom-item .badge-dot {
+    position: absolute;
+    top: 6px;
+    right: 26%;
+    width: 8px;
+    height: 8px;
+    background: #ef4444;
+    border-radius: 50%;
+  }
+
+  /* Give body extra padding bottom on mobile so content isn't covered by bottom bar */
+  body {
+    padding-bottom: 70px;
+  }
+
+  /* Move floating buttons up above mobile bottom bar */
+  .floating-buttons {
+    bottom: 80px !important;
+    right: 16px !important;
+  }
+
+  .floating-buttons a {
+    width: 48px;
+    height: 48px;
+  }
+
+  .floating-buttons a svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 /* Card Upgrades (Services & News) */
