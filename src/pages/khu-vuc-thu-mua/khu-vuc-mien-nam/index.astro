@@ -1,160 +1,159 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
-import Badge from '../../../components/ui/Badge.astro';
-import Button from '../../../components/ui/Button.astro';
-import Card from '../../../components/ui/Card.astro';
-import settings from '../../../data/settings.json';
-
-const schema = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'WebPage',
-  name: 'Thu Mua Phế Liệu Miền Nam Giá Cao Tận Nơi | Công Ty Đức Minh',
-  description: 'Công ty Đức Minh chuyên thu mua phế liệu tại Miền Nam (TP.HCM, Bình Dương, Đồng Nai, Long An...). Thu mua đồng, nhôm, sắt, inox giá cao, hoa hồng hấp dẫn.',
-  url: 'https://thumuacapdonggiacao.com/khu-vuc-mien-nam/',
-});
 ---
-
-<BaseLayout
-  keywords="thu mua cáp đồng miền nam, thu mua phế liệu tphcm, phế liệu bình dương, phế liệu đồng nai, phế liệu long an"
+<BaseLayout 
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Thu Mua Phế Liệu Miền Nam Giá Cao Tận Nơi | Công Ty Đức Minh"
   description="Công ty Đức Minh chuyên thu mua phế liệu tại Miền Nam (TP.HCM, Bình Dương, Đồng Nai, Long An...). Thu mua đồng, nhôm, sắt, inox giá cao, hoa hồng hấp dẫn."
   canonical="https://thumuacapdonggiacao.com/khu-vuc-mien-nam/"
-  schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <span>Khu Vực Thu Mua</span>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Miền Nam</span>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" class="mb-4">KHU VỰC TRỌNG ĐIỂM • KHẢO SÁT 15-30 PHÚT</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-        Thu Mua Phế Liệu Miền Nam – Khảo Sát Tận Nơi, Giá Cao Nhất
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Phủ sóng toàn bộ TP.HCM, Bình Dương, Đồng Nai, Long An, Tây Ninh, Bà Rịa – Vũng Tàu. Cân điện tử chuẩn xác, xe cẩu bốc dỡ miễn phí 100%!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Báo Giá Nhanh Zalo</span>
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Article Body -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
-        
-        <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
-          Tại <strong>Miền Nam</strong>, CÔNG TY THU MUA PHẾ LIỆU ĐỨC MINH chuyên thu mua phế liệu tổng hợp từ đồng, nhôm, inox, sắt thép, chì, niken, hợp kim đến thiếc, bo mạch, linh kiện điện tử số lượng lớn không giới hạn.
-        </p>
-
-        <div class="not-prose my-8 rounded-2xl overflow-hidden shadow-soft-md border border-slate-200">
-          <img
-            src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"
-            alt="Thu mua phế liệu Miền Nam"
-            width="800"
-            height="450"
-            loading="lazy"
-            class="w-full h-auto object-cover"
-          />
-        </div>
-
-        <p class="text-base text-slate-700 leading-relaxed">
-          Có hệ thống xe chuyên chở tận nơi, chúng tôi nhận mua bán phế liệu Miền Nam tận nơi nhanh chóng trong ngày. Với tất cả giá trị của đơn vị thu mua phế liệu uy tín, chúng tôi cam kết mang lại dịch vụ mua hàng tận nơi chuyên nghiệp nhất.
-        </p>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Danh Mục Thu Mua Phế Liệu Tại Miền Nam</h2>
-        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Đồng phế liệu:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Đồng đỏ nguyên chất, đồng cáp, đồng trục, đồng dây điện Cadivi, đồng vàng, mạt đồng.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Nhôm phế liệu:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Nhôm đặc, nhôm đà, nhôm khuôn, nhôm Xingfa, tủ bếp nhôm kính, dây điện nhôm.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Sắt thép phế liệu:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Sắt công trình xây dựng, đầu máy cơ khí cũ, chi tiết máy lỗi, xác nhà xưởng cũ.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Inox & Hợp kim:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Inox 304, 316, 201, 430, mũi khoan, dao phay, chì, thiếc, thùng container cũ.</span>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Bảng Chiết Khấu Hoa Hồng Cho Người Giới Thiệu</h2>
-        
-        <div class="not-prose my-6 overflow-x-auto rounded-2xl border border-slate-200 shadow-soft-sm">
-          <table class="w-full text-left border-collapse bg-white text-xs sm:text-sm">
-            <thead>
-              <tr class="bg-slate-900 text-white font-bold">
-                <th class="py-3.5 px-4 sm:px-6">Khối Lượng Thu Mua (Tấn)</th>
-                <th class="py-3.5 px-4 sm:px-6 text-right text-amber-400">Chiết Khấu Hoa Hồng</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              <tr class="bg-white">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">0.5 – 1 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">5.000.000 VNĐ</td>
-              </tr>
-              <tr class="bg-slate-50/60">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">Trên 1 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">10.000.000 VNĐ</td>
-              </tr>
-              <tr class="bg-white">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">Trên 5 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">20.000.000 VNĐ</td>
-              </tr>
-              <tr class="bg-slate-50/60">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">Trên 10 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">35.000.000 VNĐ</td>
-              </tr>
-              <tr class="bg-white">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">Trên 20 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">60.000.000 VNĐ</td>
-              </tr>
-              <tr class="bg-slate-50/60">
-                <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">Trên 30 Tấn</td>
-                <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">Thương Lượng Đặc Biệt</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-
-      <!-- Bottom High-Conversion CTA Card -->
-      <div class="mt-12 bg-gradient-to-r from-brand-red to-brand-red-dark text-white rounded-3xl p-6 sm:p-8 text-center shadow-glow-red">
-        <h3 class="text-2xl font-black text-white">Liên Hệ Thu Mua Phế Liệu Miền Nam</h3>
-        <p class="mt-2 text-red-100 text-sm max-w-xl mx-auto font-normal">
-          Khảo sát nhanh 15-30 phút tại TP.HCM, Bình Dương, Đồng Nai, Long An và các tỉnh thành phía Nam!
-        </p>
-        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
-            <span>☎ GỌI NGAY: {settings.hotlineDisplay}</span>
-          </Button>
-          <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-            <span>💬 Chat Zalo Đức Minh</span>
-          </Button>
-        </div>
-      </div>
-
-    </div>
-  </section>
+<main class="article-page">
+<div class="container">
+<div class="breadcrumbs">
+<a href="/">Trang chủ</a> / <a href="#">Khu vực thu mua</a> /
+          <span>Miền Nam</span>
+</div>
+<article class="article-body">
+<div class="article-header">
+<h1>
+              Thu Mua Phế Liệu Miền Nam Khảo Sát Tận Nơi - Giá Cả Cạnh Tranh
+            </h1>
+<div class="article-meta">Đăng bởi: Admin | Cập nhật: Hôm nay</div>
+</div>
+<p>
+            Tại <strong>Miền Nam</strong>, CÔNG TY THU MUA PHẾ LIỆU ĐỨC MINH
+            chuyên thu mua phế liệu tổng hợp từ đồng, nhôm, inox, sắt thép, chì,
+            niken, hợp kim đến thiếc, xi mạ vàng, xi mạ bạc, bo mạch, linh kiện
+            điện tử số lượng lớn không giới hạn.
+          </p>
+<img alt="Thu mua phế liệu Miền Nam" class="article-main-image" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"/>
+<p>
+            Có hệ thống xe chuyên chở tận nơi, chúng tôi nhận mua bán phế liệu
+            Miền Nam tận nơi nhanh chóng trong ngày. Với tất cả giá trị của đơn
+            vị thu mua phế liệu uy tín, chúng tôi cam kết mang lại dịch vụ mua
+            hàng tận nơi chuyên nghiệp nhất.
+          </p>
+<div class="price-disclaimer">
+<h4>LIÊN HỆ BÁO GIÁ NHANH</h4>
+<p>
+              Luôn có chính sách hỗ trợ giá cho đại lý, nhận đại lý trên địa bàn
+              Miền Nam: Hỗ trợ xe, vốn, nhân công, báo giá trong ngày.
+            </p>
+<a class="btn" href="tel:0936350118">GỌI NGAY: 0936.350.118</a>
+</div>
+<h2>Danh Mục Thu Mua Phế Liệu Tại Miền Nam</h2>
+<p>Chúng tôi nhận thu mua phế liệu giá cao bao gồm:</p>
+<ul>
+<li>
+<strong>Đồng phế liệu:</strong> Đồng đỏ nguyên chất, đồng cáp,
+              đồng trục, đồng dây điện cadivi, đồng vàng, đồng thau, mạt đồng...
+            </li>
+<li>
+<strong>Nhôm phế liệu:</strong> Nhôm đặc nguyên chất, nhôm đà,
+              nhôm khuôn, nhôm xingfa, tủ bếp nhôm kính, dây điện nhôm...
+            </li>
+<li>
+<strong>Sắt thép phế liệu:</strong> Sắt công trình xây dựng, đầu
+              máy cơ khí cũ, chi tiết máy lỗi, nhà xưởng cũ...
+            </li>
+<li>
+<strong>Inox phế liệu:</strong> Inox 304, 316, 201, 430, 410,
+              630...
+            </li>
+<li>
+<strong>Hợp kim phế liệu:</strong> Hợp kim đồng, nhôm, sắt, mũi
+              khoan, dao phay, dao chặt...
+            </li>
+<li>
+<strong>Các loại khác:</strong> Chì, vải vụn, giấy, thùng
+              container cũ, xe cơ giới phế liệu...
+            </li>
+</ul>
+<h2>Bảng Chiết Khấu Hoa Hồng Dành Cho Người Giới Thiệu</h2>
+<p>
+            Đức Minh luôn có chính sách hoa hồng cao cho người giới thiệu nguồn
+            hàng:
+          </p>
+<div class="price-table-wrapper">
+<table class="price-table">
+<thead>
+<tr>
+<th>Số Lượng (Tấn)</th>
+<th>Chiết Khấu Hoa Hồng</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0.5 - 1 Tấn</td>
+<td class="price">5.000.000 VNĐ</td>
+</tr>
+<tr>
+<td>Trên 1 Tấn</td>
+<td class="price">10.000.000 VNĐ</td>
+</tr>
+<tr>
+<td>Trên 5 Tấn</td>
+<td class="price">20.000.000 VNĐ</td>
+</tr>
+<tr>
+<td>Trên 10 Tấn</td>
+<td class="price">35.000.000 VNĐ</td>
+</tr>
+<tr>
+<td>Trên 20 Tấn</td>
+<td class="price">60.000.000 VNĐ</td>
+</tr>
+<tr>
+<td>Trên 30 Tấn</td>
+<td class="price">Thương Lượng</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2>Cam Kết Của Đức Minh Tại Khu Vực Miền Nam</h2>
+<ul>
+<li>
+<strong>Giá cả cạnh tranh:</strong> Đảm bảo mua giá cao hơn thị
+              trường 30%.
+            </li>
+<li>
+<strong>Không ngại số lượng:</strong> Phục vụ dù số lượng ít hay
+              nhiều.
+            </li>
+<li>
+<strong>Thanh toán nhanh:</strong> Tiền mặt hoặc chuyển khoản 1
+              lần ngay sau khi cân.
+            </li>
+<li>
+<strong>Thời gian linh hoạt:</strong> Thu mua 24/7 kể cả Chủ Nhật
+              và ngày lễ.
+            </li>
+<li>
+<strong>Khu vực hoạt động:</strong> TP. Hồ Chí Minh, Bình Dương,
+              Long An, Đồng Nai, Tây Ninh, Vũng Tàu...
+            </li>
+</ul>
+<h3>Quy Trình Thu Mua Chuyên Nghiệp</h3>
+<ol>
+<li>
+<strong>Khảo sát:</strong> Tiếp nhận thông tin và khảo sát hàng
+              hóa.
+            </li>
+<li>
+<strong>Báo giá:</strong> Cung cấp hồ sơ năng lực và báo giá chi
+              tiết.
+            </li>
+<li>
+<strong>Thu gom:</strong> Xe chuyên dụng đến tận nơi bốc xếp.
+            </li>
+<li>
+<strong>Thanh toán:</strong> Thanh toán đầy đủ trước khi rời đi.
+            </li>
+<li>
+<strong>Hậu mãi:</strong> Dọn dẹp kho bãi miễn phí cho khách hàng.
+            </li>
+</ol>
+</article>
+</div>
+</main>
 </BaseLayout>

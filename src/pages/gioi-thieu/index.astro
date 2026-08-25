@@ -1,211 +1,145 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import settings from '../../data/settings.json';
-
 const schema = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
-  url: 'https://thumuacapdonggiacao.com/',
-  logo: 'https://thumuacapdonggiacao.com/img/logo.svg',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: '+84-936-350-118',
-    contactType: 'customer service',
-  },
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '14 ấp 2, Đông Thạnh',
-    addressLocality: 'Hóc Môn',
-    addressRegion: 'TP. HCM',
-    addressCountry: 'VN',
-  },
-  description:
-    'Công ty Đức Minh là đơn vị uy tín với hơn 10 năm kinh nghiệm trong lĩnh vực thu mua phế liệu và vật tư công nghiệp tại TP.HCM, cam kết giá cao và dịch vụ chuyên nghiệp.',
-  foundingDate: '2015',
-  founder: {
-    '@type': 'Person',
-    name: 'Đức Minh',
-  },
-  sameAs: [
-    'https://www.facebook.com/your-profile',
-    'https://zalo.me/0936350118',
-  ],
-});
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+        "url": "https://thumuacapdonggiacao.com/",
+        "logo": "https://thumuacapdonggiacao.com/img/logo.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+84-936-350-118",
+          "contactType": "customer service"
+        },
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "14 ấp 2, Đông Thạnh",
+          "addressLocality": "Hóc Môn",
+          "addressRegion": "TP. HCM",
+          "addressCountry": "VN"
+        },
+        "description": "Công ty Đức Minh là đơn vị uy tín với hơn 10 năm kinh nghiệm trong lĩnh vực thu mua phế liệu và vật tư công nghiệp tại TP.HCM, cam kết giá cao và dịch vụ chuyên nghiệp.",
+        "foundingDate": "2015",
+        "founder": {
+          "@type": "Person",
+          "name": "Đức Minh"
+        },
+        "sameAs": [
+          "https://www.facebook.com/your-profile",
+          "https://zalo.me/0936350118"
+        ]
+      });
 ---
-
-<BaseLayout
-  keywords="về đức minh, công ty thu mua cáp đồng đức minh, thu mua phế liệu uy tín, thu mua dây điện cũ tphcm"
+<BaseLayout 
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Về Đức Minh: Công Ty Thu Mua Phế Liệu Uy Tín Hơn 10 Năm tại TP.HCM"
   description="Giới thiệu Công ty Đức Minh - đối tác thu mua phế liệu uy tín tại TP.HCM với hơn 10 năm kinh nghiệm. Chúng tôi chuyên thu mua pin mặt trời, cáp điện, đồng, nhôm, inox... cam kết giá cao, quy trình chuyên nghiệp và minh bạch."
   canonical="https://thumuacapdonggiacao.com/gioi-thieu/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Giới Thiệu</span>
-    </div>
-  </nav>
-
-  <!-- Hero Title -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" class="mb-4">UY TÍN HÀNG ĐẦU TỪ 2015</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-        Về Công Ty Thu Mua Cáp Đồng Đức Minh
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Đối tác tin cậy hàng đầu của hơn 1.250+ doanh nghiệp, nhà thầu cơ điện và ban quản trị nhà xưởng trên toàn quốc.
-      </p>
-    </div>
-  </section>
-
-  <!-- Company Story Section -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-        
-        <div class="lg:col-span-6 relative">
-          <div class="rounded-3xl overflow-hidden shadow-soft-lg border border-slate-200">
-            <img
-              src="/img/gioi-thieu-cong-ty-thu-mua-cap-dong-duc-minh.webp"
-              alt="Đội ngũ nhân viên chuyên nghiệp của Công Ty Thu Mua Cáp Đồng Đức Minh"
-              width="700"
-              height="550"
-              loading="lazy"
-              class="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        <div class="lg:col-span-6">
-          <Badge variant="danger" size="md" class="mb-3">LỊCH SỬ PHÁT TRIỂN</Badge>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
-            Hành Trình Hơn 10 Năm Xây Dựng Thương Hiệu
-          </h2>
-          <p class="mt-4 text-base text-slate-600 leading-relaxed font-normal">
-            <strong class="text-slate-900">Công ty Đức Minh</strong> tự hào là một trong những đơn vị tiên phong và uy tín nhất trong lĩnh vực thu mua <a href="/thu-mua-cap-dong-thiet-bi-dien/" class="text-brand-red font-bold hover:underline">cáp đồng & thiết bị điện</a>, <a href="/thu-mua-pin-nang-luong-mat-troi/" class="text-brand-red font-bold hover:underline">pin năng lượng mặt trời</a>, <a href="/thu-mua-inox/" class="text-brand-red font-bold hover:underline">phế liệu inox</a>, <a href="/thu-mua-nhom/" class="text-brand-red font-bold hover:underline">nhôm phế liệu</a> và <a href="/thu-mua-phe-lieu-cong-nghiep/" class="text-brand-red font-bold hover:underline">thanh lý nhà xưởng trọn gói</a>.
+<main>
+<section id="about-page" style="background-color: var(--bg-grey)">
+<div class="container">
+<h1 class="section-title">Về Công Ty Thu Mua Cáp Đồng Đức Minh</h1>
+<p class="section-subtitle">
+            Đối tác tin cậy trong lĩnh vực thu mua vật tư &amp; phế liệu công nghiệp
           </p>
-          <p class="mt-3 text-base text-slate-600 leading-relaxed font-normal">
-            Chúng tôi hiểu rằng, việc xử lý các loại vật tư, phế liệu dư thừa không chỉ giúp doanh nghiệp thu hồi dòng vốn nhanh chóng mà còn góp phần quan trọng vào việc bảo vệ môi trường và phát triển kinh tế tuần hoàn. Vì vậy, Đức Minh luôn nỗ lực mang đến dịch vụ hoàn hảo, giá thành cao nhất và phong cách làm việc tận tâm.
-          </p>
-
-          <div class="mt-8 grid grid-cols-2 gap-4">
-            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
-              <span class="text-3xl font-black text-brand-red">1.250+</span>
-              <p class="text-xs sm:text-sm text-slate-600 font-semibold mt-1">Đối tác & Công trình</p>
-            </div>
-            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 text-center">
-              <span class="text-3xl font-black text-brand-gold">500+ Tấn</span>
-              <p class="text-xs sm:text-sm text-slate-600 font-semibold mt-1">Sản lượng xử lý/tháng</p>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission & Vision Cards -->
-  <section class="py-16 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid md:grid-cols-2 gap-8">
-        
-        <Card variant="default" class="p-8">
-          <div class="w-12 h-12 rounded-2xl bg-red-100 text-brand-red flex items-center justify-center text-2xl mb-4">
-            🎯
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900">Sứ Mệnh Của Đức Minh</h3>
-          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
-            Cung cấp giải pháp thu mua vật tư, phế liệu hiệu quả nhất, giúp tối đa hóa giá trị tài sản thu hồi cho khách hàng, đồng thời thúc đẩy chuỗi tái chế kim loại tuần hoàn và bảo vệ môi trường xanh, sạch, đẹp.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-8">
-          <div class="w-12 h-12 rounded-2xl bg-amber-100 text-brand-gold flex items-center justify-center text-2xl mb-4">
-            👁️
-          </div>
-          <h3 class="text-2xl font-bold text-slate-900">Tầm Nhìn Chiến Lược</h3>
-          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
-            Trở thành thương hiệu số 1 tại Việt Nam trong lĩnh vực thu mua phế liệu công nghiệp & năng lượng tái tạo, được biết đến với sự minh bạch, định giá cao nhất và dịch vụ khách hàng vượt trội.
-          </p>
-        </Card>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Core Values -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <Badge variant="danger" size="md" class="mb-3">GIÁ TRỊ CỐT LÕI</Badge>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-          4 Giá Trị Tạo Nên Uy Tín Đức Minh
-        </h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-soft-sm">
-          <div class="text-3xl mb-3">💰</div>
-          <h3 class="font-bold text-slate-900 text-lg">Giá Cao Hàng Đầu</h3>
-          <p class="text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-            Cam kết giá thu mua luôn cao hơn 20-30% thị trường, định giá sát với bảng giá sàn kim loại thế giới.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-soft-sm">
-          <div class="text-3xl mb-3">⚖️</div>
-          <h3 class="font-bold text-slate-900 text-lg">Uy Tín - Minh Bạch</h3>
-          <p class="text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-            Hợp đồng kinh tế rõ ràng, cân điện tử có tem kiểm định đo lường, tuyệt đối không có hành vi ép giá.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-soft-sm">
-          <div class="text-3xl mb-3">🚛</div>
-          <h3 class="font-bold text-slate-900 text-lg">Nhanh Chóng & Tận Nơi</h3>
-          <p class="text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-            Đội xe cẩu và công nhân bốc dỡ có mặt tại công trình sau 15-30 phút, hoạt động 24/7 không ngại khoảng cách.
-          </p>
-        </div>
-
-        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-200 shadow-soft-sm">
-          <div class="text-3xl mb-3">💵</div>
-          <h3 class="font-bold text-slate-900 text-lg">Thanh Toán Liền Tay</h3>
-          <p class="text-sm text-slate-600 mt-2 font-normal leading-relaxed">
-            Thanh toán 100% bằng tiền mặt hoặc chuyển khoản ngay tại chỗ trước khi hàng rời khỏi công trình.
-          </p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA Box -->
-  <section class="py-16 bg-slate-900 text-white text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-2xl sm:text-3xl font-black text-white">
-        Hợp Tác Cùng Công Ty Đức Minh
-      </h2>
-      <p class="mt-3 text-slate-300 text-base max-w-2xl mx-auto font-normal">
-        Hãy liên hệ ngay hôm nay để trải nghiệm dịch vụ thu mua phế liệu chuyên nghiệp, an tâm và nhận mức giá cao nhất.
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
-          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href="/lien-he/" variant="secondary" size="lg" class="font-bold">
-          <span>Liên Hệ Tư Vấn Ngay</span>
-        </Button>
-      </div>
-    </div>
-  </section>
+<div class="about-grid">
+<div class="about-image">
+<img alt="Đội ngũ chuyên nghiệp của Công ty Đức Minh đang làm việc" loading="lazy" src="/img/gioi-thieu-cong-ty-thu-mua-cap-dong-duc-minh.webp"/>
+</div>
+<div class="about-text">
+<h3>Hành Trình Hơn 10 Năm Xây Dựng Uy Tín</h3>
+<p>
+<strong>Công ty Đức Minh</strong> tự hào là một trong những đơn
+                vị tiên phong và uy tín nhất trong lĩnh vực thu mua
+                <a href="/thu-mua-phe-lieu-cong-nghiep/">phế liệu công nghiệp</a>
+                và vật tư tồn kho. Chuyên môn của chúng tôi bao gồm
+                <a href="/thu-mua-pin-nang-luong-mat-troi/">thu mua pin năng lượng mặt trời</a>,
+                <a href="/thu-mua-cap-dong-thiet-bi-dien/">cáp đồng và thiết bị điện</a>, <a href="/thu-mua-inox/">phế liệu inox</a>, và
+                <a href="/thu-mua-nhom/">nhôm các loại</a>. Với hơn một thập kỷ
+                kinh nghiệm, chúng tôi đã xây dựng được mạng lưới đối tác rộng
+                khắp và nhận được sự tin tưởng của hàng ngàn khách hàng trên
+                toàn quốc.
+              </p>
+<p>
+                Chúng tôi hiểu rằng, việc xử lý các loại vật tư, phế liệu dư
+                thừa không chỉ giúp doanh nghiệp thu hồi vốn nhanh chóng mà còn
+                góp phần quan trọng vào việc bảo vệ môi trường. Vì vậy, Đức Minh
+                ra đời với sứ mệnh mang đến giải pháp thu mua toàn diện, hiệu
+                quả và chuyên nghiệp nhất.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="mission-vision">
+<div class="container">
+<h2 class="section-title">Sứ Mệnh &amp; Tầm Nhìn</h2>
+<div class="vision-grid">
+<div class="vision-item">
+<h4>Sứ Mệnh</h4>
+<p>
+                Cung cấp giải pháp Thu mua vật tư, phế liệu hiệu quả nhất, giúp
+                tối đa hóa giá trị tài sản cho khách hàng, đồng thời góp phần
+                thúc đẩy nền kinh tế tuần hoàn và bảo vệ môi trường xanh, sạch,
+                đẹp.
+              </p>
+</div>
+<div class="vision-item">
+<h4>Tầm Nhìn</h4>
+<p>
+                Trở thành sự lựa chọn số một tại Việt Nam trong lĩnh vực thu mua
+                công nghiệp, được biết đến với sự minh bạch, mức giá tốt nhất và
+                dịch vụ khách hàng vượt trội.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="values" style="background-color: var(--bg-grey)">
+<div class="container">
+<div class="about-grid reverse">
+<div class="about-text">
+<h2 class="section-title" style="text-align: left; margin: 0">
+                Giá Trị Cốt Lõi
+              </h2>
+<p class="section-subtitle" style="text-align: left; margin: 0">
+                Làm Nên Thương Hiệu Đức Minh
+              </p>
+<ul>
+<li>
+<strong>Giá Cao Hàng Đầu:</strong> Chúng tôi cam kết đưa ra
+                  mức giá thu mua cạnh tranh nhất, luôn cao hơn thị trường. Mức
+                  giá được thẩm định dựa trên chất lượng thực tế và cập nhật
+                  liên tục.
+                </li>
+<li>
+<strong>Uy Tín - Minh Bạch:</strong> Mọi giao dịch đều được
+                  thực hiện dựa trên hợp đồng rõ ràng. Quy trình cân đo công
+                  khai, chính xác, tuyệt đối không có tình trạng ép giá hay gian
+                  lận.
+                </li>
+<li>
+<strong>Nhanh Chóng &amp; Tận Nơi:</strong> Với đội xe tải và nhân
+                  công chuyên nghiệp, chúng tôi sẵn sàng có mặt tận nơi trên
+                  toàn quốc ngay khi đạt được thỏa thuận.
+                </li>
+<li>
+<strong>Thanh Toán Liền Tay:</strong> Thanh toán 100% một lần
+                  ngay sau khi thu gom hoàn tất, qua tiền mặt hoặc chuyển khoản
+                  linh hoạt.
+                </li>
+</ul>
+<div style="margin-top: 30px">
+<a class="btn" href="/lien-he/">Liên Hệ Tư Vấn Ngay</a>
+</div>
+</div>
+<div class="about-image">
+<img alt="Xe tải của Đức Minh đang thu mua phế liệu giá cao tận nơi" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp"/>
+</div>
+</div>
+</div>
+</section>
+</main>
 </BaseLayout>

@@ -1,330 +1,322 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import FaqAccordion from '../../components/marketing/FaqAccordion.astro';
-import settings from '../../data/settings.json';
-
-const schema = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Thu Mua Cáp Đồng và Thiết Bị Điện Phế Liệu',
-    name: 'Dịch Vụ Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao',
-    description:
-      'Dịch vụ thu mua cáp đồng, dây điện cũ, motor, máy biến áp, tủ điện và các loại thiết bị điện công nghiệp tồn kho, phế liệu tại TP.HCM và các tỉnh lân cận. Cam kết báo giá cao, thu mua tận nơi nhanh chóng.',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
-      url: 'https://thumuacapdonggiacao.com/',
-      telephone: '+84936350118',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '14 ấp 2, Đông Thạnh',
-        addressLocality: 'Hóc Môn',
-        addressRegion: 'TP. HCM',
-        addressCountry: 'VN',
-      },
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Vietnam',
-    },
-    mainEntity: {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Giá dây cáp điện cũ được tính theo kg hay theo mét?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg) và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo minh bạch tại nơi thu mua để đảm bảo tính chính xác.',
-          },
+const schema = JSON.stringify([{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Thu Mua Cáp Đồng và Thiết Bị Điện Phế Liệu",
+        "name": "Dịch Vụ Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao",
+        "description": "Dịch vụ thu mua cáp đồng, dây điện cũ, motor, máy biến áp, tủ điện và các loại thiết bị điện công nghiệp tồn kho, phế liệu tại TP.HCM và các tỉnh lân cận. Cam kết báo giá cao, thu mua tận nơi nhanh chóng.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+          "url": "https://thumuacapdonggiacao.com/",
+          "telephone": "+84936350118",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 ấp 2, Đông Thạnh",
+            "addressLocality": "Hóc Môn",
+            "addressRegion": "TP. HCM",
+            "addressCountry": "VN"
+          }
         },
-        {
-          '@type': 'Question',
-          name: 'Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Chắc chắn có. Đối với các motor, máy biến áp và thiết bị còn khả năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để chúng tôi có báo giá tốt nhất.',
-          },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
         },
-        {
-          '@type': 'Question',
-          name: 'Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Có. Đức Minh là đơn vị chuyên thu mua cáp điện số lượng lớn từ các công trình, dự án. Chúng tôi có đủ năng lực tài chính, nhân lực và phương tiện vận chuyển để thu gom nhanh chóng, thanh toán một lần.',
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Giá dây cáp điện cũ được tính theo kg hay theo mét?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg) và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo minh bạch tại nơi thu mua để đảm bảo tính chính xác."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chắc chắn có. Đối với các motor, máy biến áp và thiết bị còn khả năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để chúng tôi có báo giá tốt nhất."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. Đức Minh là đơn vị chuyên thu mua cáp điện số lượng lớn từ các công trình, dự án. Chúng tôi có đủ năng lực tài chính, nhân lực và phương tiện vận chuyển để thu gom nhanh chóng, thanh toán một lần."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Quy trình báo giá thu mua cáp điện của công ty như thế nào?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá."
+              }
+            }
+          ]
+        }
+      },{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang Chủ",
+            "item": "https://thumuacapdonggiacao.com/"
           },
-        },
-        {
-          '@type': 'Question',
-          name: 'Quy trình báo giá thu mua cáp điện của công ty như thế nào?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá.',
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dịch Vụ",
+            "item": "https://thumuacapdonggiacao.com/dich-vu/"
           },
-        },
-      ],
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Trang Chủ',
-        item: 'https://thumuacapdonggiacao.com/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Dịch Vụ',
-        item: 'https://thumuacapdonggiacao.com/dich-vu/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Thu Mua Cáp Đồng & Thiết Bị Điện',
-      },
-    ],
-  },
-]);
-
-const cableTypes = [
-  {
-    title: 'Thu Mua Cáp Đồng & Dây Điện Cũ',
-    desc: 'Cadivi, LS-VINA, Daphaco, cáp trung thế, hạ thế, cáp ngầm, dây điện dân dụng.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp',
-  },
-  {
-    title: 'Thu Mua Motor Điện & Máy Biến Áp',
-    desc: 'Mô tơ 1 pha, 3 pha cũ hỏng, máy biến áp dầu, máy biến áp khô công suất lớn.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp',
-  },
-  {
-    title: 'Thu Mua Tủ Điện & Thiết Bị Đóng Cắt',
-    desc: 'Tủ điện điều khiển công nghiệp, Aptomat, ACB, MCCB, contactor cũ thanh lý.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp',
-  },
-  {
-    title: 'Thu Mua Cáp Nhôm & Cáp Ngầm Cũ',
-    desc: 'Cáp nhôm vặn xoắn ABC, cáp ngầm bọc thép, dây dẫn điện nhôm công trình.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp',
-  },
-  {
-    title: 'Cáp Điện Công Nghiệp 3 Pha, Chống Cháy',
-    desc: 'Cáp điều khiển nhiều lõi, cáp cao su mỏ hàn, cáp bọc giáp chống cháy dự án.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp',
-  },
-  {
-    title: 'Thu Mua Phế Liệu Dây Điện Nhà Xưởng',
-    desc: 'Thanh lý toàn bộ hệ thống máng cáp trunking, tủ điện phân phối và dây chuyền cũ.',
-    image: '/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Giá dây cáp điện cũ được tính theo kg hay theo mét?',
-    answer:
-      'Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg) và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo minh bạch tại nơi thu mua bằng cân điện tử có kiểm định để đảm bảo tính chính xác tuyệt đối.',
-  },
-  {
-    question: 'Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?',
-    answer:
-      'Chắc chắn có. Đối với các motor, máy biến áp và thiết bị điện còn khả năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để chúng tôi có báo giá tốt nhất.',
-  },
-  {
-    question: 'Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?',
-    answer:
-      'Có. Đức Minh là công ty chuyên thu mua cáp điện số lượng lớn từ các công trình và nhà máy. Chúng tôi có đầy đủ xe cẩu, xe tải và năng lực tài chính để thanh toán một lần ngay tại chỗ.',
-  },
-  {
-    question: 'Quy trình báo giá thu mua cáp điện của công ty như thế nào?',
-    answer:
-      'Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh (loại cáp, số lượng) qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá.',
-  },
-];
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thu Mua Cáp Đồng & Thiết Bị Điện"
+          }
+        ]
+      }]);
 ---
-
-<BaseLayout
-  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng, thu mua dây điện cũ"
+<BaseLayout 
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Thu Mua Cáp Đồng, Dây Điện Cũ, Cáp Điện Công Trình Giá Cao | Đức Minh"
   description="Công ty Đức Minh chuyên thu mua cáp đồng, dây điện cũ, cáp điện công trình, cáp 3 pha, cáp nhôm, motor, tủ điện tồn kho. Báo giá cao, thu mua tận nơi. 📞 0936.350.118!"
   canonical="https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <a href="/dich-vu/" class="hover:text-brand-red transition-colors">Dịch Vụ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Thu Mua Cáp Đồng & Thiết Bị Điện</span>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" pulsingDot class="mb-4">MẶT HÀNG CHỦ LỰC • BÁO GIÁ SAU 5 PHÚT</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-        Thu Mua Cáp Đồng & Thiết Bị Điện Giá Cao
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Đối tác chuyên nghiệp thu mua dây cáp điện Cadivi, cáp 3 pha, motor điện, tủ điện, máy biến áp và vật tư tồn kho dự án. Cam kết giá cao hơn thị trường 20-30%!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>GỌI BÁO GIÁ: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Gửi Ảnh Báo Giá Zalo</span>
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Intro Section -->
-  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl overflow-hidden shadow-soft-lg border border-slate-200">
-            <img
-              src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp"
-              alt="Thu mua motor điện cũ, máy biến áp hỏng"
-              width="600"
-              height="450"
-              loading="lazy"
-              class="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <Badge variant="danger" size="md" class="mb-3">GIẢI PHÁP TỐI ƯU</Badge>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Giải Phóng Vật Tư Tồn Kho, Thu Hồi Dòng Vốn Tối Đa
+<main>
+<section class="text-banner" style="
+          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
+          color: white; /* Giữ chữ màu trắng */
+        ">
+<div class="container">
+<h1 style="color: var(--primary-color)">
+            Thu Mua Cáp Đồng &amp; Thiết Bị Điện Công Nghiệp
+          </h1>
+<p>
+            Đối tác chuyên nghiệp Thu mua dây cáp điện, motor, tủ điện, máy biến
+            áp và vật tư tồn kho dự án. Giá cao nhất thị trường.
+          </p>
+<a class="btn" href="tel:0936350118">Gửi Hình Ảnh - Báo Giá Ngay</a>
+</div>
+</section>
+<div class="breadcrumb">
+<div class="container">
+<a href="/">Trang Chủ</a> »
+          <a href="/dich-vu/">Dịch Vụ</a> »
+          <span>Thu Mua Cáp Đồng &amp; Thiết Bị Điện</span>
+</div>
+</div>
+<section id="intro-cable">
+<div class="container about-grid">
+<div class="about-image">
+<img alt="Thu mua motor điện cũ, máy biến áp hỏng" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp" width="800"/>
+</div>
+<div class="about-text">
+<h2>Giải Phóng Vật Tư Tồn Kho, Thu Hồi Vốn Tối Đa</h2>
+<p>
+              Sau mỗi công trình, dự án điện hoặc khi Thu mua nhà xưởng, số
+              lượng <strong>thu mua dây điện cũ</strong>, cáp điện dư thừa,
+              thiết bị điện hỏng, motor và tủ điện không còn sử dụng chiếm một
+              không gian đáng kể. Việc lưu kho không chỉ tốn diện tích mà còn
+              làm lãng phí nguồn vốn có thể thu hồi.
+            </p>
+<p>
+<b>Đức Minh, công ty thu mua dây điện cũ uy tín,</b> mang đến giải
+              pháp thu mua trọn gói. Chúng tôi giúp doanh nghiệp, nhà thầu
+              <strong>Thu mua cáp điện công trình</strong>, giải phóng mặt bằng
+              và thu hồi giá trị tối đa từ các loại vật tư điện. Chúng tôi có đủ
+              năng lực và kinh nghiệm để phân loại, định giá và thu gom nhanh
+              chóng, đảm bảo lợi ích cao nhất cho khách hàng.
+            </p>
+</div>
+</div>
+</section>
+<section id="why-us" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+            VÌ SAO CHỌN ĐỨC MINH LÀ ĐỐI TÁC Thu mua CÁP ĐIỆN?
           </h2>
-          <p class="mt-4 text-slate-600 text-base leading-relaxed font-normal">
-            Sau mỗi công trình xây dựng, dự án cơ điện (MEP) hoặc khi thanh lý nhà xưởng, số lượng <strong>dây điện cũ</strong>, cáp điện dư thừa, thiết bị điện hỏng, motor và tủ điện chiếm không gian kho bãi đáng kể. Việc lưu kho không chỉ gây lãng phí mặt bằng mà còn làm hao hụt vốn thu hồi.
-          </p>
-          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
-            <strong class="text-slate-900">Đức Minh</strong> mang đến giải pháp thu mua trọn gói. Chúng tôi có đủ năng lực tài chính, phương tiện xe cẩu và đội ngũ kỹ thuật lành nghề để phân loại, thẩm định và bốc dỡ an toàn, giúp bạn thu hồi tối đa giá trị từ các loại vật tư điện.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us Grid -->
-  <section class="py-16 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <Badge variant="primary" size="md" class="mb-3">LÝ DO LỰA CHỌN</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Vì Sao Chọn Đức Minh Là Đối Tác Thu Mua Cáp Điện?
-        </h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">💰</div>
-          <h3 class="font-bold text-slate-900 text-lg">Giá Thu Mua Cao</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Luôn cập nhật giá phế liệu đồng và kim loại thế giới, cam kết giá mua cao, sát thực tế từng mét cáp.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">⚖️</div>
-          <h3 class="font-bold text-slate-900 text-lg">Phân Loại Rõ Ràng</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Phân loại chính xác từng loại cáp (theo % đồng thực tế), cáp nhôm, cáp 3 pha để tối ưu giá trị.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🚚</div>
-          <h3 class="font-bold text-slate-900 text-lg">Thu Mua Tận Nơi</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Có xe tải và đội bốc xếp sẵn sàng đến tận chân công trình, nhà xưởng không ngại khối lượng.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🛠️</div>
-          <h3 class="font-bold text-slate-900 text-lg">Hỗ Trợ Tháo Dỡ</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Đội ngũ kỹ thuật hỗ trợ tháo dỡ thang máng cáp, tủ điện an toàn theo đúng quy trình.
-          </p>
-        </Card>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Cable Types Grid -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <Badge variant="gold" size="md" class="mb-3">DANH MỤC CHI TIẾT</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Các Loại Cáp Đồng & Thiết Bị Điện Đức Minh Thu Mua
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cableTypes.map((item) => (
-          <Card hover variant="default" class="p-0 overflow-hidden flex flex-col">
-            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
-              <img
-                src={item.image}
-                alt={item.title}
-                width="600"
-                height="375"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-red transition-colors">
-                {item.title}
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal flex-1">
-                {item.desc}
+<div class="features-grid">
+<div class="feature-item">
+<div class="icon">💰</div>
+<h3>Giá Thu Mua Cao</h3>
+<p>
+                Luôn cập nhật <a href="/bang-gia/">giá phế liệu đồng</a> và kim
+                loại quốc tế, chúng tôi cam kết thu mua cáp điện giá cao, sát
+                với giá trị thực tế của vật tư.
               </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <a href={settings.zaloLink} target="_blank" class="text-xs font-bold text-brand-zalo hover:underline">
-                  Báo giá qua Zalo →
-                </a>
-                <a href={`tel:${settings.hotline}`} class="text-xs font-bold text-brand-phone hover:underline">
-                  Gọi Hotline →
-                </a>
-              </div>
-            </div>
-          </Card>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQs Accordion -->
-  <FaqAccordion
-    badge="HỎI ĐÁP CÁP ĐIỆN"
-    title="Giải Đáp Thắc Mắc Về Thu Mua Cáp Điện"
-    subtitle="Những câu hỏi thường gặp khi thanh lý cáp đồng, dây điện và thiết bị điện công nghiệp."
-    items={faqs}
-  />
+</div>
+<div class="feature-item">
+<div class="icon">⚖️</div>
+<h3>Phân Loại &amp; Định Giá Rõ Ràng</h3>
+<p>
+                Đội ngũ chuyên gia sẽ phân loại chính xác từng loại cáp (theo %
+                đồng), <strong>thu mua cáp nhôm</strong>,
+                <strong>thu mua cáp điện 3 pha cũ</strong> để đưa ra mức giá tối
+                ưu, không mua cào bằng.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🚚</div>
+<h3>Thu Mua Tận Nơi</h3>
+<p>
+                Có xe tải và đội ngũ bốc xếp, sẵn sàng
+                <strong>thu mua cáp điện tận nơi</strong> tại công trình, nhà
+                xưởng của bạn, không ngại số lượng và khoảng cách.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🛠️</div>
+<h3>Hỗ Trợ Tháo Dỡ</h3>
+<p>
+                Với các hệ thống điện phức tạp, chúng tôi có đội ngũ kỹ thuật hỗ
+                trợ tháo dỡ an toàn, theo đúng
+                <a href="/quy-trinh/">quy trình</a> chuyên nghiệp.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-cable">
+<div class="container">
+<h2 class="section-title">
+            CÁC LOẠI CÁP ĐỒNG &amp; THIẾT BỊ ĐIỆN CHÚNG TÔI THU MUA
+          </h2>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu mua cáp đồng và dây điện cũ các loại" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp" width="800"/>
+<div class="caption">
+<span>Thu Mua Cáp Đồng &amp; Dây Điện Cũ</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua Motor Điện &amp; Máy Biến Áp cũ hỏng" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp" width="800"/>
+<div class="caption">
+<span>Thu Mua Motor Điện &amp; Máy Biến Áp</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua Tủ Điện &amp; Thiết Bị Đóng Cắt công nghiệp" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp" width="800"/>
+<div class="caption">
+<span>Thu Mua Tủ Điện &amp; Thiết Bị Đóng Cắt</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua cáp nhôm và cáp ngầm cũ" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp" width="800"/>
+<div class="caption">
+<span>Thu Mua Cáp Nhôm &amp; Cáp Ngầm Cũ</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua cáp điện công nghiệp 3 pha, cáp chống cháy" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp" width="800"/>
+<div class="caption">
+<span>Cáp Điện Công Nghiệp (3 Pha, Chống Cháy)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua Hệ Thống Điện &amp; Phế Liệu Nhà Xưởng" height="600" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp" width="800"/>
+<div class="caption">
+<span>Thu mua Phế Liệu Dây Điện Nhà Xưởng</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">QUY TRÌNH THU MUA MINH BẠCH, RÕ RÀNG</h2>
+<div class="process-grid">
+<div class="process-item">
+<div class="step-number">1</div>
+<h3>Gửi Yêu Cầu &amp; Hình Ảnh</h3>
+<p>
+                Khách hàng <a href="/lien-he/">liên hệ</a> qua Hotline/Zalo
+                <strong>0936.350.118</strong> và gửi hình ảnh thực tế của vật
+                tư, thiết bị cần Thu mua.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">2</div>
+<h3>Nhận Báo Giá Sơ Bộ</h3>
+<p>
+                Chúng tôi sẽ phân tích và
+                <strong>báo giá thu mua cáp điện</strong> sơ bộ nhanh chóng dựa
+                trên thông tin và hình ảnh bạn cung cấp.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">3</div>
+<h3>Khảo Sát &amp; Chốt Giá Tận Nơi</h3>
+<p>
+                Với lô hàng lớn, <strong>cơ sở thu mua cáp điện cũ</strong> của
+                chúng tôi sẽ cử nhân viên đến tận nơi thẩm định và chốt giá cuối
+                cùng.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">4</div>
+<h3>Thu Gom &amp; Thanh Toán 1 Lần</h3>
+<p>
+                Chúng tôi tiến hành thu gom, vận chuyển và thanh toán 100% giá
+                trị hợp đồng ngay lập tức bằng tiền mặt hoặc chuyển khoản.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="faq-cable">
+<div class="container">
+<h2 class="section-title">
+            GIẢI ĐÁP VỀ DỊCH VỤ THU MUA THIẾT BỊ ĐIỆN
+          </h2>
+<div class="faq-item">
+<h3>Giá dây cáp điện cũ được tính theo kg hay theo mét?</h3>
+<p>
+              Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg)
+              và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo
+              minh bạch tại nơi thu mua để đảm bảo tính chính xác.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?</h3>
+<p>
+              Chắc chắn có. Đối với các motor, máy biến áp và thiết bị còn khả
+              năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế
+              liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để
+              chúng tôi có báo giá tốt nhất.
+            </p>
+</div>
+<div class="faq-item">
+<h3>
+              Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua
+              không?
+            </h3>
+<p>
+              Có. Đức Minh là <strong>công ty thu mua cáp điện</strong> chuyên
+              nghiệp, chuyên xử lý các lô hàng <strong>số lượng lớn</strong> từ
+              các công trình và nhà máy. Chúng tôi có đầy đủ xe cẩu, xe tải và
+              năng lực tài chính để thanh toán một lần ngay tại chỗ.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Quy trình báo giá thu mua cáp điện của công ty như thế nào?</h3>
+<p>
+              Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh (loại
+              cáp, số lượng) qua Zalo <strong>0936.350.118</strong>, chúng tôi
+              sẽ <strong>báo giá thu mua cáp điện</strong> sơ bộ ngay. Đối với
+              lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và
+              chốt giá cuối cùng, cam kết không ép giá.
+            </p>
+</div>
+</div>
+</section>
+</main>
 </BaseLayout>

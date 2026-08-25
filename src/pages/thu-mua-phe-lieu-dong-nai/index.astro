@@ -1,194 +1,123 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import settings from '../../data/settings.json';
-
 const schema = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@graph': [
-    {
-      '@type': 'LocalBusiness',
-      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
-      image: 'https://thumuacapdonggiacao.com/img/logo.svg',
-      url: 'https://thumuacapdonggiacao.com/',
-      telephone: '+84936350118',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '14 ấp 2, Đông Thạnh',
-        addressLocality: 'Đồng Nai',
-        addressRegion: 'TP. HCM',
-        addressCountry: 'VN',
-      },
-    },
-    {
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        {
-          '@type': 'ListItem',
-          position: 1,
-          name: 'Trang Chủ',
-          item: 'https://thumuacapdonggiacao.com/',
-        },
-        {
-          '@type': 'ListItem',
-          position: 2,
-          name: 'Thu Mua Phế Liệu Đồng Nai',
-          item: 'https://thumuacapdonggiacao.com/thu-mua-phe-lieu-dong-nai/',
-        },
-      ],
-    },
-  ],
-});
-
-const priceList = [
-  { type: 'Đồng cáp, đồng đỏ, cáp 3 pha công trình', price: '280.000 – 410.000 đ/kg' },
-  { type: 'Sắt phế liệu, sắt vụn xưởng cơ khí, sắt công trình', price: '10.500 – 26.000 đ/kg' },
-  { type: 'Nhôm phế liệu các loại (nhôm đà, nhôm định hình)', price: '45.000 – 82.000 đ/kg' },
-  { type: 'Inox phế liệu (Inox 304, Inox 201, 430 bồn bể)', price: '24.000 – 75.000 đ/kg' },
-  { type: 'Thanh lý máy móc thiết bị KCN, nhà xưởng', price: 'Báo giá sau khảo sát' },
-];
-
-const areas = [
-  { title: 'Thành Phố & Huyện', list: 'TP. Biên Hòa, TP. Long Khánh, Huyện Long Thành, Huyện Nhơn Trạch, Huyện Trảng Bom, Huyện Vĩnh Cửu, Huyện Thống Nhất, Cẩm Mỹ, Định Quán, Xuân Lộc.' },
-  { title: 'Các KCN Lớn Tại Đồng Nai', list: 'KCN Amata, KCN Biên Hòa 1 & 2, KCN Long Thành, KCN Nhơn Trạch (1, 2, 3, 4, 5, 6), KCN Tam Phước, KCN Bàu Xéo, KCN Giang Điền, KCN Hố Nai...' },
-];
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "LocalBusiness",
+            "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+            "image": "https://thumuacapdonggiacao.com/img/logo.svg",
+            "url": "https://thumuacapdonggiacao.com/",
+            "telephone": "+84936350118",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "14 ấp 2, Đông Thạnh",
+              "addressLocality": "Đồng Nai",
+              "addressRegion": "TP. HCM",
+              "addressCountry": "VN"
+            }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Trang Chủ",
+                "item": "https://thumuacapdonggiacao.com/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Thu Mua Phế Liệu Đồng Nai",
+                "item": "https://thumuacapdonggiacao.com/thu-mua-phe-lieu-dong-nai/"
+              }
+            ]
+          }
+        ]
+      });
 ---
-
-<BaseLayout
-  keywords="thu mua phế liệu đồng nai, thu mua cáp đồng biên hòa, phế liệu kcn amata, phế liệu nhơn trạch, thanh lý nhà xưởng đồng nai"
+<BaseLayout 
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Thu Mua Phế Liệu Đồng Nai Giá Cao Tận Nơi | Đức Minh"
   description="Đức Minh thu mua phế liệu Đồng Nai giá cao tận nơi. Chuyên thu mua cáp đồng, sắt thép công trình, nhôm, inox tại Biên Hòa, Long Thành, Nhơn Trạch, KCN Amata. Gọi ngay 0936.350.118."
   canonical="https://thumuacapdonggiacao.com/thu-mua-phe-lieu-dong-nai/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Thu Mua Phế Liệu Đồng Nai</span>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" pulsingDot class="mb-4">KHẢO SÁT TẬN NƠI TẠI BIÊN HÒA, NHƠN TRẠCH, LONG THÀNH</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-        Thu Mua Phế Liệu Đồng Nai – Cáp Đồng, Sắt Thép, Nhôm Giá Cao
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Đức Minh chuyên thu mua phế liệu công nghiệp, cáp đồng 3 pha, pin mặt trời, xác nhà xưởng tại các KCN Amata, Biên Hòa, Nhơn Trạch, Long Thành. Bốc xếp xe cẩu miễn phí, thanh toán 100%!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>HOTLINE ĐỒNG NAI: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Báo Giá Zalo (5 Phút)</span>
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Content Section -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="prose prose-slate prose-headings:font-bold prose-headings:text-slate-900 prose-a:text-brand-red max-w-none">
-        
-        <p class="text-base sm:text-lg leading-relaxed text-slate-700">
-          Đồng Nai là một trong những trung tâm công nghiệp trọng điểm phía Nam với hàng chục khu công nghiệp lớn như Amata, Biên Hòa, Long Thành, Nhơn Trạch. Sự phát triển vượt bậc này tạo ra nhu cầu rất lớn về xử lý và thanh lý phế liệu công nghiệp mỗi ngày.
-        </p>
-        <p class="text-base sm:text-lg leading-relaxed text-slate-700">
-          Với hệ thống xe tải bốc xếp chuyên dụng, đội ngũ kỹ thuật lành nghề và kho bãi rộng lớn, <strong class="text-slate-900">Đức Minh</strong> cam kết mang lại giải pháp thanh lý phế liệu nhanh gọn, an toàn và tối ưu hóa lợi nhuận cho các nhà máy, xí nghiệp và các công trình tại khu vực Đồng Nai.
-        </p>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Các Mặt Hàng Phế Liệu Đức Minh Thu Mua Tại Đồng Nai</h2>
-        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Cáp đồng & Thiết bị điện:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Dây cáp điện lực lớn, cáp ngầm, đồng thau, đồng đỏ, mô tơ cũ, máy biến áp thanh lý KCN.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Phế liệu sắt thép xây dựng:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Sắt hộp, thép hình U, I, V, H, thép cuộn, kết cấu nhà xưởng dỡ bỏ từ các công trình xây dựng.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Phế liệu Nhôm & Inox:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Nhôm đà, nhôm định hình, mạt nhôm CNC. Inox 304, Inox 201 bồn chứa và đường ống nhà máy.</span>
-          </div>
-          <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
-            <strong class="text-brand-red text-sm block">Máy móc cũ & Nhà xưởng:</strong>
-            <span class="text-xs text-slate-600 mt-1 block">Thanh lý băng chuyền, máy dập, máy ép nhựa hư hỏng, hệ thống giàn giáo, cốp pha cũ.</span>
-          </div>
-        </div>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Bảng Giá Tham Khảo Thu Mua Phế Liệu Tại Đồng Nai</h2>
-        <p>Bảng giá thu mua trực tiếp tại tỉnh Đồng Nai:</p>
-
-        <!-- Table -->
-        <div class="not-prose my-6 overflow-x-auto rounded-2xl border border-slate-200 shadow-soft-sm">
-          <table class="w-full text-left border-collapse bg-white text-xs sm:text-sm">
-            <thead>
-              <tr class="bg-slate-900 text-white font-bold">
-                <th class="py-3.5 px-4 sm:px-6">Phân Loại Phế Liệu</th>
-                <th class="py-3.5 px-4 sm:px-6 text-right text-amber-400">Báo Giá Tham Khảo (VNĐ/kg)</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">
-              {priceList.map((item, idx) => (
-                <tr class={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/60'}>
-                  <td class="py-3.5 px-4 sm:px-6 font-semibold text-slate-900">{item.type}</td>
-                  <td class="py-3.5 px-4 sm:px-6 text-right font-black text-brand-red">{item.price}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Các Khu Vực Thu Mua Tận Nơi Tại Tỉnh Đồng Nai</h2>
-        <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
-          {areas.map((a) => (
-            <div class="bg-slate-50 border border-slate-200 rounded-2xl p-5">
-              <h3 class="font-bold text-slate-900 text-base mb-1">{a.title}</h3>
-              <p class="text-xs text-slate-600 leading-relaxed font-normal">{a.list}</p>
-            </div>
-          ))}
-        </div>
-
-        <h2 class="text-2xl font-black text-slate-900 mt-10 mb-4">Tại Sao Doanh Nghiệp Đồng Nai Chọn Đức Minh?</h2>
-        <ul class="space-y-2 text-slate-700">
-          <li><strong>Báo giá trung thực:</strong> Hệ thống cân điện tử chuẩn xác có tem kiểm định, định giá đúng giá trị thực tế.</li>
-          <li><strong>Năng lực thu mua lớn:</strong> Khả năng thanh toán các lô hàng giá trị hàng tỷ đồng trong 1 lần chuyển khoản.</li>
-          <li><strong>Trang thiết bị hiện đại:</strong> Dàn xe cẩu và máy cắt kim loại chuyên dụng giúp việc bốc xếp an toàn và nhanh gọn.</li>
-          <li><strong>Hỗ trợ pháp lý đầy đủ:</strong> Xuất hóa đơn VAT, hợp đồng thu mua chuẩn pháp lý cho các công ty, tập đoàn lớn.</li>
-          <li><strong>Dọn dẹp kho bãi miễn phí:</strong> Trả lại mặt bằng thông thoáng, sạch sẽ sau khi bốc hàng.</li>
-        </ul>
-
-      </div>
-
-      <!-- Bottom High-Conversion CTA Card -->
-      <div class="mt-12 bg-gradient-to-r from-brand-red to-brand-red-dark text-white rounded-3xl p-6 sm:p-8 text-center shadow-glow-red">
-        <h3 class="text-2xl font-black text-white">Bạn Cần Thanh Lý Phế Liệu Tại Đồng Nai?</h3>
-        <p class="mt-2 text-red-100 text-sm max-w-xl mx-auto font-normal">
-          Đừng để phế liệu chiếm diện tích kho bãi và giảm giá trị theo thời gian. Hãy gọi ngay cho Đức Minh để chuyển hóa chúng thành dòng tiền mặt nhanh nhất!
-        </p>
-        <p class="mt-2 text-amber-300 text-xs font-bold">
-          ⭐ Báo giá miễn phí 24/7 • Hoa hồng cao cho người giới thiệu.
-        </p>
-        <div class="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button href={`tel:${settings.hotline}`} variant="gold" size="lg" pulse class="font-bold">
-            <span>☎ Gọi Ngay: {settings.hotlineDisplay}</span>
-          </Button>
-          <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-            <span>💬 Chat Zalo Đức Minh</span>
-          </Button>
-        </div>
-      </div>
-
-    </div>
-  </section>
+<main class="geo-content container">
+<h1 class="section-title">Thu Mua Phế Liệu Đồng Nai – Cáp Đồng, Sắt Thép, Nhôm Giá Cao</h1>
+<p>Đồng Nai là một trong những trung tâm công nghiệp lớn nhất cả nước với các khu công nghiệp trọng điểm như Amata, Biên Hòa, Long Thành, Nhơn Trạch. Sự phát triển này tạo ra một lượng lớn phế liệu công nghiệp cần xử lý mỗi ngày. Nếu doanh nghiệp của bạn đang tìm kiếm một đối tác <strong>thu mua phế liệu Đồng Nai</strong> uy tín, chuyên nghiệp và mua với giá cao nhất, Đức Minh chính là sự lựa chọn hoàn hảo.</p>
+<p>Với hệ thống xe tải bốc xếp chuyên dụng, kho bãi rộng lớn, Đức Minh cam kết mang lại giải pháp thanh lý phế liệu nhanh gọn, an toàn và tối ưu hóa lợi nhuận cho các nhà máy, xí nghiệp, và các công trình xây dựng tại khu vực Đồng Nai.</p>
+<h2>Các Mặt Hàng Phế Liệu Đức Minh Thu Mua Tại Đồng Nai</h2>
+<p>Chúng tôi nhận thu mua không giới hạn số lượng các loại phế liệu từ dân dụng đến công nghiệp:</p>
+<ul>
+<li><strong>Cáp đồng &amp; Thiết bị điện:</strong> Thu mua cáp đồng điện lực, cáp mạng, dây điện lõi nhỏ, đồng thau, đồng đỏ, motor cũ hỏng, tủ điện công nghiệp, máy biến áp thanh lý.</li>
+<li><strong>Phế liệu sắt thép xây dựng:</strong> Sắt hộp, sắt U, I, V, H, thép cuộn, hàng rào sắt phế liệu từ các công trình xây dựng, dỡ bỏ nhà xưởng.</li>
+<li><strong>Phế liệu nhôm, Inox:</strong> Nhôm đà, nhôm cửa, nhôm vụn máy CNC. Inox 304, Inox 201 từ các thiết bị bồn chứa, đường ống xí nghiệp.</li>
+<li><strong>Vật tư công trình &amp; Máy móc cũ:</strong> Thanh lý băng chuyền, máy dập, máy ép nhựa hư hỏng, hệ thống giàn giáo, cốp pha cũ.</li>
+<li><strong>Phế liệu công nghiệp khác:</strong> Nhựa phế liệu, giấy thùng carton số lượng lớn từ các xưởng sản xuất, may mặc.</li>
+</ul>
+<h2>Bảng Giá Tham Khảo Thu Mua Phế Liệu Tại Đồng Nai</h2>
+<p>Giá thu mua phế liệu phụ thuộc vào nhiều yếu tố: biến động thị trường, chất lượng và số lượng phế liệu. Đức Minh cam kết đưa ra mức giá tốt nhất, không qua bất kỳ khâu trung gian nào. Dưới đây là giá tham khảo (Liên hệ Hotline: <strong>0936.350.118</strong> để cập nhật giá hôm nay).</p>
+<table class="geo-table">
+<thead>
+<tr>
+<th>Phân Loại Phế Liệu</th>
+<th>Báo Giá Tham Khảo (VNĐ/kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Đồng cáp, đồng đỏ</td>
+<td>280.000 - 410.000</td>
+</tr>
+<tr>
+<td>Sắt phế liệu, sắt công trình</td>
+<td>10.500 - 26.000</td>
+</tr>
+<tr>
+<td>Nhôm phế liệu các loại</td>
+<td>45.000 - 82.000</td>
+</tr>
+<tr>
+<td>Inox (304, 201, 430)</td>
+<td>24.000 - 75.000</td>
+</tr>
+<tr>
+<td>Thu mua thanh lý máy móc KCN</td>
+<td>Báo giá tận nơi sau khảo sát</td>
+</tr>
+</tbody>
+</table>
+<p><em>Mức chiết khấu đặc biệt dành cho người môi giới, giới thiệu lô hàng thành công. Mức hoa hồng tỷ lệ thuận với khối lượng phế liệu thu mua.</em></p>
+<h2>Đức Minh Thu Mua Phế Liệu Tận Nơi Các Khu Vực Tại Đồng Nai</h2>
+<p>Khoảng cách không phải là trở ngại đối với Đức Minh. Chúng tôi có mặt tận nơi, phục vụ nhanh chóng tại tất cả các địa bàn thuộc tỉnh Đồng Nai:</p>
+<ul>
+<li><strong>Thành phố và Huyện:</strong> TP. Biên Hòa, TP. Long Khánh, Huyện Long Thành, Huyện Nhơn Trạch, Huyện Trảng Bom, Huyện Vĩnh Cửu, Huyện Thống Nhất, Cẩm Mỹ, Định Quán, Xuân Lộc.</li>
+<li><strong>Các Khu Công Nghiệp lớn:</strong> KCN Amata, KCN Biên Hòa 1 &amp; 2, KCN Long Thành, KCN Nhơn Trạch (1, 2, 3, 4, 5, 6), KCN Tam Phước, KCN Bàu Xéo, KCN Giang Điền, KCN Hố Nai...</li>
+</ul>
+<h2>Tại Sao Hàng Trăm Doanh Nghiệp Đồng Nai Chọn Đức Minh?</h2>
+<p>Đức Minh luôn giữ vững uy tín trong nghề với triết lý kinh doanh "Thu mua tận tâm - Thanh toán tận tay". Quý khách sẽ nhận được những lợi ích tuyệt vời khi hợp tác cùng chúng tôi:</p>
+<ul>
+<li><strong>Báo giá trung thực:</strong> Hệ thống cân đo điện tử đạt chuẩn, cam kết không gian lận, báo giá sát nhất với giá trị thực tế của phế liệu trên thị trường quốc tế.</li>
+<li><strong>Năng lực thu mua lớn:</strong> Có khả năng thanh toán các lô hàng trị giá hàng tỷ đồng chỉ trong 1 lần chuyển khoản duy nhất.</li>
+<li><strong>Trang thiết bị hiện đại:</strong> Sở hữu dàn xe cẩu, xe thùng rỗng, máy cắt kim loại hiện đại, giúp việc tháo dỡ, bốc xếp an toàn và cực kỳ nhanh chóng.</li>
+<li><strong>Hỗ trợ pháp lý đầy đủ:</strong> Xuất hóa đơn VAT, hợp đồng thu mua chuẩn pháp lý cho các công ty, tập đoàn lớn.</li>
+<li><strong>Chăm sóc tận tình:</strong> Có chính sách dọn dẹp vệ sinh kho bãi hoàn toàn miễn phí, mang lại không gian sạch sẽ sau khi bốc phế liệu.</li>
+</ul>
+<h2>Quy Trình 4 Bước Thu Mua Phế Liệu Tại Đồng Nai</h2>
+<ol>
+<li><strong>Ghi nhận thông tin:</strong> Khách hàng gọi Hotline 0936.350.118 cung cấp hình ảnh và địa chỉ lô hàng.</li>
+<li><strong>Khảo sát và Chốt giá:</strong> Chuyên viên của Đức Minh đến tận nơi thẩm định, phân loại phế liệu và ký thỏa thuận giá cả.</li>
+<li><strong>Triển khai tháo dỡ, vận chuyển:</strong> Đưa phương tiện cơ giới vào bốc xếp, dọn dẹp hiện trường an toàn, gọn gàng.</li>
+<li><strong>Thanh toán liền tay:</strong> Chuyển khoản hoặc thanh toán tiền mặt 100% trước khi xe phế liệu rời khỏi bến.</li>
+</ol>
+<div class="cta-box">
+<h3>Bạn Cần Thanh Lý Phế Liệu Tại Đồng Nai?</h3>
+<p>Đừng để phế liệu chiếm diện tích kho bãi và ngày càng rớt giá. Hãy gọi ngay cho Đức Minh để chuyển hóa chúng thành nguồn tài chính dồi dào cho doanh nghiệp của bạn!</p>
+<p><strong>Báo giá miễn phí 24/7 - Hoa hồng cao cho người giới thiệu.</strong></p>
+<a class="cta-btn" href="tel:0936350118">☎ Gọi Ngay: 0936.350.118</a>
+<a class="cta-btn" href="https://zalo.me/0936350118" style="background:#0068ff; margin-left: 10px;">💬 Chat Zalo</a>
+</div>
+</main>
 </BaseLayout>

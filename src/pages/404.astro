@@ -1,45 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Badge from '../components/ui/Badge.astro';
-import Button from '../components/ui/Button.astro';
-import settings from '../data/settings.json';
 ---
-
 <BaseLayout 
   keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Lỗi 404: Không Tìm Thấy Trang | Công Ty Đức Minh"
   description="Rất tiếc, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển. Vui lòng quay lại trang chủ của chúng tôi để tìm thông tin bạn cần."
   canonical="https://thumuacapdonggiacao.com/404.html"
 >
-  <main class="min-h-[70vh] flex items-center justify-center py-16 bg-slate-50">
-    <div class="max-w-xl mx-auto px-4 sm:px-6 text-center">
-      <Badge variant="danger" size="md" class="mb-4">LỖI 404</Badge>
-      <h1 class="text-6xl sm:text-8xl font-black text-brand-red tracking-tight leading-none">
-        404
-      </h1>
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mt-4">
-        Không Tìm Thấy Trang Này
-      </h2>
-      <p class="mt-3 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-        Rất tiếc! Trang bạn đang tìm kiếm có thể đã bị di chuyển, xóa hoặc đường dẫn không chính xác. Vui lòng quay lại trang chủ hoặc liên hệ với chúng tôi để được hỗ trợ.
-      </p>
-
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3.5">
-        <Button href="/" variant="primary" size="lg" class="font-bold">
-          <span>Quay Về Trang Chủ</span>
-        </Button>
-        <Button href="/bang-gia/" variant="secondary" size="lg" class="font-bold">
-          <span>Xem Bảng Giá Hôm Nay</span>
-        </Button>
-      </div>
-
-      <div class="mt-8 pt-6 border-t border-slate-200 flex items-center justify-center gap-4 text-xs font-semibold text-slate-600">
-        <a href="/dich-vu/" class="hover:text-brand-red">Dịch Vụ Thu Mua</a>
-        <span>•</span>
-        <a href="/quy-trinh/" class="hover:text-brand-red">Quy Trình 5 Bước</a>
-        <span>•</span>
-        <a href={`tel:${settings.hotline}`} class="hover:text-brand-red">Hotline: {settings.hotlineDisplay}</a>
-      </div>
-    </div>
-  </main>
+<main>
+<section class="error-section">
+<div class="container">
+<div class="error-code">404</div>
+<div class="error-title">Không Tìm Thấy Trang</div>
+<p class="error-message">
+            Rất tiếc! Trang bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm
+            thời không có sẵn. Vui lòng quay lại và thử một hướng khác.
+          </p>
+<a class="btn" href="/">Quay Về Trang Chủ</a>
+<div class="helpful-links">
+<a href="/dich-vu/">Xem Các Dịch Vụ</a>
+<span style="color: #ccc">|</span>
+<a href="/lien-he/">Liên Hệ Hỗ Trợ</a>
+</div>
+</div>
+</section>
+</main>
 </BaseLayout>

@@ -1,304 +1,274 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import FaqAccordion from '../../components/marketing/FaqAccordion.astro';
-import settings from '../../data/settings.json';
-
-const schema = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Thu Mua Nhôm Phế Liệu',
-    name: 'Dịch Vụ Thu Mua Nhôm Phế Liệu Giá Cao (Nhôm Đặc, Hợp Kim, Cửa Cũ)',
-    description:
-      'Dịch vụ thu mua nhôm phế liệu giá cao các loại: nhôm đặc, nhôm hợp kim, cửa nhôm xingfa, mạt nhôm... tại TP.HCM và các tỉnh lân cận.',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
-      url: 'https://thumuacapdonggiacao.com/',
-      telephone: '+84936350118',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '14 ấp 2, Đông Thạnh',
-        addressLocality: 'Hóc Môn',
-        addressRegion: 'TP. HCM',
-        addressCountry: 'VN',
-      },
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Vietnam',
-    },
-    mainEntity: {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Làm sao để tôi bán được nhôm phế liệu với giá cao nhất?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Để tối ưu giá trị, bạn nên phân loại riêng nhôm. Ví dụ, tách riêng các thanh nhôm đặc, nhôm tấm (giá cao) với các loại nhôm hợp kim, nhôm có lẫn tạp chất sắt, nhựa. Giữ phế liệu khô ráo, sạch sẽ cũng giúp bạn có được mức giá tốt hơn.',
-          },
+const schema = JSON.stringify([{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Thu Mua Nhôm Phế Liệu",
+        "name": "Dịch Vụ Thu Mua Nhôm Phế Liệu Giá Cao (Nhôm Đặc, Hợp Kim, Cửa Cũ)",
+        "description": "Dịch vụ thu mua nhôm phế liệu giá cao các loại: nhôm đặc, nhôm hợp kim, cửa nhôm xingfa, mạt nhôm... tại TP.HCM và các tỉnh lân cận.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+          "url": "https://thumuacapdonggiacao.com/",
+          "telephone": "+84936350118",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 ấp 2, Đông Thạnh",
+            "addressLocality": "Hóc Môn",
+            "addressRegion": "TP. HCM",
+            "addressCountry": "VN"
+          }
         },
-        {
-          '@type': 'Question',
-          name: 'Công ty có thu mua cửa nhôm, khung nhôm cũ với số lượng ít không?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Có. Chúng tôi nhận thu mua tất cả, từ một vài bộ cửa nhôm cũ của hộ gia đình sửa nhà cho đến hàng tấn nhôm Thu mua từ các dự án xây dựng lớn. Mọi số lượng đều được chúng tôi hỗ trợ thu mua tận nơi.',
-          },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
         },
-      ],
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Trang Chủ',
-        item: 'https://thumuacapdonggiacao.com/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Dịch Vụ',
-        item: 'https://thumuacapdonggiacao.com/dich-vu/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Thu Mua Nhôm',
-      },
-    ],
-  },
-]);
-
-const aluminumTypes = [
-  {
-    title: 'Nhôm Đặc, Nhôm Tấm (Loại 1)',
-    desc: 'Nhôm thanh nguyên chất, đà nhôm, nhôm khuôn mẫu không lẫn tạp chất, giá cao nhất.',
-    image: '/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp',
-  },
-  {
-    title: 'Nhôm Hợp Kim, Nhôm Định Hình',
-    desc: 'Nhôm định hình cơ khí, chi tiết máy móc, khung xe, thanh nhôm xây dựng.',
-    image: '/img/thu-mua-nhom/thu-mua-nhom-hop-kim-dinh-hinh.webp',
-  },
-  {
-    title: 'Vụn Nhôm, Mạt Nhôm (Loại 3)',
-    desc: 'Phôi nhôm, bazo nhôm, mạt cưa từ các xưởng cơ khí, nhà máy gia công CNC.',
-    image: '/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp',
-  },
-  {
-    title: 'Cửa Nhôm, Khung Nhôm Cũ',
-    desc: 'Cửa nhôm Xingfa cũ, khung nhôm kính thanh lý từ các công trình cải tạo, dỡ bỏ.',
-    image: '/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp',
-  },
-  {
-    title: 'La Phông, Tản Nhiệt Nhôm',
-    desc: 'Tấm ốp trần nhôm, la phông nhôm, khối tản nhiệt nhôm bo mạch điện tử, máy tính.',
-    image: '/img/thu-mua-nhom/thu-mua-la-phong-tan-nhiet-nhom.webp',
-  },
-  {
-    title: 'Thang Nhôm, Đồ Dùng Nhôm',
-    desc: 'Thang nhôm rút, nồi nhôm công nghiệp, đồ dùng bằng nhôm thanh lý số lượng lớn.',
-    image: '/img/thu-mua-nhom/thu-mua-thang-nhom-do-dung-nhom.webp',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Làm sao để tôi bán được nhôm phế liệu với giá cao nhất?',
-    answer:
-      'Để tối ưu giá trị, bạn nên phân loại riêng nhôm: tách riêng các thanh nhôm đặc, nhôm tấm (giá cao) với các loại nhôm hợp kim, nhôm có lẫn tạp chất sắt hoặc nhựa. Giữ phế liệu khô ráo, sạch sẽ cũng giúp bạn có được mức giá tốt hơn.',
-  },
-  {
-    question: 'Công ty có thu mua cửa nhôm, khung nhôm cũ với số lượng ít không?',
-    answer:
-      'Có. Chúng tôi nhận thu mua tất cả, từ một vài bộ cửa nhôm Xingfa cũ của hộ gia đình sửa nhà cho đến hàng tấn nhôm thanh lý từ các dự án xây dựng lớn. Mọi số lượng đều được chúng tôi hỗ trợ thu mua tận nơi.',
-  },
-];
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Làm sao để tôi bán được nhôm phế liệu với giá cao nhất?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Để tối ưu giá trị, bạn nên phân loại riêng nhôm. Ví dụ, tách riêng các thanh nhôm đặc, nhôm tấm (giá cao) với các loại nhôm hợp kim, nhôm có lẫn tạp chất sắt, nhựa. Giữ phế liệu khô ráo, sạch sẽ cũng giúp bạn có được mức giá tốt hơn."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Công ty có thu mua cửa nhôm, khung nhôm cũ với số lượng ít không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. Chúng tôi nhận thu mua tất cả, từ một vài bộ cửa nhôm cũ của hộ gia đình sửa nhà cho đến hàng tấn nhôm Thu mua từ các dự án xây dựng lớn. Mọi số lượng đều được chúng tôi hỗ trợ thu mua tận nơi."
+              }
+            }
+          ]
+        }
+      },{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang Chủ",
+            "item": "https://thumuacapdonggiacao.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dịch Vụ",
+            "item": "https://thumuacapdonggiacao.com/dich-vu/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thu Mua Nhôm"
+          }
+        ]
+      }]);
 ---
-
-<BaseLayout
-  keywords="thu mua nhôm, phế liệu nhôm, giá nhôm phế liệu hôm nay, cửa nhôm xingfa cũ, nhôm đặc, mạt nhôm"
+<BaseLayout 
+  keywords="thu mua nhôm, phế liệu nhôm, thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Thu Mua Nhôm Phế Liệu Giá Cao | Nhôm Đặc, Xingfa, Cửa Cũ, Vụn"
   description="Công ty Đức Minh chuyên thu mua nhôm phế liệu giá cao: Nhôm đặc, nhôm hợp kim, cửa nhôm Xingfa cũ, vụn nhôm, mạt nhôm. Phân loại chuẩn, báo giá cao nhất thị trường."
   canonical="https://thumuacapdonggiacao.com/thu-mua-nhom/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <a href="/dich-vu/" class="hover:text-brand-red transition-colors">Dịch Vụ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Thu Mua Nhôm Phế Liệu</span>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" pulsingDot class="mb-4">45.000 – 65.000 Đ/KG • THU GOM TẬN NƠI</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-        Chuyên Thu Mua Phế Liệu Nhôm Giá Cao Nhất
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Thu mua nhôm đặc loại 1, nhôm hợp kim, nhôm định hình, cửa nhôm Xingfa cũ, vụn nhôm, mạt nhôm xưởng CNC tận nơi 24/7. Phân loại chuẩn xác, thanh toán 100% tại chỗ!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>GỌI BÁO GIÁ: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Báo Giá Nhanh Qua Zalo</span>
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Intro Section -->
-  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl overflow-hidden shadow-soft-lg border border-slate-200">
-            <img
-              src="/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp"
-              alt="Thu mua cửa nhôm xingfa cũ và khung nhôm"
-              width="600"
-              height="450"
-              loading="lazy"
-              class="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <Badge variant="info" size="md" class="mb-3">PHÂN LOẠI MINH BẠCH</Badge>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Giá Trị Thực Sự Của Phế Liệu Nhôm
+<main>
+<section class="text-banner" style="
+          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
+          color: white; /* Giữ chữ màu trắng */
+        ">
+<div class="container">
+<h1 style="color: var(--primary-color)">
+            Chuyên Thu Mua Phế Liệu Nhôm Giá Cao Nhất
+          </h1>
+<p>
+            Thu mua nhôm đặc, nhôm hợp kim, nhôm định hình, cửa nhôm Xingfa cũ,
+            vụn nhôm, mạt nhôm... tận nơi, số lượng lớn.
+          </p>
+<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
+</div>
+</section>
+<div class="breadcrumb">
+<div class="container">
+<a href="/">Trang Chủ</a> »
+          <a href="/dich-vu/">Dịch Vụ</a> »
+          <span>Thu Mua Nhôm</span>
+</div>
+</div>
+<section id="intro-aluminum">
+<div class="container about-grid">
+<div class="about-image">
+<img alt="Thu mua cửa nhôm xingfa cũ và khung nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp"/>
+</div>
+<div class="about-text">
+<h2>Giá Trị Thực Sự Của Nhôm Phế Liệu</h2>
+<p>
+              Nhôm là kim loại nhẹ, bền, chống ăn mòn và có khả năng tái chế gần
+              như 100% mà không làm giảm chất lượng. Từ khung cửa sổ, chi tiết
+              máy móc đến các vật dụng hàng ngày, nhôm phế liệu là một nguồn tài
+              nguyên quý giá. Tuy nhiên, giá trị của chúng chênh lệch rất lớn
+              tùy thuộc vào độ tinh khiết và loại hợp kim.
+            </p>
+<p>
+<b>Tại Đức Minh, chúng tôi hiểu rõ giá trị của từng loại nhôm.</b>
+              Dịch vụ thu mua của chúng tôi không chỉ dừng lại ở việc cân đo mà
+              còn tập trung vào việc phân loại chính xác để có thể trả cho bạn
+              mức giá cao nhất. Dù bạn cần Thu mua cửa nhôm cũ sau khi sửa nhà
+              hay xử lý hàng tấn mạt nhôm từ nhà máy, chúng tôi đều là đối tác
+              tin cậy.
+            </p>
+</div>
+</div>
+</section>
+<section id="why-us" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+            VÌ SAO GIÁ THU MUA NHÔM CỦA ĐỨC MINH LUÔN CAO?
           </h2>
-          <p class="mt-4 text-slate-600 text-base leading-relaxed font-normal">
-            Nhôm là kim loại nhẹ, bền, chống ăn mòn và có khả năng tái chế gần như 100% mà không làm giảm chất lượng. Từ khung cửa sổ, chi tiết máy móc đến các vật dụng hàng ngày, nhôm phế liệu là nguồn tài nguyên tái chế giá trị cao. Tuy nhiên, giá thu mua chênh lệch đáng kể tùy thuộc vào độ tinh khiết và nhóm hợp kim.
-          </p>
-          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
-            <strong class="text-slate-900">Tại Đức Minh</strong>, chúng tôi hiểu rõ giá trị từng chủng loại nhôm. Đội ngũ thẩm định chuyên nghiệp phân loại chuẩn xác nhôm đặc loại 1, nhôm Xingfa loại 2 và phôi mạt nhôm loại 3 để đưa ra mức giá cao nhất cho khách hàng.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us Grid -->
-  <section class="py-16 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <Badge variant="primary" size="md" class="mb-3">ƯU ĐIỂM DỊCH VỤ</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Vì Sao Giá Thu Mua Nhôm Tại Đức Minh Luôn Cao?
-        </h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🔍</div>
-          <h3 class="font-bold text-slate-900 text-lg">Phân Loại Chuẩn</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Phân biệt rõ ràng nhôm loại 1, loại 2, loại 3 để áp dụng mức giá cao nhất cho từng loại.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">💰</div>
-          <h3 class="font-bold text-slate-900 text-lg">Không Ép Giá</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Bảng giá được niêm yết công khai, cập nhật theo thị trường kim loại trong nước và quốc tế.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🚚</div>
-          <h3 class="font-bold text-slate-900 text-lg">Thu Mua Tận Nơi</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Đội xe cẩu và xe tải sẵn sàng có mặt tận nơi để thu gom, giúp bạn tiết kiệm thời gian, công sức.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🤝</div>
-          <h3 class="font-bold text-slate-900 text-lg">Đối Tác Dài Lâu</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Chính sách giá đặc biệt và hoa hồng cao cho đối tác công trình, nhà xưởng hợp tác định kỳ.
-          </p>
-        </Card>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Aluminum Types Grid -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <Badge variant="gold" size="md" class="mb-3">DANH MỤC PHẾ LIỆU</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Các Loại Nhôm Phế Liệu Đức Minh Thu Mua
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {aluminumTypes.map((item) => (
-          <Card hover variant="default" class="p-0 overflow-hidden flex flex-col">
-            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
-              <img
-                src={item.image}
-                alt={item.title}
-                width="600"
-                height="375"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-red transition-colors">
-                {item.title}
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal flex-1">
-                {item.desc}
+<div class="features-grid">
+<div class="feature-item">
+<div class="icon">🔍</div>
+<h3>Phân Loại Chuẩn Xác</h3>
+<p>
+                Chúng tôi phân biệt rõ ràng nhôm loại 1 (nhôm đặc), loại 2 (hợp
+                kim), loại 3 (vụn, mạt) để áp dụng
+                <a href="/bang-gia/">mức giá tốt nhất</a> cho từng loại.
               </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <a href={settings.zaloLink} target="_blank" class="text-xs font-bold text-brand-zalo hover:underline">
-                  Báo giá Zalo →
-                </a>
-                <a href={`tel:${settings.hotline}`} class="text-xs font-bold text-brand-phone hover:underline">
-                  Gọi Hotline →
-                </a>
-              </div>
-            </div>
-          </Card>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQs Accordion -->
-  <FaqAccordion
-    badge="HỎI ĐÁP PHẾ LIỆU NHÔM"
-    title="Giải Đáp Về Dịch Vụ Thu Mua Nhôm"
-    subtitle="Những câu hỏi thường gặp khi thanh lý nhôm đặc, nhôm Xingfa và mạt nhôm cơ khí."
-    items={faqs}
-  />
+</div>
+<div class="feature-item">
+<div class="icon">💰</div>
+<h3>Không Ép Giá</h3>
+<p>
+                Bảng giá được niêm yết công khai, cập nhật theo thị trường. Quy
+                trình thu mua minh bạch, tuyệt đối không có tình trạng ép giá
+                khách hàng.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🚚</div>
+<h3>Thu Mua Tận Nơi</h3>
+<p>
+                Chỉ cần một cuộc <a href="/lien-he/">liên hệ</a>, đội xe của
+                chúng tôi sẽ có mặt tận nơi để thu gom, giúp bạn tiết kiệm tối
+                đa thời gian và công sức.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🤝</div>
+<h3>Đối Tác Lâu Dài</h3>
+<p>
+                Chúng tôi luôn có chính sách ưu đãi đặc biệt về giá và hoa hồng
+                cho các đối tác công trình, nhà xưởng hợp tác thường xuyên.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-aluminum">
+<div class="container">
+<h2 class="section-title">
+            CÁC LOẠI NHÔM PHẾ LIỆU CHÚNG TÔI THU MUA
+          </h2>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Đặc, Nhôm Tấm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp"/>
+<div class="caption">
+<span>Nhôm Đặc, Nhôm Tấm (Loại 1)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Hợp Kim, Nhôm Định Hình" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-hop-kim-dinh-hinh.webp"/>
+<div class="caption">
+<span>Nhôm Hợp Kim, Nhôm Định Hình</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Vụn Nhôm, Mạt Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp"/>
+<div class="caption">
+<span>Vụn Nhôm, Mạt Nhôm (Loại 3)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Cửa, Khung Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp"/>
+<div class="caption"><span>Cửa Nhôm, Khung Nhôm Cũ</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua La phông, Tản Nhiệt Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-la-phong-tan-nhiet-nhom.webp"/>
+<div class="caption"><span>La phông, Tản Nhiệt Nhôm</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Thang Nhôm, Đồ Dùng Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-thang-nhom-do-dung-nhom.webp"/>
+<div class="caption"><span>Thang Nhôm, Đồ Dùng Nhôm</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">QUY TRÌNH THU MUA NHÔM CHUYÊN NGHIỆP</h2>
+<div class="process-grid">
+<div class="process-item">
+<div class="step-number">1</div>
+<h3>Tiếp Nhận Thông Tin</h3>
+<p>
+                Quý khách liên hệ qua Hotline/Zalo
+                <strong>0936.350.118</strong>, mô tả loại nhôm và số lượng ước
+                tính cần bán.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">2</div>
+<h3>Báo Giá Nhanh Chóng</h3>
+<p>
+                Chúng tôi sẽ báo giá ngay dựa trên thông tin và hình ảnh bạn
+                cung cấp, cam kết mức giá cạnh tranh nhất.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">3</div>
+<h3>Thu Gom &amp; Cân Đo Tận Nơi</h3>
+<p>
+                Đội ngũ của chúng tôi sẽ đến tận nơi, tiến hành phân loại lại
+                (nếu cần), cân đo chính xác và bốc xếp lên xe.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">4</div>
+<h3>Thanh Toán Liền Tay</h3>
+<p>
+                Thanh toán 100% giá trị lô hàng bằng tiền mặt hoặc chuyển khoản
+                ngay sau khi quá trình cân đo hoàn tất.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="faq-aluminum">
+<div class="container">
+<h2 class="section-title">GIẢI ĐÁP VỀ DỊCH VỤ THU MUA NHÔM</h2>
+<div class="faq-item">
+<h3>Làm sao để tôi bán được nhôm phế liệu với giá cao nhất?</h3>
+<p>
+              Để tối ưu giá trị, bạn nên phân loại riêng nhôm. Ví dụ, tách riêng
+              các thanh nhôm đặc, nhôm tấm (giá cao) với các loại nhôm hợp kim,
+              nhôm có lẫn tạp chất sắt, nhựa. Giữ phế liệu khô ráo, sạch sẽ cũng
+              giúp bạn có được mức giá tốt hơn.
+            </p>
+</div>
+<div class="faq-item">
+<h3>
+              Công ty có thu mua cửa nhôm, khung nhôm cũ với số lượng ít không?
+            </h3>
+<p>
+              Có. Chúng tôi nhận thu mua tất cả, từ một vài bộ cửa nhôm cũ của
+              hộ gia đình sửa nhà cho đến hàng tấn nhôm Thu mua từ các dự án xây
+              dựng lớn. Mọi số lượng đều được chúng tôi hỗ trợ thu mua tận nơi.
+            </p>
+</div>
+</div>
+</section>
+</main>
 </BaseLayout>

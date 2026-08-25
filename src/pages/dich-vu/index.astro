@@ -1,257 +1,331 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import settings from '../../data/settings.json';
-
 const schema = JSON.stringify({
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Các Dịch Vụ Thu Mua của Công Ty Đức Minh',
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      item: {
-        '@type': 'Service',
-        name: 'Thu Mua Vật Tư Năng Lượng Mặt Trời',
-        url: 'https://thumuacapdonggiacao.com/thu-mua-pin-nang-luong-mat-troi/',
-        description:
-          'Thu mua các thiết bị và vật tư từ dự án điện mặt trời như tấm pin, inverter, hệ thống khung giàn, dây điện DC solar.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      item: {
-        '@type': 'Service',
-        name: 'Thu Mua Cáp Đồng & Thiết Bị Điện',
-        url: 'https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/',
-        description:
-          'Thu mua các loại cáp điện, dây dẫn, thiết bị đóng cắt, mô tơ và máy móc công nghiệp đã qua sử dụng hoặc tồn kho.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 3,
-      item: {
-        '@type': 'Service',
-        name: 'Thu Mua Phế Liệu Công Nghiệp',
-        url: 'https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/',
-        description:
-          'Thu mua số lượng lớn các loại phế liệu kim loại phổ biến như đồng, sắt, nhôm, inox với giá cạnh tranh.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 4,
-      item: {
-        '@type': 'Service',
-        name: 'Thu Mua Inox',
-        url: 'https://thumuacapdonggiacao.com/thu-mua-inox/',
-        description:
-          'Thu mua mọi loại inox phế liệu, từ Inox 304, 316 đến 201, 430 và các loại vật tư, thiết bị inox công nghiệp cũ.',
-      },
-    },
-    {
-      '@type': 'ListItem',
-      position: 5,
-      item: {
-        '@type': 'Service',
-        name: 'Thu Mua Nhôm',
-        url: 'https://thumuacapdonggiacao.com/thu-mua-nhom/',
-        description:
-          'Chuyên thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn nhôm, cửa nhôm cũ và các vật dụng bằng nhôm khác.',
-      },
-    },
-  ],
-});
-
-const serviceCategories = [
-  {
-    id: 'solar',
-    title: 'Thu Mua Vật Tư Năng Lượng Mặt Trời',
-    href: '/thu-mua-pin-nang-luong-mat-troi/',
-    badge: 'Chuyên Nghiệp Hàng Đầu',
-    badgeVariant: 'gold' as const,
-    desc: 'Thu hồi trọn gói các thiết bị và vật tư từ dự án điện mặt trời: tấm pin Mono/Poly, biến tần inverter, hệ thống khung giàn ray nhôm và dây cáp điện DC Solar.',
-    images: [
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp', label: 'Tấm Pin Năng Lượng Mặt Trời' },
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp', label: 'Phế Liệu Công Trình NLMT' },
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-day-dien-dc-solar.webp', label: 'Dây Điện DC Solar 4-6mm' },
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-tu-dien-phu-kien-solar.webp', label: 'Tủ Điện & Phụ Kiện Solar' },
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-khung-gian-kep-pin-solar.webp', label: 'Khung Giàn, Kẹp Pin Nhôm' },
-      { src: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-cap-dien-ton-kho.webp', label: 'Vật Tư Tồn Kho Khác' },
-    ],
-  },
-  {
-    id: 'cable',
-    title: 'Thu Mua Cáp Đồng & Thiết Bị Điện Công Nghiệp',
-    href: '/thu-mua-cap-dong-thiet-bi-dien/',
-    badge: 'Mặt Hàng Chủ Lực',
-    badgeVariant: 'danger' as const,
-    desc: 'Thu mua tất cả các loại cáp điện, dây dẫn Cadivi, cáp 3 pha, thiết bị đóng cắt aptomat, máy biến áp và mô tơ cũ từ các công trình và nhà máy.',
-    images: [
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp', label: 'Cáp Điện & Dây Dẫn Các Loại' },
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp', label: 'Tủ Điện & Thiết Bị Đóng Cắt' },
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp', label: 'Mô Tơ & Máy Biến Áp' },
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp', label: 'Vật Tư Linh Kiện Điện' },
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp', label: 'Máy Móc Dây Chuyền Cũ' },
-      { src: '/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp', label: 'Hệ Thống Điện Nhà Xưởng' },
-    ],
-  },
-  {
-    id: 'industrial',
-    title: 'Thu Mua Phế Liệu Công Nghiệp & Nhà Xưởng',
-    href: '/thu-mua-phe-lieu-cong-nghiep/',
-    badge: 'Số Lượng Lớn',
-    badgeVariant: 'primary' as const,
-    desc: 'Đối tác tin cậy trong việc thanh lý trọn gói xác nhà xưởng, thu mua kết cấu thép, đồng, nhôm, inox và máy móc cơ khí cũ với giá cạnh tranh nhất.',
-    images: [
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp', label: 'Phế Liệu Đồng Các Loại' },
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp', label: 'Sắt Thép Công Trình' },
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp', label: 'Phế Liệu Nhôm Hợp Kim' },
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp', label: 'Phế Liệu Inox 304, 201' },
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp', label: 'Hợp Kim, Gang, Thiếc' },
-      { src: '/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp', label: 'Phế Liệu Từ Máy Móc Cũ' },
-    ],
-  },
-  {
-    id: 'inox',
-    title: 'Thu Mua Phế Liệu Inox (Thép Không Gỉ)',
-    href: '/thu-mua-inox/',
-    badge: 'Phân Loại Chuẩn',
-    badgeVariant: 'success' as const,
-    desc: 'Thu mua mọi loại inox phế liệu từ Inox 304, Inox 316 đến Inox 201, 430, bồn chứa, ống hộp và thiết bị inox công nghiệp thanh lý.',
-    images: [
-      { src: '/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp', label: 'Inox Loại 1 (304, 316)' },
-      { src: '/img/thu-mua-inox/thu-mua-inox-loai-2-201.webp', label: 'Inox Loại 2 (201)' },
-      { src: '/img/thu-mua-inox/thu-mua-inox-loai-3-430.webp', label: 'Inox Loại 3 (430, ba zớ)' },
-      { src: '/img/thu-mua-inox/thu-mua-thiet-bi-vat-tu-inox-cu.webp', label: 'Thiết Bị & Bồn Inox Cũ' },
-      { src: '/img/thu-mua-inox/thu-mua-vat-tu-inox-cong-trinh.webp', label: 'Vật Tư Inox Công Trình' },
-      { src: '/img/thu-mua-inox/thu-mua-ong-hop-phu-kien-inox.webp', label: 'Ống Hộp & Phụ Kiện Inox' },
-    ],
-  },
-  {
-    id: 'nhom',
-    title: 'Thu Mua Phế Liệu Nhôm Các Loại',
-    href: '/thu-mua-nhom/',
-    badge: 'Giá Cao Tận Nơi',
-    badgeVariant: 'info' as const,
-    desc: 'Chuyên thu mua nhôm đặc loại 1, nhôm thanh định hình, khung cửa Xingfa cũ, nhôm dẻo, mạt nhôm máy CNC và vật dụng nhôm công nghiệp.',
-    images: [
-      { src: '/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp', label: 'Nhôm Đặc, Nhôm Tấm (Loại 1)' },
-      { src: '/img/thu-mua-nhom/thu-mua-nhom-hop-kim-dinh-hinh.webp', label: 'Nhôm Hợp Kim Định Hình' },
-      { src: '/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp', label: 'Vụn Nhôm, Mạt Nhôm CNC' },
-      { src: '/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp', label: 'Cửa Nhôm Xingfa Cũ' },
-      { src: '/img/thu-mua-nhom/thu-mua-la-phong-tan-nhiet-nhom.webp', label: 'La Phông, Tản Nhiệt Nhôm' },
-      { src: '/img/thu-mua-nhom/thu-mua-thang-nhom-do-dung-nhom.webp', label: 'Thang Nhôm & Đồ Dùng Nhôm' },
-    ],
-  },
-];
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Các Dịch Vụ Thu Mua của Công Ty Đức Minh",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Service",
+              "name": "Thu Mua Vật Tư Năng Lượng Mặt Trời",
+              "url": "https://thumuacapdonggiacao.com/thu-mua-pin-nang-luong-mat-troi/",
+              "description": "Thu mua các thiết bị và vật tư từ dự án điện mặt trời như tấm pin, inverter, hệ thống khung giàn, dây điện DC solar."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Service",
+              "name": "Thu Mua Cáp Đồng & Thiết Bị Điện",
+              "url": "https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/",
+              "description": "Thu mua các loại cáp điện, dây dẫn, thiết bị đóng cắt, mô tơ và máy móc công nghiệp đã qua sử dụng hoặc tồn kho."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "Service",
+              "name": "Thu Mua Phế Liệu Công Nghiệp",
+              "url": "https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/",
+              "description": "Thu mua số lượng lớn các loại phế liệu kim loại phổ biến như đồng, sắt, nhôm, inox với giá cạnh tranh."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+              "@type": "Service",
+              "name": "Thu Mua Inox",
+              "url": "https://thumuacapdonggiacao.com/thu-mua-inox/",
+              "description": "Thu mua mọi loại inox phế liệu, từ Inox 304, 316 đến 201, 430 và các loại vật tư, thiết bị inox công nghiệp cũ."
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 5,
+            "item": {
+              "@type": "Service",
+              "name": "Thu Mua Nhôm",
+              "url": "https://thumuacapdonggiacao.com/thu-mua-nhom/",
+              "description": "Chuyên thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn nhôm, cửa nhôm cũ và các vật dụng bằng nhôm khác."
+            }
+          }
+        ]
+      });
 ---
-
-<BaseLayout
-  keywords="dịch vụ thu mua phế liệu, thu mua cáp đồng, thu mua pin mặt trời, thu mua nhôm, thu mua inox, công ty đức minh"
+<BaseLayout 
+  keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Dịch Vụ Thu Mua Pin Mặt Trời, Cáp Đồng & Phế Liệu | Đức Minh"
   description="Công ty Đức Minh cung cấp dịch vụ thu mua chuyên nghiệp: Thu mua vật tư năng lượng mặt trời, cáp đồng, thiết bị điện, inox, nhôm, và phế liệu công nghiệp giá cao."
   canonical="https://thumuacapdonggiacao.com/dich-vu/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Dịch Vụ Thu Mua</span>
-    </div>
-  </nav>
-
-  <!-- Hero Title -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Badge variant="gold" size="md" class="mb-4">DỊCH VỤ TOÀN DIỆN</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-        Dịch Vụ Thu Mua Chuyên Nghiệp Giá Cao
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 max-w-3xl mx-auto font-normal">
-        Đức Minh mang đến giải pháp thu mua trọn gói: Cáp đồng, Thiết bị điện, Pin năng lượng mặt trời, Inox, Nhôm và Phế liệu công nghiệp với dịch vụ nhanh chóng, tận nơi 24/7.
-      </p>
-    </div>
-  </section>
-
-  <!-- Service Categories List -->
-  <div class="py-16 bg-slate-50 space-y-16">
-    {serviceCategories.map((cat, index) => (
-      <section id={cat.id} class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl p-6 sm:p-8 lg:p-10 border border-slate-200 shadow-soft-sm">
-          
-          <!-- Category Header -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-slate-100">
-            <div>
-              <div class="flex items-center gap-3">
-                <Badge variant={cat.badgeVariant} size="sm">{cat.badge}</Badge>
-                <span class="text-xs font-bold text-slate-400">Danh mục 0{index + 1}</span>
-              </div>
-              <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-2">
-                <a href={cat.href} class="hover:text-brand-red transition-colors">{cat.title}</a>
-              </h2>
-              <p class="mt-2 text-sm sm:text-base text-slate-600 max-w-3xl font-normal">
-                {cat.desc}
-              </p>
-            </div>
-            <div class="flex items-center gap-3 shrink-0">
-              <Button href={cat.href} variant="primary" size="md">
-                <span>Xem Chi Tiết</span>
-                <span slot="icon-right">→</span>
-              </Button>
-            </div>
-          </div>
-
-          <!-- Image Grid (6 items) -->
-          <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
-            {cat.images.map((img) => (
-              <div class="group relative rounded-xl overflow-hidden bg-slate-100 aspect-square border border-slate-200">
-                <img
-                  src={img.src}
-                  alt={img.label}
-                  width="400"
-                  height="400"
-                  loading="lazy"
-                  class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                />
-                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
-                <div class="absolute bottom-2 left-2 right-2 text-white text-center">
-                  <span class="text-[11px] sm:text-xs font-bold leading-tight line-clamp-2">{img.label}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-    ))}
-  </div>
-
-  <!-- Custom Request CTA Box -->
-  <section class="py-16 bg-white border-t border-slate-200 text-center">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <Badge variant="danger" size="md" class="mb-3">TƯ VẤN 24/7</Badge>
-      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-        Không Tìm Thấy Vật Tư Của Bạn?
-      </h2>
-      <p class="mt-3 text-base text-slate-600 max-w-2xl mx-auto font-normal">
-        Ngoài các danh mục trên, chúng tôi còn thu mua rất nhiều loại vật tư, máy móc, phế liệu đặc thù khác. Hãy gửi hình ảnh trực tiếp qua Zalo để kỹ sư định giá ngay!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>GỌI HOTLINE: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Báo Giá Zalo (5 Phút)</span>
-        </Button>
-      </div>
-    </div>
-  </section>
+<main>
+<section id="page-title" style="
+          background: var(--bg-grey);
+          padding-top: 60px;
+          padding-bottom: 40px;
+        ">
+<div class="container">
+<h1 class="section-title">Dịch Vụ Thu Mua Chuyên Nghiệp</h1>
+<p class="section-subtitle">
+            Đức Minh cung cấp giải pháp thu mua toàn diện, tập trung vào Cáp
+            Đồng, Vật tư Năng Lượng Mặt Trời và các loại phế liệu khác.
+          </p>
+</div>
+</section>
+<section id="categories">
+<div class="container">
+<h2 class="section-title">
+<a href="/thu-mua-pin-nang-luong-mat-troi/">THU MUA VẬT TƯ NĂNG LƯỢNG MẶT TRỜI</a>
+</h2>
+<p class="section-subtitle">
+            Chúng tôi chuyên thu hồi các thiết bị và vật tư từ các dự án điện
+            mặt trời, từ tấm pin, inverter cho đến hệ thống khung giàn, giúp bạn
+            giải phóng mặt bằng và thu hồi vốn hiệu quả.
+          </p>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu mua tấm pin năng lượng mặt trời cũ" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp"/>
+<div class="caption"><span>Pin Năng Lượng Mặt Trời</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu công trình điện mặt trời" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp"/>
+<div class="caption"><span>Phế Liệu Công Trình NLMT</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua dây điện DC Solar cũ" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-day-dien-dc-solar.webp"/>
+<div class="caption"><span>Dây Điện DC Solar</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua tủ điện và phụ kiện solar tồn kho" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-tu-dien-phu-kien-solar.webp"/>
+<div class="caption"><span>Tủ Điện &amp; Phụ Kiện</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua thanh ray, khung giàn, kẹp pin solar" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-khung-gian-kep-pin-solar.webp"/>
+<div class="caption">
+<span>Thanh Ray, Khung Giàn, Kẹp Pin</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua các loại vật tư điện mặt trời tồn kho khác" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-cap-dien-ton-kho.webp"/>
+<div class="caption"><span>Các Vật Tư Tồn Kho Khác</span></div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px">
+<a class="btn" href="/thu-mua-pin-nang-luong-mat-troi/">Xem Chi Tiết Dịch Vụ</a>
+</div>
+</div>
+</section>
+<section id="other-scrap" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+<a href="/thu-mua-cap-dong-thiet-bi-dien/">THU MUA CÁP ĐỒNG &amp; THIẾT BỊ ĐIỆN</a>
+</h2>
+<p class="section-subtitle">
+            Thu mua tất cả các loại cáp điện, dây dẫn, thiết bị đóng cắt, mô tơ
+            và máy móc công nghiệp đã qua sử dụng hoặc tồn kho từ các công trình
+            và nhà xưởng.
+          </p>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu Mua Cáp Điện &amp; Dây Dẫn Các Loại" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp"/>
+<div class="caption">
+<span>Thu Mua Cáp Điện &amp; Dây Dẫn</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Tủ Điện &amp; Thiết Bị Đóng Cắt" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-tu-dien-thiet-bi-dong-cat.webp"/>
+<div class="caption">
+<span>Thu Mua Tủ Điện &amp; Thiết Bị Đóng Cắt</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Động Cơ Điện (Mô Tơ) &amp; Máy Biến Áp" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-dong-co-dien-mo-to-cu.webp"/>
+<div class="caption">
+<span>Thu Mua Động Cơ Điện &amp; Máy Biến Áp</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Vật Tư &amp; Linh Kiện Điện Công Nghiệp" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-vat-tu-linh-kien-dien.webp"/>
+<div class="caption">
+<span>Thu Mua Vật Tư &amp; Linh Kiện Điện</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Máy Móc, Dây Chuyền Công Nghiệp Cũ" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-may-moc-day-chuyen-cu.webp"/>
+<div class="caption">
+<span>Thu Mua Máy Móc Công Nghiệp Cũ</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua Hệ Thống Điện &amp; Phế Liệu Nhà Xưởng" loading="lazy" src="/img/thu-mua-cap-dong-thiet-bi-dien/thanh-ly-he-thong-dien-nha-xuong.webp"/>
+<div class="caption">
+<span>Thu mua Phế Liệu Nhà Xưởng</span>
+</div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px">
+<a class="btn" href="/thu-mua-cap-dong-thiet-bi-dien/">Xem Chi Tiết Dịch Vụ</a>
+</div>
+</div>
+</section>
+<section id="metal-scrap">
+<div class="container">
+<h2 class="section-title">
+<a href="/thu-mua-phe-lieu-cong-nghiep/">THU MUA PHẾ LIỆU CÔNG NGHIỆP</a>
+</h2>
+<p class="section-subtitle">
+            Là đối tác tin cậy trong việc thu mua các loại phế liệu kim loại phổ
+            biến như đồng, sắt, nhôm, inox với số lượng lớn, đảm bảo giá cạnh
+            tranh nhất.
+          </p>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Phế Liệu Đồng (Cáp, Đỏ, Vàng)" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"/>
+<div class="caption">
+<span>Phế Liệu Đồng (Cáp, Đỏ, Vàng)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Phế Liệu Sắt Thép Công Trình" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"/>
+<div class="caption">
+<span>Phế Liệu Sắt Thép Công Trình</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-nhom.webp"/>
+<div class="caption">
+<span>Phế Liệu Nhôm (Đặc, Dẻo, Hợp Kim)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Phế Liệu Inox" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-inox.webp"/>
+<div class="caption">
+<span>Phế Liệu Inox (304, 201, 430)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Hợp Kim, Gang, Thiếc" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-hop-kim-gang-thiec.webp"/>
+<div class="caption"><span>Hợp Kim, Gang, Thiếc</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua phế liệu máy móc" loading="lazy" src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-may-moc-cu.webp"/>
+<div class="caption"><span>Phế Liệu Từ Máy Móc Cũ</span></div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px">
+<a class="btn" href="/thu-mua-phe-lieu-cong-nghiep/">Xem Chi Tiết Dịch Vụ</a>
+</div>
+</div>
+</section>
+<section id="inox-scrap" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+<a href="/thu-mua-inox/">THU MUA INOX</a>
+</h2>
+<p class="section-subtitle">
+            Chúng tôi thu mua mọi loại inox phế liệu, từ Inox 304, 316 đến 201,
+            430 và các loại vật tư, thiết bị inox công nghiệp cũ.
+          </p>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu Mua Inox 304, 316" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp"/>
+<div class="caption"><span>Inox Loại 1 (304, 316)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Inox 201" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-2-201.webp"/>
+<div class="caption"><span>Inox Loại 2 (201)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Inox 430 và ba zớ" loading="lazy" src="/img/thu-mua-inox/thu-mua-inox-loai-3-430.webp"/>
+<div class="caption"><span>Inox Loại 3 (430, ba zớ)</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Thiết Bị &amp; Vật Tư Inox Công Nghiệp Cũ" loading="lazy" src="/img/thu-mua-inox/thu-mua-thiet-bi-vat-tu-inox-cu.webp"/>
+<div class="caption">
+<span>Thiết Bị &amp; Vật Tư Inox Cũ</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Vật Tư Inox Công Trình &amp; Dự Án" loading="lazy" src="/img/thu-mua-inox/thu-mua-vat-tu-inox-cong-trinh.webp"/>
+<div class="caption">
+<span>Vật Tư Inox Công Trình &amp; Dự Án</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Ống, Hộp &amp; Phụ Kiện Inox" loading="lazy" src="/img/thu-mua-inox/thu-mua-ong-hop-phu-kien-inox.webp"/>
+<div class="caption"><span>Ống, Hộp &amp; Phụ Kiện Inox</span></div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px">
+<a class="btn" href="/thu-mua-inox/">Xem Chi Tiết Dịch Vụ</a>
+</div>
+</div>
+</section>
+<section id="aluminum-scrap">
+<div class="container">
+<h2 class="section-title">
+<a href="/thu-mua-nhom/">THU MUA NHÔM PHẾ LIỆU</a>
+</h2>
+<p class="section-subtitle">
+            Chuyên thu mua phế liệu nhôm đa dạng, bao gồm nhôm đặc, hợp kim, vụn
+            nhôm, cửa nhôm cũ và các vật dụng bằng nhôm khác với giá tốt nhất.
+          </p>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Đặc, Nhôm Tấm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-dac-tam-loai-1.webp"/>
+<div class="caption">
+<span>Nhôm Đặc, Nhôm Tấm (Loại 1)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Hợp Kim, Nhôm Định Hình" loading="lazy" src="/img/thu-mua-nhom/thu-mua-nhom-hop-kim-dinh-hinh.webp"/>
+<div class="caption">
+<span>Nhôm Hợp Kim, Nhôm Định Hình</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Vụn Nhôm, Mạt Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp"/>
+<div class="caption">
+<span>Vụn Nhôm, Mạt Nhôm (Loại 3)</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Nhôm Cửa, Khung Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-cua-nhom-khung-nhom-cu.webp"/>
+<div class="caption"><span>Cửa Nhôm, Khung Nhôm Cũ</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua La phông, Tản Nhiệt Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-la-phong-tan-nhiet-nhom.webp"/>
+<div class="caption"><span>La phông, Tản Nhiệt Nhôm</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu Mua Thang Nhôm, Đồ Dùng Nhôm" loading="lazy" src="/img/thu-mua-nhom/thu-mua-thang-nhom-do-dung-nhom.webp"/>
+<div class="caption"><span>Thang Nhôm, Đồ Dùng Nhôm</span></div>
+</div>
+</div>
+<div style="text-align: center; margin-top: 30px">
+<a class="btn" href="/thu-mua-nhom/">Xem Chi Tiết Dịch Vụ</a>
+</div>
+</div>
+</section>
+<section style="background: var(--bg-grey)">
+<div class="container" style="text-align: center">
+<h2 class="section-title" style="font-size: 2rem">
+            Không Tìm Thấy Vật Tư Của Bạn?
+          </h2>
+<p style="max-width: 700px; margin: -15px auto 30px">
+            Ngoài các danh mục trên, chúng tôi còn thu mua rất nhiều loại vật
+            tư, thiết bị, phế liệu khác. Đừng ngần ngại, hãy liên hệ ngay với
+            chúng tôi để được tư vấn và báo giá nhanh nhất!
+          </p>
+<a class="btn" href="/lien-he/">Liên Hệ Ngay</a>
+</div>
+</section>
+</main>
 </BaseLayout>

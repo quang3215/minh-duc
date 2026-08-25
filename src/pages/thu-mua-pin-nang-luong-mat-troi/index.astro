@@ -1,317 +1,284 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Badge from '../../components/ui/Badge.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import FaqAccordion from '../../components/marketing/FaqAccordion.astro';
-import settings from '../../data/settings.json';
-
-const schema = JSON.stringify([
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Thu Mua Pin Năng Lượng Mặt Trời Cũ và Vật Tư Dự Án',
-    name: 'Dịch Vụ Thu Mua Tấm Pin Năng Lượng Mặt Trời Cũ, Hỏng, Tồn Kho Giá Cao',
-    description:
-      'Dịch vụ thu mua tấm pin năng lượng mặt trời cũ, hỏng, tồn kho dự án, inverter, khung giàn và dây cáp solar giá cao. Hỗ trợ tháo dỡ và vận chuyển tận nơi.',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Công Ty Thu Mua Cáp Đồng Đức Minh',
-      url: 'https://thumuacapdonggiacao.com/',
-      telephone: '+84936350118',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '14 ấp 2, Đông Thạnh',
-        addressLocality: 'Hóc Môn',
-        addressRegion: 'TP. HCM',
-        addressCountry: 'VN',
-      },
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Vietnam',
-    },
-    mainEntity: {
-      '@type': 'FAQPage',
-      mainEntity: [
-        {
-          '@type': 'Question',
-          name: 'Pin mặt trời bị vỡ, nứt kính có bán được không?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Có. Chúng tôi thu mua tất cả các loại pin mặt trời, kể cả pin bị vỡ kính, nứt cell, hư hỏng... Giá trị thu mua sẽ được định giá dựa trên mức độ hư hỏng và khả năng phục hồi, tái chế các vật liệu bên trong như khung nhôm, cell pin, và các kim loại khác.',
-          },
+const schema = JSON.stringify([{
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Thu Mua Pin Năng Lượng Mặt Trời Cũ và Vật Tư Dự Án",
+        "name": "Dịch Vụ Thu Mua Tấm Pin Năng Lượng Mặt Trời Cũ, Hỏng, Tồn Kho Giá Cao",
+        "description": "Dịch vụ thu mua tấm pin năng lượng mặt trời cũ, hỏng, tồn kho dự án, inverter, khung giàn và dây cáp solar giá cao. Hỗ trợ tháo dỡ và vận chuyển tận nơi.",
+        "provider": {
+          "@type": "LocalBusiness",
+          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+          "url": "https://thumuacapdonggiacao.com/",
+          "telephone": "+84936350118",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 ấp 2, Đông Thạnh",
+            "addressLocality": "Hóc Môn",
+            "addressRegion": "TP. HCM",
+            "addressCountry": "VN"
+          }
         },
-        {
-          '@type': 'Question',
-          name: 'Công ty có thu mua số lượng ít, chỉ vài tấm pin không?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Có. Chúng tôi nhận thu mua mọi số lượng, từ vài tấm pin lẻ của các hộ gia đình nâng cấp hệ thống cho đến hàng nghìn tấm pin từ các dự án điện mặt trời lớn. Đừng ngần ngại liên hệ để được báo giá.',
-          },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Vietnam"
         },
-        {
-          '@type': 'Question',
-          name: 'Ngoài tấm pin, công ty còn thu mua những vật tư nào khác của dự án điện mặt trời?',
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: 'Chúng tôi thu mua trọn gói tất cả các vật tư liên quan đến dự án điện mặt trời, bao gồm: Inverter (biến tần), hệ thống khung giàn (nhôm, sắt), dây cáp điện DC Solar, tủ điện và các phụ kiện tồn kho khác.',
+        "mainEntity": {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Pin mặt trời bị vỡ, nứt kính có bán được không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. Chúng tôi thu mua tất cả các loại pin mặt trời, kể cả pin bị vỡ kính, nứt cell, hư hỏng... Giá trị thu mua sẽ được định giá dựa trên mức độ hư hỏng và khả năng phục hồi, tái chế các vật liệu bên trong như khung nhôm, cell pin, và các kim loại khác."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Công ty có thu mua số lượng ít, chỉ vài tấm pin không?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Có. Chúng tôi nhận thu mua mọi số lượng, từ vài tấm pin lẻ của các hộ gia đình nâng cấp hệ thống cho đến hàng nghìn tấm pin từ các dự án điện mặt trời lớn. Đừng ngần ngại liên hệ để được báo giá."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Ngoài tấm pin, công ty còn thu mua những vật tư nào khác của dự án điện mặt trời?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Chúng tôi thu mua trọn gói tất cả các vật tư liên quan đến dự án điện mặt trời, bao gồm: Inverter (biến tần), hệ thống khung giàn (nhôm, sắt), dây cáp điện DC Solar, tủ điện và các phụ kiện tồn kho khác."
+              }
+            }
+          ]
+        }
+      },{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Trang Chủ",
+            "item": "https://thumuacapdonggiacao.com/"
           },
-        },
-      ],
-    },
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Trang Chủ',
-        item: 'https://thumuacapdonggiacao.com/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Dịch Vụ',
-        item: 'https://thumuacapdonggiacao.com/dich-vu/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Thu Mua Pin Năng Lượng Mặt Trời',
-      },
-    ],
-  },
-]);
-
-const solarTypes = [
-  {
-    title: 'Pin Năng Lượng Mặt Trời (Mono, Poly)',
-    desc: 'Tấm pin 350W – 650W+ cũ, nứt kính, cháy cell hoặc tồn kho dự án trang trại solar, mái nhà.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp',
-  },
-  {
-    title: 'Phế Liệu Công Trình Solar',
-    desc: 'Vật tư hư hỏng, thanh lý sau nâng cấp bảo trì hệ thống điện mặt trời công nghiệp.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp',
-  },
-  {
-    title: 'Dây Điện DC Solar 4.0 – 6.0mm',
-    desc: 'Dây cáp DC chuyên dụng chịu nhiệt, chống tia UV cho dự án điện mặt trời tồn kho.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-day-dien-dc-solar.webp',
-  },
-  {
-    title: 'Tủ Điện & Phụ Kiện Solar',
-    desc: 'Tủ điện DC/AC combiner box, cầu chì DC, chống sét lan truyền SPD, CB chuyên dụng.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-tu-dien-phu-kien-solar.webp',
-  },
-  {
-    title: 'Thanh Ray, Khung Giàn, Kẹp Pin',
-    desc: 'Khung nhôm định hình Anodized, ray nhôm solar, kẹp biên, kẹp giữa, chân chữ L.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-khung-gian-kep-pin-solar.webp',
-  },
-  {
-    title: 'Vật Tư Tồn Kho Khác & Inverter Cũ',
-    desc: 'Biến tần inverter hòa lưới cũ hỏng Huawei, Sungrow, SMA, Growatt, pin lưu trữ Lithium.',
-    image: '/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-cap-dien-ton-kho.webp',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Pin mặt trời bị vỡ, nứt kính có bán được không?',
-    answer:
-      'Có. Chúng tôi thu mua tất cả các loại pin mặt trời, kể cả pin bị vỡ kính, nứt cell, hư hỏng... Giá trị thu mua sẽ được định giá dựa trên mức độ hư hỏng và khả năng phục hồi, tái chế các vật liệu bên trong như khung nhôm, cell pin, và kim loại quý.',
-  },
-  {
-    question: 'Công ty có thu mua số lượng ít, chỉ vài tấm pin không?',
-    answer:
-      'Có. Chúng tôi nhận thu mua mọi số lượng, từ vài tấm pin lẻ của các hộ gia đình nâng cấp hệ thống cho đến hàng nghìn tấm pin từ các dự án điện mặt trời lớn trên toàn quốc.',
-  },
-  {
-    question: 'Ngoài tấm pin, công ty còn thu mua những vật tư nào khác của dự án điện mặt trời?',
-    answer:
-      'Chúng tôi thu mua trọn gói tất cả các vật tư liên quan đến dự án điện mặt trời, bao gồm: Inverter (biến tần), hệ thống khung giàn (nhôm, sắt), dây cáp điện DC Solar, tủ điện và các phụ kiện tồn kho khác.',
-  },
-];
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Dịch Vụ",
+            "item": "https://thumuacapdonggiacao.com/dich-vu/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Thu Mua Pin Năng Lượng Mặt Trời"
+          }
+        ]
+      }]);
 ---
-
-<BaseLayout
-  keywords="thu mua pin năng lượng mặt trời, thanh lý tấm pin solar, giá pin mặt trời cũ, cáp dc solar, inverter cũ"
+<BaseLayout 
+  keywords="thu mua pin năng lượng mặt trời, cáp dc solar, thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title="Thu Mua Pin Năng Lượng Mặt Trời Cũ Giá Cao | Tấm Pin, Inverter"
   description="Công ty Đức Minh chuyên thu mua tấm pin năng lượng mặt trời cũ, hỏng, tồn kho dự án. Thu mua cả inverter, khung giàn, dây cáp solar giá cao nhất. Báo giá nhanh, thu gom tận nơi."
   canonical="https://thumuacapdonggiacao.com/thu-mua-pin-nang-luong-mat-troi/"
   schema={schema}
 >
-  <!-- Breadcrumb -->
-  <nav class="bg-slate-100 border-b border-slate-200 py-3 text-sm">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-2 text-slate-500">
-      <a href="/" class="hover:text-brand-red transition-colors">Trang Chủ</a>
-      <span>/</span>
-      <a href="/dich-vu/" class="hover:text-brand-red transition-colors">Dịch Vụ</a>
-      <span>/</span>
-      <span class="text-slate-900 font-semibold">Thu Mua Pin Năng Lượng Mặt Trời</span>
-    </div>
-  </nav>
-
-  <!-- Hero Header -->
-  <section class="py-12 lg:py-16 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
-      <Badge variant="gold" size="md" pulsingDot class="mb-4">THU MUA DỰ ÁN SOLAR TRỌN GÓI • TOÀN QUỐC</Badge>
-      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-        Thu Mua Pin Năng Lượng Mặt Trời & Vật Tư Dự Án
-      </h1>
-      <p class="mt-4 text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-        Giải pháp thanh lý tấm pin solar cũ, hỏng, tồn kho, biến tần inverter, dây cáp DC solar và khung giàn nhôm dự án với giá cao nhất. Hỗ trợ tháo dỡ trọn gói!
-      </p>
-      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-        <Button href={`tel:${settings.hotline}`} variant="phone" size="lg" pulse class="font-bold">
-          <span>GỌI BÁO GIÁ: {settings.hotlineDisplay}</span>
-        </Button>
-        <Button href={settings.zaloLink} target="_blank" variant="zalo" size="lg" class="font-bold">
-          <span>Báo Giá Nhanh Qua Zalo</span>
-        </Button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Intro Section -->
-  <section class="py-16 lg:py-20 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-12 gap-10 items-center">
-        
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl overflow-hidden shadow-soft-lg border border-slate-200">
-            <img
-              src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp"
-              alt="Thanh lý phế liệu từ công trình điện mặt trời"
-              width="600"
-              height="450"
-              loading="lazy"
-              class="w-full h-auto object-cover"
-            />
-          </div>
-        </div>
-
-        <div class="lg:col-span-7">
-          <Badge variant="gold" size="md" class="mb-3">TÁI CHẾ NĂNG LƯỢNG BỀN VỮNG</Badge>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
-            Giải Pháp Xử Lý Tấm Pin Mặt Trời Hết Hạn Sử Dụng, Tồn Kho
+<main>
+<section class="text-banner" style="background-color: var(--bg-grey); color: white">
+<div class="container">
+<h1 style="color: var(--primary-color)">
+            Thu Mua Pin Năng Lượng Mặt Trời &amp; Vật Tư Dự Án
+          </h1>
+<p>
+            Giải pháp thanh lý tấm pin solar cũ, hỏng, tồn kho và các thiết bị
+            điện mặt trời khác với giá cao, thu hồi vốn tối đa.
+          </p>
+<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
+</div>
+</section>
+<div class="breadcrumb">
+<div class="container">
+<a href="/">Trang Chủ</a> » <a href="/dich-vu/">Dịch Vụ</a> »
+          <span>Thu Mua Pin Năng Lượng Mặt Trời</span>
+</div>
+</div>
+<section id="intro-solar">
+<div class="container about-grid">
+<div class="about-image">
+<img alt="Thanh lý phế liệu từ công trình điện mặt trời" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp"/>
+</div>
+<div class="about-text">
+<h2>Giải Pháp Xử Lý Tấm Pin Mặt Trời Hết Hạn Sử Dụng, Tồn Kho</h2>
+<p>
+              Với vòng đời từ 20-25 năm, các hệ thống điện mặt trời đời đầu tại
+              Việt Nam đang dần bước vào giai đoạn cần thay thế. Các tấm pin cũ,
+              hỏng, giảm hiệu suất hoặc tồn kho sau dự án đang trở thành một bài
+              toán khó cho nhiều chủ đầu tư, vừa chiếm diện tích, vừa tiềm ẩn
+              nguy cơ ảnh hưởng môi trường nếu không được xử lý đúng cách.
+            </p>
+<p>
+<b>Đức Minh là một trong những đơn vị tiên phong</b> trong lĩnh
+              vực thu mua và xử lý các loại vật tư từ dự án điện mặt trời. Chúng
+              tôi cung cấp giải pháp thu mua trọn gói, giúp bạn thu hồi giá trị
+              từ những tấm pin tưởng chừng bỏ đi, giải phóng mặt bằng và góp
+              phần vào một nền kinh tế tuần hoàn bền vững.
+            </p>
+</div>
+</div>
+</section>
+<section id="why-us" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">
+            VÌ SAO NÊN CHỌN ĐỨC MINH ĐỂ THANH LÝ DỰ ÁN SOLAR?
           </h2>
-          <p class="mt-4 text-slate-600 text-base leading-relaxed font-normal">
-            Với vòng đời vận hành từ 20-25 năm, nhiều hệ thống điện mặt trời tại Việt Nam đang bước vào giai đoạn nâng cấp, thay thế tấm pin cũ, pin suy giảm hiệu suất hoặc thanh lý pin tồn kho sau dự án. Việc lưu kho kéo dài gây lãng phí diện tích và dòng vốn.
-          </p>
-          <p class="mt-3 text-slate-600 text-base leading-relaxed font-normal">
-            <strong class="text-slate-900">Đức Minh</strong> là một trong những đơn vị tiên phong trong lĩnh vực thu mua trọn gói vật tư điện mặt trời: Tấm pin, Inverter, Khung giàn nhôm, Cáp DC Solar. Chúng tôi giúp bạn thu hồi tối đa giá trị và giải phóng mặt bằng nhanh chóng.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Us Grid -->
-  <section class="py-16 bg-slate-50 border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-12">
-        <Badge variant="primary" size="md" class="mb-3">THẾ MẠNH CỦA ĐỨC MINH</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Vì Sao Nên Chọn Đức Minh Để Thanh Lý Dự Án Solar?
-        </h2>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">💰</div>
-          <h3 class="font-bold text-slate-900 text-lg">Giá Cao Theo Wp</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Định giá tấm pin dựa trên công suất, tình trạng thực tế và thương hiệu, đảm bảo giá mua tốt nhất.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">📦</div>
-          <h3 class="font-bold text-slate-900 text-lg">Trọn Gói Vật Tư</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Thu mua đồng bộ tấm pin, Inverter biến tần, thanh ray nhôm, kẹp pin và dây cáp điện DC.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">🚚</div>
-          <h3 class="font-bold text-slate-900 text-lg">Thu Gom Toàn Quốc</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Điều động đội xe chuyên dụng thu mua tận nơi các trang trại solar, nhà máy trên khắp cả nước.
-          </p>
-        </Card>
-
-        <Card variant="default" class="p-6">
-          <div class="text-3xl mb-2">👷</div>
-          <h3 class="font-bold text-slate-900 text-lg">Tháo Dỡ An Toàn</h3>
-          <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">
-            Đội ngũ kỹ thuật hỗ trợ tháo dỡ trên mái nhà xưởng hoặc farm solar an toàn, nhanh gọn.
-          </p>
-        </Card>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Solar Items Grid -->
-  <section class="py-16 lg:py-24 bg-white border-b border-slate-200">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="text-center max-w-3xl mx-auto mb-14">
-        <Badge variant="gold" size="md" class="mb-3">DANH MỤC THU MUA</Badge>
-        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">
-          Các Hạng Mục Vật Tư Điện Mặt Trời Thu Mua
-        </h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {solarTypes.map((item) => (
-          <Card hover variant="default" class="p-0 overflow-hidden flex flex-col">
-            <div class="aspect-[16/10] overflow-hidden bg-slate-100">
-              <img
-                src={item.image}
-                alt={item.title}
-                width="600"
-                height="375"
-                loading="lazy"
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-            </div>
-            <div class="p-5 flex-1 flex flex-col">
-              <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-red transition-colors">
-                {item.title}
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal flex-1">
-                {item.desc}
+<div class="features-grid">
+<div class="feature-item">
+<div class="icon">💰</div>
+<h3>Giá Cao Theo Tình Trạng</h3>
+<p>
+                Định giá tấm pin dựa trên tình trạng thực tế (còn sử dụng được,
+                hỏng cell, vỡ kính) và thương hiệu, đảm bảo mức giá thu mua cao
+                nhất.
               </p>
-              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
-                <a href={settings.zaloLink} target="_blank" class="text-xs font-bold text-brand-zalo hover:underline">
-                  Báo giá Zalo →
-                </a>
-                <a href={`tel:${settings.hotline}`} class="text-xs font-bold text-brand-phone hover:underline">
-                  Gọi Hotline →
-                </a>
-              </div>
-            </div>
-          </Card>
-        ))}
-      </div>
-
-    </div>
-  </section>
-
-  <!-- FAQs Accordion -->
-  <FaqAccordion
-    badge="HỎI ĐÁP PIN MẶT TRỜI"
-    title="Giải Đáp Thắc Mắc Về Thu Mua Pin Solar"
-    subtitle="Những câu hỏi thường gặp khi thanh lý tấm pin năng lượng mặt trời, inverter và phụ kiện solar."
-    items={faqs}
-  />
+</div>
+<div class="feature-item">
+<div class="icon">📦</div>
+<h3>Thu Mua Toàn Bộ Vật Tư</h3>
+<p>
+                Chúng tôi thu mua trọn gói tất cả các thành phần của dự án: Tấm
+                pin, Inverter, khung giàn, dây cáp DC, tủ điện và các phụ kiện
+                khác.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">🚚</div>
+<h3>Thu Gom Tận Nơi Toàn Quốc</h3>
+<p>
+                Với hệ thống xe tải và đối tác vận chuyển, chúng tôi có khả năng
+                thu mua tận nơi các dự án lớn trên khắp cả nước, không ngại số
+                lượng.
+              </p>
+</div>
+<div class="feature-item">
+<div class="icon">👷</div>
+<h3>Hỗ Trợ Tháo Dỡ An Toàn</h3>
+<p>
+                Đối với các hệ thống lớn, chúng tôi có đội ngũ kỹ thuật chuyên
+                nghiệp hỗ trợ tháo dỡ nhanh chóng, an toàn theo đúng
+                <a href="/quy-trinh/">quy trình</a>.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="types-solar">
+<div class="container">
+<h2 class="section-title">
+            CÁC HẠNG MỤC VẬT TƯ ĐIỆN MẶT TRỜI CHÚNG TÔI THU MUA
+          </h2>
+<div class="machines-grid">
+<div class="machine-item">
+<img alt="Thu mua tấm pin năng lượng mặt trời cũ, hỏng" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp"/>
+<div class="caption"><span>Pin Năng Lượng Mặt Trời</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thanh lý phế liệu công trình điện mặt trời" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-phe-lieu-cong-trinh-solar.webp"/>
+<div class="caption"><span>Phế Liệu Công Trình NLMT</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua dây điện DC Solar cũ" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-day-dien-dc-solar.webp"/>
+<div class="caption"><span>Dây Điện DC Solar</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua tủ điện và phụ kiện solar tồn kho" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-tu-dien-phu-kien-solar.webp"/>
+<div class="caption"><span>Tủ Điện &amp; Phụ Kiện</span></div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua thanh ray, khung giàn, kẹp pin solar" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-khung-gian-kep-pin-solar.webp"/>
+<div class="caption">
+<span>Thanh Ray, Khung Giàn, Kẹp Pin</span>
+</div>
+</div>
+<div class="machine-item">
+<img alt="Thu mua các loại vật tư điện mặt trời tồn kho khác" loading="lazy" src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-cap-dien-ton-kho.webp"/>
+<div class="caption"><span>Các Vật Tư Tồn Kho Khác</span></div>
+</div>
+</div>
+</div>
+</section>
+<section id="process" style="background: var(--bg-grey)">
+<div class="container">
+<h2 class="section-title">QUY TRÌNH THU MUA DỰ ÁN ĐIỆN MẶT TRỜI</h2>
+<div class="process-grid">
+<div class="process-item">
+<div class="step-number">1</div>
+<h3>Gửi Thông Tin Dự Án</h3>
+<p>
+                Khách hàng <a href="/lien-he/">liên hệ</a> qua Hotline/Zalo
+                <strong>0936.350.118</strong>, cung cấp thông tin về số lượng,
+                chủng loại, tình trạng thiết bị và vị trí dự án.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">2</div>
+<h3>Khảo Sát &amp; Báo Giá Trọn Gói</h3>
+<p>
+                Đội ngũ kỹ thuật sẽ đến khảo sát trực tiếp tại dự án để đánh giá
+                chất lượng và đưa ra báo giá thu mua trọn gói tốt nhất.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">3</div>
+<h3>Tháo Dỡ &amp; Vận Chuyển</h3>
+<p>
+                Sau khi thống nhất, chúng tôi sẽ triển khai đội ngũ tháo dỡ, bốc
+                xếp và vận chuyển toàn bộ vật tư ra khỏi mặt bằng công trình.
+              </p>
+</div>
+<div class="process-item">
+<div class="step-number">4</div>
+<h3>Nghiệm Thu &amp; Thanh Toán</h3>
+<p>
+                Sau khi hoàn tất việc thu gom, hai bên tiến hành nghiệm thu và
+                chúng tôi sẽ thanh toán 100% giá trị hợp đồng ngay lập tức.
+              </p>
+</div>
+</div>
+</div>
+</section>
+<section id="faq-solar">
+<div class="container">
+<h2 class="section-title">GIẢI ĐÁP VỀ DỊCH VỤ</h2>
+<div class="faq-item">
+<h3>Pin mặt trời bị vỡ, nứt kính có bán được không?</h3>
+<p>
+              Có. Chúng tôi thu mua tất cả các loại pin mặt trời, kể cả pin bị
+              vỡ kính, nứt cell, hư hỏng... Giá trị thu mua sẽ được định giá dựa
+              trên mức độ hư hỏng và khả năng phục hồi, tái chế các vật liệu bên
+              trong như khung nhôm, cell pin, và các kim loại khác.
+            </p>
+</div>
+<div class="faq-item">
+<h3>Công ty có thu mua số lượng ít, chỉ vài tấm pin không?</h3>
+<p>
+              Có. Chúng tôi nhận thu mua mọi số lượng, từ vài tấm pin lẻ của các
+              hộ gia đình nâng cấp hệ thống cho đến hàng nghìn tấm pin từ các dự
+              án điện mặt trời lớn. Đừng ngần ngại liên hệ để được báo giá.
+            </p>
+</div>
+<div class="faq-item">
+<h3>
+              Ngoài tấm pin, công ty còn thu mua những vật tư nào khác của dự án
+              điện mặt trời?
+            </h3>
+<p>
+              Chúng tôi thu mua trọn gói tất cả các vật tư liên quan đến dự án
+              điện mặt trời, bao gồm: Inverter (biến tần), hệ thống khung giàn
+              (nhôm, sắt), dây cáp điện DC Solar, tủ điện và các phụ kiện tồn
+              kho khác.
+            </p>
+</div>
+</div>
+</section>
+</main>
 </BaseLayout>
