@@ -13,6 +13,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
+const allPosts = await getCollection('tin-tuc');
+const relatedPosts = allPosts
+  .filter((p) => p.slug !== post.slug)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
+
 const canonicalUrl = `https://thumuacapdonggiacao.com/tin-tuc/${post.slug}/`;
 
 const schema = JSON.stringify({
@@ -94,20 +100,53 @@ const schema = JSON.stringify({
         </div>
       </div>
 
-      <div style="margin-top:48px;padding:24px;background:linear-gradient(135deg,#fff5f5,#fff8f0);border-left:4px solid #c90000;border-radius:8px;text-align:center;">
-        <h3 style="margin:0 0 8px;color:#c90000;">Cần Báo Giá Thu Mua?</h3>
-        <p style="margin:0 0 16px;color:#555;">Gọi ngay để được khảo sát và báo giá miễn phí tận nơi!</p>
-        <a href="tel:0936350118" class="btn" style="display:inline-block;margin-right:12px;">
-          📞 Gọi 0936.350.118
-        </a>
-        <a href="https://zalo.me/0936350118" class="btn" target="_blank" rel="noopener noreferrer"
-          style="display:inline-block;background:#0068ff;">
-          Zalo Ngay
-        </a>
+      <!-- High-Conversion CTA Box -->
+      <div style="margin-top:40px;padding:30px 24px;background:linear-gradient(135deg, #fff5f5 0%, #fff8f0 100%);border:2px solid #ffdede;border-radius:14px;text-align:center;box-shadow:0 6px 20px rgba(201,0,0,0.06);">
+        <span style="display:inline-block;background:#c90000;color:#fff;padding:4px 14px;border-radius:20px;font-size:0.85rem;font-weight:700;margin-bottom:12px;">⚡ KHẢO SÁT & BÁO GIÁ TRONG 5 PHÚT</span>
+        <h3 style="margin:0 0 10px;color:#c90000;font-size:1.4rem;font-weight:800;">Bạn Đang Cần Thanh Lý Cáp Đồng, Phế Liệu?</h3>
+        <p style="margin:0 0 20px;color:#555;font-size:0.95rem;max-width:600px;margin-left:auto;margin-right:auto;line-height:1.6;">Chỉ cần chụp ảnh mặt cắt dây cáp gửi qua Zalo, chuyên viên Đức Minh sẽ báo giá cao nhất thị trường chỉ sau 5 phút!</p>
+        <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;">
+          <a href="tel:0936350118" class="btn" style="display:inline-flex;align-items:center;gap:6px;font-weight:700;padding:12px 24px;border-radius:8px;">
+            📞 Gọi Ngay 0936.350.118
+          </a>
+          <a href="https://zalo.me/0936350118" class="btn" target="_blank" rel="noopener noreferrer"
+            style="display:inline-flex;align-items:center;gap:6px;background:#0068ff;font-weight:700;padding:12px 24px;border-radius:8px;">
+            💬 Gửi Ảnh Báo Giá Qua Zalo
+          </a>
+        </div>
       </div>
 
-      <div style="margin-top:24px;text-align:center;">
-        <a href="/tin-tuc/" style="color:#888;font-size:0.9rem;">← Xem tất cả tin tức</a>
+      <!-- Related Posts Section -->
+      {relatedPosts.length > 0 && (
+        <section class="related-posts-section">
+          <h3 class="related-posts-title">BÀI VIẾT LIÊN QUAN</h3>
+          <div class="related-posts-grid">
+            {relatedPosts.map((related) => (
+              <a href={`/tin-tuc/${related.slug}/`} class="related-post-card">
+                {related.data.image && (
+                  <img
+                    src={related.data.image}
+                    alt={related.data.imageAlt || related.data.title}
+                    class="related-post-thumb"
+                    loading="lazy"
+                    width="400"
+                    height="225"
+                  />
+                )}
+                <div class="related-post-info">
+                  <div class="related-post-date">
+                    📅 {related.data.pubDate.toLocaleDateString('vi-VN', { day: '2-digit', month: '2-digit', year: 'numeric' })}
+                  </div>
+                  <h4>{related.data.title}</h4>
+                </div>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <div style="margin-top:36px;text-align:center;">
+        <a href="/tin-tuc/" class="btn" style="background:#555;padding:10px 20px;font-size:0.9rem;border-radius:6px;">← Xem Tất Cả Bài Viết</a>
       </div>
     </article>
   </main>

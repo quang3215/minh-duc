@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PriceCalculator from '../components/PriceCalculator.astro';
 const schema = JSON.stringify([{
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
@@ -627,6 +628,7 @@ const schema = JSON.stringify([{
 </div>
 </div>
 </section>
+<PriceCalculator />
 <section id="quick-quote" class="quick-quote-section">
 <div class="container">
 <div class="quick-quote-card reveal reveal-delay-1">

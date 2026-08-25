@@ -1,0 +1,142 @@
+---
+// src/components/PriceCalculator.astro
+---
+
+<section id="price-calculator" class="price-calc-section">
+  <div class="container">
+    <div class="price-calc-card">
+      <div class="price-calc-header">
+        <h3>🧮 BẢNG TÍNH GIÁ PHẾ LIỆU ƯỚC TÍNH</h3>
+        <p>Chọn loại kim loại & nhập số lượng để biết ngay tổng số tiền dự kiến bạn sẽ thu về</p>
+      </div>
+
+      <div class="price-calc-body">
+        <div class="calc-inputs">
+          <div class="calc-group">
+            <label for="calc-material-select" class="calc-label">1. Chọn loại phế liệu cần bán:</label>
+            <select id="calc-material-select" class="calc-select" aria-label="Chọn loại phế liệu">
+              <option value="dong-cap" selected>Cáp đồng loại 1 (Cáp điện lực, cáp ngầm lõi to)</option>
+              <option value="dong-do">Đồng đỏ loại 2 (Dây điện cadivi, cuộn mô tơ)</option>
+              <option value="dong-vang">Đồng vàng / Đồng thau / Đồng tiện</option>
+              <option value="dong-chay">Đồng cháy / Dây điện cũ tồn kho</option>
+              <option value="dc-solar">Dây cáp điện DC Solar năng lượng mặt trời</option>
+              <option value="nhom-1">Nhôm loại 1 (Nhôm đặc, nhôm thanh nguyên chất)</option>
+              <option value="nhom-2">Nhôm loại 2 (Hợp kim nhôm, khung cửa nhôm cũ)</option>
+              <option value="inox-304">Phế liệu Inox 304, 316 (Bồn, ống công nghiệp)</option>
+              <option value="inox-201">Phế liệu Inox 201, 430</option>
+              <option value="sat-dac">Sắt đặc, sắt cây, sắt kết cấu công trình</option>
+            </select>
+          </div>
+
+          <div class="calc-group">
+            <label for="calc-weight-input" class="calc-label">2. Nhập khối lượng ước tính (Kg):</label>
+            <input type="number" id="calc-weight-input" class="calc-input" value="100" min="1" step="10" placeholder="VD: 100" />
+            <div class="calc-chips">
+              <button type="button" class="calc-chip" data-weight="50">50 kg</button>
+              <button type="button" class="calc-chip active" data-weight="100">100 kg</button>
+              <button type="button" class="calc-chip" data-weight="300">300 kg</button>
+              <button type="button" class="calc-chip" data-weight="500">500 kg</button>
+              <button type="button" class="calc-chip" data-weight="1000">1 Tấn</button>
+              <button type="button" class="calc-chip" data-weight="5000">5 Tấn</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div class="calc-result-label">💰 GIÁ TRỊ THU HỒI DỰ KIẾN:</div>
+          <div id="calc-total-display" class="calc-result-price">25.000.000 - 35.000.000 đ</div>
+          <div class="calc-result-note">* Đơn giá chính xác phụ thuộc vào % tạp chất và khoảng cách vận chuyển. Đức Minh hỗ trợ xe cẩu tận nơi miễn phí.</div>
+          
+          <a id="calc-zalo-trigger" href="https://zalo.me/0936350118" target="_blank" rel="noopener noreferrer" class="calc-zalo-btn">
+            <span>💬 Chốt Giá Này Qua Zalo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function() {
+    const rates = {
+      'dong-cap': { name: 'Cáp đồng loại 1', min: 250000, max: 350000 },
+      'dong-do': { name: 'Đồng đỏ loại 2', min: 215000, max: 280000 },
+      'dong-vang': { name: 'Đồng vàng', min: 115000, max: 155000 },
+      'dong-chay': { name: 'Đồng cháy', min: 190000, max: 220000 },
+      'dc-solar': { name: 'Dây DC Solar', min: 105000, max: 255000 },
+      'nhom-1': { name: 'Nhôm loại 1', min: 45000, max: 65000 },
+      'nhom-2': { name: 'Nhôm loại 2', min: 40000, max: 55000 },
+      'inox-304': { name: 'Inox 304', min: 22000, max: 55000 },
+      'inox-201': { name: 'Inox 201', min: 10000, max: 22000 },
+      'sat-dac': { name: 'Sắt đặc', min: 10500, max: 13500 }
+    };
+
+    function formatVND(num) {
+      return num.toLocaleString('vi-VN');
+    }
+
+    function recalculate() {
+      const materialSelect = document.getElementById('calc-material-select');
+      const weightInput = document.getElementById('calc-weight-input');
+      const totalDisplay = document.getElementById('calc-total-display');
+      const zaloBtn = document.getElementById('calc-zalo-trigger');
+
+      if (!materialSelect || !weightInput || !totalDisplay) return;
+
+      const matKey = materialSelect.value || 'dong-cap';
+      const weight = parseFloat(weightInput.value) || 0;
+      const rate = rates[matKey] || rates['dong-cap'];
+
+      if (weight <= 0) {
+        totalDisplay.textContent = '0 đ';
+        return;
+      }
+
+      const totalMin = Math.round(weight * rate.min);
+      const totalMax = Math.round(weight * rate.max);
+
+      totalDisplay.textContent = formatVND(totalMin) + ' - ' + formatVND(totalMax) + ' đ';
+
+      if (zaloBtn) {
+        const text = encodeURIComponent('Chào Đức Minh, tôi có khoảng ' + weight + 'kg ' + rate.name + ' cần bán, xin báo giá chi tiết.');
+        zaloBtn.href = 'https://zalo.me/0936350118';
+      }
+    }
+
+    function initCalculator() {
+      const materialSelect = document.getElementById('calc-material-select');
+      const weightInput = document.getElementById('calc-weight-input');
+      const chips = document.querySelectorAll('.calc-chip');
+
+      if (materialSelect) {
+        materialSelect.addEventListener('change', recalculate);
+      }
+
+      if (weightInput) {
+        weightInput.addEventListener('input', function() {
+          chips.forEach(c => c.classList.remove('active'));
+          recalculate();
+        });
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', function() {
+          chips.forEach(c => c.classList.remove('active'));
+          this.classList.add('active');
+          if (weightInput) {
+            weightInput.value = this.getAttribute('data-weight');
+            recalculate();
+          }
+        });
+      });
+
+      recalculate();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCalculator);
+    } else {
+      initCalculator();
+    }
+  })();
+</script>
