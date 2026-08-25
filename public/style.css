@@ -436,7 +436,9 @@
 .hero {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 48vh;
+  max-height: 440px;
+  min-height: 320px;
   overflow: hidden;
   background-color: #ffffff;
 }
