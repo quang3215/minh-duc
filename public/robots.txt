@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://thumuacapdonggiacao.com/sitemap.xml
+Sitemap: https://thumuacapdonggiacao.com/sitemap-index.xml
