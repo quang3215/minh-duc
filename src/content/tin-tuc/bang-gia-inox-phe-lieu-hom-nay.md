@@ -1,21 +1,10 @@
 ---
 title: "Bảng Giá Inox Phế Liệu Hôm Nay Mới Nhất | Cập Nhật 2026 | Đức Minh"
 keywords: "bảng giá inox phế liệu hôm nay mới nhất  cập nhật 2026  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Cập nhật bảng giá thu mua inox phế liệu 304, 201, 430 hôm nay mới nhất. Đức Minh thu mua tận nơi, cân đo chuẩn xác, thanh toán liền tay. Xem chi tiết ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Bảng
-giá Inox phế liệu hôm nay
-</nav>
-<h1>Bảng Giá Inox Phế Liệu Hôm Nay Mới Nhất (Cập Nhật Liên Tục)</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-03-10">Ngày 10 tháng 03, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-inox/thu-mua-inox-loai-1-304.webp"
 alt="Bảng giá inox phế liệu hôm nay"

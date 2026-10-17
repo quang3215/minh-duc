@@ -1,23 +1,10 @@
 ---
 title: "Thu Mua Dây Cáp Ngầm Phế Liệu: Cách Thẩm Định Lõi Đồng Giá Cao"
 keywords: "thu mua dây cáp ngầm phế liệu: cách thẩm định lõi đồng giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Cẩm nang thanh lý dây cáp ngầm phế liệu giá cao: cách phân biệt lớp vỏ giáp bọc thép, thẩm định tỷ lệ đồng nguyên chất và chọn đối tác uy tín. Xem chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-02.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Thu
-mua dây cáp ngầm phế liệu
-</nav>
-<h1>
-Thu Mua Dây Cáp Ngầm Phế Liệu: Cách Thẩm Định Lõi Đồng Giá Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-04-19">Ngày 19 tháng 04, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dong.webp"
 alt="Thu mua dây cáp ngầm phế liệu, cáp bọc thép lõi đồng"

@@ -206,11 +206,38 @@ function initConversionTracking() {
     });
   });
 
-  // Theo dõi gửi form liên hệ → GA4 event
-  document.querySelectorAll("form.contact-form").forEach((form) => {
-    form.addEventListener("submit", () => {
-      if (typeof dataLayer !== "undefined") {
-        dataLayer.push({ event: "form_submission" });
+  // Theo dõi & gửi form liên hệ / báo giá nhanh qua AJAX
+  document.querySelectorAll("form.contact-form, form.quick-quote-form").forEach((form) => {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.innerText : "Gửi yêu cầu";
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.innerText = "Đang gửi..."; }
+
+      try {
+        const formData = new FormData(form);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: { Accept: "application/json" }
+        });
+
+        if (res.ok) {
+          if (typeof dataLayer !== "undefined") {
+            dataLayer.push({ 
+              event: "form_submission", 
+              form_type: form.classList.contains("quick-quote-form") ? "quick_quote" : "contact" 
+            });
+          }
+          form.reset();
+          alert("Cảm ơn quý khách! Đức Minh đã tiếp nhận yêu cầu và sẽ liên hệ lại trong 5 phút.");
+        } else {
+          alert("Có lỗi xảy ra, quý khách vui lòng gọi trực tiếp Hotline 0936.350.118 để được hỗ trợ ngay!");
+        }
+      } catch (err) {
+        alert("Lỗi kết nối, vui lòng gọi Hotline 0936.350.118.");
+      } finally {
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.innerText = originalText; }
       }
     });
   });
@@ -246,6 +273,11 @@ function initCookieConsent() {
       line-height: 1.5;
       animation: slideUp 0.35s ease;
     }
+    @media (max-width: 768px) {
+      #cookie-banner {
+        bottom: calc(62px + env(safe-area-inset-bottom, 0px)) !important;
+      }
+    }
     @keyframes slideUp {
       from { transform: translateY(100%); }
       to   { transform: translateY(0); }
@@ -276,6 +308,8 @@ function initCookieConsent() {
     }
     @media (max-width: 768px) {
       #cookie-banner {
+        bottom: 68px;
+        z-index: 998;
         flex-direction: column;
         text-align: center;
         padding: 16px;
@@ -292,6 +326,9 @@ function initCookieConsent() {
   banner.id = "cookie-banner";
   banner.setAttribute("role", "dialog");
   banner.setAttribute("aria-label", "Thông báo cookie");
+  const isMobile = window.innerWidth <= 768;
+  banner.style.bottom = isMobile ? "68px" : "0px";
+  banner.style.zIndex = isMobile ? "998" : "9999";
   banner.innerHTML = `
     <p>
       Website dùng cookie để cải thiện trải nghiệm của bạn.

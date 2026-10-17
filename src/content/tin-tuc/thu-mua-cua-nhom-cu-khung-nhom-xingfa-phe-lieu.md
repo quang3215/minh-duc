@@ -1,24 +1,10 @@
 ---
 title: "Thu Mua Cửa Nhôm Cũ, Khung Nhôm Xingfa Phế Liệu Giá Cao | Đức Minh"
 keywords: "thu mua cửa nhôm cũ, khung nhôm xingfa phế liệu giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Dịch vụ thu mua cửa nhôm cũ, khung nhôm kính Xingfa phế liệu thanh lý giá cao tận nơi. Hỗ trợ tháo dỡ nhanh, dọn mặt bằng sạch đẹp. Bấm xem báo giá ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Thu
-mua cửa nhôm Xingfa
-</nav>
-<h1>
-Dịch Vụ Thu Mua Cửa Nhôm Cũ, Khung Nhôm Xingfa Phế Liệu Công Trình
-Giá Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-31">Ngày 31 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/15.png"
 alt="Thu mua cửa nhôm cũ, khung nhôm phế liệu tháo dỡ"

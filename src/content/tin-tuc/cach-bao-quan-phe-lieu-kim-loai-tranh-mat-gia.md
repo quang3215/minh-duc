@@ -1,24 +1,10 @@
 ---
 title: "Cách Bảo Quản Phế Liệu Kim Loại Tránh Rỉ Sét, Mất Giá | Đức Minh"
 keywords: "cách bảo quản phế liệu kim loại tránh rỉ sét, mất giá  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Hướng dẫn cách bảo quản phế liệu kim loại sắt thép, cáp đồng, nhôm đúng kỹ thuật tránh oxy hóa, sụt giá khi lưu kho công trình. Khám phá bí quyết tại đây!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Cách
-bảo quản phế liệu kim loại
-</nav>
-<h1>
-Cách Bảo Quản Phế Liệu Kim Loại Tránh Rỉ Sét, Mất Giá Khi Chờ
-Thanh Lý
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-04-19">Ngày 19 tháng 04, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"
 alt="Bảo quản sắt thép công trình"

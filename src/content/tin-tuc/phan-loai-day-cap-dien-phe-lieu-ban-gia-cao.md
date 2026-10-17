@@ -1,23 +1,10 @@
 ---
 title: "Cách Phân Loại Dây Cáp Điện Phế Liệu Để Bán Được Giá Cao | Đức Minh"
 keywords: "cách phân loại dây cáp điện phế liệu để bán được giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Hướng dẫn phân loại dây cáp điện phế liệu: cáp đồng đỏ, cáp ngầm, cáp nhôm theo tiêu chuẩn tái chế để bán được giá cao nhất thị trường. Khám phá chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Phân
-loại dây cáp điện
-</nav>
-<h1>
-Cách Phân Loại Dây Cáp Điện Phế Liệu Để Bán Được Giá Cao Nhất
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-08">Ngày 08 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/2.png"
 alt="Phân loại dây cáp điện phế liệu"

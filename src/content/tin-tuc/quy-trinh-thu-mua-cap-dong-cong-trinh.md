@@ -1,23 +1,10 @@
 ---
 title: "Quy Trình Thu Mua Cáp Đồng Công Trình Số Lượng Lớn | Đức Minh"
 keywords: "quy trình thu mua cáp đồng công trình số lượng lớn  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Khám phá quy trình thu mua cáp đồng công trình chuyên nghiệp tại Đức Minh: khảo sát nhanh 5 phút, xe cẩu bốc dỡ tận nơi, thanh toán 100%. Xem chi tiết ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-02.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Quy
-trình thu mua cáp công trình
-</nav>
-<h1>
-Quy Trình Thu Mua Cáp Đồng Công Trình Số Lượng Lớn Tại Đức Minh
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-08">Ngày 08 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/3.png"
 alt="Thu mua cáp đồng công trình số lượng lớn"

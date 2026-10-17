@@ -1,23 +1,10 @@
 ---
 title: "Tại Sao Tuyệt Đối Không Nên Tự Đốt Vỏ Dây Điện Để Lấy Lõi Đồng?"
 keywords: "tại sao tuyệt đối không nên tự đốt vỏ dây điện để lấy lõi đồng?, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Cảnh báo nguy cơ khi tự đốt vỏ dây điện lấy lõi đồng: mất giá phế liệu, hại sức khỏe và vi phạm luật môi trường. Tìm giải pháp tuốt vỏ tối ưu tại đây!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Kinh
-nghiệm bán dây điện cũ
-</nav>
-<h1>
-Tại Sao Tuyệt Đối Không Nên Tự Đốt Vỏ Dây Điện Để Lấy Lõi Đồng?
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-08">Ngày 08 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/5.png"
 alt="Không nên đốt vỏ dây điện phế liệu lấy lõi đồng"

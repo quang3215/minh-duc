@@ -1,24 +1,10 @@
 ---
 title: "Kinh Nghiệm Thanh Lý Phế Liệu Nhà Xưởng, Khu Công Nghiệp Giá Cao | Đức       Minh"
 keywords: "kinh nghiệm thanh lý phế liệu nhà xưởng, khu công nghiệp giá cao  đức       minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Kinh nghiệm thanh lý phế liệu nhà xưởng, khu công nghiệp trọn gói giá cao. Quy trình tháo dỡ an toàn, dọn dẹp sạch sẽ, thanh toán liền tay. Xem bí quyết ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Kinh
-nghiệm thanh lý phế liệu nhà xưởng
-</nav>
-<h1>
-Kinh Nghiệm Thanh Lý Phế Liệu Nhà Xưởng, Khu Công Nghiệp Được Giá
-Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-04-01">Ngày 01 tháng 04, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"
 alt="Thanh lý phế liệu nhà xưởng khu công nghiệp"

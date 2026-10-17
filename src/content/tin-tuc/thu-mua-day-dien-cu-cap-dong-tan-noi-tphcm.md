@@ -1,24 +1,10 @@
 ---
 title: "Dịch Vụ Thu Mua Dây Điện Cũ, Cáp Đồng Phế Liệu Tận Nơi TPHCM & Toàn Quốc"
 keywords: "dịch vụ thu mua dây điện cũ, cáp đồng phế liệu tận nơi tphcm & toàn quốc, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Đơn vị chuyên thu mua dây điện cũ, cáp đồng phế liệu tận nơi tại TPHCM và các tỉnh lân cận. Khảo sát 15 phút, bao trọn gói bốc xếp vận chuyển. Bấm xem ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Dịch
-vụ thu mua cáp đồng tận nơi
-</nav>
-<h1>
-Dịch Vụ Thu Mua Dây Điện Cũ, Cáp Đồng Phế Liệu Tận Nơi TPHCM &
-Toàn Quốc
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-08">Ngày 08 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/6.png"
 alt="Dịch vụ thu mua dây điện cũ tận nơi"

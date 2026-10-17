@@ -15,12 +15,21 @@ export async function getStaticPaths({ paginate }) {
 
 const { page } = Astro.props;
 
+const canonicalUrl = page.currentPage === 1 
+  ? 'https://thumuacapdonggiacao.com/tin-tuc/' 
+  : `https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage}/`;
+
+const baseDescription = "Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam.";
+const metaDescription = page.currentPage > 1 
+  ? `${baseDescription} - Trang ${page.currentPage}/${page.lastPage}` 
+  : baseDescription;
+
 const schema = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": `Tin Tức Phế Liệu | Đức Minh - Trang ${page.currentPage}`,
-  "description": "Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam.",
-  "url": `https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`,
+  "description": metaDescription,
+  "url": canonicalUrl,
   "publisher": {
     "@type": "Organization",
     "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
@@ -31,8 +40,8 @@ const schema = JSON.stringify({
 <BaseLayout
   keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
   title={`Tin Tức Phế Liệu | Trang ${page.currentPage} | Đức Minh`}
-  description="Cập nhật thông tin, bảng giá và kiến thức mới nhất về thị trường thu mua phế liệu cáp đồng, inox, nhôm tại Việt Nam."
-  canonical={`https://thumuacapdonggiacao.com/tin-tuc/${page.currentPage === 1 ? '' : page.currentPage}`}
+  description={metaDescription}
+  canonical={canonicalUrl}
   schema={schema}
 >
 
@@ -45,7 +54,7 @@ const schema = JSON.stringify({
           {page.data.map((post) => (
             <article class="news-item">
               <a href={`/tin-tuc/${post.slug}/`} class="news-image" aria-label={`Xem chi tiết: ${post.data.title}`}>
-                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />}
+                {post.data.image && <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" width="400" height="250" />}
               </a>
               <div class="news-content">
                 <h2><a href={`/tin-tuc/${post.slug}/`}>{post.data.title}</a></h2>

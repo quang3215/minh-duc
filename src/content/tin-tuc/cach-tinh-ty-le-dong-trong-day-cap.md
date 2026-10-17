@@ -1,24 +1,10 @@
 ---
 title: "Cách Tính Tỷ Lệ Đồng Nguyên Chất Trong Dây Cáp Điện Cũ Chuẩn Xác | Đức       Minh"
 keywords: "cách tính tỷ lệ đồng nguyên chất trong dây cáp điện cũ chuẩn xác  đức       minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Phương pháp tính tỷ lệ đồng nguyên chất trong dây cáp điện cũ chuẩn xác, giúp chủ thầu và kỹ sư định giá chính xác lô phế liệu trước khi bán. Xem chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Cách
-tính tỷ lệ đồng trong dây cáp
-</nav>
-<h1>
-Cách Tính Tỷ Lệ Đồng Nguyên Chất Trong Dây Cáp Điện Cũ Chuẩn Xác
-Nhất
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-03-10">Ngày 10 tháng 03, 2026</time>
-</p>
-</header>
 <img
 src="/img/hinh-anh-thuc-te/anh-02.webp"
 alt="Đo lường tỷ lệ đồng trong dây cáp điện"

@@ -1,23 +1,10 @@
 ---
 title: "Quy Trình Thu Mua Phế Liệu Nhôm Tại Xưởng, Công Trình | Đức Minh"
 keywords: "quy trình thu mua phế liệu nhôm tại xưởng, công trình  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Quy trình thu mua phế liệu nhôm tại xưởng gia công và công trình xây dựng: định giá minh bạch, bốc xếp hỏa tốc trong ngày, hợp đồng đầy đủ. Xem chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Quy
-trình thu mua nhôm
-</nav>
-<h1>
-Quy Trình Thu Mua Phế Liệu Nhôm Tận Xưởng, Công Trình Của Đức Minh
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-31">Ngày 31 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/14.png"
 alt="Quy trình thu mua phế liệu nhôm tận nơi"

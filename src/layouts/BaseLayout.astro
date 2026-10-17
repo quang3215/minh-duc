@@ -51,7 +51,7 @@ const resolvedOgDesc = ogDescription ?? description;
     <meta name="author" content="Công Ty Đức Minh" />
     {keywords && <meta name="keywords" content={keywords} />}
     <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
-    <link rel="canonical" href={canonicalURL} />
+    {!noindex && <link rel="canonical" href={canonicalURL} />}
     <link rel="icon" href="/img/logo.svg" type="image/svg+xml" />
 
     <!-- Open Graph -->
@@ -224,19 +224,19 @@ const resolvedOgDesc = ogDescription ?? description;
       <div class="container">
         <div class="footer-grid">
           <div class="footer-col">
-            <h4>Công Ty Thu Mua Cáp Đồng Đức Minh</h4>
+            <h3>Công Ty Thu Mua Cáp Đồng Đức Minh</h3>
             <p>Đơn vị hàng đầu chuyên thu mua vật tư công trình, thiết bị điện và phế liệu dự án giá cao, cam kết mang lại giá trị thu hồi tối đa cho đối tác.</p>
           </div>
           <div class="footer-col">
-            <h4>Thông Tin Liên Hệ</h4>
+            <h3>Thông Tin Liên Hệ</h3>
             <ul>
               <li><strong>Địa chỉ:</strong> {settings.address}</li>
               <li><strong>Hotline:</strong> <a href={`tel:${settings.hotline}`}>{settings.hotlineDisplay}</a></li>
-              <li><strong>Email:</strong> <a href="mailto:{settings.email}">{settings.email}</a></li>
+              <li><strong>Email:</strong> <a href={`mailto:${settings.email}`}>{settings.email}</a></li>
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Dịch Vụ Chính</h4>
+            <h3>Dịch Vụ Chính</h3>
             <ul>
               <li><a href="/thu-mua-cap-dong-thiet-bi-dien/">Thu mua cáp điện &amp; thiết bị điện</a></li>
               <li><a href="/thu-mua-pin-nang-luong-mat-troi/">Thu mua pin năng lượng mặt trời</a></li>
@@ -247,7 +247,7 @@ const resolvedOgDesc = ogDescription ?? description;
             </ul>
           </div>
           <div class="footer-col">
-            <h4>Bản Đồ</h4>
+            <h3>Bản Đồ</h3>
             <div class="map-container">
               <iframe
                 title="Bản đồ chỉ đường đến Công ty Đức Minh"

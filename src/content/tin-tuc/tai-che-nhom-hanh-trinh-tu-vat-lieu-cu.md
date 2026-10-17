@@ -1,22 +1,10 @@
 ---
 title: "Tái Chế Nhôm: Hành Trình Từ Lon Nước Cũ Đến Vật Liệu Mới"
 keywords: "tái chế nhôm: hành trình từ lon nước cũ đến vật liệu mới, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Khám phá quy trình tái chế nhôm phế liệu từ lon nước cũ thành sản phẩm kim loại giá trị cao, góp phần tiết kiệm 95% năng lượng sản xuất. Xem bài viết hay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-02.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> &raquo;
-<a href="/tin-tuc/">Tin Tức</a> &raquo; Tái Chế Nhôm: Hành Trình
-Từ Lon Nước Cũ
-</nav>
-<h1>Tái Chế Nhôm: Hành Trình Từ Lon Nước Cũ Đến Vật Liệu Mới</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-10-27">Ngày 27 tháng 10, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-nhom/thu-mua-vun-nhom-mat-nhom.webp"
 alt="Quy trình tái chế nhôm phế liệu"

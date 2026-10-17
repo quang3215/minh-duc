@@ -1,28 +1,10 @@
 ---
 title: "Tái Chế Pin Năng Lượng Mặt Trời tại Việt Nam: Thách Thức & Cơ Hội"
 keywords: "tái chế pin năng lượng mặt trời tại việt nam: thách thức & cơ hội, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Phân tích tiềm năng và xu hướng tái chế pin năng lượng mặt trời tại Việt Nam. Cơ hội kinh tế tuần hoàn và giải pháp xử lý phế liệu pin mặt trời bền vững!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-07.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> &raquo;
-<a href="/tin-tuc/">Tin Tức</a> &raquo;
-<span
->Tương lai của việc tái chế pin năng lượng mặt trời tại Việt
-Nam</span
->
-</nav>
-<h1>
-Tương lai của việc tái chế pin năng lượng mặt trời tại Việt Nam:
-Thách thức và Cơ hội
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-10-31">Ngày 31 tháng 10, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-vat-tu-nang-luong-mat-troi/thu-mua-pin-nang-luong-mat-troi.webp"
 alt="Tái chế pin năng lượng mặt trời cũ hỏng"

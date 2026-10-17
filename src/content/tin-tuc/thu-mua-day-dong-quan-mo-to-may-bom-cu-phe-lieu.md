@@ -1,21 +1,10 @@
 ---
 title: "Thu Mua Dây Đồng Quấn Mô Tơ, Máy Bơm Cũ Phế Liệu Giá Cao | Đức Minh"
 keywords: "thu mua dây đồng quấn mô tơ, máy bơm cũ phế liệu giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Địa chỉ thu mua dây đồng quấn mô tơ, máy bơm cũ cháy phế liệu giá cao vượt trội. Cân điện tử chính xác, thanh toán tiền mặt liền tay. Xem báo giá chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-05.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Dây
-đồng quấn mô tơ
-</nav>
-<h1>Thu Mua Dây Đồng Quấn Mô Tơ, Máy Bơm Cũ Phế Liệu Giá Cao</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-06-07">Ngày 07 tháng 06, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/10.png"
 alt="Dây đồng quấn mô tơ, máy bơm cũ phế liệu"

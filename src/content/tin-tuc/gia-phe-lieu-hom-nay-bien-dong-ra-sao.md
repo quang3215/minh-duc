@@ -1,25 +1,10 @@
 ---
 title: "Giá Phế Liệu Hôm Nay Biến Động Ra Sao? Phân Tích Thị Trường Cuối Năm 2026"
 keywords: "giá phế liệu hôm nay biến động ra sao? phân tích thị trường cuối năm 2026, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Phân tích biến động giá phế liệu hôm nay và dự báo thị trường kim loại đồng, nhôm, sắt thép cuối năm. Cập nhật thông tin nhanh giúp bán phế liệu giá cao nhất!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-05.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> &raquo;
-<a href="/tin-tuc/">Tin Tức</a> &raquo; Giá phế liệu hôm nay biến
-động ra sao?
-</nav>
-<h1>
-Giá phế liệu hôm nay biến động ra sao? Phân tích thị trường cuối
-năm 2026
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-10-29">Ngày 29 tháng 10, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-dong.webp"
 alt="Biểu đồ biến động giá phế liệu đồng"

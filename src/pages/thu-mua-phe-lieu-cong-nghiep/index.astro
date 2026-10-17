@@ -1,80 +1,85 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const schema = JSON.stringify([{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Thu Mua Phế Liệu Công Nghiệp",
-        "name": "Dịch Vụ Thu Mua Phế Liệu Công Nghiệp Giá Cao (Sắt Thép, Đồng, Nhôm, Inox)",
-        "description": "Dịch vụ thu mua phế liệu công nghiệp giá cao, bao gồm sắt thép, đồng, nhôm, inox, máy móc cũ và Thu mua nhà xưởng trọn gói.",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-          "url": "https://thumuacapdonggiacao.com/",
-          "telephone": "+84936350118",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "14 ấp 2, Đông Thạnh",
-            "addressLocality": "Hóc Môn",
-            "addressRegion": "TP. HCM",
-            "addressCountry": "VN"
-          }
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Vietnam"
-        },
-        "mainEntity": {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Công ty có nhận Thu mua toàn bộ nhà xưởng không?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Đối với lô hàng lớn, phương thức thanh toán như thế nào?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ theo yêu cầu của doanh nghiệp."
-              }
-            }
-          ]
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Thu Mua Phế Liệu Công Nghiệp",
+    "name": "Dịch Vụ Thu Mua Phế Liệu Công Nghiệp Giá Cao (Sắt Thép, Đồng, Nhôm, Inox)",
+    "description": "Dịch vụ thu mua phế liệu công nghiệp giá cao, bao gồm sắt thép, đồng, nhôm, inox, máy móc cũ và Thu mua nhà xưởng trọn gói.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+      "url": "https://thumuacapdonggiacao.com/",
+      "telephone": "+84936350118",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14 ấp 2, Đông Thạnh",
+        "addressLocality": "Hóc Môn",
+        "addressRegion": "TP. HCM",
+        "addressCountry": "VN"
+      }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Vietnam"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Làm sao để tôi nhận được mức giá cao nhất cho lô phế liệu của mình?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mức giá phụ thuộc vào chất lượng và độ tinh khiết của phế liệu. Để có giá tốt nhất, bạn nên cố gắng phân loại riêng từng loại kim loại (đồng, nhôm, sắt...) và giữ cho phế liệu khô ráo, không lẫn tạp chất như đất, cát, bê tông."
         }
-      },{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Trang Chủ",
-            "item": "https://thumuacapdonggiacao.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Dịch Vụ",
-            "item": "https://thumuacapdonggiacao.com/dich-vu/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Thu Mua Phế Liệu Công Nghiệp"
-          }
-        ]
-      }]);
+      },
+      {
+        "@type": "Question",
+        "name": "Công ty có nhận Thu mua toàn bộ nhà xưởng không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Đây là một trong những thế mạnh của chúng tôi. Đức Minh nhận Thu mua trọn gói nhà xưởng, bao gồm cả khung kèo thép, mái tôn, hệ thống điện, máy móc và các loại phế liệu khác. Chúng tôi sẽ lo liệu từ khâu tháo dỡ đến dọn dẹp mặt bằng."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Đối với lô hàng lớn, phương thức thanh toán như thế nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Với các lô hàng có giá trị lớn, chúng tôi linh hoạt cả hai hình thức: tiền mặt hoặc chuyển khoản ngay tại hiện trường. Mọi giao dịch đều được thực hiện minh bạch, có đầy đủ hóa đơn, chứng từ theo yêu cầu của doanh nghiệp."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Trang Chủ",
+        "item": "https://thumuacapdonggiacao.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Dịch Vụ",
+        "item": "https://thumuacapdonggiacao.com/dich-vu/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Thu Mua Phế Liệu Công Nghiệp",
+        "item": "https://thumuacapdonggiacao.com/thu-mua-phe-lieu-cong-nghiep/"
+      }
+    ]
+  }
+]);
 ---
 <BaseLayout 
   keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
@@ -84,19 +89,16 @@ const schema = JSON.stringify([{
   schema={schema}
 >
 <main>
-<section class="text-banner" style="
-          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
-          color: white; /* Giữ chữ màu trắng */
-        ">
+<section class="text-banner" style="background-color: #1a365d; color: #ffffff; padding: 30px; border-radius: 8px;">
 <div class="container">
-<h1 style="color: var(--primary-color)">
+<h1 style="color: #ffffff">
             Thu Mua Phế Liệu Công Nghiệp Giá Cao Toàn Quốc
           </h1>
-<p>
+<p style="color: #ffffff">
             Đối tác tin cậy Thu mua nhà xưởng, công trình, nhà máy. Chuyên thu
             mua sắt thép, đồng, nhôm, inox số lượng lớn.
           </p>
-<a class="btn" href="tel:0936350118">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
+<a class="btn" href="https://zalo.me/0936350118" target="_blank" rel="noopener noreferrer">Báo Giá Nhanh Qua Zalo: 0936.350.118</a>
 </div>
 </section>
 <div class="breadcrumb">

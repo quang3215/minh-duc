@@ -26,7 +26,9 @@ const schema = JSON.stringify({
   "@type": "Article",
   "headline": post.data.title,
   "description": post.data.description,
-  "image": post.data.image ? [post.data.image] : [],
+  "image": post.data.image 
+    ? [post.data.image.startsWith('http') ? post.data.image : `https://thumuacapdonggiacao.com${post.data.image}`] 
+    : ["https://thumuacapdonggiacao.com/img/banner/zalo-preview.jpg"],
   "datePublished": post.data.pubDate.toISOString(),
   "dateModified": post.data.pubDate.toISOString(),
   "author": [{
@@ -95,7 +97,7 @@ const schema = JSON.stringify({
       <div style="margin-top:40px;padding:24px;background:#f9f9f9;border-radius:12px;display:flex;align-items:center;gap:20px;border: 1px solid #eaeaea;flex-wrap:wrap;">
         <img src="/img/logo.svg" alt="Công Ty Đức Minh" style="width:80px;height:80px;border-radius:50%;object-fit:contain;background:#fff;padding:8px;box-shadow:0 2px 8px rgba(0,0,0,0.08);flex-shrink:0;" />
         <div style="flex:1;min-width:250px;">
-          <h4 style="margin:0 0 8px;font-size:1.1rem;color:#c90000;">Chuyên gia Thu Mua Phế Liệu Đức Minh</h4>
+          <h3 style="margin:0 0 8px;font-size:1.1rem;color:#c90000;">Chuyên gia Thu Mua Phế Liệu Đức Minh</h3>
           <p style="margin:0;font-size:0.95rem;color:#555;line-height:1.5;">Bài viết được biên soạn và kiểm duyệt bởi các chuyên gia với hơn 10 năm kinh nghiệm thực chiến trong lĩnh vực thu mua phế liệu công nghiệp, thanh lý cáp đồng và vật tư dự án. Chúng tôi cam kết mang lại mức giá thu mua cao nhất thị trường.</p>
         </div>
       </div>

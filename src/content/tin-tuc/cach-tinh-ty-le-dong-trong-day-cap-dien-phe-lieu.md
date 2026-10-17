@@ -1,24 +1,10 @@
 ---
 title: "Cách Tính Tỷ Lệ Đồng Trong Dây Cáp Điện Phế Liệu Tránh Ép Giá | Đức Minh"
 keywords: "cách tính tỷ lệ đồng trong dây cáp điện phế liệu tránh ép giá  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Cách tính tỷ lệ ruột đồng trong dây cáp điện phế liệu chính xác 100%. Nắm vững công thức bóc tách mẫu để không bị ép giá khi thanh lý cáp. Xem hướng dẫn!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-01.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Tính
-tỷ lệ cáp đồng
-</nav>
-<h1>
-Cách Tính Tỷ Lệ Đồng Trong Dây Cáp Điện Phế Liệu Để Tránh Bị Ép
-Giá
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-06-07">Ngày 07 tháng 06, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/3.png"
 alt="Cách tính tỷ lệ đồng trong dây cáp điện phế liệu"

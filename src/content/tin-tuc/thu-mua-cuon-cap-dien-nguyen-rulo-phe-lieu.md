@@ -1,24 +1,10 @@
 ---
 title: "Thu Mua Cuộn Cáp Điện Nguyên Rulo, Phế Liệu Nhà Máy Giá Cao | Đức Minh"
 keywords: "thu mua cuộn cáp điện nguyên rulo, phế liệu nhà máy giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Chuyên thu mua cuộn cáp điện nguyên rulo, cáp tồn kho công trình dư thừa giá cực cao. Đức Minh điều xe cẩu bốc hàng tận nơi, bao phí dỡ kho. Xem chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Thu
-mua cuộn cáp nguyên rulo
-</nav>
-<h1>
-Dịch Vụ Thu Mua Cuộn Cáp Điện Nguyên Rulo, Phế Liệu Nhà Máy Giá
-Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-08">Ngày 08 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/8.png"
 alt="Thu mua cuộn cáp điện nguyên rulo, phế liệu tồn kho nhà máy"

@@ -1,24 +1,10 @@
 ---
 title: "Mẹo Phân Biệt Inox 304, 201 và 430 Bằng Nam Châm & Thuốc Thử"
 keywords: "mẹo phân biệt inox 304, 201 và 430 bằng nam châm & thuốc thử, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Cách phân biệt inox 304, 201 và 430 phế liệu cực đơn giản bằng nam châm và thuốc thử axit. Định giá chuẩn xác từng loại inox để bán giá cao. Xem chi tiết!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> &raquo;
-<a href="/tin-tuc/">Tin Tức</a> &raquo; Mẹo phân biệt Inox 304,
-201 và 430
-</nav>
-<h1>
-Mẹo phân biệt Inox 304, 201 và 430 bằng nam châm và thuốc thử
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-10-30">Ngày 30 tháng 10, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-inox/phan-biet-cac-loai-inox.webp"
 alt="Cách phân biệt các loại inox 304, 201, 430"

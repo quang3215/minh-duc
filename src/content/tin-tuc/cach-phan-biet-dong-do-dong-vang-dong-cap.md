@@ -1,24 +1,10 @@
 ---
 title: "Cách Phân Biệt Đồng Đỏ, Đồng Vàng, Đồng Cáp Chuẩn Nhất | Đức Minh"
 keywords: "cách phân biệt đồng đỏ, đồng vàng, đồng cáp chuẩn nhất  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Mẹo phân biệt chính xác đồng đỏ, đồng vàng, đồng cáp phế liệu loại 1, loại 2 giúp bạn định giá chuẩn và thanh lý được giá cao nhất. Bấm để xem hướng dẫn!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-08.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Phân
-biệt đồng đỏ, đồng vàng, đồng cáp
-</nav>
-<h1>
-Cách Phân Biệt Đồng Đỏ, Đồng Vàng, Đồng Cáp Chuẩn Nhất Để Bán Giá
-Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-03-09">Ngày 09 tháng 03, 2026</time>
-</p>
-</header>
 <img
 src="/img/hinh-anh-thuc-te/anh-08.webp"
 alt="Phân biệt đồng đỏ, đồng vàng, đồng cáp phế liệu"

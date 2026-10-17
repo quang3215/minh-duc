@@ -1,24 +1,10 @@
 ---
 title: "Thanh Lý Mạt Nhôm, Phoi Nhôm Phế Liệu Xưởng Gia Công CNC Giá Cao"
 keywords: "thanh lý mạt nhôm, phoi nhôm phế liệu xưởng gia công cnc giá cao, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Chuyên thu mua mạt nhôm, phoi nhôm vụn từ xưởng gia công cơ khí CNC giá cao nhất. Thu gom sạch sẽ, cân điện tử chuẩn xác, có hóa đơn VAT. Xem ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-03.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> »
-Thanh lý mạt nhôm phôi nhôm CNC
-</nav>
-<h1>
-Thanh Lý Mạt Nhôm, Phoi Nhôm Phế Liệu Xưởng Gia Công CNC Giá Cao
-Định Kỳ
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-05-31">Ngày 31 tháng 05, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/16.png"
 alt="Thu mua phoi nhôm mạt nhôm phế liệu CNC"

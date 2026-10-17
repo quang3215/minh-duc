@@ -8,5 +8,9 @@ export default defineConfig({
     format: 'directory',
   },
   trailingSlash: 'always',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes('/admin'),
+    }),
+  ],
 });

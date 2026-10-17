@@ -1,23 +1,10 @@
 ---
 title: "Thu Mua Mô Tơ Điện Cũ, Máy Bơm Nước Phế Liệu: Bí Quyết Định Giá | Đức Minh"
 keywords: "thu mua mô tơ điện cũ, máy bơm nước phế liệu: bí quyết định giá  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Bí quyết định giá và thanh lý mô tơ điện cũ, máy bơm nước hỏng phế liệu được giá cao nhất. Đức Minh thu mua tận nơi, không ép giá. Khám phá hướng dẫn ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-06.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Thu
-mua mô tơ điện cũ
-</nav>
-<h1>
-Thu Mua Mô Tơ Điện Cũ, Máy Bơm Nước Phế Liệu: Bí Quyết Định Giá
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-04-01">Ngày 01 tháng 04, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-cap-dong-thiet-bi-dien/thu-mua-cap-dien-day-dan.webp"
 alt="Thu mua mô tơ điện, cuộn dây đồng phế liệu"

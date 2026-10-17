@@ -1,24 +1,10 @@
 ---
 title: "Thanh Lý Giàn Giáo Cũ, Cốp Pha Xây Dựng Số Lượng Lớn | Đức Minh"
 keywords: "thanh lý giàn giáo cũ, cốp pha xây dựng số lượng lớn  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Dịch vụ thu mua thanh lý giàn giáo cũ, cốp pha thép xây dựng số lượng lớn tận chân công trình giá cao. Đức Minh hỗ trợ xe cẩu vận chuyển. Xem chi tiết ngay!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-09.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Phế
-liệu xây dựng
-</nav>
-<h1>
-Thanh Lý Giàn Giáo Cũ, Cốp Pha Xây Dựng Số Lượng Lớn Tại Công
-Trình
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-04-19">Ngày 19 tháng 04, 2026</time>
-</p>
-</header>
 <img
 src="/img/thu-mua-phe-lieu-cong-nghiep/thu-mua-phe-lieu-sat-thep-cong-trinh.webp"
 alt="Thanh lý giàn giáo cốp pha cũ"

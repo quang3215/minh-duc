@@ -1,23 +1,10 @@
 ---
 title: "Thu Mua Phế Liệu Đồng Vàng, Đồng Thau Từ Xưởng Cơ Khí Giá Cao | Đức Minh"
 keywords: "thu mua phế liệu đồng vàng, đồng thau từ xưởng cơ khí giá cao  đức minh, thu mua cáp đồng, thu mua phế liệu, giá cao, phế liệu đồng, công ty đức minh"
-description: ""
+description: "Thu mua phế liệu đồng vàng, đồng thau, phoi đồng xưởng cơ khí giá cao tận nơi. Đức Minh cân đo minh bạch, ký hợp đồng thu mua dài hạn. Xem bảng giá tại đây!"
 pubDate: 2025-06-01
 image: "/img/hinh-anh-thuc-te/anh-05.webp"
 ---
-<header class="article-header">
-<nav class="breadcrumb">
-<a href="/">Trang Chủ</a> » <a href="/tin-tuc/">Tin Tức</a> » Phế
-liệu đồng vàng
-</nav>
-<h1>
-Thu Mua Phế Liệu Đồng Vàng, Đồng Thau Từ Xưởng Cơ Khí Giá Cao
-</h1>
-<p class="article-meta">
-Đăng bởi <strong>Công Ty Đức Minh</strong> |
-<time datetime="2026-06-07">Ngày 07 tháng 06, 2026</time>
-</p>
-</header>
 <img
 src="/img/tin-tuc/11.png"
 alt="Phế liệu đồng vàng đồng thau gia công cơ khí"

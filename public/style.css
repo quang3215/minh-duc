@@ -6,8 +6,7 @@
 /* === CASCADE LAYERS === */
 @layer reset, base, theme, components, utilities;
 
-/* === GOOGLE FONTS === */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+/* === GOOGLE FONTS PRELOADED IN BASELAYOUT === */
 
 /* === DESIGN TOKENS === */
 @layer theme {
@@ -1209,6 +1208,7 @@
   padding-bottom: 48px;
 }
 
+.footer-col h3,
 .footer-col h4 {
   font-size: 1rem;
   color: var(--text-light);
@@ -1220,6 +1220,7 @@
   padding-bottom: 10px;
 }
 
+.footer-col h3::after,
 .footer-col h4::after {
   content: '';
   position: absolute;
@@ -1395,8 +1396,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: 10px;
     background: rgba(201, 0, 0, 0.08);
     border: 1px solid rgba(201, 0, 0, 0.15);
@@ -1477,12 +1480,14 @@
   }
 
   .drawer-close-btn {
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -1670,6 +1675,13 @@
     border-width: 10px 10px 10px 0;
     border-color: transparent var(--border) transparent transparent;
   }
+  .process-step.left::before {
+    right: auto !important;
+    left: 60px !important;
+    border: medium solid var(--border) !important;
+    border-width: 10px 10px 10px 0 !important;
+    border-color: transparent var(--border) transparent transparent !important;
+  }
   .process-step.left::after, .process-step.right::after { left: 18px; }
   .process-step.right { left: 0; }
 
@@ -1688,8 +1700,7 @@
 @media (max-width: 480px) {
   .navbar .logo .logo-text { display: none; }
   .text-banner h1 { font-size: 1.35rem; }
-  .floating-buttons { bottom: 16px; right: 16px; }
-  .floating-buttons a { width: 50px; height: 50px; }
+  .floating-buttons { display: none !important; }
 }
 
 /* ── Reduced motion ── */
@@ -1725,7 +1736,8 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px;
+    height: auto !important;
+    min-height: 60px;
     background: rgba(255, 255, 255, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -1734,7 +1746,7 @@
     z-index: 999;
     align-items: center;
     justify-content: space-around;
-    padding-bottom: env(safe-area-inset-bottom, 0px);
+    padding-bottom: max(10px, env(safe-area-inset-bottom, 0px)) !important;
   }
 
   .mobile-bottom-item {
@@ -1797,23 +1809,23 @@
 
   /* Give body extra padding bottom on mobile so content isn't covered by bottom bar */
   body {
-    padding-bottom: 70px;
+    padding-bottom: calc(65px + env(safe-area-inset-bottom, 0px)) !important;
   }
 
-  /* Move floating buttons up above mobile bottom bar */
+  /* Ẩn cụm nút tròn nổi trên mobile */
   .floating-buttons {
-    bottom: 80px !important;
-    right: 16px !important;
+    display: none !important;
   }
 
-  .floating-buttons a {
-    width: 48px;
-    height: 48px;
-  }
-
-  .floating-buttons a svg {
-    width: 22px;
-    height: 22px;
+  /* Ngăn chặn iOS Safari tự động phóng to khung nhìn khi chạm vào input */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  select,
+  .quick-quote-input,
+  .calc-select,
+  .calc-input {
+    font-size: 16px !important;
   }
 }
 
@@ -2355,5 +2367,33 @@ html, body {
 .related-post-card:hover h4 {
   color: var(--primary);
 }
+
+/* Thêm định dạng cho các khối CTA địa phương bị thiếu CSS */
+.cta-box {
+  background: linear-gradient(135deg, #1a365d, #2b6cb0);
+  color: #ffffff;
+  padding: 30px 20px;
+  border-radius: 12px;
+  text-align: center;
+  margin: 35px 0;
+}
+.cta-box h3 { color: #ffffff; margin-bottom: 18px; }
+.cta-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  background: #e53e3e;
+  color: #ffffff;
+  margin: 6px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.cta-btn:hover {
+  background: #c53030;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 
 

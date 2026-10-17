@@ -1,88 +1,93 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const schema = JSON.stringify([{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "serviceType": "Thu Mua Cáp Đồng và Thiết Bị Điện Phế Liệu",
-        "name": "Dịch Vụ Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao",
-        "description": "Dịch vụ thu mua cáp đồng, dây điện cũ, motor, máy biến áp, tủ điện và các loại thiết bị điện công nghiệp tồn kho, phế liệu tại TP.HCM và các tỉnh lân cận. Cam kết báo giá cao, thu mua tận nơi nhanh chóng.",
-        "provider": {
-          "@type": "LocalBusiness",
-          "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
-          "url": "https://thumuacapdonggiacao.com/",
-          "telephone": "+84936350118",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "14 ấp 2, Đông Thạnh",
-            "addressLocality": "Hóc Môn",
-            "addressRegion": "TP. HCM",
-            "addressCountry": "VN"
-          }
-        },
-        "areaServed": {
-          "@type": "Country",
-          "name": "Vietnam"
-        },
-        "mainEntity": {
-          "@type": "FAQPage",
-          "mainEntity": [
-            {
-              "@type": "Question",
-              "name": "Giá dây cáp điện cũ được tính theo kg hay theo mét?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg) và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo minh bạch tại nơi thu mua để đảm bảo tính chính xác."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Chắc chắn có. Đối với các motor, máy biến áp và thiết bị còn khả năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để chúng tôi có báo giá tốt nhất."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Có. Đức Minh là đơn vị chuyên thu mua cáp điện số lượng lớn từ các công trình, dự án. Chúng tôi có đủ năng lực tài chính, nhân lực và phương tiện vận chuyển để thu gom nhanh chóng, thanh toán một lần."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "Quy trình báo giá thu mua cáp điện của công ty như thế nào?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá."
-              }
-            }
-          ]
+const schema = JSON.stringify([
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Thu Mua Cáp Đồng và Thiết Bị Điện Phế Liệu",
+    "name": "Dịch Vụ Thu Mua Cáp Đồng, Dây Điện Cũ, Thiết Bị Điện Giá Cao",
+    "description": "Dịch vụ thu mua cáp đồng, dây điện cũ, motor, máy biến áp, tủ điện và các loại thiết bị điện công nghiệp tồn kho, phế liệu tại TP.HCM và các tỉnh lân cận. Cam kết báo giá cao, thu mua tận nơi nhanh chóng.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Công Ty Thu Mua Cáp Đồng Đức Minh",
+      "url": "https://thumuacapdonggiacao.com/",
+      "telephone": "+84936350118",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "14 ấp 2, Đông Thạnh",
+        "addressLocality": "Hóc Môn",
+        "addressRegion": "TP. HCM",
+        "addressCountry": "VN"
+      }
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Vietnam"
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Giá dây cáp điện cũ được tính theo kg hay theo mét?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Giá dây cáp điện phế liệu chủ yếu được tính theo trọng lượng (kg) và phân loại dựa trên tỷ lệ đồng bên trong. Chúng tôi sẽ cân đo minh bạch tại nơi thu mua để đảm bảo tính chính xác."
         }
-      },{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Trang Chủ",
-            "item": "https://thumuacapdonggiacao.com/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Dịch Vụ",
-            "item": "https://thumuacapdonggiacao.com/dich-vu/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Thu Mua Cáp Đồng & Thiết Bị Điện"
-          }
-        ]
-      }]);
+      },
+      {
+        "@type": "Question",
+        "name": "Motor cũ nhưng vẫn còn chạy được thì giá có cao hơn không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Chắc chắn có. Đối với các motor, máy biến áp và thiết bị còn khả năng tái sử dụng, chúng tôi sẽ định giá cao hơn so với giá phế liệu kim loại thông thường. Hãy báo rõ tình trạng thiết bị để chúng tôi có báo giá tốt nhất."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Chúng tôi cần bán dây cáp điện cũ số lượng lớn, công ty có thu mua không?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Có. Đức Minh là đơn vị chuyên thu mua cáp điện số lượng lớn từ các công trình, dự án. Chúng tôi có đủ năng lực tài chính, nhân lực và phương tiện vận chuyển để thu gom nhanh chóng, thanh toán một lần."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quy trình báo giá thu mua cáp điện của công ty như thế nào?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Rất đơn giản. Quý khách chỉ cần gọi điện hoặc gửi hình ảnh qua Zalo 0936.350.118, chúng tôi sẽ báo giá sơ bộ ngay. Đối với lô hàng lớn, chúng tôi sẽ cử chuyên viên đến thẩm định tận nơi và chốt giá cuối cùng, cam kết không ép giá."
+        }
+      }
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Trang Chủ",
+        "item": "https://thumuacapdonggiacao.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Dịch Vụ",
+        "item": "https://thumuacapdonggiacao.com/dich-vu/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Thu Mua Cáp Đồng & Thiết Bị Điện",
+        "item": "https://thumuacapdonggiacao.com/thu-mua-cap-dong-thiet-bi-dien/"
+      }
+    ]
+  }
+]);
 ---
 <BaseLayout 
   keywords="thu mua cáp đồng, thu mua phế liệu, giá cao, công ty đức minh, phế liệu đồng, thanh lý cáp đồng"
@@ -92,19 +97,16 @@ const schema = JSON.stringify([{
   schema={schema}
 >
 <main>
-<section class="text-banner" style="
-          background-color: var(--bg-grey); /* Nền màu tối dễ nhìn */
-          color: white; /* Giữ chữ màu trắng */
-        ">
+<section class="text-banner" style="background-color: #1a365d; color: #ffffff; padding: 30px; border-radius: 8px;">
 <div class="container">
-<h1 style="color: var(--primary-color)">
+<h1 style="color: #ffffff">
             Thu Mua Cáp Đồng &amp; Thiết Bị Điện Công Nghiệp
           </h1>
-<p>
+<p style="color: #ffffff">
             Đối tác chuyên nghiệp Thu mua dây cáp điện, motor, tủ điện, máy biến
             áp và vật tư tồn kho dự án. Giá cao nhất thị trường.
           </p>
-<a class="btn" href="tel:0936350118">Gửi Hình Ảnh - Báo Giá Ngay</a>
+<a class="btn" href="https://zalo.me/0936350118" target="_blank" rel="noopener noreferrer">Gửi Hình Ảnh - Báo Giá Ngay</a>
 </div>
 </section>
 <div class="breadcrumb">
